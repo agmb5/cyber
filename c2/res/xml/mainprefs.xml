@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/playpreferences">
+        <CheckBoxPreference android:title="@string/pref_onLoadJumpToLastMove" android:key="onLoadJumpToLastMove" android:summary="@string/pref_onLoadJumpToLastMove_desc" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/pref_show_engine_info" android:key="showEngineInfo" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/pref_show_captured" android:key="showCapturedPieces" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/pref_show_seek" android:key="showSeekBar" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/pref_show_moves" android:key="showMoveHistory" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/pref_show_annotate" android:key="showAnnotate" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/pref_show_blindfold" android:key="showBlindFoldMode" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/pref_speech" android:key="speechNotification" android:summary="@string/pref_speech_desc" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/pref_move_sound_on" android:key="moveSoundOn" android:summary="@string/pref_move_sound_on_desc" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/pref_skipreturn" android:key="skipReturn" android:summary="@string/pref_skipreturn_desc" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/pref_eco" android:key="showECO" android:summary="@string/pref_eco_desc" android:defaultValue="true" />
+    </PreferenceCategory>
+</PreferenceScreen>

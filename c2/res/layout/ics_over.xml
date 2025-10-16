@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textSize="15.0sp" android:id="@id/tvGameResult" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginBottom="15.0dip" />
+        <Button android:layout_gravity="center_horizontal" android:id="@id/ButtonGameRematch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/ics_offer_rematch" />
+        <TextView android:textAppearance="?android:textAppearanceSmall" android:layout_gravity="center_horizontal" android:id="@id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dip" android:text="@string/ics_game" />
+        <Button android:layout_gravity="center_horizontal" android:id="@id/ButtonGameExamine" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/ics_examine" />
+        <Button android:layout_gravity="center_horizontal" android:id="@id/ButtonGameSend" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginBottom="20.0dip" android:text="@string/ics_send_app" />
+        <Button android:layout_gravity="center_horizontal" android:id="@id/ButtonGameExit" android:background="@android:drawable/ic_menu_close_clear_cancel" android:layout_width="wrap_content" android:layout_height="wrap_content" style="?android:buttonStyleSmall" />
+    </LinearLayout>
+</ScrollView>

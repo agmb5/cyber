@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Preferences">
+        <CheckBoxPreference android:enabled="true" android:title="@string/sound_pref_title" android:key="sound" android:defaultValue="true" />
+        <CheckBoxPreference android:enabled="true" android:title="@string/music_pref_title" android:key="music" android:defaultValue="true" />
+        <CheckBoxPreference android:enabled="true" android:title="@string/haptic_feedback_pref_title" android:key="haptic" android:defaultValue="false" />
+        <CheckBoxPreference android:enabled="true" android:title="@string/independent_flippers_pref_title" android:key="independentFlippers" android:defaultValue="true" android:summaryOn="@string/independent_flippers_pref_summary_on" android:summaryOff="@string/independent_flippers_pref_summary_off" />
+        <CheckBoxPreference android:enabled="true" android:title="@string/zoom_pref_title" android:key="zoom" android:defaultValue="true" />
+        <CheckBoxPreference android:enabled="true" android:title="@string/use_opengl_pref_title" android:key="useOpenGL" android:defaultValue="true" />
+        <EditTextPreference android:enabled="true" android:title="@string/line_width_pref_title" android:key="lineWidth" android:dialogMessage="@string/line_width_pref_dialog_message" android:inputType="number" />
+        <CheckBoxPreference android:enabled="true" android:title="@string/show_fps_pref_title" android:key="showFPS" />
+    </PreferenceCategory>
+</PreferenceScreen>

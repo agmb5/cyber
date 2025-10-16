@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="8.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableRow>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Minutes" />
+        <EditText android:id="@id/EditMinutes" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+    </TableRow>
+    <TableRow>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Increment in seconds" />
+        <EditText android:id="@id/EditIncrement" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+    </TableRow>
+    <TableRow>
+        <Button android:id="@id/ButtonCancel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="100.0dip" android:text="@string/button_cancel" />
+        <Button android:id="@id/ButtonOk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="100.0dip" android:text="@string/button_ok" />
+    </TableRow>
+</TableLayout>

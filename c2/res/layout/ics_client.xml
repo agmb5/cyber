@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableLayout android:id="@id/ButtonBar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="8.0dip" android:stretchColumns="0" android:layout_alignParentBottom="true">
+        <TableRow>
+            <TextView android:id="@id/TextViewTitle" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="-" android:layout_weight="1.0" />
+            <ImageButton android:id="@id/ButtonMenu" android:layout_width="48.0dip" android:layout_height="48.0dip" android:src="@drawable/ic_three_dots_vertical" />
+        </TableRow>
+    </TableLayout>
+    <ViewAnimator android:id="@id/ViewAnimatorRoot" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/ButtonBar" android:layout_alignParentTop="true">
+        <include android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/ics_login" />
+        <include android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/loader" />
+        <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/ics_play" />
+        <ListView android:id="@id/ListPlayers" android:layout_width="fill_parent" android:layout_height="fill_parent" android:drawSelectorOnTop="false" />
+        <ListView android:id="@id/ListGames" android:layout_width="fill_parent" android:layout_height="fill_parent" android:drawSelectorOnTop="false" />
+        <ListView android:id="@id/ListChallenges" android:layout_width="fill_parent" android:layout_height="fill_parent" android:drawSelectorOnTop="false" />
+        <ListView android:id="@id/ListMenu" android:layout_width="fill_parent" android:layout_height="fill_parent" android:drawSelectorOnTop="false" />
+        <ListView android:id="@id/ListStored" android:layout_width="fill_parent" android:layout_height="fill_parent" android:drawSelectorOnTop="false" />
+        <include android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/ics_console" />
+    </ViewAnimator>
+</RelativeLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableLayout android:padding="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TableRow android:gravity="center_vertical">
+            <ViewSwitcher android:id="@id/ImageTurnOpp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:layout_marginRight="8.0dip">
+                <ImageView android:layout_width="12.0dip" android:layout_height="12.0dip" android:src="@drawable/turnblack" />
+                <ImageView android:layout_width="12.0dip" android:layout_height="12.0dip" android:src="@drawable/turnwhite" />
+            </ViewSwitcher>
+            <TextView android:id="@id/TextViewClockTimeOpp" android:layout_width="50.0dip" android:layout_height="wrap_content" android:text="00:00" style="@style/MyNormalTextStyle" />
+            <TextView android:id="@id/TextViewTopTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Title..." android:maxLines="1" style="@style/MyNormalTextStyle" />
+        </TableRow>
+    </TableLayout>
+    <include android:id="@id/includeboard" android:padding="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/chessboard" />
+    <TableLayout android:padding="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TableRow android:gravity="center_vertical">
+            <ViewSwitcher android:id="@id/ImageTurnMe" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:layout_marginRight="8.0dip">
+                <ImageView android:layout_width="12.0dip" android:layout_height="12.0dip" android:src="@drawable/turnblack" />
+                <ImageView android:layout_width="12.0dip" android:layout_height="12.0dip" android:src="@drawable/turnwhite" />
+            </ViewSwitcher>
+            <TextView android:id="@id/TextViewClockTimeMe" android:layout_width="50.0dip" android:layout_height="wrap_content" android:text="00:00" style="@style/MyNormalTextStyle" />
+            <TextView android:id="@id/TextViewTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Title..." android:maxLines="1" style="@style/MyNormalTextStyle" />
+        </TableRow>
+    </TableLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageButton android:id="@id/ButtonMenu" android:layout_width="48.0dip" android:layout_height="48.0dip" android:src="@drawable/ic_three_dots_vertical" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <ViewAnimator android:id="@id/ViewAnimatorPlayMode" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TableRow android:layout_gravity="center">
+                <Button android:id="@id/ButtonLogin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/button_login" />
+            </TableRow>
+        </TableLayout>
+        <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TableRow android:layout_gravity="center">
+                <Button android:id="@id/ButtonChallenge" android:text="@string/ics_seekchallenge" />
+            </TableRow>
+        </TableLayout>
+        <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TableRow android:layout_gravity="center">
+                <Button android:id="@id/ButtonPuzzle" android:text="@string/ics_menu_puzzlebot_mate" />
+            </TableRow>
+        </TableLayout>
+    </ViewAnimator>
+</LinearLayout>

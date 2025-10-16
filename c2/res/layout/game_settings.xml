@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="8.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableLayout android:id="@id/TableOptions" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TableRow android:layout_marginBottom="16.0dip" style="@style/MyRowStyle">
+            <RadioGroup>
+                <RadioButton android:id="@id/radioAndroid" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/options_play_android" style="@style/MyRowTextStyle" />
+                <RadioButton android:id="@id/radioHuman" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/options_play_human" style="@style/MyRowTextStyle" />
+            </RadioGroup>
+        </TableRow>
+        <TableRow android:layout_marginBottom="16.0dip" style="@style/MyRowStyle">
+            <RadioGroup>
+                <RadioButton android:id="@id/radioWhite" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/options_play_white" style="@style/MyRowTextStyle" />
+                <RadioButton android:id="@id/radioBlack" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/options_play_black" style="@style/MyRowTextStyle" />
+            </RadioGroup>
+        </TableRow>
+        <TableRow style="@style/MyRowStyle">
+            <RadioButton android:id="@id/RadioOptionsTime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/options_level_time" style="@style/MyRowTextStyle" />
+            <Spinner android:id="@id/SpinnerOptionsLevelTime" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </TableRow>
+        <TableRow android:layout_marginBottom="16.0dip" style="@style/MyRowStyle">
+            <RadioButton android:id="@id/RadioOptionsPly" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/options_level_ply" style="@style/MyRowTextStyle" />
+            <Spinner android:id="@id/SpinnerOptionsLevelPly" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </TableRow>
+        <TableRow>
+            <Button android:id="@id/ButtonCancel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="100.0dip" android:text="@string/button_cancel" />
+            <Button android:id="@id/ButtonOk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="100.0dip" android:text="@string/button_ok" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

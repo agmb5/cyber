@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/playonlinepreferences">
+        <Preference android:title="@string/pref_icscustomcommand" android:key="icscustomcommandHandle" android:summary="@string/pref_icscustomcommand_desc" />
+        <ListPreference android:entries="@array/console_character_size" android:title="@string/pref_icsconsolecharactersize" android:key="ICSConsoleCharacterSize" android:summary="@string/pref_icsconsolecharactersize_desc" android:defaultValue="10" android:entryValues="@array/console_character_size_values" />
+        <CheckBoxPreference android:title="@string/pref_icsautosought" android:key="ICSAutoSought" android:summary="@string/pref_icsautosought_desc" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/pref_icstimewarning" android:key="ICSTimeWarning" android:summary="@string/pref_icstimewarning_desc" android:defaultValue="true" />
+        <ListPreference android:entries="@array/time_warning" android:title="@string/pref_icstimewarningsecs" android:key="ICSTimeWarningsecs" android:summary="@string/pref_icstimewarningsecs_desc" android:defaultValue="10" android:entryValues="@array/time_warning_values" />
+        <CheckBoxPreference android:title="@string/prefs_icsendgamedialog" android:key="ICSEndGameDialog" android:summary="@string/prefs_icsendgamesummary" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/prefs_icsshowclock" android:key="ICSClockPGN" android:summary="@string/prefs_icsshowclocksummary" android:defaultValue="true" />
+        <ListPreference android:entries="@array/gamestartsound" android:title="@string/pref_icsgamestartsound" android:key="ICSGameStartSound" android:summary="@string/pref_icsgamestartsound_desc" android:defaultValue="1" android:entryValues="@array/gamestartsound_values" />
+        <CheckBoxPreference android:title="@string/pref_icsnotification" android:key="ICSGameStartBringToFront" android:summary="@string/prefs_icsnotificationsummary" android:defaultValue="true" />
+    </PreferenceCategory>
+</PreferenceScreen>

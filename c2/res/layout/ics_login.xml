@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableLayout android:gravity="center" android:id="@id/TableICSLogin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:stretchColumns="*">
+        <TableRow android:minHeight="50.0dip" style="@style/MyRowStyle">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ics_client_server" style="@style/MyLabelTextStyle" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="FICS" style="@style/MyLabelTextStyle" />
+        </TableRow>
+        <TableRow android:minHeight="50.0dip" style="@style/MyRowStyle">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ics_client_handle" style="@style/MyLabelTextStyle" />
+            <EditText android:id="@id/EditICSHandle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="100.0dip" android:text="guest" android:singleLine="true" android:inputType="text" android:imeOptions="actionNext" />
+        </TableRow>
+        <TableRow android:minHeight="50.0dip" style="@style/MyRowStyle">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ics_client_password" style="@style/MyLabelTextStyle" />
+            <EditText android:id="@id/EditICSPwd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:minWidth="100.0dip" android:password="true" android:singleLine="true" android:inputType="text" android:imeOptions="actionDone" />
+        </TableRow>
+        <TableRow android:minHeight="50.0dip" style="@style/MyRowStyle">
+            <Button android:id="@id/ButICSRegister" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/button_register" />
+            <Button android:id="@id/ButICSLogin" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/button_login" />
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>

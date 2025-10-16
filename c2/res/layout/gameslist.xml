@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:stretchColumns="1">
+        <TableRow android:gravity="center_vertical">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_search" />
+            <EditText android:id="@id/EditTextGamesList" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" />
+        </TableRow>
+    </TableLayout>
+    <TableLayout android:id="@id/TableFirstRow" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TableRow android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip">
+            <TextView android:id="@id/sort_rating" android:layout_height="30.0dip" android:text="@string/gameslist_stars" android:layout_weight="1.0" style="@style/MyNormalTextStyle" />
+            <TextView android:id="@id/sort_text_date" android:layout_height="30.0dip" android:text="@string/gameslist_date" android:layout_weight="1.0" style="@style/MyNormalTextStyle" />
+            <TextView android:id="@id/sort_text_event" android:layout_height="30.0dip" android:text="@string/gameslist_event" android:layout_weight="1.0" style="@style/MyNormalTextStyle" />
+        </TableRow>
+    </TableLayout>
+    <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/MyRowStyle">
+        <TableRow android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip">
+            <TextView android:id="@id/sort_text_id" android:layout_height="30.0dip" android:text="@string/gameslist_id" android:layout_weight="1.0" style="@style/MyNormalTextStyle" />
+            <TextView android:id="@id/sort_text_name1" android:layout_height="30.0dip" android:text="@string/games_list_white_pieces" android:layout_weight="3.0" style="@style/MyNormalTextStyle" />
+            <TextView android:id="@id/sort_text_name2" android:layout_height="30.0dip" android:text="@string/gameslist_black_pieces" android:layout_weight="3.0" style="@style/MyNormalTextStyle" />
+        </TableRow>
+    </TableLayout>
+    <ListView android:entries="@array/levels_ply" android:id="@android:id/list" android:layout_width="fill_parent" android:layout_height="wrap_content" android:drawSelectorOnTop="false" android:layout_weight="1.0" />
+</LinearLayout>

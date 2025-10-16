@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/boardprerences">
+        <CheckBoxPreference android:title="@string/pref_sound" android:key="moveSounds" android:summary="@string/pref_sound_desc" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/pref_speech" android:key="moveToSpeech" android:summary="@string/pref_speech_desc" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/pref_eco" android:key="showECO" android:summary="@string/pref_eco_desc" android:defaultValue="true" />
+    </PreferenceCategory>
+</PreferenceScreen>

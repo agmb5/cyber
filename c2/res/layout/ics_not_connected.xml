@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/TextViewNotConnected" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/ics_not_connected" style="@style/MyTextStyle" />
+    <Button android:id="@id/ButtonLogin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ics_connect" android:layout_below="@id/TextViewNotConnected" />
+</RelativeLayout>

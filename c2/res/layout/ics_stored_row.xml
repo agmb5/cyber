@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableRow android:paddingLeft="4.0dip" android:paddingTop="4.0dip" android:paddingRight="4.0dip">
+        <TextView android:textSize="16.0sp" android:id="@id/nr_stored" android:layout_width="0.0px" android:layout_height="wrap_content" android:text="001" android:layout_weight="1.0" />
+        <TextView android:textSize="16.0sp" android:id="@id/color_stored" android:layout_width="0.0px" android:layout_height="wrap_content" android:text="W" android:layout_weight="1.0" />
+        <TextView android:textSize="16.0sp" android:id="@id/text_name_stored" android:layout_width="0.0px" android:layout_height="wrap_content" android:text="name" android:layout_weight="5.0" />
+        <TextView android:textSize="16.0sp" android:id="@id/available_stored" android:layout_width="0.0px" android:layout_height="wrap_content" android:text="*" android:layout_weight="1.0" />
+    </TableRow>
+</TableLayout>

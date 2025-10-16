@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:windowFrame="@null" android:windowNoTitle="true" android:windowIsFloating="true" android:windowContentOverlay="@null" android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/TextViewChat" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="..." />
+    <EditText android:id="@id/EditChat" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/TextViewChat" />
+    <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:stretchColumns="*" android:layout_below="@id/EditChat">
+        <TableRow style="@style/MyRowStyle">
+            <Button android:id="@id/ButtonChatCancel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/button_cancel" />
+            <Button android:id="@id/ButtonChatOk" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/button_ok" />
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/globalpreferences">
+        <ListPreference android:entries="@array/localearray" android:title="@string/pref_localelanguage" android:key="localelanguage" android:summary="@string/pref_localelanguage_desc" android:entryValues="@array/localeKeyarray" />
+        <CheckBoxPreference android:title="@string/pref_wakelock" android:key="wakeLock" android:summary="@string/pref_wakelock_desc" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/pref_fullscreen" android:key="fullScreen" android:summary="@string/pref_fullscreen_desc" android:defaultValue="true" />
+        <ListPreference android:entries="@array/piecesetarray" android:title="@string/pref_pieceset" android:key="pieceset" android:summary="@string/pref_pieceset_desc" android:defaultValue="0" android:entryValues="@array/piecesetKeyarray" />
+        <ListPreference android:entries="@array/colorschemes" android:title="@string/pref_colorscheme" android:key="colorscheme" android:summary="@string/pref_colorscheme_desc" android:defaultValue="0" android:entryValues="@array/colorscheme_indexes" />
+        <CheckBoxPreference android:title="@string/pref_showLastMove" android:key="showLastMove" android:summary="@string/pref_showLastMove_desc" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/pref_showCoords" android:key="showCoords" android:summary="@string/pref_showCoords_desc" android:defaultValue="false" />
+        <Preference android:title="@string/pref_sound" android:key="soundHandle" android:summary="@string/pref_sound_desc" />
+    </PreferenceCategory>
+</PreferenceScreen>

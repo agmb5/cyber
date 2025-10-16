@@ -1,0 +1,18 @@
+version: 2.12.1
+apkFileName: challenge_3.apk
+usesFramework:
+  ids:
+  - 1
+sdkInfo:
+  minSdkVersion: 4
+  targetSdkVersion: 31
+packageInfo:
+  forcedPackageId: 127
+versionInfo:
+  versionCode: 34
+  versionName: 1.10.0
+doNotCompress:
+- arsc
+- ogg
+- png
+- okhttp3/internal/publicsuffix/publicsuffixes.gz

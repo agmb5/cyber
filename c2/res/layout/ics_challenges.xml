@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/TextViewRefresh" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Touch to accept challenge" style="@style/MySmallTextStyle" />
+    <ListView android:id="@id/ICSChallenges" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/TextViewRefresh" />
+</RelativeLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.larswerkman.holocolorpicker.ColorPicker android:layout_gravity="center_horizontal" android:id="@id/picker" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <TextView android:gravity="center_horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/color_picker_brightness" />
+    <com.larswerkman.holocolorpicker.SVBar android:layout_gravity="center_horizontal" android:id="@id/svbar" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <TableLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dip">
+        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:gravity="center_horizontal" android:text="@string/color_picker_light" />
+            <TextView android:gravity="center_horizontal" android:text="@string/color_picker_dark" />
+            <TextView android:gravity="center_horizontal" android:text="@string/color_picker_selected" />
+        </TableRow>
+        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:id="@id/imageViewLightSquares" android:background="#ffff0066" android:layout_width="100.0dip" android:layout_height="100.0dip" android:layout_marginRight="10.0dip" />
+            <ImageView android:id="@id/imageViewDarkSquares" android:background="#ff006600" android:layout_width="100.0dip" android:layout_height="100.0dip" android:layout_marginRight="10.0dip" />
+            <ImageView android:id="@id/imageViewSelected" android:background="#cc99ccff" android:layout_width="100.0dip" android:layout_height="100.0dip" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>
