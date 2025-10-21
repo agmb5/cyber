@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="aboutButton" />
+    <item type="id" name="aboutTextView" />
+    <item type="id" name="buttonPanel" />
+    <item type="id" name="canvasFieldView" />
+    <item type="id" name="endGameButton" />
+    <item type="id" name="glFieldView" />
+    <item type="id" name="preferencesButton" />
+    <item type="id" name="resumeGameButton" />
+    <item type="id" name="scoreView" />
+    <item type="id" name="startGameButton" />
+    <item type="id" name="switchTableButton" />
+    <item type="id" name="unlimitedBallsToggle" />
+</resources>

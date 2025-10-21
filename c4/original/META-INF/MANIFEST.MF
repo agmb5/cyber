@@ -1,0 +1,193 @@
+Manifest-Version: 1.0
+Built-By: Signflinger
+Created-By: Android Gradle 7.2.1
+
+Name: AndroidManifest.xml
+SHA1-Digest: Ofu6kRPaby6bbN9UP13Co3ficqw=
+
+Name: META-INF/com/android/build/gradle/app-metadata.properties
+SHA1-Digest: +yXVA33LnLONyoDfUFJTku3pmZg=
+
+Name: assets/audio/bumper/dinga1.ogg
+SHA1-Digest: DELTAdpPAJLLBXBSpYPVBSdXDqc=
+
+Name: assets/audio/bumper/dingc1.ogg
+SHA1-Digest: uNoKylehsbWp+0Z+fGoSWhw+F80=
+
+Name: assets/audio/bumper/dingc2.ogg
+SHA1-Digest: wncBVaje5C9g+hzruMvn+U5kNtQ=
+
+Name: assets/audio/bumper/dingd1.ogg
+SHA1-Digest: aT3+5r551wLC7hvQPQrJj9lOzcQ=
+
+Name: assets/audio/bumper/dinge1.ogg
+SHA1-Digest: CGxF3tIzvrkTF/Im0KXiITcYhys=
+
+Name: assets/audio/bumper/dingg1.ogg
+SHA1-Digest: SnjGl/6TdD3m539NntBcTlT04GA=
+
+Name: assets/audio/misc/andBounce2.ogg
+SHA1-Digest: DepqWIDxmpyCL92q+upZhDCJhSk=
+
+Name: assets/audio/misc/ball1.ogg
+SHA1-Digest: u9wXSrALfnV7sEjJFgIheFM+rRQ=
+
+Name: assets/audio/misc/flipper1.ogg
+SHA1-Digest: if+RkpOq2z5xjK+L15e2si/XUT4=
+
+Name: assets/audio/misc/message2.ogg
+SHA1-Digest: +i6CUE44yUHbzkCzlEZpZSS6v3U=
+
+Name: assets/audio/misc/rolloverE.ogg
+SHA1-Digest: AmH0EFe2wR3Gzfngb+jXBvNIe50=
+
+Name: assets/audio/misc/startup1.ogg
+SHA1-Digest: Xtm2TPptyZ5VCi+4VyvBEAXw6lE=
+
+Name: assets/shaders/circle.frag
+SHA1-Digest: nNanqI9de6q9nNU4sy8+FvwAdO4=
+
+Name: assets/shaders/circle.vert
+SHA1-Digest: pciv3bgxIeo0TvU/YeQGJ6V9Iog=
+
+Name: assets/shaders/line.frag
+SHA1-Digest: cQhWLBaChkHe+nAHpcnmJr02uqs=
+
+Name: assets/shaders/line.vert
+SHA1-Digest: 5eE213E07o2+Tsx52cbp7t8nr9I=
+
+Name: assets/tables/table1.json
+SHA1-Digest: aNo9Rnl1y/A16grYjP2fP53P1AE=
+
+Name: assets/tables/table2.json
+SHA1-Digest: hL3rXBmzxgmTKDqagkPPmAN84qk=
+
+Name: assets/tables/table3.json
+SHA1-Digest: P4GeSujeNFtRVm8zuMnxP63xut0=
+
+Name: assets/tables/table4.json
+SHA1-Digest: 1B0h6lgJRA55ZlIGgPwboJyoJM8=
+
+Name: assets/tables/table5.json
+SHA1-Digest: DXbVYVEaKDPYKQk88wwnLgkc+xU=
+
+Name: assets/tables/table6.json
+SHA1-Digest: bZevBncm42ZMLq3gIrH5P0Ll2pE=
+
+Name: assets/tables/table7.json
+SHA1-Digest: fTMgStGJAODCIRk+nof06/0b9e8=
+
+Name: classes.dex
+SHA1-Digest: KJ6zl58pt9A24IIhPI7CeuSiUPY=
+
+Name: classes2.dex
+SHA1-Digest: Txsu2JJ4PZ0OXacFsdR/UGylLY4=
+
+Name: com/badlogic/gdx.gwt.xml
+SHA1-Digest: XsLvOZ+r7m2cTtv6rM/I/VljQ20=
+
+Name: com/badlogic/gdx/graphics/g3d/particles/particles.fragment.glsl
+SHA1-Digest: fkOprfm0mzvVSpckyEKV3wGJOjw=
+
+Name: com/badlogic/gdx/graphics/g3d/particles/particles.vertex.glsl
+SHA1-Digest: 5iNyquTCQ6pNrIaaexPFSTLLn2I=
+
+Name: com/badlogic/gdx/graphics/g3d/shaders/default.fragment.glsl
+SHA1-Digest: BcaoMpVCbkMn3IaCgGgIIjnSULI=
+
+Name: com/badlogic/gdx/graphics/g3d/shaders/default.vertex.glsl
+SHA1-Digest: gmInnSApcNbKYo4zqBA3NfmdFUI=
+
+Name: com/badlogic/gdx/graphics/g3d/shaders/depth.fragment.glsl
+SHA1-Digest: oPPZOOMaxf2aSYFWJy99C6wgJFA=
+
+Name: com/badlogic/gdx/graphics/g3d/shaders/depth.vertex.glsl
+SHA1-Digest: cqaNcBXRa1TFougHb1M5g5q1go8=
+
+Name: com/badlogic/gdx/physics/box2d.gwt.xml
+SHA1-Digest: JvXVF0vKr3VhKTbpwKTU3ADw9vg=
+
+Name: com/badlogic/gdx/utils/JsonReader.rl
+SHA1-Digest: heLk8QVhcXWyY85wN2AP7fUXLhw=
+
+Name: com/badlogic/gdx/utils/XmlReader.rl
+SHA1-Digest: 1jUGKZ+BaN7F8/8lrnshXtekY6o=
+
+Name: com/badlogic/gdx/utils/arial-15.fnt
+SHA1-Digest: lJMEBO6KXBGAB7uP2j2Odqe+ijQ=
+
+Name: com/badlogic/gdx/utils/arial-15.png
+SHA1-Digest: cNIREcVEJ4mg/sQa8fTMElWnwwo=
+
+Name: lib/arm64-v8a/libgdx-box2d.so
+SHA1-Digest: zQDyHQDwBQmb2wKMviMnoXcrvwk=
+
+Name: lib/arm64-v8a/libnative-lib.so
+SHA1-Digest: 4hSWEjAUalRpqOZW8xeCm1joETA=
+
+Name: lib/armeabi-v7a/libgdx-box2d.so
+SHA1-Digest: h7fSqFfFoAfW63QejAcLBUP2Ovs=
+
+Name: lib/armeabi-v7a/libnative-lib.so
+SHA1-Digest: P51JW2sBbYGphEl1uf6k/1rBx5g=
+
+Name: lib/armeabi/libgdx-box2d.so
+SHA1-Digest: myed1b7tWnjsFKC7tLHDsmSWZYk=
+
+Name: lib/x86/libgdx-box2d.so
+SHA1-Digest: 1zbPyZjuN0qMy4sWpv+KbPa2wyg=
+
+Name: lib/x86/libnative-lib.so
+SHA1-Digest: sULuviUaStbOaNHgIx9clTowfEU=
+
+Name: lib/x86_64/libgdx-box2d.so
+SHA1-Digest: zrZDqw9WUhVi8574qaXr/y43oKk=
+
+Name: lib/x86_64/libnative-lib.so
+SHA1-Digest: 0FjTPiY2P3IK9slW4qY+KzZ5iS4=
+
+Name: okhttp3/internal/publicsuffix/NOTICE
+SHA1-Digest: 3oKFcA96KjXP/A8/xWEyiDcuplM=
+
+Name: okhttp3/internal/publicsuffix/publicsuffixes.gz
+SHA1-Digest: +QqeTwqURoLn4OqOtrLaxJgxh4c=
+
+Name: res/0E.png
+SHA1-Digest: oZ++0foDLz3+rdvB4wfFUmUTInw=
+
+Name: res/25.xml
+SHA1-Digest: TPuTB9dajS2S8kXishMu+4EIS3I=
+
+Name: res/75.png
+SHA1-Digest: +bPg+lpdFbvqGK7zBiCi8Nlkzgs=
+
+Name: res/Ap.png
+SHA1-Digest: Ax1rNMU3fTuRW5BEkFlMJrsIwPM=
+
+Name: res/Qw.png
+SHA1-Digest: 0kQpgEvUROyXCcFzSZzJvZnP6cY=
+
+Name: res/SF.xml
+SHA1-Digest: Vj3kinhqbJK0m+WYvnt/+PPbR30=
+
+Name: res/U-.xml
+SHA1-Digest: wkGonb3UaUJmqronQLXXsRdthM4=
+
+Name: res/cR.png
+SHA1-Digest: 1lVmDQagnBcmbBQDe/V3mUuUcvM=
+
+Name: res/eQ.png
+SHA1-Digest: jpCdBZkdBd65zHcHzUDBMPgpzuc=
+
+Name: res/lw.ogg
+SHA1-Digest: QUa80DVG2sn0mrq4liOxeiOaI9Y=
+
+Name: res/w6.xml
+SHA1-Digest: gi0WWz4LGBgRfuogg6gh6cE6adg=
+
+Name: res/zj.ogg
+SHA1-Digest: 6wAfPsoLMkrAzroEx7EFVQl8QJU=
+
+Name: resources.arsc
+SHA1-Digest: wu1crPhrdD28cwAdNVIW0SZGU/M=
+

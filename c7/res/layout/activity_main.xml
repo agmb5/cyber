@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/background" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="20.0sp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="150.0dip" android:text="@string/content_text" android:layout_marginHorizontal="58.0dip" />
+    <com.google.android.material.button.MaterialButton android:id="@id/login_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="20.0dip" android:text="@string/button_text" android:layout_below="@id/content" android:layout_centerHorizontal="true" android:backgroundTint="@color/design_default_color_secondary" />
+</RelativeLayout>
