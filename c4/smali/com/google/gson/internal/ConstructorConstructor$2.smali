@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public construct()Ljava/lang/Object;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -62,11 +62,11 @@
     .line 80
     iget-object v0, p0, Lcom/google/gson/internal/ConstructorConstructor$2;->val$rawTypeCreator:Lcom/google/gson/InstanceCreator;
 
-    iget-object v1, p0, Lcom/google/gson/internal/ConstructorConstructor$2;->val$type:Ljava/lang/reflect/Type;
+    iget-object p0, p0, Lcom/google/gson/internal/ConstructorConstructor$2;->val$type:Ljava/lang/reflect/Type;
 
-    invoke-interface {v0, v1}, Lcom/google/gson/InstanceCreator;->createInstance(Ljava/lang/reflect/Type;)Ljava/lang/Object;
+    invoke-interface {v0, p0}, Lcom/google/gson/InstanceCreator;->createInstance(Ljava/lang/reflect/Type;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

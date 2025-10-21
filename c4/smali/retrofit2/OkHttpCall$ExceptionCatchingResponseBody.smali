@@ -58,12 +58,12 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .locals 0
 
     .line 340
-    iget-object v0, p0, Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;->delegate:Lokhttp3/ResponseBody;
+    iget-object p0, p0, Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;->delegate:Lokhttp3/ResponseBody;
 
-    invoke-virtual {v0}, Lokhttp3/ResponseBody;->close()V
+    invoke-virtual {p0}, Lokhttp3/ResponseBody;->close()V
 
     return-void
 .end method
@@ -72,9 +72,9 @@
     .locals 2
 
     .line 330
-    iget-object v0, p0, Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;->delegate:Lokhttp3/ResponseBody;
+    iget-object p0, p0, Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;->delegate:Lokhttp3/ResponseBody;
 
-    invoke-virtual {v0}, Lokhttp3/ResponseBody;->contentLength()J
+    invoke-virtual {p0}, Lokhttp3/ResponseBody;->contentLength()J
 
     move-result-wide v0
 
@@ -82,29 +82,29 @@
 .end method
 
 .method public contentType()Lokhttp3/MediaType;
-    .locals 1
+    .locals 0
 
     .line 325
-    iget-object v0, p0, Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;->delegate:Lokhttp3/ResponseBody;
+    iget-object p0, p0, Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;->delegate:Lokhttp3/ResponseBody;
 
-    invoke-virtual {v0}, Lokhttp3/ResponseBody;->contentType()Lokhttp3/MediaType;
+    invoke-virtual {p0}, Lokhttp3/ResponseBody;->contentType()Lokhttp3/MediaType;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public source()Lokio/BufferedSource;
-    .locals 1
+    .locals 0
 
     .line 335
-    iget-object v0, p0, Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;->delegateSource:Lokio/BufferedSource;
+    iget-object p0, p0, Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;->delegateSource:Lokio/BufferedSource;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method throwIfCaught()V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -112,13 +112,13 @@
     .end annotation
 
     .line 344
-    iget-object v0, p0, Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;->thrownException:Ljava/io/IOException;
+    iget-object p0, p0, Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;->thrownException:Ljava/io/IOException;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-void
 
     .line 345
     :cond_0
-    throw v0
+    throw p0
 .end method

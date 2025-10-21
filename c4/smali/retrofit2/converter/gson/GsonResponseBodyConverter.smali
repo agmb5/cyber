@@ -72,13 +72,13 @@
 
     invoke-virtual {p0, p1}, Lretrofit2/converter/gson/GsonResponseBodyConverter;->convert(Lokhttp3/ResponseBody;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public convert(Lokhttp3/ResponseBody;)Ljava/lang/Object;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,47 +106,47 @@
 
     .line 40
     :try_start_0
-    iget-object v1, p0, Lretrofit2/converter/gson/GsonResponseBodyConverter;->adapter:Lcom/google/gson/TypeAdapter;
+    iget-object p0, p0, Lretrofit2/converter/gson/GsonResponseBodyConverter;->adapter:Lcom/google/gson/TypeAdapter;
 
-    invoke-virtual {v1, v0}, Lcom/google/gson/TypeAdapter;->read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/google/gson/TypeAdapter;->read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 41
     invoke-virtual {v0}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
     move-result-object v0
 
-    sget-object v2, Lcom/google/gson/stream/JsonToken;->END_DOCUMENT:Lcom/google/gson/stream/JsonToken;
+    sget-object v1, Lcom/google/gson/stream/JsonToken;->END_DOCUMENT:Lcom/google/gson/stream/JsonToken;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v1, :cond_0
 
     .line 46
     invoke-virtual {p1}, Lokhttp3/ResponseBody;->close()V
 
-    return-object v1
+    return-object p0
 
     .line 42
     :cond_0
     :try_start_1
-    new-instance v0, Lcom/google/gson/JsonIOException;
+    new-instance p0, Lcom/google/gson/JsonIOException;
 
-    const-string v1, "JSON document was not fully consumed."
+    const-string v0, "JSON document was not fully consumed."
 
-    invoke-direct {v0, v1}, Lcom/google/gson/JsonIOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Lcom/google/gson/JsonIOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :catchall_0
-    move-exception v0
+    move-exception p0
 
     .line 46
     invoke-virtual {p1}, Lokhttp3/ResponseBody;->close()V
 
     .line 47
-    throw v0
+    throw p0
 .end method

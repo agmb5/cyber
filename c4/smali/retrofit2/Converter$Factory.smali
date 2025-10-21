@@ -79,9 +79,9 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public responseBodyConverter(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lretrofit2/Retrofit;)Lretrofit2/Converter;
@@ -103,9 +103,9 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public stringConverter(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lretrofit2/Retrofit;)Lretrofit2/Converter;
@@ -128,7 +128,7 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
-    return-object p1
+    return-object p0
 .end method

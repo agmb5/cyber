@@ -75,16 +75,16 @@
 
 # virtual methods
 .method callsPerHost()Ljava/util/concurrent/atomic/AtomicInteger;
-    .locals 1
+    .locals 0
 
     .line 127
-    iget-object v0, p0, Lokhttp3/RealCall$AsyncCall;->callsPerHost:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p0, p0, Lokhttp3/RealCall$AsyncCall;->callsPerHost:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method protected execute()V
-    .locals 5
+    .locals 6
 
     .line 170
     iget-object v0, p0, Lokhttp3/RealCall$AsyncCall;->this$0:Lokhttp3/RealCall;
@@ -148,9 +148,11 @@
     :catchall_1
     move-exception v1
 
-    move-object v0, v1
+    move-object v5, v1
 
-    const/4 v1, 0x0
+    move v1, v0
+
+    move-object v0, v5
 
     .line 183
     :goto_1
@@ -172,13 +174,20 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-direct {v1, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    .line 186
+    invoke-virtual {v1, v0}, Ljava/io/IOException;->addSuppressed(Ljava/lang/Throwable;)V
 
     .line 187
     iget-object v2, p0, Lokhttp3/RealCall$AsyncCall;->responseCallback:Lokhttp3/Callback;
@@ -199,9 +208,11 @@
     :catch_1
     move-exception v1
 
-    move-object v0, v1
+    move-object v5, v1
 
-    const/4 v1, 0x0
+    move v1, v0
+
+    move-object v0, v5
 
     :goto_2
     if-eqz v1, :cond_1
@@ -221,6 +232,8 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     iget-object v4, p0, Lokhttp3/RealCall$AsyncCall;->this$0:Lokhttp3/RealCall;
 
     invoke-virtual {v4}, Lokhttp3/RealCall;->toLoggableString()Ljava/lang/String;
@@ -228,6 +241,8 @@
     move-result-object v4
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -264,13 +279,7 @@
 
     invoke-virtual {v1, p0}, Lokhttp3/Dispatcher;->finished(Lokhttp3/RealCall$AsyncCall;)V
 
-    goto :goto_6
-
-    :goto_5
     throw v0
-
-    :goto_6
-    goto :goto_5
 .end method
 
 .method executeOn(Ljava/util/concurrent/ExecutorService;)V
@@ -351,42 +360,42 @@
 .end method
 
 .method get()Lokhttp3/RealCall;
-    .locals 1
+    .locals 0
 
     .line 143
-    iget-object v0, p0, Lokhttp3/RealCall$AsyncCall;->this$0:Lokhttp3/RealCall;
+    iget-object p0, p0, Lokhttp3/RealCall$AsyncCall;->this$0:Lokhttp3/RealCall;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method host()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 135
-    iget-object v0, p0, Lokhttp3/RealCall$AsyncCall;->this$0:Lokhttp3/RealCall;
+    iget-object p0, p0, Lokhttp3/RealCall$AsyncCall;->this$0:Lokhttp3/RealCall;
 
-    iget-object v0, v0, Lokhttp3/RealCall;->originalRequest:Lokhttp3/Request;
+    iget-object p0, p0, Lokhttp3/RealCall;->originalRequest:Lokhttp3/Request;
 
-    invoke-virtual {v0}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
+    invoke-virtual {p0}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lokhttp3/HttpUrl;->host()Ljava/lang/String;
+    invoke-virtual {p0}, Lokhttp3/HttpUrl;->host()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method request()Lokhttp3/Request;
-    .locals 1
+    .locals 0
 
     .line 139
-    iget-object v0, p0, Lokhttp3/RealCall$AsyncCall;->this$0:Lokhttp3/RealCall;
+    iget-object p0, p0, Lokhttp3/RealCall$AsyncCall;->this$0:Lokhttp3/RealCall;
 
-    iget-object v0, v0, Lokhttp3/RealCall;->originalRequest:Lokhttp3/Request;
+    iget-object p0, p0, Lokhttp3/RealCall;->originalRequest:Lokhttp3/Request;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method reuseCallsPerHostFrom(Lokhttp3/RealCall$AsyncCall;)V

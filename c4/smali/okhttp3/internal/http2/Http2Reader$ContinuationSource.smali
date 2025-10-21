@@ -131,45 +131,45 @@
 
     iput v2, p0, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->streamId:I
 
-    const/16 v4, 0x9
+    const/16 p0, 0x9
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    if-ne v1, v4, :cond_2
+    if-ne v1, p0, :cond_2
 
     if-ne v2, v0, :cond_1
 
     return-void
 
     :cond_1
-    new-array v0, v5, [Ljava/lang/Object;
+    new-array p0, v4, [Ljava/lang/Object;
 
-    const-string v1, "TYPE_CONTINUATION streamId changed"
+    const-string v0, "TYPE_CONTINUATION streamId changed"
 
     .line 395
-    invoke-static {v1, v0}, Lokhttp3/internal/http2/Http2;->ioException(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/IOException;
+    invoke-static {v0, p0}, Lokhttp3/internal/http2/Http2;->ioException(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/IOException;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 
     :cond_2
-    new-array v0, v3, [Ljava/lang/Object;
+    new-array p0, v3, [Ljava/lang/Object;
 
     .line 394
     invoke-static {v1}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
 
-    move-result-object v1
-
-    aput-object v1, v0, v5
-
-    const-string v1, "%s != TYPE_CONTINUATION"
-
-    invoke-static {v1, v0}, Lokhttp3/internal/http2/Http2;->ioException(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/IOException;
-
     move-result-object v0
 
-    throw v0
+    aput-object v0, p0, v4
+
+    const-string v0, "%s != TYPE_CONTINUATION"
+
+    invoke-static {v0, p0}, Lokhttp3/internal/http2/Http2;->ioException(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/IOException;
+
+    move-result-object p0
+
+    throw p0
 .end method
 
 
@@ -266,14 +266,14 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .locals 0
 
     .line 380
-    iget-object v0, p0, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->source:Lokio/BufferedSource;
+    iget-object p0, p0, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->source:Lokio/BufferedSource;
 
-    invoke-interface {v0}, Lokio/BufferedSource;->timeout()Lokio/Timeout;
+    invoke-interface {p0}, Lokio/BufferedSource;->timeout()Lokio/Timeout;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

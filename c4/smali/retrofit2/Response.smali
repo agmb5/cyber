@@ -87,7 +87,7 @@
     const-string v0, "body == null"
 
     .line 91
-    invoke-static {p1, v0}, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall$$ExternalSyntheticBackport0;->m(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     const/16 v0, 0x190
 
@@ -177,9 +177,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -206,12 +210,12 @@
     const-string v0, "body == null"
 
     .line 106
-    invoke-static {p0, v0}, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall$$ExternalSyntheticBackport0;->m(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p0, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     const-string v0, "rawResponse == null"
 
     .line 107
-    invoke-static {p1, v0}, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall$$ExternalSyntheticBackport0;->m(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 108
     invoke-virtual {p1}, Lokhttp3/Response;->isSuccessful()Z
@@ -331,9 +335,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -437,7 +445,7 @@
     const-string v0, "headers == null"
 
     .line 62
-    invoke-static {p1, v0}, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall$$ExternalSyntheticBackport0;->m(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 63
     new-instance v0, Lokhttp3/Response$Builder;
@@ -523,7 +531,7 @@
     const-string v0, "rawResponse == null"
 
     .line 79
-    invoke-static {p1, v0}, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall$$ExternalSyntheticBackport0;->m(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 80
     invoke-virtual {p1}, Lokhttp3/Response;->isSuccessful()Z
@@ -555,7 +563,7 @@
 
 # virtual methods
 .method public body()Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -566,92 +574,92 @@
     .end annotation
 
     .line 152
-    iget-object v0, p0, Lretrofit2/Response;->body:Ljava/lang/Object;
+    iget-object p0, p0, Lretrofit2/Response;->body:Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public code()I
-    .locals 1
+    .locals 0
 
     .line 132
-    iget-object v0, p0, Lretrofit2/Response;->rawResponse:Lokhttp3/Response;
+    iget-object p0, p0, Lretrofit2/Response;->rawResponse:Lokhttp3/Response;
 
-    invoke-virtual {v0}, Lokhttp3/Response;->code()I
+    invoke-virtual {p0}, Lokhttp3/Response;->code()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public errorBody()Lokhttp3/ResponseBody;
-    .locals 1
+    .locals 0
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
     .line 157
-    iget-object v0, p0, Lretrofit2/Response;->errorBody:Lokhttp3/ResponseBody;
+    iget-object p0, p0, Lretrofit2/Response;->errorBody:Lokhttp3/ResponseBody;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public headers()Lokhttp3/Headers;
-    .locals 1
+    .locals 0
 
     .line 142
-    iget-object v0, p0, Lretrofit2/Response;->rawResponse:Lokhttp3/Response;
+    iget-object p0, p0, Lretrofit2/Response;->rawResponse:Lokhttp3/Response;
 
-    invoke-virtual {v0}, Lokhttp3/Response;->headers()Lokhttp3/Headers;
+    invoke-virtual {p0}, Lokhttp3/Response;->headers()Lokhttp3/Headers;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public isSuccessful()Z
-    .locals 1
+    .locals 0
 
     .line 147
-    iget-object v0, p0, Lretrofit2/Response;->rawResponse:Lokhttp3/Response;
+    iget-object p0, p0, Lretrofit2/Response;->rawResponse:Lokhttp3/Response;
 
-    invoke-virtual {v0}, Lokhttp3/Response;->isSuccessful()Z
+    invoke-virtual {p0}, Lokhttp3/Response;->isSuccessful()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public message()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 137
-    iget-object v0, p0, Lretrofit2/Response;->rawResponse:Lokhttp3/Response;
+    iget-object p0, p0, Lretrofit2/Response;->rawResponse:Lokhttp3/Response;
 
-    invoke-virtual {v0}, Lokhttp3/Response;->message()Ljava/lang/String;
+    invoke-virtual {p0}, Lokhttp3/Response;->message()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public raw()Lokhttp3/Response;
-    .locals 1
+    .locals 0
 
     .line 127
-    iget-object v0, p0, Lretrofit2/Response;->rawResponse:Lokhttp3/Response;
+    iget-object p0, p0, Lretrofit2/Response;->rawResponse:Lokhttp3/Response;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 162
-    iget-object v0, p0, Lretrofit2/Response;->rawResponse:Lokhttp3/Response;
+    iget-object p0, p0, Lretrofit2/Response;->rawResponse:Lokhttp3/Response;
 
-    invoke-virtual {v0}, Lokhttp3/Response;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Lokhttp3/Response;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

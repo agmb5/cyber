@@ -251,21 +251,35 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
 
     const-string v4, "\" and: \""
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -298,6 +312,8 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     .line 66
     invoke-virtual {p0, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
@@ -305,13 +321,21 @@
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -339,23 +363,23 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object p0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
     invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_5
-
-    :goto_4
     throw v0
-
-    :goto_5
-    goto :goto_4
 .end method
 
 .method public static parse(Ljava/lang/String;)Lokhttp3/MediaType;
@@ -391,13 +415,13 @@
     .line 131
     invoke-virtual {p0, v0}, Lokhttp3/MediaType;->charset(Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public charset(Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;
-    .locals 1
+    .locals 0
     .param p1    # Ljava/nio/charset/Charset;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
@@ -407,11 +431,11 @@
 
     .line 140
     :try_start_0
-    iget-object v0, p0, Lokhttp3/MediaType;->charset:Ljava/lang/String;
+    iget-object p0, p0, Lokhttp3/MediaType;->charset:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
+    invoke-static {p0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
 
     move-result-object p1
     :try_end_0
@@ -438,61 +462,61 @@
 
     iget-object p1, p1, Lokhttp3/MediaType;->mediaType:Ljava/lang/String;
 
-    iget-object v0, p0, Lokhttp3/MediaType;->mediaType:Ljava/lang/String;
+    iget-object p0, p0, Lokhttp3/MediaType;->mediaType:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result p0
 
-    if-eqz p1, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return p1
+    return p0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .locals 0
 
     .line 159
-    iget-object v0, p0, Lokhttp3/MediaType;->mediaType:Ljava/lang/String;
+    iget-object p0, p0, Lokhttp3/MediaType;->mediaType:Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public subtype()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 124
-    iget-object v0, p0, Lokhttp3/MediaType;->subtype:Ljava/lang/String;
+    iget-object p0, p0, Lokhttp3/MediaType;->subtype:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 151
-    iget-object v0, p0, Lokhttp3/MediaType;->mediaType:Ljava/lang/String;
+    iget-object p0, p0, Lokhttp3/MediaType;->mediaType:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public type()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 117
-    iget-object v0, p0, Lokhttp3/MediaType;->type:Ljava/lang/String;
+    iget-object p0, p0, Lokhttp3/MediaType;->type:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method

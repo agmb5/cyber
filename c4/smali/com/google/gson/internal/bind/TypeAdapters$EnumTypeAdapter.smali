@@ -87,7 +87,7 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     if-ge v3, v1, :cond_1
@@ -126,7 +126,7 @@
 
     array-length v7, v6
 
-    const/4 v8, 0x0
+    move v8, v2
 
     :goto_1
     if-ge v8, v7, :cond_0
@@ -163,20 +163,14 @@
     return-void
 
     :catch_0
-    move-exception p1
+    move-exception p0
 
     .line 792
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0, p1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, p0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
-    goto :goto_3
-
-    :goto_2
-    throw v0
-
-    :goto_3
-    goto :goto_2
+    throw p1
 .end method
 
 
@@ -209,25 +203,25 @@
     .line 797
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
 
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
-    return-object p1
+    return-object p0
 
     .line 800
     :cond_0
-    iget-object v0, p0, Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;->nameToConstant:Ljava/util/Map;
+    iget-object p0, p0, Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;->nameToConstant:Ljava/util/Map;
 
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextString()Ljava/lang/String;
 
     move-result-object p1
 
-    invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
-    check-cast p1, Ljava/lang/Enum;
+    check-cast p0, Ljava/lang/Enum;
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public bridge synthetic read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
@@ -241,13 +235,13 @@
     .line 773
     invoke-virtual {p0, p1}, Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;->read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Enum;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Enum;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -264,22 +258,22 @@
 
     if-nez p2, :cond_0
 
-    const/4 p2, 0x0
+    const/4 p0, 0x0
 
     goto :goto_0
 
     .line 804
     :cond_0
-    iget-object v0, p0, Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;->constantToName:Ljava/util/Map;
+    iget-object p0, p0, Lcom/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter;->constantToName:Ljava/util/Map;
 
-    invoke-interface {v0, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p0, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object p0
 
-    check-cast p2, Ljava/lang/String;
+    check-cast p0, Ljava/lang/String;
 
     :goto_0
-    invoke-virtual {p1, p2}, Lcom/google/gson/stream/JsonWriter;->value(Ljava/lang/String;)Lcom/google/gson/stream/JsonWriter;
+    invoke-virtual {p1, p0}, Lcom/google/gson/stream/JsonWriter;->value(Ljava/lang/String;)Lcom/google/gson/stream/JsonWriter;
 
     return-void
 .end method

@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -105,9 +105,9 @@
     .line 65
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
 
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
-    return-object p1
+    return-object p0
 
     .line 69
     :cond_0
@@ -148,30 +148,30 @@
     move-result p1
 
     .line 78
-    iget-object v1, p0, Lcom/google/gson/internal/bind/ArrayTypeAdapter;->componentType:Ljava/lang/Class;
+    iget-object p0, p0, Lcom/google/gson/internal/bind/ArrayTypeAdapter;->componentType:Ljava/lang/Class;
 
-    invoke-static {v1, p1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
+    invoke-static {p0, p1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_1
-    if-ge v2, p1, :cond_2
+    if-ge v1, p1, :cond_2
 
     .line 80
-    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v1, v2, v3}, Ljava/lang/reflect/Array;->set(Ljava/lang/Object;ILjava/lang/Object;)V
+    invoke-static {p0, v1, v2}, Ljava/lang/reflect/Array;->set(Ljava/lang/Object;ILjava/lang/Object;)V
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
     :cond_2
-    return-object v1
+    return-object p0
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V

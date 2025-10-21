@@ -4,7 +4,6 @@
 
 # interfaces
 .implements Ljava/util/Iterator;
-.implements Lj$/util/Iterator;
 
 
 # annotations
@@ -22,8 +21,7 @@
         "Ljava/lang/Object;",
         "Ljava/util/Iterator<",
         "Ljava/lang/String;",
-        ">;",
-        "Lj$/util/Iterator;"
+        ">;"
     }
 .end annotation
 
@@ -77,28 +75,8 @@
 
 
 # virtual methods
-.method public synthetic forEachRemaining(Lj$/util/function/Consumer;)V
-    .locals 0
-
-    invoke-static {p0, p1}, Lj$/util/Iterator$-CC;->$default$forEachRemaining(Ljava/util/Iterator;Lj$/util/function/Consumer;)V
-
-    return-void
-.end method
-
-.method public synthetic forEachRemaining(Ljava/util/function/Consumer;)V
-    .locals 0
-
-    invoke-static {p1}, Lj$/util/function/Consumer$VivifiedWrapper;->convert(Ljava/util/function/Consumer;)Lj$/util/function/Consumer;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Lokhttp3/Cache$2;->forEachRemaining(Lj$/util/function/Consumer;)V
-
-    return-void
-.end method
-
 .method public hasNext()Z
-    .locals 4
+    .locals 5
 
     .line 338
     iget-object v0, p0, Lokhttp3/Cache$2;->nextUrl:Ljava/lang/String;
@@ -116,7 +94,7 @@
     iput-boolean v0, p0, Lokhttp3/Cache$2;->canRemove:Z
 
     .line 341
-    :goto_0
+    :catch_0
     iget-object v2, p0, Lokhttp3/Cache$2;->delegate:Ljava/util/Iterator;
 
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -177,7 +155,7 @@
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     :catchall_1
-    move-exception v3
+    move-exception v4
 
     if-eqz v2, :cond_2
 
@@ -187,31 +165,33 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
+    goto :goto_0
+
     :catchall_2
-    :cond_2
+    move-exception v2
+
     :try_start_5
-    throw v3
+    invoke-virtual {v3, v2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+
+    :cond_2
+    :goto_0
+    throw v4
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_0
-
-    :catch_0
-    nop
-
-    goto :goto_0
 
     :cond_3
     return v0
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
+    .locals 0
 
     .line 331
     invoke-virtual {p0}, Lokhttp3/Cache$2;->next()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public next()Ljava/lang/String;
@@ -241,15 +221,15 @@
 
     .line 356
     :cond_0
-    new-instance v0, Ljava/util/NoSuchElementException;
+    new-instance p0, Ljava/util/NoSuchElementException;
 
-    invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
+    invoke-direct {p0}, Ljava/util/NoSuchElementException;-><init>()V
 
-    throw v0
+    throw p0
 .end method
 
 .method public remove()V
-    .locals 2
+    .locals 1
 
     .line 364
     iget-boolean v0, p0, Lokhttp3/Cache$2;->canRemove:Z
@@ -257,19 +237,19 @@
     if-eqz v0, :cond_0
 
     .line 365
-    iget-object v0, p0, Lokhttp3/Cache$2;->delegate:Ljava/util/Iterator;
+    iget-object p0, p0, Lokhttp3/Cache$2;->delegate:Ljava/util/Iterator;
 
-    invoke-interface {v0}, Ljava/util/Iterator;->remove()V
+    invoke-interface {p0}, Ljava/util/Iterator;->remove()V
 
     return-void
 
     .line 364
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "remove() before next()"
+    const-string v0, "remove() before next()"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method

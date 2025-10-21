@@ -61,7 +61,7 @@
     const-string v0, "name == null"
 
     .line 126
-    invoke-static {p1, v0}, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall$$ExternalSyntheticBackport0;->m(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method apply(Lretrofit2/RequestBuilder;Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
@@ -122,9 +122,9 @@
     :cond_1
     iget-object v0, p0, Lretrofit2/ParameterHandler$Query;->name:Ljava/lang/String;
 
-    iget-boolean v1, p0, Lretrofit2/ParameterHandler$Query;->encoded:Z
+    iget-boolean p0, p0, Lretrofit2/ParameterHandler$Query;->encoded:Z
 
-    invoke-virtual {p1, v0, p2, v1}, Lretrofit2/RequestBuilder;->addQueryParam(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-virtual {p1, v0, p2, p0}, Lretrofit2/RequestBuilder;->addQueryParam(Ljava/lang/String;Ljava/lang/String;Z)V
 
     return-void
 .end method

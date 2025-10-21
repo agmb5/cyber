@@ -24,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lokhttp3/internal/connection/RealConnectionPool$$ExternalSyntheticLambda0;->f$0:Lokhttp3/internal/connection/RealConnectionPool;
+    iget-object p0, p0, Lokhttp3/internal/connection/RealConnectionPool$$ExternalSyntheticLambda0;->f$0:Lokhttp3/internal/connection/RealConnectionPool;
 
-    invoke-virtual {v0}, Lokhttp3/internal/connection/RealConnectionPool;->lambda$new$0$okhttp3-internal-connection-RealConnectionPool()V
+    invoke-virtual {p0}, Lokhttp3/internal/connection/RealConnectionPool;->lambda$new$0$okhttp3-internal-connection-RealConnectionPool()V
 
     return-void
 .end method

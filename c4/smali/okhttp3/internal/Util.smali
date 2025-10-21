@@ -38,6 +38,16 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$Ds7dtVnGrflEw4-LvNOxA0cDT4Y(Ljava/lang/String;Ljava/lang/String;)I
+    .locals 0
+
+    invoke-virtual {p0, p1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 6
 
@@ -163,7 +173,7 @@
     const-string v1, "GMT"
 
     .line 85
-    invoke-static {v1}, Lj$/util/DesugarTimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
+    invoke-static {v1}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
     move-result-object v1
 
@@ -431,13 +441,19 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string p0, "\'"
+    move-result-object v1
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+
+    const-string v1, "\'"
+
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -487,34 +503,35 @@
 .end method
 
 .method public static checkDuration(Ljava/lang/String;JLjava/util/concurrent/TimeUnit;)I
-    .locals 6
+    .locals 5
 
     const-wide/16 v0, 0x0
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_4
+    if-ltz v2, :cond_3
 
-    if-eqz p3, :cond_3
+    const-string v3, "unit == null"
+
+    .line 480
+    invoke-static {p3, v3}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 481
     invoke-virtual {p3, p1, p2}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
 
-    move-result-wide v2
+    move-result-wide p1
 
-    const-wide/32 v4, 0x7fffffff
+    const-wide/32 v3, 0x7fffffff
 
-    cmp-long p3, v2, v4
+    cmp-long p3, p1, v3
 
     if-gtz p3, :cond_2
 
-    cmp-long p3, v2, v0
+    cmp-long p3, p1, v0
 
     if-nez p3, :cond_1
 
-    cmp-long p3, p1, v0
-
-    if-gtz p3, :cond_0
+    if-gtz v2, :cond_0
 
     goto :goto_0
 
@@ -528,11 +545,15 @@
 
     invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p0, " too small."
+    move-result-object p0
 
-    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p2, " too small."
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -542,7 +563,7 @@
 
     :cond_1
     :goto_0
-    long-to-int p0, v2
+    long-to-int p0, p1
 
     return p0
 
@@ -556,11 +577,15 @@
 
     invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p0, " too large."
+    move-result-object p0
 
-    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p2, " too large."
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -568,18 +593,8 @@
 
     throw p1
 
-    .line 480
-    :cond_3
-    new-instance p0, Ljava/lang/NullPointerException;
-
-    const-string p1, "unit == null"
-
-    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-
     .line 479
-    :cond_4
+    :cond_3
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -588,11 +603,15 @@
 
     invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p0, " < 0"
+    move-result-object p0
 
-    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p2, " < 0"
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -602,15 +621,15 @@
 .end method
 
 .method public static checkOffsetAndCount(JJJ)V
-    .locals 5
+    .locals 4
 
     or-long v0, p2, p4
 
     const-wide/16 v2, 0x0
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v0, :cond_0
 
     cmp-long v0, p2, p0
 
@@ -618,9 +637,9 @@
 
     sub-long/2addr p0, p2
 
-    cmp-long p2, p0, p4
+    cmp-long p0, p0, p4
 
-    if-ltz p2, :cond_0
+    if-ltz p0, :cond_0
 
     return-void
 
@@ -757,7 +776,7 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
     .line 423
     :goto_0
@@ -896,7 +915,7 @@
     :cond_2
     move v2, p1
 
-    const/4 v3, 0x0
+    move v3, v1
 
     :goto_1
     if-ge v2, p2, :cond_6
@@ -989,11 +1008,11 @@
 
     const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    move v5, v2
 
-    const/4 v5, -0x1
+    move v6, v5
 
-    const/4 v6, -0x1
+    move v4, v3
 
     :goto_0
     const/4 v7, 0x0
@@ -1090,9 +1109,9 @@
     move v6, p1
 
     :goto_2
-    move p1, v6
+    move v8, v3
 
-    const/4 v8, 0x0
+    move p1, v6
 
     :goto_3
     if-ge p1, p2, :cond_9
@@ -1199,13 +1218,7 @@
 
     invoke-direct {p0}, Ljava/lang/AssertionError;-><init>()V
 
-    goto :goto_8
-
-    :goto_7
     throw p0
-
-    :goto_8
-    goto :goto_7
 .end method
 
 .method public static delimiterOffset(Ljava/lang/String;IIC)I
@@ -1343,15 +1356,21 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {p0}, Lokhttp3/HttpUrl;->host()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v2, "]"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1391,7 +1410,11 @@
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p1
+
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     invoke-virtual {p0}, Lokhttp3/HttpUrl;->port()I
 
@@ -1399,7 +1422,9 @@
 
     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -1604,9 +1629,9 @@
 
     const/4 v1, -0x1
 
-    const/4 v2, 0x0
+    move v2, v0
 
-    const/4 v3, 0x0
+    move v3, v2
 
     .line 607
     :goto_0
@@ -1750,7 +1775,7 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     if-ge v3, v1, :cond_2
@@ -1760,7 +1785,7 @@
     .line 253
     array-length v5, p2
 
-    const/4 v6, 0x0
+    move v6, v2
 
     :goto_1
     if-ge v6, v5, :cond_1
@@ -1897,7 +1922,7 @@
     :cond_0
     array-length v1, p1
 
-    const/4 v2, 0x0
+    move v2, v0
 
     :goto_0
     if-ge v2, v1, :cond_3
@@ -1907,7 +1932,7 @@
     .line 275
     array-length v4, p2
 
-    const/4 v5, 0x0
+    move v5, v0
 
     :goto_1
     if-ge v5, v4, :cond_2
@@ -2002,6 +2027,8 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     .line 644
     invoke-static {v0}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2009,7 +2036,9 @@
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -2019,15 +2048,17 @@
     :try_end_0
     .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 648
     :catch_0
-    new-instance v0, Ljava/lang/AssertionError;
+    move-exception v0
 
-    const-string v1, "No System TLS"
+    .line 648
+    new-instance v1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0, v1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    const-string v2, "No System TLS"
 
-    throw v0
+    invoke-direct {v1, v2, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v1
 .end method
 
 .method public static sameConnection(Lokhttp3/HttpUrl;Lokhttp3/HttpUrl;)Z
@@ -2234,8 +2265,6 @@
     throw p1
 
     :catch_0
-    nop
-
     const/4 p1, 0x0
 
     cmp-long p2, v5, v3

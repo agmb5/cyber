@@ -110,9 +110,9 @@
     iget-object v2, v2, Lokhttp3/internal/cache2/Relay;->file:Ljava/io/RandomAccessFile;
 
     .line 352
-    iget-object v3, p0, Lokhttp3/internal/cache2/Relay$RelaySource;->this$0:Lokhttp3/internal/cache2/Relay;
+    iget-object p0, p0, Lokhttp3/internal/cache2/Relay$RelaySource;->this$0:Lokhttp3/internal/cache2/Relay;
 
-    iput-object v0, v3, Lokhttp3/internal/cache2/Relay;->file:Ljava/io/RandomAccessFile;
+    iput-object v0, p0, Lokhttp3/internal/cache2/Relay;->file:Ljava/io/RandomAccessFile;
 
     move-object v0, v2
 
@@ -131,7 +131,7 @@
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p0
 
     .line 354
     :try_start_1
@@ -139,7 +139,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p0
 .end method
 
 .method public read(Lokio/Buffer;J)J
@@ -173,20 +173,20 @@
 
     iget-wide v7, v0, Lokhttp3/internal/cache2/Relay;->upstreamPos:J
 
-    const/4 v0, 0x2
+    cmp-long v0, v5, v7
+
+    const/4 v5, 0x2
 
     const-wide/16 v9, -0x1
 
-    cmp-long v11, v5, v7
-
-    if-nez v11, :cond_2
+    if-nez v0, :cond_2
 
     .line 262
-    iget-object v5, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->this$0:Lokhttp3/internal/cache2/Relay;
+    iget-object v0, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->this$0:Lokhttp3/internal/cache2/Relay;
 
-    iget-boolean v5, v5, Lokhttp3/internal/cache2/Relay;->complete:Z
+    iget-boolean v0, v0, Lokhttp3/internal/cache2/Relay;->complete:Z
 
-    if-eqz v5, :cond_0
+    if-eqz v0, :cond_0
 
     monitor-exit v4
 
@@ -194,11 +194,11 @@
 
     .line 265
     :cond_0
-    iget-object v5, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->this$0:Lokhttp3/internal/cache2/Relay;
+    iget-object v0, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->this$0:Lokhttp3/internal/cache2/Relay;
 
-    iget-object v5, v5, Lokhttp3/internal/cache2/Relay;->upstreamReader:Ljava/lang/Thread;
+    iget-object v0, v0, Lokhttp3/internal/cache2/Relay;->upstreamReader:Ljava/lang/Thread;
 
-    if-eqz v5, :cond_1
+    if-eqz v0, :cond_1
 
     .line 266
     iget-object v0, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->timeout:Lokio/Timeout;
@@ -211,15 +211,15 @@
 
     .line 271
     :cond_1
-    iget-object v5, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->this$0:Lokhttp3/internal/cache2/Relay;
+    iget-object v0, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->this$0:Lokhttp3/internal/cache2/Relay;
 
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v6
 
-    iput-object v6, v5, Lokhttp3/internal/cache2/Relay;->upstreamReader:Ljava/lang/Thread;
+    iput-object v6, v0, Lokhttp3/internal/cache2/Relay;->upstreamReader:Ljava/lang/Thread;
 
-    const/4 v5, 0x1
+    const/4 v0, 0x1
 
     .line 273
     monitor-exit v4
@@ -228,34 +228,34 @@
 
     .line 276
     :cond_2
-    iget-object v5, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->this$0:Lokhttp3/internal/cache2/Relay;
+    iget-object v0, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->this$0:Lokhttp3/internal/cache2/Relay;
 
-    iget-object v5, v5, Lokhttp3/internal/cache2/Relay;->buffer:Lokio/Buffer;
+    iget-object v0, v0, Lokhttp3/internal/cache2/Relay;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v5}, Lokio/Buffer;->size()J
+    invoke-virtual {v0}, Lokio/Buffer;->size()J
 
-    move-result-wide v5
+    move-result-wide v11
 
-    sub-long v5, v7, v5
+    sub-long v11, v7, v11
 
     .line 279
-    iget-wide v11, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->sourcePos:J
+    iget-wide v13, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->sourcePos:J
 
-    cmp-long v13, v11, v5
+    cmp-long v0, v13, v11
 
-    if-gez v13, :cond_6
+    if-gez v0, :cond_6
 
     .line 281
     monitor-exit v4
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_5
 
-    const/4 v5, 0x2
+    move v0, v5
 
     :goto_1
     const-wide/16 v11, 0x20
 
-    if-ne v5, v0, :cond_3
+    if-ne v0, v5, :cond_3
 
     .line 293
     iget-wide v4, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->sourcePos:J
@@ -527,9 +527,9 @@
     iput-object v4, v3, Lokhttp3/internal/cache2/Relay;->upstreamReader:Ljava/lang/Thread;
 
     .line 334
-    iget-object v3, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->this$0:Lokhttp3/internal/cache2/Relay;
+    iget-object v1, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->this$0:Lokhttp3/internal/cache2/Relay;
 
-    invoke-virtual {v3}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {v1}, Ljava/lang/Object;->notifyAll()V
 
     .line 335
     monitor-exit v2
@@ -549,7 +549,7 @@
     throw v0
 
     :cond_6
-    sub-long/2addr v7, v11
+    sub-long/2addr v7, v13
 
     .line 285
     :try_start_a
@@ -560,17 +560,17 @@
     .line 286
     iget-object v0, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->this$0:Lokhttp3/internal/cache2/Relay;
 
-    iget-object v9, v0, Lokhttp3/internal/cache2/Relay;->buffer:Lokio/Buffer;
+    iget-object v13, v0, Lokhttp3/internal/cache2/Relay;->buffer:Lokio/Buffer;
 
-    iget-wide v7, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->sourcePos:J
+    iget-wide v5, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->sourcePos:J
 
-    sub-long v11, v7, v5
+    sub-long v15, v5, v11
 
-    move-object/from16 v10, p1
+    move-object/from16 v14, p1
 
-    move-wide v13, v2
+    move-wide/from16 v17, v2
 
-    invoke-virtual/range {v9 .. v14}, Lokio/Buffer;->copyTo(Lokio/Buffer;JJ)Lokio/Buffer;
+    invoke-virtual/range {v13 .. v18}, Lokio/Buffer;->copyTo(Lokio/Buffer;JJ)Lokio/Buffer;
 
     .line 287
     iget-wide v5, v1, Lokhttp3/internal/cache2/Relay$RelaySource;->sourcePos:J
@@ -598,24 +598,18 @@
     :cond_7
     new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string v2, "closed"
+    const-string v1, "closed"
 
-    invoke-direct {v0, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_3
-
-    :goto_2
     throw v0
-
-    :goto_3
-    goto :goto_2
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .locals 0
 
     .line 340
-    iget-object v0, p0, Lokhttp3/internal/cache2/Relay$RelaySource;->timeout:Lokio/Timeout;
+    iget-object p0, p0, Lokhttp3/internal/cache2/Relay$RelaySource;->timeout:Lokio/Timeout;
 
-    return-object v0
+    return-object p0
 .end method

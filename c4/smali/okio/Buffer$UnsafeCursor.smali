@@ -94,13 +94,13 @@
 
     .line 2299
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "not attached to a buffer"
+    const-string v0, "not attached to a buffer"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public final expandBuffer(I)J
@@ -172,71 +172,79 @@
 
     .line 2277
     :cond_0
-    new-instance p1, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v0, "expandBuffer() only permitted for read/write buffers"
+    const-string p1, "expandBuffer() only permitted for read/write buffers"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 
     .line 2274
     :cond_1
-    new-instance p1, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v0, "not attached to a buffer"
+    const-string p1, "not attached to a buffer"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 
     .line 2271
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "minByteCount > Segment.SIZE: "
+    const-string v1, "minByteCount > Segment.SIZE: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object p1
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v0
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 
     .line 2268
     :cond_3
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "minByteCount <= 0: "
+    const-string v1, "minByteCount <= 0: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object p1
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v0
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method public final next()I
-    .locals 5
+    .locals 4
 
     .line 2086
     iget-wide v0, p0, Lokio/Buffer$UnsafeCursor;->offset:J
@@ -245,26 +253,26 @@
 
     iget-wide v2, v2, Lokio/Buffer;->size:J
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-eqz v4, :cond_1
+    if-eqz v0, :cond_1
 
     .line 2087
     iget-wide v0, p0, Lokio/Buffer$UnsafeCursor;->offset:J
 
     const-wide/16 v2, -0x1
 
-    cmp-long v4, v0, v2
+    cmp-long v2, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v2, :cond_0
 
     const-wide/16 v0, 0x0
 
     invoke-virtual {p0, v0, v1}, Lokio/Buffer$UnsafeCursor;->seek(J)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     .line 2088
     :cond_0
@@ -280,21 +288,21 @@
 
     invoke-virtual {p0, v0, v1}, Lokio/Buffer$UnsafeCursor;->seek(J)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     .line 2086
     :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalStateException;-><init>()V
 
-    throw v0
+    throw p0
 .end method
 
 .method public final resizeBuffer(J)J
-    .locals 13
+    .locals 12
 
     .line 2186
     iget-object v0, p0, Lokio/Buffer$UnsafeCursor;->buffer:Lokio/Buffer;
@@ -309,70 +317,70 @@
     .line 2193
     iget-wide v0, v0, Lokio/Buffer;->size:J
 
-    const-wide/16 v2, 0x0
+    cmp-long v2, p1, v0
 
-    cmp-long v4, p1, v0
+    const-wide/16 v3, 0x0
 
-    if-gtz v4, :cond_3
+    if-gtz v2, :cond_3
 
-    cmp-long v4, p1, v2
+    cmp-long v2, p1, v3
 
-    if-ltz v4, :cond_2
+    if-ltz v2, :cond_2
 
-    sub-long v4, v0, p1
+    sub-long v5, v0, p1
 
     :goto_0
-    cmp-long v6, v4, v2
+    cmp-long v2, v5, v3
 
-    if-lez v6, :cond_1
+    if-lez v2, :cond_1
 
     .line 2200
-    iget-object v6, p0, Lokio/Buffer$UnsafeCursor;->buffer:Lokio/Buffer;
+    iget-object v2, p0, Lokio/Buffer$UnsafeCursor;->buffer:Lokio/Buffer;
 
-    iget-object v6, v6, Lokio/Buffer;->head:Lokio/Segment;
+    iget-object v2, v2, Lokio/Buffer;->head:Lokio/Segment;
 
-    iget-object v6, v6, Lokio/Segment;->prev:Lokio/Segment;
+    iget-object v2, v2, Lokio/Segment;->prev:Lokio/Segment;
 
     .line 2201
-    iget v7, v6, Lokio/Segment;->limit:I
+    iget v7, v2, Lokio/Segment;->limit:I
 
-    iget v8, v6, Lokio/Segment;->pos:I
+    iget v8, v2, Lokio/Segment;->pos:I
 
     sub-int/2addr v7, v8
 
     int-to-long v7, v7
 
-    cmp-long v9, v7, v4
+    cmp-long v9, v7, v5
 
     if-gtz v9, :cond_0
 
     .line 2203
     iget-object v9, p0, Lokio/Buffer$UnsafeCursor;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v6}, Lokio/Segment;->pop()Lokio/Segment;
+    invoke-virtual {v2}, Lokio/Segment;->pop()Lokio/Segment;
 
     move-result-object v10
 
     iput-object v10, v9, Lokio/Buffer;->head:Lokio/Segment;
 
     .line 2204
-    invoke-static {v6}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
+    invoke-static {v2}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
-    sub-long/2addr v4, v7
+    sub-long/2addr v5, v7
 
     goto :goto_0
 
     .line 2207
     :cond_0
-    iget v2, v6, Lokio/Segment;->limit:I
+    iget v3, v2, Lokio/Segment;->limit:I
 
-    int-to-long v2, v2
+    int-to-long v3, v3
 
-    sub-long/2addr v2, v4
+    sub-long/2addr v3, v5
 
-    long-to-int v3, v2
+    long-to-int v3, v3
 
-    iput v3, v6, Lokio/Segment;->limit:I
+    iput v3, v2, Lokio/Segment;->limit:I
 
     :cond_1
     const/4 v2, 0x0
@@ -398,47 +406,49 @@
 
     .line 2196
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "newSize < 0: "
+    const-string v1, "newSize < 0: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object p1
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v0
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 
     :cond_3
-    cmp-long v4, p1, v0
+    if-lez v2, :cond_5
 
-    if-lez v4, :cond_5
+    sub-long v5, p1, v0
 
-    sub-long v4, p1, v0
+    const/4 v2, 0x1
 
-    const/4 v6, 0x1
-
-    const/4 v7, 0x1
+    move v7, v2
 
     :cond_4
     :goto_1
-    cmp-long v8, v4, v2
+    cmp-long v8, v5, v3
 
     if-lez v8, :cond_5
 
     .line 2221
     iget-object v8, p0, Lokio/Buffer$UnsafeCursor;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v8, v6}, Lokio/Buffer;->writableSegment(I)Lokio/Segment;
+    invoke-virtual {v8, v2}, Lokio/Buffer;->writableSegment(I)Lokio/Segment;
 
     move-result-object v8
 
@@ -449,22 +459,22 @@
 
     int-to-long v9, v9
 
-    invoke-static {v4, v5, v9, v10}, Ljava/lang/Math;->min(JJ)J
+    invoke-static {v5, v6, v9, v10}, Ljava/lang/Math;->min(JJ)J
 
     move-result-wide v9
 
-    long-to-int v10, v9
+    long-to-int v9, v9
 
     .line 2223
-    iget v9, v8, Lokio/Segment;->limit:I
+    iget v10, v8, Lokio/Segment;->limit:I
 
-    add-int/2addr v9, v10
+    add-int/2addr v10, v9
 
-    iput v9, v8, Lokio/Segment;->limit:I
+    iput v10, v8, Lokio/Segment;->limit:I
 
-    int-to-long v11, v10
+    int-to-long v10, v9
 
-    sub-long/2addr v4, v11
+    sub-long/2addr v5, v10
 
     if-eqz v7, :cond_4
 
@@ -482,7 +492,7 @@
     .line 2231
     iget v7, v8, Lokio/Segment;->limit:I
 
-    sub-int/2addr v7, v10
+    sub-int/2addr v7, v9
 
     iput v7, p0, Lokio/Buffer$UnsafeCursor;->start:I
 
@@ -498,37 +508,31 @@
     .line 2238
     :cond_5
     :goto_2
-    iget-object v2, p0, Lokio/Buffer$UnsafeCursor;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/Buffer$UnsafeCursor;->buffer:Lokio/Buffer;
 
-    iput-wide p1, v2, Lokio/Buffer;->size:J
+    iput-wide p1, p0, Lokio/Buffer;->size:J
 
     return-wide v0
 
     .line 2190
     :cond_6
-    new-instance p1, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string p2, "resizeBuffer() only permitted for read/write buffers"
+    const-string p1, "resizeBuffer() only permitted for read/write buffers"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 
     .line 2187
     :cond_7
-    new-instance p1, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string p2, "not attached to a buffer"
+    const-string p1, "not attached to a buffer"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_4
-
-    :goto_3
-    throw p1
-
-    :goto_4
-    goto :goto_3
+    throw p0
 .end method
 
 .method public final seek(J)I
@@ -536,31 +540,29 @@
 
     const-wide/16 v0, -0x1
 
-    cmp-long v2, p1, v0
+    cmp-long v0, p1, v0
 
-    if-ltz v2, :cond_9
+    if-ltz v0, :cond_9
 
     .line 2097
-    iget-object v2, p0, Lokio/Buffer$UnsafeCursor;->buffer:Lokio/Buffer;
+    iget-object v1, p0, Lokio/Buffer$UnsafeCursor;->buffer:Lokio/Buffer;
 
-    iget-wide v2, v2, Lokio/Buffer;->size:J
+    iget-wide v1, v1, Lokio/Buffer;->size:J
 
-    cmp-long v4, p1, v2
+    cmp-long v1, p1, v1
 
-    if-gtz v4, :cond_9
+    if-gtz v1, :cond_9
 
-    cmp-long v2, p1, v0
-
-    if-eqz v2, :cond_8
+    if-eqz v0, :cond_8
 
     .line 2102
     iget-object v0, p0, Lokio/Buffer$UnsafeCursor;->buffer:Lokio/Buffer;
 
     iget-wide v0, v0, Lokio/Buffer;->size:J
 
-    cmp-long v2, p1, v0
+    cmp-long v0, p1, v0
 
-    if-nez v2, :cond_0
+    if-nez v0, :cond_0
 
     goto/16 :goto_3
 
@@ -623,9 +625,9 @@
 
     sub-long v8, p1, v0
 
-    cmp-long v10, v6, v8
+    cmp-long v6, v6, v8
 
-    if-lez v10, :cond_3
+    if-lez v6, :cond_3
 
     .line 2135
     :goto_1
@@ -639,9 +641,9 @@
 
     add-long/2addr v2, v0
 
-    cmp-long v5, p1, v2
+    cmp-long v2, p1, v2
 
-    if-ltz v5, :cond_5
+    if-ltz v2, :cond_5
 
     .line 2136
     iget v2, v4, Lokio/Segment;->limit:I
@@ -741,9 +743,9 @@
 
     sub-long/2addr p1, v0
 
-    long-to-int p2, p1
+    long-to-int p1, p1
 
-    add-int/2addr v2, p2
+    add-int/2addr v2, p1
 
     iput v2, p0, Lokio/Buffer$UnsafeCursor;->start:I
 
@@ -753,9 +755,9 @@
     iput p1, p0, Lokio/Buffer$UnsafeCursor;->end:I
 
     .line 2165
-    iget p2, p0, Lokio/Buffer$UnsafeCursor;->start:I
+    iget p0, p0, Lokio/Buffer$UnsafeCursor;->start:I
 
-    sub-int/2addr p1, p2
+    sub-int/2addr p1, p0
 
     return p1
 
@@ -801,29 +803,23 @@
 
     const/4 p1, 0x1
 
-    iget-object p2, p0, Lokio/Buffer$UnsafeCursor;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/Buffer$UnsafeCursor;->buffer:Lokio/Buffer;
 
-    iget-wide v2, p2, Lokio/Buffer;->size:J
+    iget-wide v2, p0, Lokio/Buffer;->size:J
 
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object p2
+    move-result-object p0
 
-    aput-object p2, v1, p1
+    aput-object p0, v1, p1
 
-    const-string p1, "offset=%s > size=%s"
+    const-string p0, "offset=%s > size=%s"
 
-    invoke-static {p1, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-direct {v0, p1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_5
-
-    :goto_4
     throw v0
-
-    :goto_5
-    goto :goto_4
 .end method

@@ -25,7 +25,7 @@
 .end method
 
 .method static recycle(Lokio/Segment;)V
-    .locals 10
+    .locals 9
 
     .line 52
     iget-object v0, p0, Lokio/Segment;->next:Lokio/Segment;
@@ -59,9 +59,9 @@
 
     const-wide/32 v7, 0x10000
 
-    cmp-long v9, v5, v7
+    cmp-long v5, v5, v7
 
-    if-lez v9, :cond_1
+    if-lez v5, :cond_1
 
     monitor-exit v0
 

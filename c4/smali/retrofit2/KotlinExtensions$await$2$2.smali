@@ -99,21 +99,21 @@
     invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 58
-    iget-object p1, p0, Lretrofit2/KotlinExtensions$await$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
+    iget-object p0, p0, Lretrofit2/KotlinExtensions$await$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
 
-    check-cast p1, Lkotlin/coroutines/Continuation;
+    check-cast p0, Lkotlin/coroutines/Continuation;
 
-    sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+    sget-object p1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     invoke-static {p2}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object p1
 
-    invoke-static {p2}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object p1
 
-    invoke-interface {p1, p2}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
+    invoke-interface {p0, p1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -190,6 +190,8 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "method"
 
     .line 44
@@ -209,9 +211,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const/16 v1, 0x2e
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     .line 46
     invoke-virtual {p1}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
@@ -220,11 +226,15 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, " was null but response body type was declared as non-null"
+    move-result-object p1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " was null but response body type was declared as non-null"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -232,65 +242,65 @@
     invoke-direct {p2, p1}, Lkotlin/KotlinNullPointerException;-><init>(Ljava/lang/String;)V
 
     .line 48
-    iget-object p1, p0, Lretrofit2/KotlinExtensions$await$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
+    iget-object p0, p0, Lretrofit2/KotlinExtensions$await$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
 
-    check-cast p1, Lkotlin/coroutines/Continuation;
+    check-cast p0, Lkotlin/coroutines/Continuation;
 
-    sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+    sget-object p1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     check-cast p2, Ljava/lang/Throwable;
 
     invoke-static {p2}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object p1
 
-    invoke-static {p2}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object p1
 
-    invoke-interface {p1, p2}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
+    invoke-interface {p0, p1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     goto :goto_0
 
     .line 50
     :cond_1
-    iget-object p1, p0, Lretrofit2/KotlinExtensions$await$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
+    iget-object p0, p0, Lretrofit2/KotlinExtensions$await$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
 
-    check-cast p1, Lkotlin/coroutines/Continuation;
+    check-cast p0, Lkotlin/coroutines/Continuation;
 
-    sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+    sget-object p1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     invoke-static {p2}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object p1
 
-    invoke-interface {p1, p2}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
+    invoke-interface {p0, p1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     goto :goto_0
 
     .line 53
     :cond_2
-    iget-object p1, p0, Lretrofit2/KotlinExtensions$await$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
+    iget-object p0, p0, Lretrofit2/KotlinExtensions$await$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
 
-    check-cast p1, Lkotlin/coroutines/Continuation;
+    check-cast p0, Lkotlin/coroutines/Continuation;
 
-    new-instance v0, Lretrofit2/HttpException;
+    new-instance p1, Lretrofit2/HttpException;
 
-    invoke-direct {v0, p2}, Lretrofit2/HttpException;-><init>(Lretrofit2/Response;)V
+    invoke-direct {p1, p2}, Lretrofit2/HttpException;-><init>(Lretrofit2/Response;)V
 
-    check-cast v0, Ljava/lang/Throwable;
+    check-cast p1, Ljava/lang/Throwable;
 
     sget-object p2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
-    invoke-static {v0}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
+    invoke-static {p1}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object p1
 
-    invoke-static {p2}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object p1
 
-    invoke-interface {p1, p2}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
+    invoke-interface {p0, p1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     :goto_0
     return-void

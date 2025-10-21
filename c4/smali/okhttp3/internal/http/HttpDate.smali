@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .locals 16
 
     .line 37
     new-instance v0, Lokhttp3/internal/http/HttpDate$1;
@@ -32,101 +32,41 @@
 
     sput-object v0, Lokhttp3/internal/http/HttpDate;->STANDARD_DATE_FORMAT:Ljava/lang/ThreadLocal;
 
-    const/16 v0, 0xf
-
-    new-array v0, v0, [Ljava/lang/String;
-
-    const/4 v1, 0x0
-
-    const-string v2, "EEE, dd MMM yyyy HH:mm:ss zzz"
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x1
+    const-string v1, "EEE, dd MMM yyyy HH:mm:ss zzz"
 
     const-string v2, "EEEE, dd-MMM-yy HH:mm:ss zzz"
 
-    aput-object v2, v0, v1
+    const-string v3, "EEE MMM d HH:mm:ss yyyy"
 
-    const/4 v1, 0x2
+    const-string v4, "EEE, dd-MMM-yyyy HH:mm:ss z"
 
-    const-string v2, "EEE MMM d HH:mm:ss yyyy"
+    const-string v5, "EEE, dd-MMM-yyyy HH-mm-ss z"
 
-    aput-object v2, v0, v1
+    const-string v6, "EEE, dd MMM yy HH:mm:ss z"
 
-    const/4 v1, 0x3
+    const-string v7, "EEE dd-MMM-yyyy HH:mm:ss z"
 
-    const-string v2, "EEE, dd-MMM-yyyy HH:mm:ss z"
+    const-string v8, "EEE dd MMM yyyy HH:mm:ss z"
 
-    aput-object v2, v0, v1
+    const-string v9, "EEE dd-MMM-yyyy HH-mm-ss z"
 
-    const/4 v1, 0x4
+    const-string v10, "EEE dd-MMM-yy HH:mm:ss z"
 
-    const-string v2, "EEE, dd-MMM-yyyy HH-mm-ss z"
+    const-string v11, "EEE dd MMM yy HH:mm:ss z"
 
-    aput-object v2, v0, v1
+    const-string v12, "EEE,dd-MMM-yy HH:mm:ss z"
 
-    const/4 v1, 0x5
+    const-string v13, "EEE,dd-MMM-yyyy HH:mm:ss z"
 
-    const-string v2, "EEE, dd MMM yy HH:mm:ss z"
+    const-string v14, "EEE, dd-MM-yyyy HH:mm:ss z"
 
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x6
-
-    const-string v2, "EEE dd-MMM-yyyy HH:mm:ss z"
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x7
-
-    const-string v2, "EEE dd MMM yyyy HH:mm:ss z"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x8
-
-    const-string v2, "EEE dd-MMM-yyyy HH-mm-ss z"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x9
-
-    const-string v2, "EEE dd-MMM-yy HH:mm:ss z"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0xa
-
-    const-string v2, "EEE dd MMM yy HH:mm:ss z"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0xb
-
-    const-string v2, "EEE,dd-MMM-yy HH:mm:ss z"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0xc
-
-    const-string v2, "EEE,dd-MMM-yyyy HH:mm:ss z"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0xd
-
-    const-string v2, "EEE, dd-MM-yyyy HH:mm:ss z"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0xe
-
-    const-string v2, "EEE MMM d yyyy HH:mm:ss z"
-
-    aput-object v2, v0, v1
+    const-string v15, "EEE MMM d yyyy HH:mm:ss z"
 
     .line 49
+    filled-new-array/range {v1 .. v15}, [Ljava/lang/String;
+
+    move-result-object v0
+
     sput-object v0, Lokhttp3/internal/http/HttpDate;->BROWSER_COMPATIBLE_DATE_FORMAT_STRINGS:[Ljava/lang/String;
 
     .line 71
@@ -225,7 +165,7 @@
     :try_start_0
     array-length v4, v3
 
-    const/4 v5, 0x0
+    move v5, v2
 
     :goto_0
     if-ge v5, v4, :cond_4
@@ -295,11 +235,5 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_2
-
-    :goto_1
     throw p0
-
-    :goto_2
-    goto :goto_1
 .end method

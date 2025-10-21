@@ -69,7 +69,7 @@
 
 # virtual methods
 .method protected adapt(Lretrofit2/Call;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,40 +82,40 @@
     .end annotation
 
     .line 183
-    iget-object v0, p0, Lretrofit2/HttpServiceMethod$SuspendForResponse;->callAdapter:Lretrofit2/CallAdapter;
+    iget-object p0, p0, Lretrofit2/HttpServiceMethod$SuspendForResponse;->callAdapter:Lretrofit2/CallAdapter;
 
-    invoke-interface {v0, p1}, Lretrofit2/CallAdapter;->adapt(Lretrofit2/Call;)Ljava/lang/Object;
+    invoke-interface {p0, p1}, Lretrofit2/CallAdapter;->adapt(Lretrofit2/Call;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
-    check-cast p1, Lretrofit2/Call;
+    check-cast p0, Lretrofit2/Call;
 
     .line 186
-    array-length v0, p2
+    array-length p1, p2
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p1, p1, -0x1
 
-    aget-object p2, p2, v0
+    aget-object p1, p2, p1
 
-    check-cast p2, Lkotlin/coroutines/Continuation;
+    check-cast p1, Lkotlin/coroutines/Continuation;
 
     .line 191
     :try_start_0
-    invoke-static {p1, p2}, Lretrofit2/KotlinExtensions;->awaitResponse(Lretrofit2/Call;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    invoke-static {p0, p1}, Lretrofit2/KotlinExtensions;->awaitResponse(Lretrofit2/Call;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object p1
+    return-object p0
 
     :catch_0
-    move-exception p1
+    move-exception p0
 
     .line 193
-    invoke-static {p1, p2}, Lretrofit2/KotlinExtensions;->suspendAndThrow(Ljava/lang/Exception;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    invoke-static {p0, p1}, Lretrofit2/KotlinExtensions;->suspendAndThrow(Ljava/lang/Exception;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

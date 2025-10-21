@@ -16,12 +16,12 @@
 
 # virtual methods
 .method public makeAccessible(Ljava/lang/reflect/AccessibleObject;)V
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     .line 31
-    invoke-virtual {p1, v0}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
+    invoke-virtual {p1, p0}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
 
     return-void
 .end method

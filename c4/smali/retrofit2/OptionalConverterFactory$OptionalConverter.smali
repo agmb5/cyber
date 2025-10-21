@@ -24,7 +24,7 @@
         "Ljava/lang/Object;",
         "Lretrofit2/Converter<",
         "Lokhttp3/ResponseBody;",
-        "Lj$/util/Optional<",
+        "Ljava/util/Optional<",
         "TT;>;>;"
     }
 .end annotation
@@ -65,38 +65,6 @@
 
 
 # virtual methods
-.method public convert(Lokhttp3/ResponseBody;)Lj$/util/Optional;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lokhttp3/ResponseBody;",
-            ")",
-            "Lj$/util/Optional<",
-            "TT;>;"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    .line 54
-    iget-object v0, p0, Lretrofit2/OptionalConverterFactory$OptionalConverter;->delegate:Lretrofit2/Converter;
-
-    invoke-interface {v0, p1}, Lretrofit2/Converter;->convert(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    invoke-static {p1}, Lj$/util/Optional;->ofNullable(Ljava/lang/Object;)Lj$/util/Optional;
-
-    move-result-object p1
-
-    return-object p1
-.end method
-
 .method public bridge synthetic convert(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
@@ -108,9 +76,41 @@
     .line 44
     check-cast p1, Lokhttp3/ResponseBody;
 
-    invoke-virtual {p0, p1}, Lretrofit2/OptionalConverterFactory$OptionalConverter;->convert(Lokhttp3/ResponseBody;)Lj$/util/Optional;
+    invoke-virtual {p0, p1}, Lretrofit2/OptionalConverterFactory$OptionalConverter;->convert(Lokhttp3/ResponseBody;)Ljava/util/Optional;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
+.end method
+
+.method public convert(Lokhttp3/ResponseBody;)Ljava/util/Optional;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lokhttp3/ResponseBody;",
+            ")",
+            "Ljava/util/Optional<",
+            "TT;>;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 54
+    iget-object p0, p0, Lretrofit2/OptionalConverterFactory$OptionalConverter;->delegate:Lretrofit2/Converter;
+
+    invoke-interface {p0, p1}, Lretrofit2/Converter;->convert(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    invoke-static {p0}, Ljava/util/Optional;->ofNullable(Ljava/lang/Object;)Ljava/util/Optional;
+
+    move-result-object p0
+
+    return-object p0
 .end method

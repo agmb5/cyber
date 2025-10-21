@@ -22,7 +22,7 @@
 .end method
 
 .method public select(Ljava/net/URI;)Ljava/util/List;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -37,21 +37,21 @@
     if-eqz p1, :cond_0
 
     .line 34
-    sget-object p1, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
+    sget-object p0, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
 
-    invoke-static {p1}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {p0}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 
     .line 32
     :cond_0
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "uri must not be null"
+    const-string p1, "uri must not be null"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 .end method

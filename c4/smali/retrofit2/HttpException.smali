@@ -70,7 +70,7 @@
     const-string v0, "response == null"
 
     .line 24
-    invoke-static {p0, v0}, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall$$ExternalSyntheticBackport0;->m(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p0, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 25
     new-instance v0, Ljava/lang/StringBuilder;
@@ -81,15 +81,21 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {p0}, Lretrofit2/Response;->code()I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Lretrofit2/Response;->message()Ljava/lang/String;
 
@@ -97,7 +103,9 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -107,25 +115,25 @@
 
 # virtual methods
 .method public code()I
-    .locals 1
+    .locals 0
 
     .line 41
-    iget v0, p0, Lretrofit2/HttpException;->code:I
+    iget p0, p0, Lretrofit2/HttpException;->code:I
 
-    return v0
+    return p0
 .end method
 
 .method public message()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 46
-    iget-object v0, p0, Lretrofit2/HttpException;->message:Ljava/lang/String;
+    iget-object p0, p0, Lretrofit2/HttpException;->message:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public response()Lretrofit2/Response;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -138,7 +146,7 @@
     .end annotation
 
     .line 51
-    iget-object v0, p0, Lretrofit2/HttpException;->response:Lretrofit2/Response;
+    iget-object p0, p0, Lretrofit2/HttpException;->response:Lretrofit2/Response;
 
-    return-object v0
+    return-object p0
 .end method

@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public construct()Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -52,9 +52,9 @@
     .end annotation
 
     .line 168
-    new-instance v0, Ljava/util/ArrayDeque;
+    new-instance p0, Ljava/util/ArrayDeque;
 
-    invoke-direct {v0}, Ljava/util/ArrayDeque;-><init>()V
+    invoke-direct {p0}, Ljava/util/ArrayDeque;-><init>()V
 
-    return-object v0
+    return-object p0
 .end method

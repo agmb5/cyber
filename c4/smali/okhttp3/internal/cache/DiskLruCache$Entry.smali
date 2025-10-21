@@ -74,10 +74,12 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 978
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
+    move-result-object p2
 
-    move-result p2
+    .line 978
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->length()I
+
+    move-result v0
 
     const/4 v1, 0x0
 
@@ -88,7 +90,7 @@
     if-ge v1, v2, :cond_0
 
     .line 980
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 981
     iget-object v2, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->cleanFiles:[Ljava/io/File;
@@ -97,7 +99,7 @@
 
     iget-object v4, p1, Lokhttp3/internal/cache/DiskLruCache;->directory:Ljava/io/File;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
@@ -108,7 +110,7 @@
     const-string v2, ".tmp"
 
     .line 982
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 983
     iget-object v2, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->dirtyFiles:[Ljava/io/File;
@@ -117,7 +119,7 @@
 
     iget-object v4, p1, Lokhttp3/internal/cache/DiskLruCache;->directory:Ljava/io/File;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
@@ -126,7 +128,7 @@
     aput-object v3, v2, v1
 
     .line 984
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->setLength(I)V
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->setLength(I)V
 
     add-int/lit8 v1, v1, 0x1
 
@@ -137,7 +139,7 @@
 .end method
 
 .method private invalidLengths([Ljava/lang/String;)Ljava/io/IOException;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -145,29 +147,33 @@
     .end annotation
 
     .line 1011
-    new-instance v0, Ljava/io/IOException;
+    new-instance p0, Ljava/io/IOException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "unexpected journal line: "
+    const-string v1, "unexpected journal line: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-static {p1}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object p1
 
-    invoke-direct {v0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v0
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 
@@ -222,23 +228,17 @@
     :catch_0
     invoke-direct {p0, p1}, Lokhttp3/internal/cache/DiskLruCache$Entry;->invalidLengths([Ljava/lang/String;)Ljava/io/IOException;
 
-    move-result-object p1
+    move-result-object p0
 
-    throw p1
+    throw p0
 
     .line 991
     :cond_1
     invoke-direct {p0, p1}, Lokhttp3/internal/cache/DiskLruCache$Entry;->invalidLengths([Ljava/lang/String;)Ljava/io/IOException;
 
-    move-result-object p1
+    move-result-object p0
 
-    goto :goto_2
-
-    :goto_1
-    throw p1
-
-    :goto_2
-    goto :goto_1
+    throw p0
 .end method
 
 .method snapshot()Lokhttp3/internal/cache/DiskLruCache$Snapshot;
@@ -273,7 +273,7 @@
 
     const/4 v8, 0x0
 
-    const/4 v1, 0x0
+    move v1, v8
 
     .line 1025
     :goto_0
@@ -323,10 +323,8 @@
 
     return-object v9
 
-    :catch_0
-    nop
-
     .line 1031
+    :catch_0
     :goto_1
     iget-object v1, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
@@ -358,27 +356,21 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
     :catch_1
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     .line 1020
     :cond_2
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p0, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p0}, Ljava/lang/AssertionError;-><init>()V
 
-    goto :goto_3
-
-    :goto_2
-    throw v0
-
-    :goto_3
-    goto :goto_2
+    throw p0
 .end method
 
 .method writeLengths(Lokio/BufferedSink;)V
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -386,27 +378,27 @@
     .end annotation
 
     .line 1005
-    iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->lengths:[J
+    iget-object p0, p0, Lokhttp3/internal/cache/DiskLruCache$Entry;->lengths:[J
 
-    array-length v1, v0
+    array-length v0, p0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v2, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
-    aget-wide v3, v0, v2
+    aget-wide v2, p0, v1
 
-    const/16 v5, 0x20
+    const/16 v4, 0x20
 
     .line 1006
-    invoke-interface {p1, v5}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
+    invoke-interface {p1, v4}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-interface {v5, v3, v4}, Lokio/BufferedSink;->writeDecimalLong(J)Lokio/BufferedSink;
+    invoke-interface {v4, v2, v3}, Lokio/BufferedSink;->writeDecimalLong(J)Lokio/BufferedSink;
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 

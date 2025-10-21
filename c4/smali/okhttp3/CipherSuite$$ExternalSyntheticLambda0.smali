@@ -42,7 +42,7 @@
 
     invoke-static {p1, p2}, Lokhttp3/CipherSuite;->lambda$static$0(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

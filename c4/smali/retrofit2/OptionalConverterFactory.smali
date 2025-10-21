@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public responseBodyConverter(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lretrofit2/Retrofit;)Lretrofit2/Converter;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,35 +62,35 @@
     .line 34
     invoke-static {p1}, Lretrofit2/OptionalConverterFactory;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-class v1, Lj$/util/Optional;
+    const-class v0, Ljava/util/Optional;
 
-    if-eq v0, v1, :cond_0
+    if-eq p0, v0, :cond_0
 
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
-    return-object p1
+    return-object p0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     .line 38
     check-cast p1, Ljava/lang/reflect/ParameterizedType;
 
-    invoke-static {v0, p1}, Lretrofit2/OptionalConverterFactory;->getParameterUpperBound(ILjava/lang/reflect/ParameterizedType;)Ljava/lang/reflect/Type;
+    invoke-static {p0, p1}, Lretrofit2/OptionalConverterFactory;->getParameterUpperBound(ILjava/lang/reflect/ParameterizedType;)Ljava/lang/reflect/Type;
 
-    move-result-object p1
+    move-result-object p0
 
     .line 40
-    invoke-virtual {p3, p1, p2}, Lretrofit2/Retrofit;->responseBodyConverter(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;)Lretrofit2/Converter;
+    invoke-virtual {p3, p0, p2}, Lretrofit2/Retrofit;->responseBodyConverter(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;)Lretrofit2/Converter;
 
-    move-result-object p1
+    move-result-object p0
 
     .line 41
-    new-instance p2, Lretrofit2/OptionalConverterFactory$OptionalConverter;
+    new-instance p1, Lretrofit2/OptionalConverterFactory$OptionalConverter;
 
-    invoke-direct {p2, p1}, Lretrofit2/OptionalConverterFactory$OptionalConverter;-><init>(Lretrofit2/Converter;)V
+    invoke-direct {p1, p0}, Lretrofit2/OptionalConverterFactory$OptionalConverter;-><init>(Lretrofit2/Converter;)V
 
-    return-object p2
+    return-object p1
 .end method

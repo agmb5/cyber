@@ -126,17 +126,17 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .locals 0
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 33
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p0, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p0
 .end method
 
 .method private static add(Ljava/util/Map;Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)V

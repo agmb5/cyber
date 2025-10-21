@@ -75,18 +75,18 @@
 
 # virtual methods
 .method public cancel()V
-    .locals 1
+    .locals 0
 
     .line 97
-    iget-object v0, p0, Lokhttp3/RealCall;->transmitter:Lokhttp3/internal/connection/Transmitter;
+    iget-object p0, p0, Lokhttp3/RealCall;->transmitter:Lokhttp3/internal/connection/Transmitter;
 
-    invoke-virtual {v0}, Lokhttp3/internal/connection/Transmitter;->cancel()V
+    invoke-virtual {p0}, Lokhttp3/internal/connection/Transmitter;->cancel()V
 
     return-void
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -96,37 +96,37 @@
     .line 39
     invoke-virtual {p0}, Lokhttp3/RealCall;->clone()Lokhttp3/RealCall;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public bridge synthetic clone()Lokhttp3/Call;
-    .locals 1
+    .locals 0
 
     .line 39
     invoke-virtual {p0}, Lokhttp3/RealCall;->clone()Lokhttp3/RealCall;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public clone()Lokhttp3/RealCall;
-    .locals 3
+    .locals 2
 
     .line 114
     iget-object v0, p0, Lokhttp3/RealCall;->client:Lokhttp3/OkHttpClient;
 
     iget-object v1, p0, Lokhttp3/RealCall;->originalRequest:Lokhttp3/Request;
 
-    iget-boolean v2, p0, Lokhttp3/RealCall;->forWebSocket:Z
+    iget-boolean p0, p0, Lokhttp3/RealCall;->forWebSocket:Z
 
-    invoke-static {v0, v1, v2}, Lokhttp3/RealCall;->newRealCall(Lokhttp3/OkHttpClient;Lokhttp3/Request;Z)Lokhttp3/RealCall;
+    invoke-static {v0, v1, p0}, Lokhttp3/RealCall;->newRealCall(Lokhttp3/OkHttpClient;Lokhttp3/Request;Z)Lokhttp3/RealCall;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public enqueue(Lokhttp3/Callback;)V
@@ -294,7 +294,7 @@
 .end method
 
 .method getResponseWithInterceptorChain()Lokhttp3/Response;
-    .locals 11
+    .locals 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -445,9 +445,9 @@
     if-nez v3, :cond_1
 
     .line 240
-    iget-object v0, p0, Lokhttp3/RealCall;->transmitter:Lokhttp3/internal/connection/Transmitter;
+    iget-object p0, p0, Lokhttp3/RealCall;->transmitter:Lokhttp3/internal/connection/Transmitter;
 
-    invoke-virtual {v0, v1}, Lokhttp3/internal/connection/Transmitter;->noMoreExchanges(Ljava/io/IOException;)Ljava/io/IOException;
+    invoke-virtual {p0, v1}, Lokhttp3/internal/connection/Transmitter;->noMoreExchanges(Ljava/io/IOException;)Ljava/io/IOException;
 
     return-object v2
 
@@ -493,33 +493,35 @@
     :catchall_1
     move-exception v0
 
+    move v11, v2
+
     move-object v2, v0
 
-    const/4 v0, 0x1
+    move v0, v11
 
     :goto_0
     if-nez v0, :cond_2
 
     .line 240
-    iget-object v0, p0, Lokhttp3/RealCall;->transmitter:Lokhttp3/internal/connection/Transmitter;
+    iget-object p0, p0, Lokhttp3/RealCall;->transmitter:Lokhttp3/internal/connection/Transmitter;
 
-    invoke-virtual {v0, v1}, Lokhttp3/internal/connection/Transmitter;->noMoreExchanges(Ljava/io/IOException;)Ljava/io/IOException;
+    invoke-virtual {p0, v1}, Lokhttp3/internal/connection/Transmitter;->noMoreExchanges(Ljava/io/IOException;)Ljava/io/IOException;
 
     :cond_2
     throw v2
 .end method
 
 .method public isCanceled()Z
-    .locals 1
+    .locals 0
 
     .line 109
-    iget-object v0, p0, Lokhttp3/RealCall;->transmitter:Lokhttp3/internal/connection/Transmitter;
+    iget-object p0, p0, Lokhttp3/RealCall;->transmitter:Lokhttp3/internal/connection/Transmitter;
 
-    invoke-virtual {v0}, Lokhttp3/internal/connection/Transmitter;->isCanceled()Z
+    invoke-virtual {p0}, Lokhttp3/internal/connection/Transmitter;->isCanceled()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public declared-synchronized isExecuted()Z
@@ -546,42 +548,42 @@
 .end method
 
 .method redactedUrl()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 207
-    iget-object v0, p0, Lokhttp3/RealCall;->originalRequest:Lokhttp3/Request;
+    iget-object p0, p0, Lokhttp3/RealCall;->originalRequest:Lokhttp3/Request;
 
-    invoke-virtual {v0}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
+    invoke-virtual {p0}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lokhttp3/HttpUrl;->redact()Ljava/lang/String;
+    invoke-virtual {p0}, Lokhttp3/HttpUrl;->redact()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public request()Lokhttp3/Request;
-    .locals 1
+    .locals 0
 
     .line 69
-    iget-object v0, p0, Lokhttp3/RealCall;->originalRequest:Lokhttp3/Request;
+    iget-object p0, p0, Lokhttp3/RealCall;->originalRequest:Lokhttp3/Request;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .locals 0
 
     .line 101
-    iget-object v0, p0, Lokhttp3/RealCall;->transmitter:Lokhttp3/internal/connection/Transmitter;
+    iget-object p0, p0, Lokhttp3/RealCall;->transmitter:Lokhttp3/internal/connection/Transmitter;
 
-    invoke-virtual {v0}, Lokhttp3/internal/connection/Transmitter;->timeout()Lokio/Timeout;
+    invoke-virtual {p0}, Lokhttp3/internal/connection/Transmitter;->timeout()Lokio/Timeout;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method toLoggableString()Ljava/lang/String;
@@ -608,6 +610,8 @@
     :goto_0
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     .line 202
     iget-boolean v1, p0, Lokhttp3/RealCall;->forWebSocket:Z
 
@@ -623,20 +627,26 @@
     :goto_1
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " to "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     .line 203
     invoke-virtual {p0}, Lokhttp3/RealCall;->redactedUrl()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v0
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    return-object v0
+    move-result-object p0
+
+    return-object p0
 .end method

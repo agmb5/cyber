@@ -27,25 +27,28 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {}
+    bv = {
+        0x1,
+        0x0,
+        0x3
+    }
     d1 = {
-        "\u0000\u0010\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\u0008\u0004\u0010\u0007\u001a\u00020\u0003\"\u0004\u0008\u0000\u0010\u00002\u0008\u0010\u0002\u001a\u0004\u0018\u00010\u0001H\n\u00a2\u0006\u0004\u0008\u0004\u0010\u0005\u00a8\u0006\u0006"
+        "\u0000\u0016\n\u0000\n\u0002\u0010\u0002\n\u0002\u0008\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0003\n\u0002\u0008\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\u0008\u0000\u0010\u00022\u0008\u0010\u0003\u001a\u0004\u0018\u00010\u0004H\n\u00a2\u0006\u0002\u0008\u0005\u00a8\u0006\u0006"
     }
     d2 = {
+        "<anonymous>",
+        "",
         "T",
-        "L;",
         "it",
         "",
         "invoke",
-        "(L;)V",
-        "kotlin/Throwable",
-        "<anonymous>"
+        "retrofit2/KotlinExtensions$awaitResponse$2$1"
     }
     k = 0x3
     mv = {
         0x1,
-        0x4,
-        0x0
+        0x1,
+        0xf
     }
 .end annotation
 
@@ -76,18 +79,18 @@
 
     invoke-virtual {p0, p1}, Lretrofit2/KotlinExtensions$awaitResponse$$inlined$suspendCancellableCoroutine$lambda$1;->invoke(Ljava/lang/Throwable;)V
 
-    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)V
     .locals 0
 
     .line 89
-    iget-object p1, p0, Lretrofit2/KotlinExtensions$awaitResponse$$inlined$suspendCancellableCoroutine$lambda$1;->$this_awaitResponse$inlined:Lretrofit2/Call;
+    iget-object p0, p0, Lretrofit2/KotlinExtensions$awaitResponse$$inlined$suspendCancellableCoroutine$lambda$1;->$this_awaitResponse$inlined:Lretrofit2/Call;
 
-    invoke-interface {p1}, Lretrofit2/Call;->cancel()V
+    invoke-interface {p0}, Lretrofit2/Call;->cancel()V
 
     return-void
 .end method

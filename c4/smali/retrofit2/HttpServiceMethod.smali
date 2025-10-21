@@ -245,12 +245,12 @@
 
     move-result-object v3
 
-    const/4 v4, 0x1
+    move v4, v5
 
     goto :goto_0
 
     :cond_0
-    const/4 v4, 0x0
+    move v4, v2
 
     .line 60
     :goto_0
@@ -279,7 +279,7 @@
 
     move-result-object v6
 
-    const/4 v4, 0x0
+    move v4, v2
 
     .line 67
     :goto_1
@@ -400,6 +400,8 @@
 
     invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p0
+
     .line 73
     invoke-static {v1}, Lretrofit2/Utils;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
 
@@ -411,9 +413,13 @@
 
     invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p0
+
     const-string p2, "\' is not a valid response body type. Did you mean ResponseBody?"
 
     invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
 
     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -473,7 +479,7 @@
     .line 146
     invoke-virtual {p0, v0, p1}, Lretrofit2/HttpServiceMethod;->adapt(Lretrofit2/Call;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

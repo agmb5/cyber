@@ -71,7 +71,7 @@
     :cond_0
     invoke-super {p0, p1}, Ljava/util/concurrent/CompletableFuture;->cancel(Z)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

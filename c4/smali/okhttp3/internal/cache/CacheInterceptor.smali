@@ -31,7 +31,7 @@
 .end method
 
 .method private cacheWritingResponse(Lokhttp3/internal/cache/CacheRequest;Lokhttp3/Response;)Lokhttp3/Response;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -72,46 +72,46 @@
 
     invoke-direct {v2, p0, v1, p1, v0}, Lokhttp3/internal/cache/CacheInterceptor$1;-><init>(Lokhttp3/internal/cache/CacheInterceptor;Lokio/BufferedSource;Lokhttp3/internal/cache/CacheRequest;Lokio/BufferedSink;)V
 
-    const-string p1, "Content-Type"
+    const-string p0, "Content-Type"
 
     .line 211
-    invoke-virtual {p2, p1}, Lokhttp3/Response;->header(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p2, p0}, Lokhttp3/Response;->header(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
     .line 212
     invoke-virtual {p2}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lokhttp3/ResponseBody;->contentLength()J
+    invoke-virtual {p1}, Lokhttp3/ResponseBody;->contentLength()J
 
     move-result-wide v0
 
     .line 213
     invoke-virtual {p2}, Lokhttp3/Response;->newBuilder()Lokhttp3/Response$Builder;
 
-    move-result-object p2
+    move-result-object p1
 
-    new-instance v3, Lokhttp3/internal/http/RealResponseBody;
+    new-instance p2, Lokhttp3/internal/http/RealResponseBody;
 
     .line 214
     invoke-static {v2}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
     move-result-object v2
 
-    invoke-direct {v3, p1, v0, v1, v2}, Lokhttp3/internal/http/RealResponseBody;-><init>(Ljava/lang/String;JLokio/BufferedSource;)V
+    invoke-direct {p2, p0, v0, v1, v2}, Lokhttp3/internal/http/RealResponseBody;-><init>(Ljava/lang/String;JLokio/BufferedSource;)V
 
-    invoke-virtual {p2, v3}, Lokhttp3/Response$Builder;->body(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
+    invoke-virtual {p1, p2}, Lokhttp3/Response$Builder;->body(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
 
-    move-result-object p1
+    move-result-object p0
 
     .line 215
-    invoke-virtual {p1}, Lokhttp3/Response$Builder;->build()Lokhttp3/Response;
+    invoke-virtual {p0}, Lokhttp3/Response$Builder;->build()Lokhttp3/Response;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method private static combine(Lokhttp3/Headers;Lokhttp3/Headers;)Lokhttp3/Headers;
@@ -129,7 +129,7 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     if-ge v3, v1, :cond_3
@@ -489,69 +489,69 @@
     if-nez v3, :cond_3
 
     .line 74
-    new-instance v0, Lokhttp3/Response$Builder;
+    new-instance p0, Lokhttp3/Response$Builder;
 
-    invoke-direct {v0}, Lokhttp3/Response$Builder;-><init>()V
+    invoke-direct {p0}, Lokhttp3/Response$Builder;-><init>()V
 
     .line 75
     invoke-interface {p1}, Lokhttp3/Interceptor$Chain;->request()Lokhttp3/Request;
 
     move-result-object p1
 
-    invoke-virtual {v0, p1}, Lokhttp3/Response$Builder;->request(Lokhttp3/Request;)Lokhttp3/Response$Builder;
+    invoke-virtual {p0, p1}, Lokhttp3/Response$Builder;->request(Lokhttp3/Request;)Lokhttp3/Response$Builder;
 
-    move-result-object p1
+    move-result-object p0
 
-    sget-object v0, Lokhttp3/Protocol;->HTTP_1_1:Lokhttp3/Protocol;
+    sget-object p1, Lokhttp3/Protocol;->HTTP_1_1:Lokhttp3/Protocol;
 
     .line 76
-    invoke-virtual {p1, v0}, Lokhttp3/Response$Builder;->protocol(Lokhttp3/Protocol;)Lokhttp3/Response$Builder;
+    invoke-virtual {p0, p1}, Lokhttp3/Response$Builder;->protocol(Lokhttp3/Protocol;)Lokhttp3/Response$Builder;
 
-    move-result-object p1
+    move-result-object p0
 
-    const/16 v0, 0x1f8
+    const/16 p1, 0x1f8
 
     .line 77
-    invoke-virtual {p1, v0}, Lokhttp3/Response$Builder;->code(I)Lokhttp3/Response$Builder;
+    invoke-virtual {p0, p1}, Lokhttp3/Response$Builder;->code(I)Lokhttp3/Response$Builder;
 
-    move-result-object p1
+    move-result-object p0
 
-    const-string v0, "Unsatisfiable Request (only-if-cached)"
+    const-string p1, "Unsatisfiable Request (only-if-cached)"
 
     .line 78
-    invoke-virtual {p1, v0}, Lokhttp3/Response$Builder;->message(Ljava/lang/String;)Lokhttp3/Response$Builder;
+    invoke-virtual {p0, p1}, Lokhttp3/Response$Builder;->message(Ljava/lang/String;)Lokhttp3/Response$Builder;
 
-    move-result-object p1
+    move-result-object p0
 
-    sget-object v0, Lokhttp3/internal/Util;->EMPTY_RESPONSE:Lokhttp3/ResponseBody;
+    sget-object p1, Lokhttp3/internal/Util;->EMPTY_RESPONSE:Lokhttp3/ResponseBody;
 
     .line 79
-    invoke-virtual {p1, v0}, Lokhttp3/Response$Builder;->body(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
+    invoke-virtual {p0, p1}, Lokhttp3/Response$Builder;->body(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
 
-    move-result-object p1
+    move-result-object p0
 
     const-wide/16 v0, -0x1
 
     .line 80
-    invoke-virtual {p1, v0, v1}, Lokhttp3/Response$Builder;->sentRequestAtMillis(J)Lokhttp3/Response$Builder;
+    invoke-virtual {p0, v0, v1}, Lokhttp3/Response$Builder;->sentRequestAtMillis(J)Lokhttp3/Response$Builder;
 
-    move-result-object p1
+    move-result-object p0
 
     .line 81
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    invoke-virtual {p1, v0, v1}, Lokhttp3/Response$Builder;->receivedResponseAtMillis(J)Lokhttp3/Response$Builder;
+    invoke-virtual {p0, v0, v1}, Lokhttp3/Response$Builder;->receivedResponseAtMillis(J)Lokhttp3/Response$Builder;
 
-    move-result-object p1
+    move-result-object p0
 
     .line 82
-    invoke-virtual {p1}, Lokhttp3/Response$Builder;->build()Lokhttp3/Response;
+    invoke-virtual {p0}, Lokhttp3/Response$Builder;->build()Lokhttp3/Response;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 
     :cond_3
     if-nez v2, :cond_4
@@ -559,23 +559,23 @@
     .line 87
     invoke-virtual {v3}, Lokhttp3/Response;->newBuilder()Lokhttp3/Response$Builder;
 
-    move-result-object p1
+    move-result-object p0
 
     .line 88
     invoke-static {v3}, Lokhttp3/internal/cache/CacheInterceptor;->stripBody(Lokhttp3/Response;)Lokhttp3/Response;
 
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Lokhttp3/Response$Builder;->cacheResponse(Lokhttp3/Response;)Lokhttp3/Response$Builder;
-
     move-result-object p1
+
+    invoke-virtual {p0, p1}, Lokhttp3/Response$Builder;->cacheResponse(Lokhttp3/Response;)Lokhttp3/Response$Builder;
+
+    move-result-object p0
 
     .line 89
-    invoke-virtual {p1}, Lokhttp3/Response$Builder;->build()Lokhttp3/Response;
+    invoke-virtual {p0}, Lokhttp3/Response$Builder;->build()Lokhttp3/Response;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 
     .line 94
     :cond_4
@@ -685,9 +685,9 @@
     invoke-interface {p1}, Lokhttp3/internal/cache/InternalCache;->trackConditionalCacheHit()V
 
     .line 117
-    iget-object p1, p0, Lokhttp3/internal/cache/CacheInterceptor;->cache:Lokhttp3/internal/cache/InternalCache;
+    iget-object p0, p0, Lokhttp3/internal/cache/CacheInterceptor;->cache:Lokhttp3/internal/cache/InternalCache;
 
-    invoke-interface {p1, v3, v0}, Lokhttp3/internal/cache/InternalCache;->update(Lokhttp3/Response;Lokhttp3/Response;)V
+    invoke-interface {p0, v3, v0}, Lokhttp3/internal/cache/InternalCache;->update(Lokhttp3/Response;Lokhttp3/Response;)V
 
     return-object v0
 
@@ -756,9 +756,9 @@
     .line 133
     invoke-direct {p0, v0, p1}, Lokhttp3/internal/cache/CacheInterceptor;->cacheWritingResponse(Lokhttp3/internal/cache/CacheRequest;Lokhttp3/Response;)Lokhttp3/Response;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 
     .line 136
     :cond_8
@@ -774,9 +774,9 @@
 
     .line 138
     :try_start_1
-    iget-object v0, p0, Lokhttp3/internal/cache/CacheInterceptor;->cache:Lokhttp3/internal/cache/InternalCache;
+    iget-object p0, p0, Lokhttp3/internal/cache/CacheInterceptor;->cache:Lokhttp3/internal/cache/InternalCache;
 
-    invoke-interface {v0, v2}, Lokhttp3/internal/cache/InternalCache;->remove(Lokhttp3/Request;)V
+    invoke-interface {p0, v2}, Lokhttp3/internal/cache/InternalCache;->remove(Lokhttp3/Request;)V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -785,17 +785,17 @@
     return-object p1
 
     :catchall_0
-    move-exception p1
+    move-exception p0
 
     if-eqz v0, :cond_a
 
     .line 98
     invoke-virtual {v0}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lokhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
+    invoke-static {p1}, Lokhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
 
     :cond_a
-    throw p1
+    throw p0
 .end method

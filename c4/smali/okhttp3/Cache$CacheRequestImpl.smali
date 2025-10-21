@@ -110,9 +110,9 @@
 
     .line 465
     :try_start_1
-    iget-object v0, p0, Lokhttp3/Cache$CacheRequestImpl;->editor:Lokhttp3/internal/cache/DiskLruCache$Editor;
+    iget-object p0, p0, Lokhttp3/Cache$CacheRequestImpl;->editor:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
-    invoke-virtual {v0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->abort()V
+    invoke-virtual {p0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->abort()V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -120,7 +120,7 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     .line 462
     :try_start_2
@@ -128,14 +128,14 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public body()Lokio/Sink;
-    .locals 1
+    .locals 0
 
     .line 471
-    iget-object v0, p0, Lokhttp3/Cache$CacheRequestImpl;->body:Lokio/Sink;
+    iget-object p0, p0, Lokhttp3/Cache$CacheRequestImpl;->body:Lokio/Sink;
 
-    return-object v0
+    return-object p0
 .end method

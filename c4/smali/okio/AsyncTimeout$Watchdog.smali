@@ -34,15 +34,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
     .line 312
     :catch_0
     :goto_0
     :try_start_0
-    const-class v0, Lokio/AsyncTimeout;
+    const-class p0, Lokio/AsyncTimeout;
 
-    monitor-enter v0
+    monitor-enter p0
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -50,62 +50,56 @@
     :try_start_1
     invoke-static {}, Lokio/AsyncTimeout;->awaitTimeout()Lokio/AsyncTimeout;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 316
-    monitor-exit v0
+    monitor-exit p0
 
     goto :goto_0
 
     .line 320
     :cond_0
-    sget-object v2, Lokio/AsyncTimeout;->head:Lokio/AsyncTimeout;
+    sget-object v1, Lokio/AsyncTimeout;->head:Lokio/AsyncTimeout;
 
-    if-ne v1, v2, :cond_1
+    if-ne v0, v1, :cond_1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 321
-    sput-object v1, Lokio/AsyncTimeout;->head:Lokio/AsyncTimeout;
+    sput-object v0, Lokio/AsyncTimeout;->head:Lokio/AsyncTimeout;
 
     .line 322
-    monitor-exit v0
+    monitor-exit p0
 
     return-void
 
     .line 324
     :cond_1
-    monitor-exit v0
+    monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 327
     :try_start_2
-    invoke-virtual {v1}, Lokio/AsyncTimeout;->timedOut()V
+    invoke-virtual {v0}, Lokio/AsyncTimeout;->timedOut()V
     :try_end_2
     .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v1
+    move-exception v0
 
     .line 324
     :try_start_3
-    monitor-exit v0
+    monitor-exit p0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     :try_start_4
-    goto :goto_2
+    throw v0
     :try_end_4
     .catch Ljava/lang/InterruptedException; {:try_start_4 .. :try_end_4} :catch_0
-
-    :goto_1
-    throw v1
-
-    :goto_2
-    goto :goto_1
 .end method

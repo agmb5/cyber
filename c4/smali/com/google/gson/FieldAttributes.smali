@@ -26,7 +26,7 @@
 
 # virtual methods
 .method get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalAccessException;
@@ -34,17 +34,17 @@
     .end annotation
 
     .line 150
-    iget-object v0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
+    iget-object p0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
 
-    invoke-virtual {v0, p1}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -56,17 +56,17 @@
     .end annotation
 
     .line 111
-    iget-object v0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
+    iget-object p0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
 
-    invoke-virtual {v0, p1}, Ljava/lang/reflect/Field;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+    invoke-virtual {p0, p1}, Ljava/lang/reflect/Field;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public getAnnotations()Ljava/util/Collection;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -77,21 +77,21 @@
     .end annotation
 
     .line 121
-    iget-object v0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
+    iget-object p0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
 
-    invoke-virtual {v0}, Ljava/lang/reflect/Field;->getAnnotations()[Ljava/lang/annotation/Annotation;
+    invoke-virtual {p0}, Ljava/lang/reflect/Field;->getAnnotations()[Ljava/lang/annotation/Annotation;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getDeclaredClass()Ljava/lang/Class;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -101,30 +101,30 @@
     .end annotation
 
     .line 100
-    iget-object v0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
+    iget-object p0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
 
-    invoke-virtual {v0}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
+    invoke-virtual {p0}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getDeclaredType()Ljava/lang/reflect/Type;
-    .locals 1
+    .locals 0
 
     .line 80
-    iget-object v0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
+    iget-object p0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
 
-    invoke-virtual {v0}, Ljava/lang/reflect/Field;->getGenericType()Ljava/lang/reflect/Type;
+    invoke-virtual {p0}, Ljava/lang/reflect/Field;->getGenericType()Ljava/lang/reflect/Type;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getDeclaringClass()Ljava/lang/Class;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -134,62 +134,62 @@
     .end annotation
 
     .line 53
-    iget-object v0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
+    iget-object p0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
 
-    invoke-virtual {v0}, Ljava/lang/reflect/Field;->getDeclaringClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Ljava/lang/reflect/Field;->getDeclaringClass()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 60
-    iget-object v0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
+    iget-object p0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
 
-    invoke-virtual {v0}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public hasModifier(I)Z
-    .locals 1
+    .locals 0
 
     .line 135
-    iget-object v0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
+    iget-object p0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
 
-    invoke-virtual {v0}, Ljava/lang/reflect/Field;->getModifiers()I
+    invoke-virtual {p0}, Ljava/lang/reflect/Field;->getModifiers()I
 
-    move-result v0
+    move-result p0
 
-    and-int/2addr p1, v0
+    and-int/2addr p0, p1
 
-    if-eqz p1, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return p1
+    return p0
 .end method
 
 .method isSynthetic()Z
-    .locals 1
+    .locals 0
 
     .line 159
-    iget-object v0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
+    iget-object p0, p0, Lcom/google/gson/FieldAttributes;->field:Ljava/lang/reflect/Field;
 
-    invoke-virtual {v0}, Ljava/lang/reflect/Field;->isSynthetic()Z
+    invoke-virtual {p0}, Ljava/lang/reflect/Field;->isSynthetic()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

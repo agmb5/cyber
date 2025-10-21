@@ -68,18 +68,18 @@
 
 # virtual methods
 .method public cancel()V
-    .locals 1
+    .locals 0
 
     .line 113
-    iget-object v0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
+    iget-object p0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
 
-    invoke-interface {v0}, Lretrofit2/Call;->cancel()V
+    invoke-interface {p0}, Lretrofit2/Call;->cancel()V
 
     return-void
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -89,13 +89,13 @@
     .line 65
     invoke-virtual {p0}, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->clone()Lretrofit2/Call;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public clone()Lretrofit2/Call;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -109,13 +109,13 @@
 
     iget-object v1, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->callbackExecutor:Ljava/util/concurrent/Executor;
 
-    iget-object v2, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
+    iget-object p0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
 
-    invoke-interface {v2}, Lretrofit2/Call;->clone()Lretrofit2/Call;
+    invoke-interface {p0}, Lretrofit2/Call;->clone()Lretrofit2/Call;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v0, v1, v2}, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;-><init>(Ljava/util/concurrent/Executor;Lretrofit2/Call;)V
+    invoke-direct {v0, v1, p0}, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;-><init>(Ljava/util/concurrent/Executor;Lretrofit2/Call;)V
 
     return-object v0
 .end method
@@ -133,7 +133,7 @@
     const-string v0, "callback == null"
 
     .line 76
-    invoke-static {p1, v0}, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall$$ExternalSyntheticBackport0;->m(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 78
     iget-object v0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
@@ -148,7 +148,7 @@
 .end method
 
 .method public execute()Lretrofit2/Response;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -164,63 +164,63 @@
     .end annotation
 
     .line 108
-    iget-object v0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
+    iget-object p0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
 
-    invoke-interface {v0}, Lretrofit2/Call;->execute()Lretrofit2/Response;
+    invoke-interface {p0}, Lretrofit2/Call;->execute()Lretrofit2/Response;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public isCanceled()Z
-    .locals 1
+    .locals 0
 
     .line 118
-    iget-object v0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
+    iget-object p0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
 
-    invoke-interface {v0}, Lretrofit2/Call;->isCanceled()Z
+    invoke-interface {p0}, Lretrofit2/Call;->isCanceled()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public isExecuted()Z
-    .locals 1
+    .locals 0
 
     .line 103
-    iget-object v0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
+    iget-object p0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
 
-    invoke-interface {v0}, Lretrofit2/Call;->isExecuted()Z
+    invoke-interface {p0}, Lretrofit2/Call;->isExecuted()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public request()Lokhttp3/Request;
-    .locals 1
+    .locals 0
 
     .line 129
-    iget-object v0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
+    iget-object p0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
 
-    invoke-interface {v0}, Lretrofit2/Call;->request()Lokhttp3/Request;
+    invoke-interface {p0}, Lretrofit2/Call;->request()Lokhttp3/Request;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .locals 0
 
     .line 134
-    iget-object v0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
+    iget-object p0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
 
-    invoke-interface {v0}, Lretrofit2/Call;->timeout()Lokio/Timeout;
+    invoke-interface {p0}, Lretrofit2/Call;->timeout()Lokio/Timeout;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

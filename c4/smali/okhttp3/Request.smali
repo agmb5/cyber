@@ -87,14 +87,14 @@
 
 # virtual methods
 .method public body()Lokhttp3/RequestBody;
-    .locals 1
+    .locals 0
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
     .line 69
-    iget-object v0, p0, Lokhttp3/Request;->body:Lokhttp3/RequestBody;
+    iget-object p0, p0, Lokhttp3/Request;->body:Lokhttp3/RequestBody;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public cacheControl()Lokhttp3/CacheControl;
@@ -122,22 +122,22 @@
 .end method
 
 .method public header(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .locals 0
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
     .line 61
-    iget-object v0, p0, Lokhttp3/Request;->headers:Lokhttp3/Headers;
+    iget-object p0, p0, Lokhttp3/Request;->headers:Lokhttp3/Headers;
 
-    invoke-virtual {v0, p1}, Lokhttp3/Headers;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, p1}, Lokhttp3/Headers;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public headers(Ljava/lang/String;)Ljava/util/List;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -150,44 +150,44 @@
     .end annotation
 
     .line 65
-    iget-object v0, p0, Lokhttp3/Request;->headers:Lokhttp3/Headers;
+    iget-object p0, p0, Lokhttp3/Request;->headers:Lokhttp3/Headers;
 
-    invoke-virtual {v0, p1}, Lokhttp3/Headers;->values(Ljava/lang/String;)Ljava/util/List;
+    invoke-virtual {p0, p1}, Lokhttp3/Headers;->values(Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public headers()Lokhttp3/Headers;
-    .locals 1
+    .locals 0
 
     .line 57
-    iget-object v0, p0, Lokhttp3/Request;->headers:Lokhttp3/Headers;
+    iget-object p0, p0, Lokhttp3/Request;->headers:Lokhttp3/Headers;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public isHttps()Z
-    .locals 1
+    .locals 0
 
     .line 106
-    iget-object v0, p0, Lokhttp3/Request;->url:Lokhttp3/HttpUrl;
+    iget-object p0, p0, Lokhttp3/Request;->url:Lokhttp3/HttpUrl;
 
-    invoke-virtual {v0}, Lokhttp3/HttpUrl;->isHttps()Z
+    invoke-virtual {p0}, Lokhttp3/HttpUrl;->isHttps()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public method()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 53
-    iget-object v0, p0, Lokhttp3/Request;->method:Ljava/lang/String;
+    iget-object p0, p0, Lokhttp3/Request;->method:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public newBuilder()Lokhttp3/Request$Builder;
@@ -211,13 +211,13 @@
 
     invoke-virtual {p0, v0}, Lokhttp3/Request;->tag(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public tag(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -232,17 +232,17 @@
     .end annotation
 
     .line 89
-    iget-object v0, p0, Lokhttp3/Request;->tags:Ljava/util/Map;
+    iget-object p0, p0, Lokhttp3/Request;->tags:Ljava/util/Map;
 
-    invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, p0}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -257,42 +257,56 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lokhttp3/Request;->method:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     const-string v1, ", url="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lokhttp3/Request;->url:Lokhttp3/HttpUrl;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     const-string v1, ", tags="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lokhttp3/Request;->tags:Ljava/util/Map;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const/16 v1, 0x7d
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v0
 
-    return-object v0
+    iget-object p0, p0, Lokhttp3/Request;->tags:Ljava/util/Map;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    const/16 v0, 0x7d
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public url()Lokhttp3/HttpUrl;
-    .locals 1
+    .locals 0
 
     .line 49
-    iget-object v0, p0, Lokhttp3/Request;->url:Lokhttp3/HttpUrl;
+    iget-object p0, p0, Lokhttp3/Request;->url:Lokhttp3/HttpUrl;
 
-    return-object v0
+    return-object p0
 .end method

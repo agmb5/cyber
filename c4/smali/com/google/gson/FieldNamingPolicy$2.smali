@@ -34,11 +34,11 @@
     .line 55
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-static {p1}, Lcom/google/gson/FieldNamingPolicy$2;->upperCaseFirstLetter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p0}, Lcom/google/gson/FieldNamingPolicy$2;->upperCaseFirstLetter(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

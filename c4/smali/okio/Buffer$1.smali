@@ -45,48 +45,52 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .locals 1
 
     .line 95
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v1, p0, Lokio/Buffer$1;->this$0:Lokio/Buffer;
+    iget-object p0, p0, Lokio/Buffer$1;->this$0:Lokio/Buffer;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v1, ".outputStream()"
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, ".outputStream()"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public write(I)V
-    .locals 1
+    .locals 0
 
     .line 81
-    iget-object v0, p0, Lokio/Buffer$1;->this$0:Lokio/Buffer;
+    iget-object p0, p0, Lokio/Buffer$1;->this$0:Lokio/Buffer;
 
     int-to-byte p1, p1
 
-    invoke-virtual {v0, p1}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
+    invoke-virtual {p0, p1}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     return-void
 .end method
 
 .method public write([BII)V
-    .locals 1
+    .locals 0
 
     .line 85
-    iget-object v0, p0, Lokio/Buffer$1;->this$0:Lokio/Buffer;
+    iget-object p0, p0, Lokio/Buffer$1;->this$0:Lokio/Buffer;
 
-    invoke-virtual {v0, p1, p2, p3}, Lokio/Buffer;->write([BII)Lokio/Buffer;
+    invoke-virtual {p0, p1, p2, p3}, Lokio/Buffer;->write([BII)Lokio/Buffer;
 
     return-void
 .end method

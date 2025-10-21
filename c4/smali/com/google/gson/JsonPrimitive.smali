@@ -257,7 +257,7 @@
 
     const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    move v4, v3
 
     :goto_0
     if-ge v4, v2, :cond_2
@@ -285,14 +285,14 @@
 
 # virtual methods
 .method public bridge synthetic deepCopy()Lcom/google/gson/JsonElement;
-    .locals 1
+    .locals 0
 
     .line 33
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->deepCopy()Lcom/google/gson/JsonPrimitive;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public deepCopy()Lcom/google/gson/JsonPrimitive;
@@ -302,7 +302,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 6
+    .locals 5
 
     const/4 v0, 0x1
 
@@ -338,14 +338,14 @@
     if-nez v2, :cond_3
 
     .line 318
-    iget-object p1, p1, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    iget-object p0, p1, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
-    if-nez p1, :cond_2
+    if-nez p0, :cond_2
 
     goto :goto_0
 
     :cond_2
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_0
     return v0
@@ -367,28 +367,28 @@
     .line 321
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsNumber()Ljava/lang/Number;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v2}, Ljava/lang/Number;->longValue()J
+    invoke-virtual {p0}, Ljava/lang/Number;->longValue()J
 
     move-result-wide v2
 
     invoke-virtual {p1}, Lcom/google/gson/JsonPrimitive;->getAsNumber()Ljava/lang/Number;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-virtual {p1}, Ljava/lang/Number;->longValue()J
+    invoke-virtual {p0}, Ljava/lang/Number;->longValue()J
 
-    move-result-wide v4
+    move-result-wide p0
 
-    cmp-long p1, v2, v4
+    cmp-long p0, v2, p0
 
-    if-nez p1, :cond_4
+    if-nez p0, :cond_4
 
     goto :goto_1
 
     :cond_4
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_1
     return v0
@@ -410,42 +410,42 @@
     .line 324
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsNumber()Ljava/lang/Number;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v2}, Ljava/lang/Number;->doubleValue()D
+    invoke-virtual {p0}, Ljava/lang/Number;->doubleValue()D
 
     move-result-wide v2
 
     .line 327
     invoke-virtual {p1}, Lcom/google/gson/JsonPrimitive;->getAsNumber()Ljava/lang/Number;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-virtual {p1}, Ljava/lang/Number;->doubleValue()D
+    invoke-virtual {p0}, Ljava/lang/Number;->doubleValue()D
 
-    move-result-wide v4
+    move-result-wide p0
 
-    cmpl-double p1, v2, v4
+    cmpl-double v4, v2, p0
 
-    if-eqz p1, :cond_7
+    if-eqz v4, :cond_7
 
     .line 328
     invoke-static {v2, v3}, Ljava/lang/Double;->isNaN(D)Z
 
-    move-result p1
+    move-result v2
 
-    if-eqz p1, :cond_6
+    if-eqz v2, :cond_6
 
-    invoke-static {v4, v5}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-static {p0, p1}, Ljava/lang/Double;->isNaN(D)Z
 
-    move-result p1
+    move-result p0
 
-    if-eqz p1, :cond_6
+    if-eqz p0, :cond_6
 
     goto :goto_2
 
     :cond_6
-    const/4 v0, 0x0
+    move v0, v1
 
     :cond_7
     :goto_2
@@ -453,13 +453,13 @@
 
     .line 330
     :cond_8
-    iget-object p1, p1, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    iget-object p0, p1, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
-    invoke-virtual {v2, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 
     :cond_9
     :goto_3
@@ -483,13 +483,13 @@
     :cond_0
     new-instance v0, Ljava/math/BigDecimal;
 
-    iget-object v1, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
 
     :goto_0
     return-object v0
@@ -512,14 +512,14 @@
     :cond_0
     new-instance v0, Ljava/math/BigInteger;
 
-    iget-object v1, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
     .line 220
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/math/BigInteger;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/math/BigInteger;-><init>(Ljava/lang/String;)V
 
     :goto_0
     return-object v0
@@ -538,36 +538,36 @@
     .line 137
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsBooleanWrapper()Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     .line 140
     :cond_0
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+    invoke-static {p0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method getAsBooleanWrapper()Ljava/lang/Boolean;
-    .locals 1
+    .locals 0
 
     .line 126
-    iget-object v0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/Boolean;
+    check-cast p0, Ljava/lang/Boolean;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getAsByte()B
@@ -582,42 +582,42 @@
 
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsNumber()Ljava/lang/Number;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Ljava/lang/Number;->byteValue()B
+    invoke-virtual {p0}, Ljava/lang/Number;->byteValue()B
 
-    move-result v0
+    move-result p0
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Ljava/lang/Byte;->parseByte(Ljava/lang/String;)B
+    invoke-static {p0}, Ljava/lang/Byte;->parseByte(Ljava/lang/String;)B
 
-    move-result v0
+    move-result p0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public getAsCharacter()C
-    .locals 2
+    .locals 1
 
     .line 274
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public getAsDouble()D
@@ -632,9 +632,9 @@
 
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsNumber()Ljava/lang/Number;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Ljava/lang/Number;->doubleValue()D
+    invoke-virtual {p0}, Ljava/lang/Number;->doubleValue()D
 
     move-result-wide v0
 
@@ -643,9 +643,9 @@
     :cond_0
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
+    invoke-static {p0}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
 
     move-result-wide v0
 
@@ -665,25 +665,25 @@
 
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsNumber()Ljava/lang/Number;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Ljava/lang/Number;->floatValue()F
+    invoke-virtual {p0}, Ljava/lang/Number;->floatValue()F
 
-    move-result v0
+    move-result p0
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static {p0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
-    move-result v0
+    move-result p0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public getAsInt()I
@@ -698,25 +698,25 @@
 
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsNumber()Ljava/lang/Number;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Ljava/lang/Number;->intValue()I
+    invoke-virtual {p0}, Ljava/lang/Number;->intValue()I
 
-    move-result v0
+    move-result p0
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {p0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public getAsLong()J
@@ -731,9 +731,9 @@
 
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsNumber()Ljava/lang/Number;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Ljava/lang/Number;->longValue()J
+    invoke-virtual {p0}, Ljava/lang/Number;->longValue()J
 
     move-result-wide v0
 
@@ -742,9 +742,9 @@
     :cond_0
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static {p0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -762,21 +762,21 @@
 
     if-eqz v1, :cond_0
 
-    new-instance v1, Lcom/google/gson/internal/LazilyParsedNumber;
+    new-instance v0, Lcom/google/gson/internal/LazilyParsedNumber;
 
-    check-cast v0, Ljava/lang/String;
+    iget-object p0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
-    invoke-direct {v1, v0}, Lcom/google/gson/internal/LazilyParsedNumber;-><init>(Ljava/lang/String;)V
+    check-cast p0, Ljava/lang/String;
+
+    invoke-direct {v0, p0}, Lcom/google/gson/internal/LazilyParsedNumber;-><init>(Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_0
-    move-object v1, v0
-
-    check-cast v1, Ljava/lang/Number;
+    check-cast v0, Ljava/lang/Number;
 
     :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 .method public getAsShort()S
@@ -791,25 +791,25 @@
 
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsNumber()Ljava/lang/Number;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Ljava/lang/Number;->shortValue()S
+    invoke-virtual {p0}, Ljava/lang/Number;->shortValue()S
 
-    move-result v0
+    move-result p0
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Ljava/lang/Short;->parseShort(Ljava/lang/String;)S
+    invoke-static {p0}, Ljava/lang/Short;->parseShort(Ljava/lang/String;)S
 
-    move-result v0
+    move-result p0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public getAsString()Ljava/lang/String;
@@ -825,13 +825,13 @@
     .line 181
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsNumber()Ljava/lang/Number;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 182
     :cond_0
@@ -844,21 +844,21 @@
     .line 183
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsBooleanWrapper()Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Ljava/lang/Boolean;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Boolean;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 185
     :cond_1
-    iget-object v0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast p0, Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public hashCode()I
@@ -869,9 +869,9 @@
 
     if-nez v0, :cond_0
 
-    const/16 v0, 0x1f
+    const/16 p0, 0x1f
 
-    return v0
+    return p0
 
     .line 297
     :cond_0
@@ -886,9 +886,9 @@
     .line 298
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsNumber()Ljava/lang/Number;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Ljava/lang/Number;->longValue()J
+    invoke-virtual {p0}, Ljava/lang/Number;->longValue()J
 
     move-result-wide v2
 
@@ -897,9 +897,9 @@
 
     xor-long/2addr v0, v2
 
-    long-to-int v1, v0
+    long-to-int p0, v0
 
-    return v1
+    return p0
 
     .line 301
     :cond_1
@@ -912,9 +912,9 @@
     .line 302
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsNumber()Ljava/lang/Number;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Ljava/lang/Number;->doubleValue()D
+    invoke-virtual {p0}, Ljava/lang/Number;->doubleValue()D
 
     move-result-wide v2
 
@@ -928,42 +928,42 @@
     :cond_2
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public isBoolean()Z
-    .locals 1
+    .locals 0
 
     .line 116
-    iget-object v0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
-    instance-of v0, v0, Ljava/lang/Boolean;
+    instance-of p0, p0, Ljava/lang/Boolean;
 
-    return v0
+    return p0
 .end method
 
 .method public isNumber()Z
-    .locals 1
+    .locals 0
 
     .line 150
-    iget-object v0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
-    instance-of v0, v0, Ljava/lang/Number;
+    instance-of p0, p0, Ljava/lang/Number;
 
-    return v0
+    return p0
 .end method
 
 .method public isString()Z
-    .locals 1
+    .locals 0
 
     .line 170
-    iget-object v0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
-    instance-of v0, v0, Ljava/lang/String;
+    instance-of p0, p0, Ljava/lang/String;
 
-    return v0
+    return p0
 .end method
 
 .method setValue(Ljava/lang/Object;)V

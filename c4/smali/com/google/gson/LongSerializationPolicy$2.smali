@@ -29,16 +29,16 @@
 
 # virtual methods
 .method public serialize(Ljava/lang/Long;)Lcom/google/gson/JsonElement;
-    .locals 1
+    .locals 0
 
     .line 47
-    new-instance v0, Lcom/google/gson/JsonPrimitive;
+    new-instance p0, Lcom/google/gson/JsonPrimitive;
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
-    invoke-direct {v0, p1}, Lcom/google/gson/JsonPrimitive;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lcom/google/gson/JsonPrimitive;-><init>(Ljava/lang/String;)V
 
-    return-object v0
+    return-object p0
 .end method

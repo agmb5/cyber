@@ -102,7 +102,7 @@
 
     const/4 v0, 0x0
 
-    const/4 v3, 0x0
+    move v3, v0
 
     .line 1081
     :cond_0
@@ -125,12 +125,12 @@
 
     const/4 v1, 0x1
 
-    const/4 v5, 0x1
+    move v5, v1
 
     goto :goto_0
 
     :cond_1
-    const/4 v5, 0x0
+    move v5, v0
 
     :goto_0
     move-object v1, p0
@@ -177,92 +177,92 @@
 .end method
 
 .method private isDot(Ljava/lang/String;)Z
-    .locals 1
+    .locals 0
 
-    const-string v0, "."
+    const-string p0, "."
 
     .line 1493
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_1
+    if-nez p0, :cond_1
 
-    const-string v0, "%2e"
+    const-string p0, "%2e"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, p0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result p1
+    move-result p0
 
-    if-eqz p1, :cond_0
+    if-eqz p0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 p1, 0x1
+    const/4 p0, 0x1
 
     :goto_1
-    return p1
+    return p0
 .end method
 
 .method private isDotDot(Ljava/lang/String;)Z
-    .locals 1
+    .locals 0
 
-    const-string v0, ".."
+    const-string p0, ".."
 
     .line 1497
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_1
+    if-nez p0, :cond_1
 
-    const-string v0, "%2e."
+    const-string p0, "%2e."
 
     .line 1498
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, p0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_1
+    if-nez p0, :cond_1
 
-    const-string v0, ".%2e"
+    const-string p0, ".%2e"
 
     .line 1499
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, p0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_1
+    if-nez p0, :cond_1
 
-    const-string v0, "%2e%2e"
+    const-string p0, "%2e%2e"
 
     .line 1500
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, p0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result p1
+    move-result p0
 
-    if-eqz p1, :cond_0
+    if-eqz p0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 p1, 0x1
+    const/4 p0, 0x1
 
     :goto_1
-    return p1
+    return p0
 .end method
 
 .method private static parsePort(Ljava/lang/String;II)I
@@ -315,7 +315,7 @@
 .end method
 
 .method private pop()V
-    .locals 3
+    .locals 2
 
     .line 1514
     iget-object v0, p0, Lokhttp3/HttpUrl$Builder;->encodedPathSegments:Ljava/util/List;
@@ -350,23 +350,23 @@
     if-nez v0, :cond_0
 
     .line 1518
-    iget-object v0, p0, Lokhttp3/HttpUrl$Builder;->encodedPathSegments:Ljava/util/List;
+    iget-object p0, p0, Lokhttp3/HttpUrl$Builder;->encodedPathSegments:Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {p0}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v0
 
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    invoke-interface {v0, v2, v1}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p0, v0, v1}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
     .line 1520
     :cond_0
-    iget-object v0, p0, Lokhttp3/HttpUrl$Builder;->encodedPathSegments:Ljava/util/List;
+    iget-object p0, p0, Lokhttp3/HttpUrl$Builder;->encodedPathSegments:Ljava/util/List;
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :goto_0
     return-void
@@ -513,11 +513,11 @@
     if-eqz p4, :cond_3
 
     .line 1488
-    iget-object p1, p0, Lokhttp3/HttpUrl$Builder;->encodedPathSegments:Ljava/util/List;
+    iget-object p0, p0, Lokhttp3/HttpUrl$Builder;->encodedPathSegments:Ljava/util/List;
 
-    const-string p2, ""
+    const-string p1, ""
 
-    invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_3
     return-void
@@ -658,7 +658,7 @@
 
     if-ge p2, p3, :cond_4
 
-    const/4 v0, 0x1
+    move v0, v3
 
     goto :goto_2
 
@@ -819,63 +819,49 @@
 
 # virtual methods
 .method public addEncodedPathSegment(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 6
+    .locals 7
 
-    if-eqz p1, :cond_0
+    const-string v0, "encodedPathSegment == null"
 
-    const/4 v2, 0x0
+    .line 1060
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    const/4 v3, 0x0
 
     .line 1062
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v3
+    move-result v4
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    move-object v0, p0
+    move-object v1, p0
 
-    move-object v1, p1
+    move-object v2, p1
 
-    invoke-direct/range {v0 .. v5}, Lokhttp3/HttpUrl$Builder;->push(Ljava/lang/String;IIZZ)V
+    invoke-direct/range {v1 .. v6}, Lokhttp3/HttpUrl$Builder;->push(Ljava/lang/String;IIZZ)V
 
     return-object p0
-
-    .line 1060
-    :cond_0
-    new-instance p1, Ljava/lang/NullPointerException;
-
-    const-string v0, "encodedPathSegment == null"
-
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
 .end method
 
 .method public addEncodedPathSegments(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
     .locals 1
 
-    if-eqz p1, :cond_0
+    const-string v0, "encodedPathSegments == null"
+
+    .line 1073
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     const/4 v0, 0x1
 
     .line 1075
     invoke-direct {p0, p1, v0}, Lokhttp3/HttpUrl$Builder;->addPathSegments(Ljava/lang/String;Z)Lokhttp3/HttpUrl$Builder;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
-
-    .line 1073
-    :cond_0
-    new-instance p1, Ljava/lang/NullPointerException;
-
-    const-string v0, "encodedPathSegments == null"
-
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
+    return-object p0
 .end method
 
 .method public addEncodedQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
@@ -885,7 +871,10 @@
         .end annotation
     .end param
 
-    if-eqz p1, :cond_2
+    const-string v0, "encodedName == null"
+
+    .line 1160
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 1161
     iget-object v0, p0, Lokhttp3/HttpUrl$Builder;->encodedQueryNamesAndValues:Ljava/util/List;
@@ -954,76 +943,52 @@
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     return-object p0
-
-    .line 1160
-    :cond_2
-    new-instance p1, Ljava/lang/NullPointerException;
-
-    const-string p2, "encodedName == null"
-
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
 .end method
 
 .method public addPathSegment(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 6
+    .locals 7
 
-    if-eqz p1, :cond_0
+    const-string v0, "pathSegment == null"
 
-    const/4 v2, 0x0
+    .line 1044
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    const/4 v3, 0x0
 
     .line 1045
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v3
-
-    const/4 v4, 0x0
+    move-result v4
 
     const/4 v5, 0x0
 
-    move-object v0, p0
+    const/4 v6, 0x0
 
-    move-object v1, p1
+    move-object v1, p0
 
-    invoke-direct/range {v0 .. v5}, Lokhttp3/HttpUrl$Builder;->push(Ljava/lang/String;IIZZ)V
+    move-object v2, p1
+
+    invoke-direct/range {v1 .. v6}, Lokhttp3/HttpUrl$Builder;->push(Ljava/lang/String;IIZZ)V
 
     return-object p0
-
-    .line 1044
-    :cond_0
-    new-instance p1, Ljava/lang/NullPointerException;
-
-    const-string v0, "pathSegment == null"
-
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
 .end method
 
 .method public addPathSegments(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
     .locals 1
 
-    if-eqz p1, :cond_0
+    const-string v0, "pathSegments == null"
+
+    .line 1054
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     const/4 v0, 0x0
 
     .line 1055
     invoke-direct {p0, p1, v0}, Lokhttp3/HttpUrl$Builder;->addPathSegments(Ljava/lang/String;Z)Lokhttp3/HttpUrl$Builder;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
-
-    .line 1054
-    :cond_0
-    new-instance p1, Ljava/lang/NullPointerException;
-
-    const-string v0, "pathSegments == null"
-
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
+    return-object p0
 .end method
 
 .method public addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
@@ -1033,7 +998,10 @@
         .end annotation
     .end param
 
-    if-eqz p1, :cond_2
+    const-string v0, "name == null"
+
+    .line 1148
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 1149
     iget-object v0, p0, Lokhttp3/HttpUrl$Builder;->encodedQueryNamesAndValues:Ljava/util/List;
@@ -1102,20 +1070,10 @@
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     return-object p0
-
-    .line 1148
-    :cond_2
-    new-instance p1, Ljava/lang/NullPointerException;
-
-    const-string p2, "name == null"
-
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
 .end method
 
 .method public build()Lokhttp3/HttpUrl;
-    .locals 2
+    .locals 1
 
     .line 1253
     iget-object v0, p0, Lokhttp3/HttpUrl$Builder;->scheme:Ljava/lang/String;
@@ -1136,23 +1094,23 @@
 
     .line 1254
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "host == null"
+    const-string v0, "host == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 1253
     :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "scheme == null"
+    const-string v0, "scheme == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method effectivePort()I
@@ -1168,9 +1126,9 @@
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lokhttp3/HttpUrl$Builder;->scheme:Ljava/lang/String;
+    iget-object p0, p0, Lokhttp3/HttpUrl$Builder;->scheme:Ljava/lang/String;
 
-    invoke-static {v0}, Lokhttp3/HttpUrl;->defaultPort(Ljava/lang/String;)I
+    invoke-static {p0}, Lokhttp3/HttpUrl;->defaultPort(Ljava/lang/String;)I
 
     move-result v0
 
@@ -1217,46 +1175,42 @@
 .end method
 
 .method public encodedPassword(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 6
+    .locals 7
 
-    if-eqz p1, :cond_0
+    const-string v0, "encodedPassword == null"
 
-    const/4 v2, 0x1
+    .line 1015
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    const/4 v3, 0x1
 
     const/4 v4, 0x0
 
-    const/4 v5, 0x1
+    const/4 v5, 0x0
 
-    const-string v1, " \"\':;<=>@[]^`{}|/\\?#"
+    const/4 v6, 0x1
 
-    move-object v0, p1
+    const-string v2, " \"\':;<=>@[]^`{}|/\\?#"
+
+    move-object v1, p1
 
     .line 1016
-    invoke-static/range {v0 .. v5}, Lokhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZ)Ljava/lang/String;
+    invoke-static/range {v1 .. v6}, Lokhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZ)Ljava/lang/String;
 
     move-result-object p1
 
     iput-object p1, p0, Lokhttp3/HttpUrl$Builder;->encodedPassword:Ljava/lang/String;
 
     return-object p0
-
-    .line 1015
-    :cond_0
-    new-instance p1, Ljava/lang/NullPointerException;
-
-    const-string v0, "encodedPassword == null"
-
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
 .end method
 
 .method public encodedPath(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 3
+    .locals 2
 
-    if-eqz p1, :cond_1
+    const-string v0, "encodedPath == null"
+
+    .line 1122
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     const-string v0, "/"
 
@@ -1280,35 +1234,29 @@
 
     .line 1124
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "unexpected encodedPath: "
+    const-string v1, "unexpected encodedPath: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object p1
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v0
+    move-result-object p1
 
-    .line 1122
-    :cond_1
-    new-instance p1, Ljava/lang/NullPointerException;
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    const-string v0, "encodedPath == null"
-
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
+    throw p0
 .end method
 
 .method public encodedQuery(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
@@ -1355,40 +1303,33 @@
 .end method
 
 .method public encodedUsername(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 6
+    .locals 7
 
-    if-eqz p1, :cond_0
+    const-string v0, "encodedUsername == null"
 
-    const/4 v2, 0x1
+    .line 1002
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    const/4 v3, 0x1
 
     const/4 v4, 0x0
 
-    const/4 v5, 0x1
+    const/4 v5, 0x0
 
-    const-string v1, " \"\':;<=>@[]^`{}|/\\?#"
+    const/4 v6, 0x1
 
-    move-object v0, p1
+    const-string v2, " \"\':;<=>@[]^`{}|/\\?#"
+
+    move-object v1, p1
 
     .line 1003
-    invoke-static/range {v0 .. v5}, Lokhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZ)Ljava/lang/String;
+    invoke-static/range {v1 .. v6}, Lokhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZ)Ljava/lang/String;
 
     move-result-object p1
 
     iput-object p1, p0, Lokhttp3/HttpUrl$Builder;->encodedUsername:Ljava/lang/String;
 
     return-object p0
-
-    .line 1002
-    :cond_0
-    new-instance p1, Ljava/lang/NullPointerException;
-
-    const-string v0, "encodedUsername == null"
-
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
 .end method
 
 .method public fragment(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
@@ -1430,9 +1371,12 @@
 .end method
 
 .method public host(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 3
+    .locals 2
 
-    if-eqz p1, :cond_1
+    const-string v0, "host == null"
+
+    .line 1026
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     const/4 v0, 0x0
 
@@ -1454,35 +1398,29 @@
 
     .line 1028
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "unexpected host: "
+    const-string v1, "unexpected host: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object p1
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v0
+    move-result-object p1
 
-    .line 1026
-    :cond_1
-    new-instance p1, Ljava/lang/NullPointerException;
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    const-string v0, "host == null"
-
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
+    throw p0
 .end method
 
 .method parse(Lokhttp3/HttpUrl;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
@@ -1586,34 +1524,40 @@
 
     .line 1326
     :cond_1
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Expected URL scheme \'http\' or \'https\' but was \'"
+    const-string v2, "Expected URL scheme \'http\' or \'https\' but was \'"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     .line 1327
     invoke-virtual {v10, v8, v12}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v3, "\'"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v2
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    throw v1
+    move-result-object v1
+
+    const-string v2, "\'"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     :cond_2
     if-eqz v1, :cond_12
@@ -1714,11 +1658,11 @@
     :goto_1
     add-int/2addr v9, v2
 
+    move/from16 v16, v8
+
+    move/from16 v17, v16
+
     move v2, v9
-
-    const/16 v16, 0x0
-
-    const/16 v17, 0x0
 
     :goto_2
     const-string v1, "@/\\?#"
@@ -1738,7 +1682,7 @@
     goto :goto_3
 
     :cond_6
-    const/4 v1, -0x1
+    move v1, v13
 
     :goto_3
     if-eq v1, v13, :cond_b
@@ -1817,11 +1761,17 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     invoke-virtual {v2, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -1869,15 +1819,19 @@
     move v12, v9
 
     .line 1376
-    new-instance v15, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v1, v0, Lokhttp3/HttpUrl$Builder;->encodedPassword:Ljava/lang/String;
+    iget-object v3, v0, Lokhttp3/HttpUrl$Builder;->encodedPassword:Ljava/lang/String;
 
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v15, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
+
+    invoke-virtual {v1, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
 
     const/4 v5, 0x1
 
@@ -1899,9 +1853,11 @@
 
     move-result-object v1
 
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -1951,32 +1907,38 @@
 
     .line 1393
     :cond_c
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "Invalid URL port: \""
+    const-string v2, "Invalid URL port: \""
 
-    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     .line 1394
     invoke-virtual {v10, v3, v12}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v2
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    throw v1
+    move-result-object v1
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     .line 1397
     :cond_d
@@ -2108,89 +2070,82 @@
 
     .line 1401
     :cond_11
-    new-instance v3, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Invalid URL host: \""
+    const-string v5, "Invalid URL host: \""
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
 
     .line 1402
     invoke-virtual {v10, v2, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    invoke-direct {v3, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    throw v3
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     .line 1332
     :cond_12
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v2, "Expected URL scheme \'http\' or \'https\' but no colon was found"
+    const-string v1, "Expected URL scheme \'http\' or \'https\' but no colon was found"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_9
-
-    :goto_8
-    throw v1
-
-    :goto_9
-    goto :goto_8
+    throw v0
 .end method
 
 .method public password(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 6
+    .locals 7
 
-    if-eqz p1, :cond_0
+    const-string v0, "password == null"
 
-    const/4 v2, 0x0
+    .line 1009
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     const/4 v3, 0x0
 
     const/4 v4, 0x0
 
-    const/4 v5, 0x1
+    const/4 v5, 0x0
 
-    const-string v1, " \"\':;<=>@[]^`{}|/\\?#"
+    const/4 v6, 0x1
 
-    move-object v0, p1
+    const-string v2, " \"\':;<=>@[]^`{}|/\\?#"
+
+    move-object v1, p1
 
     .line 1010
-    invoke-static/range {v0 .. v5}, Lokhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZ)Ljava/lang/String;
+    invoke-static/range {v1 .. v6}, Lokhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZ)Ljava/lang/String;
 
     move-result-object p1
 
     iput-object p1, p0, Lokhttp3/HttpUrl$Builder;->encodedPassword:Ljava/lang/String;
 
     return-object p0
-
-    .line 1009
-    :cond_0
-    new-instance p1, Ljava/lang/NullPointerException;
-
-    const-string v0, "password == null"
-
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
 .end method
 
 .method public port(I)Lokhttp3/HttpUrl$Builder;
-    .locals 3
+    .locals 2
 
     if-lez p1, :cond_0
 
@@ -2205,25 +2160,29 @@
 
     .line 1034
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "unexpected port: "
+    const-string v1, "unexpected port: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object p1
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v0
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method public query(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
@@ -2280,7 +2239,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-ge v2, v0, :cond_0
@@ -2404,7 +2363,10 @@
 .method public removeAllEncodedQueryParameters(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
     .locals 7
 
-    if-eqz p1, :cond_1
+    const-string v0, "encodedName == null"
+
+    .line 1192
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 1193
     iget-object v0, p0, Lokhttp3/HttpUrl$Builder;->encodedQueryNamesAndValues:Ljava/util/List;
@@ -2435,22 +2397,15 @@
     invoke-direct {p0, p1}, Lokhttp3/HttpUrl$Builder;->removeAllCanonicalQueryParameters(Ljava/lang/String;)V
 
     return-object p0
-
-    .line 1192
-    :cond_1
-    new-instance p1, Ljava/lang/NullPointerException;
-
-    const-string v0, "encodedName == null"
-
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
 .end method
 
 .method public removeAllQueryParameters(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
     .locals 7
 
-    if-eqz p1, :cond_1
+    const-string v0, "name == null"
+
+    .line 1183
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 1184
     iget-object v0, p0, Lokhttp3/HttpUrl$Builder;->encodedQueryNamesAndValues:Ljava/util/List;
@@ -2481,16 +2436,6 @@
     invoke-direct {p0, p1}, Lokhttp3/HttpUrl$Builder;->removeAllCanonicalQueryParameters(Ljava/lang/String;)V
 
     return-object p0
-
-    .line 1183
-    :cond_1
-    new-instance p1, Ljava/lang/NullPointerException;
-
-    const-string v0, "name == null"
-
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
 .end method
 
 .method public removePathSegment(I)Lokhttp3/HttpUrl$Builder;
@@ -2522,9 +2467,12 @@
 .end method
 
 .method public scheme(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 3
+    .locals 2
 
-    if-eqz p1, :cond_2
+    const-string v0, "scheme == null"
+
+    .line 984
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     const-string v0, "http"
 
@@ -2558,64 +2506,61 @@
 
     .line 990
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "unexpected scheme: "
+    const-string v1, "unexpected scheme: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object p1
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v0
+    move-result-object p1
 
-    .line 984
-    :cond_2
-    new-instance p1, Ljava/lang/NullPointerException;
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    const-string v0, "scheme == null"
-
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
+    throw p0
 .end method
 
 .method public setEncodedPathSegment(ILjava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 9
+    .locals 10
 
-    if-eqz p2, :cond_1
+    const-string v0, "encodedPathSegment == null"
 
-    const/4 v1, 0x0
+    .line 1102
+    invoke-static {p2, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    const/4 v2, 0x0
 
     .line 1104
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v3
 
-    const/4 v4, 0x1
-
-    const/4 v5, 0x0
+    const/4 v5, 0x1
 
     const/4 v6, 0x0
 
-    const/4 v7, 0x1
+    const/4 v7, 0x0
 
-    const/4 v8, 0x0
+    const/4 v8, 0x1
 
-    const-string v3, " \"<>^`{}|/\\?#"
+    const/4 v9, 0x0
 
-    move-object v0, p2
+    const-string v4, " \"<>^`{}|/\\?#"
 
-    invoke-static/range {v0 .. v8}, Lokhttp3/HttpUrl;->canonicalize(Ljava/lang/String;IILjava/lang/String;ZZZZLjava/nio/charset/Charset;)Ljava/lang/String;
+    move-object v1, p2
+
+    invoke-static/range {v1 .. v9}, Lokhttp3/HttpUrl;->canonicalize(Ljava/lang/String;IILjava/lang/String;ZZZZLjava/nio/charset/Charset;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -2641,35 +2586,29 @@
 
     .line 1108
     :cond_0
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "unexpected path segment: "
+    const-string v0, "unexpected path segment: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p2
+    move-result-object p1
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw p1
+    move-result-object p1
 
-    .line 1102
-    :cond_1
-    new-instance p1, Ljava/lang/NullPointerException;
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    const-string p2, "encodedPathSegment == null"
-
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
+    throw p0
 .end method
 
 .method public setEncodedQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
@@ -2689,32 +2628,35 @@
 .end method
 
 .method public setPathSegment(ILjava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 9
+    .locals 10
 
-    if-eqz p2, :cond_1
+    const-string v0, "pathSegment == null"
 
-    const/4 v1, 0x0
+    .line 1090
+    invoke-static {p2, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    const/4 v2, 0x0
 
     .line 1091
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result v2
-
-    const/4 v4, 0x0
+    move-result v3
 
     const/4 v5, 0x0
 
     const/4 v6, 0x0
 
-    const/4 v7, 0x1
+    const/4 v7, 0x0
 
-    const/4 v8, 0x0
+    const/4 v8, 0x1
 
-    const-string v3, " \"<>^`{}|/\\?#"
+    const/4 v9, 0x0
 
-    move-object v0, p2
+    const-string v4, " \"<>^`{}|/\\?#"
 
-    invoke-static/range {v0 .. v8}, Lokhttp3/HttpUrl;->canonicalize(Ljava/lang/String;IILjava/lang/String;ZZZZLjava/nio/charset/Charset;)Ljava/lang/String;
+    move-object v1, p2
+
+    invoke-static/range {v1 .. v9}, Lokhttp3/HttpUrl;->canonicalize(Ljava/lang/String;IILjava/lang/String;ZZZZLjava/nio/charset/Charset;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -2740,35 +2682,29 @@
 
     .line 1094
     :cond_0
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "unexpected path segment: "
+    const-string v0, "unexpected path segment: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p2
+    move-result-object p1
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw p1
+    move-result-object p1
 
-    .line 1090
-    :cond_1
-    new-instance p1, Ljava/lang/NullPointerException;
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    const-string p2, "pathSegment == null"
-
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
+    throw p0
 .end method
 
 .method public setQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
@@ -2971,52 +2907,45 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 1304
-    iget-object v1, p0, Lokhttp3/HttpUrl$Builder;->encodedFragment:Ljava/lang/String;
+    iget-object p0, p0, Lokhttp3/HttpUrl$Builder;->encodedFragment:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1307
     :cond_a
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public username(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-    .locals 6
+    .locals 7
 
-    if-eqz p1, :cond_0
+    const-string v0, "username == null"
 
-    const/4 v2, 0x0
+    .line 996
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     const/4 v3, 0x0
 
     const/4 v4, 0x0
 
-    const/4 v5, 0x1
+    const/4 v5, 0x0
 
-    const-string v1, " \"\':;<=>@[]^`{}|/\\?#"
+    const/4 v6, 0x1
 
-    move-object v0, p1
+    const-string v2, " \"\':;<=>@[]^`{}|/\\?#"
+
+    move-object v1, p1
 
     .line 997
-    invoke-static/range {v0 .. v5}, Lokhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZ)Ljava/lang/String;
+    invoke-static/range {v1 .. v6}, Lokhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZ)Ljava/lang/String;
 
     move-result-object p1
 
     iput-object p1, p0, Lokhttp3/HttpUrl$Builder;->encodedUsername:Ljava/lang/String;
 
     return-object p0
-
-    .line 996
-    :cond_0
-    new-instance p1, Ljava/lang/NullPointerException;
-
-    const-string v0, "username == null"
-
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
 .end method

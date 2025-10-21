@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public execute()V
-    .locals 8
+    .locals 5
 
     .line 393
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$IntervalPingRunnable;->this$0:Lokhttp3/internal/http2/Http2Connection;
@@ -67,15 +67,15 @@
 
     move-result-wide v3
 
-    const/4 v5, 0x1
+    cmp-long v1, v1, v3
 
-    const/4 v6, 0x0
+    const/4 v2, 0x1
 
-    cmp-long v7, v1, v3
+    const/4 v3, 0x0
 
-    if-gez v7, :cond_0
+    if-gez v1, :cond_0
 
-    const/4 v1, 0x1
+    move v1, v2
 
     goto :goto_0
 
@@ -85,7 +85,7 @@
 
     invoke-static {v1}, Lokhttp3/internal/http2/Http2Connection;->access$208(Lokhttp3/internal/http2/Http2Connection;)J
 
-    const/4 v1, 0x0
+    move v1, v3
 
     .line 400
     :goto_0
@@ -96,25 +96,25 @@
     if-eqz v1, :cond_1
 
     .line 402
-    iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$IntervalPingRunnable;->this$0:Lokhttp3/internal/http2/Http2Connection;
+    iget-object p0, p0, Lokhttp3/internal/http2/Http2Connection$IntervalPingRunnable;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {v0, v1}, Lokhttp3/internal/http2/Http2Connection;->access$000(Lokhttp3/internal/http2/Http2Connection;Ljava/io/IOException;)V
+    invoke-static {p0, v0}, Lokhttp3/internal/http2/Http2Connection;->access$000(Lokhttp3/internal/http2/Http2Connection;Ljava/io/IOException;)V
 
     goto :goto_1
 
     .line 404
     :cond_1
-    iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$IntervalPingRunnable;->this$0:Lokhttp3/internal/http2/Http2Connection;
+    iget-object p0, p0, Lokhttp3/internal/http2/Http2Connection$IntervalPingRunnable;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
-    invoke-virtual {v0, v6, v5, v6}, Lokhttp3/internal/http2/Http2Connection;->writePing(ZII)V
+    invoke-virtual {p0, v3, v2, v3}, Lokhttp3/internal/http2/Http2Connection;->writePing(ZII)V
 
     :goto_1
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     .line 400
     :try_start_1
@@ -122,5 +122,5 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p0
 .end method

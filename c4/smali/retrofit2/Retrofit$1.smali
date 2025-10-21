@@ -89,9 +89,9 @@
     .line 155
     invoke-virtual {p2, p0, p3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 
     :cond_0
     if-eqz p3, :cond_1
@@ -115,26 +115,26 @@
     .line 159
     iget-object v0, p0, Lretrofit2/Retrofit$1;->platform:Lretrofit2/Platform;
 
-    iget-object v1, p0, Lretrofit2/Retrofit$1;->val$service:Ljava/lang/Class;
+    iget-object p0, p0, Lretrofit2/Retrofit$1;->val$service:Ljava/lang/Class;
 
-    invoke-virtual {v0, p2, v1, p1, p3}, Lretrofit2/Platform;->invokeDefaultMethod(Ljava/lang/reflect/Method;Ljava/lang/Class;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p2, p0, p1, p3}, Lretrofit2/Platform;->invokeDefaultMethod(Ljava/lang/reflect/Method;Ljava/lang/Class;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
     goto :goto_1
 
     .line 160
     :cond_2
-    iget-object p1, p0, Lretrofit2/Retrofit$1;->this$0:Lretrofit2/Retrofit;
+    iget-object p0, p0, Lretrofit2/Retrofit$1;->this$0:Lretrofit2/Retrofit;
 
-    invoke-virtual {p1, p2}, Lretrofit2/Retrofit;->loadServiceMethod(Ljava/lang/reflect/Method;)Lretrofit2/ServiceMethod;
+    invoke-virtual {p0, p2}, Lretrofit2/Retrofit;->loadServiceMethod(Ljava/lang/reflect/Method;)Lretrofit2/ServiceMethod;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-virtual {p1, p3}, Lretrofit2/ServiceMethod;->invoke([Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p3}, Lretrofit2/ServiceMethod;->invoke([Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
     :goto_1
-    return-object p1
+    return-object p0
 .end method

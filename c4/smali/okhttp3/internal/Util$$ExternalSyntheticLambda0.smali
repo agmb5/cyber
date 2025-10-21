@@ -40,9 +40,9 @@
 
     check-cast p2, Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+    invoke-static {p1, p2}, Lokhttp3/internal/Util;->$r8$lambda$Ds7dtVnGrflEw4-LvNOxA0cDT4Y(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

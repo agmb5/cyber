@@ -146,7 +146,7 @@
 
 # virtual methods
 .method defaultCallAdapterFactories(Ljava/util/concurrent/Executor;)Ljava/util/List;
-    .locals 3
+    .locals 2
     .param p1    # Ljava/util/concurrent/Executor;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
@@ -169,28 +169,28 @@
     invoke-direct {v0, p1}, Lretrofit2/DefaultCallAdapterFactory;-><init>(Ljava/util/concurrent/Executor;)V
 
     .line 79
-    iget-boolean p1, p0, Lretrofit2/Platform;->hasJava8Types:Z
+    iget-boolean p0, p0, Lretrofit2/Platform;->hasJava8Types:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 p1, 0x2
+    const/4 p0, 0x2
 
-    new-array p1, p1, [Lretrofit2/CallAdapter$Factory;
+    new-array p0, p0, [Lretrofit2/CallAdapter$Factory;
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     .line 80
-    sget-object v2, Lretrofit2/CompletableFutureCallAdapterFactory;->INSTANCE:Lretrofit2/CallAdapter$Factory;
+    sget-object v1, Lretrofit2/CompletableFutureCallAdapterFactory;->INSTANCE:Lretrofit2/CallAdapter$Factory;
 
-    aput-object v2, p1, v1
+    aput-object v1, p0, p1
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    aput-object v0, p1, v1
+    aput-object v0, p0, p1
 
-    invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object p1
+    move-result-object p0
 
     goto :goto_0
 
@@ -198,43 +198,43 @@
     :cond_0
     invoke-static {v0}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object p1
+    move-result-object p0
 
     :goto_0
-    return-object p1
+    return-object p0
 .end method
 
 .method defaultCallAdapterFactoriesSize()I
-    .locals 1
+    .locals 0
 
     .line 85
-    iget-boolean v0, p0, Lretrofit2/Platform;->hasJava8Types:Z
+    iget-boolean p0, p0, Lretrofit2/Platform;->hasJava8Types:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x2
+    const/4 p0, 0x2
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method defaultCallbackExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .locals 0
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method defaultConverterFactories()Ljava/util/List;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -246,38 +246,38 @@
     .end annotation
 
     .line 89
-    iget-boolean v0, p0, Lretrofit2/Platform;->hasJava8Types:Z
+    iget-boolean p0, p0, Lretrofit2/Platform;->hasJava8Types:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    sget-object v0, Lretrofit2/OptionalConverterFactory;->INSTANCE:Lretrofit2/Converter$Factory;
+    sget-object p0, Lretrofit2/OptionalConverterFactory;->INSTANCE:Lretrofit2/Converter$Factory;
 
-    invoke-static {v0}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {p0}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
     goto :goto_0
 
     :cond_0
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method defaultConverterFactoriesSize()I
-    .locals 1
+    .locals 0
 
     .line 93
-    iget-boolean v0, p0, Lretrofit2/Platform;->hasJava8Types:Z
+    iget-boolean p0, p0, Lretrofit2/Platform;->hasJava8Types:Z
 
-    return v0
+    return p0
 .end method
 
 .method varargs invokeDefaultMethod(Ljava/lang/reflect/Method;Ljava/lang/Class;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -302,34 +302,34 @@
     .end annotation
 
     .line 106
-    iget-object v0, p0, Lretrofit2/Platform;->lookupConstructor:Ljava/lang/reflect/Constructor;
+    iget-object p0, p0, Lretrofit2/Platform;->lookupConstructor:Ljava/lang/reflect/Constructor;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aput-object p2, v1, v2
+    aput-object p2, v0, v1
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    const/4 v3, -0x1
+    const/4 v2, -0x1
 
     .line 107
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v2
 
-    aput-object v3, v1, v2
+    aput-object v2, v0, v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Ljava/lang/invoke/MethodHandles$Lookup;
+    check-cast p0, Ljava/lang/invoke/MethodHandles$Lookup;
 
     goto :goto_0
 
@@ -337,46 +337,46 @@
     :cond_0
     invoke-static {}, Ljava/lang/invoke/MethodHandles;->lookup()Ljava/lang/invoke/MethodHandles$Lookup;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 109
     :goto_0
-    invoke-virtual {v0, p1, p2}, Ljava/lang/invoke/MethodHandles$Lookup;->unreflectSpecial(Ljava/lang/reflect/Method;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;
+    invoke-virtual {p0, p1, p2}, Ljava/lang/invoke/MethodHandles$Lookup;->unreflectSpecial(Ljava/lang/reflect/Method;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-virtual {p1, p3}, Ljava/lang/invoke/MethodHandle;->bindTo(Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;
+    invoke-virtual {p0, p3}, Ljava/lang/invoke/MethodHandle;->bindTo(Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-virtual {p1, p4}, Ljava/lang/invoke/MethodHandle;->invokeWithArguments([Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p4}, Ljava/lang/invoke/MethodHandle;->invokeWithArguments([Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method isDefaultMethod(Ljava/lang/reflect/Method;)Z
-    .locals 1
+    .locals 0
 
     .line 98
-    iget-boolean v0, p0, Lretrofit2/Platform;->hasJava8Types:Z
+    iget-boolean p0, p0, Lretrofit2/Platform;->hasJava8Types:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/reflect/Method;->isDefault()Z
 
-    move-result p1
+    move-result p0
 
-    if-eqz p1, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return p1
+    return p0
 .end method

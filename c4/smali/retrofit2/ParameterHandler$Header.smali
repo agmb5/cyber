@@ -59,7 +59,7 @@
     const-string v0, "name == null"
 
     .line 80
-    invoke-static {p1, v0}, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall$$ExternalSyntheticBackport0;->m(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -115,9 +115,9 @@
 
     .line 91
     :cond_1
-    iget-object v0, p0, Lretrofit2/ParameterHandler$Header;->name:Ljava/lang/String;
+    iget-object p0, p0, Lretrofit2/ParameterHandler$Header;->name:Ljava/lang/String;
 
-    invoke-virtual {p1, v0, p2}, Lretrofit2/RequestBuilder;->addHeader(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p1, p0, p2}, Lretrofit2/RequestBuilder;->addHeader(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method

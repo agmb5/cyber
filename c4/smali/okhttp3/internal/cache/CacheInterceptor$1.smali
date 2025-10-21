@@ -85,9 +85,9 @@
 
     .line 207
     :cond_0
-    iget-object v0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$source:Lokio/BufferedSource;
+    iget-object p0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$source:Lokio/BufferedSource;
 
-    invoke-interface {v0}, Lokio/BufferedSource;->close()V
+    invoke-interface {p0}, Lokio/BufferedSource;->close()V
 
     return-void
 .end method
@@ -127,9 +127,9 @@
     iput-boolean v0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->cacheRequestClosed:Z
 
     .line 187
-    iget-object p1, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$cacheBody:Lokio/BufferedSink;
+    iget-object p0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$cacheBody:Lokio/BufferedSink;
 
-    invoke-interface {p1}, Lokio/BufferedSink;->close()V
+    invoke-interface {p0}, Lokio/BufferedSink;->close()V
 
     :cond_0
     return-wide v1
@@ -155,9 +155,9 @@
     invoke-virtual/range {v2 .. v7}, Lokio/Buffer;->copyTo(Lokio/Buffer;JJ)Lokio/Buffer;
 
     .line 193
-    iget-object p1, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$cacheBody:Lokio/BufferedSink;
+    iget-object p0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$cacheBody:Lokio/BufferedSink;
 
-    invoke-interface {p1}, Lokio/BufferedSink;->emitCompleteSegments()Lokio/BufferedSink;
+    invoke-interface {p0}, Lokio/BufferedSink;->emitCompleteSegments()Lokio/BufferedSink;
 
     return-wide p2
 
@@ -173,9 +173,9 @@
     iput-boolean v0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->cacheRequestClosed:Z
 
     .line 179
-    iget-object p2, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$cacheRequest:Lokhttp3/internal/cache/CacheRequest;
+    iget-object p0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$cacheRequest:Lokhttp3/internal/cache/CacheRequest;
 
-    invoke-interface {p2}, Lokhttp3/internal/cache/CacheRequest;->abort()V
+    invoke-interface {p0}, Lokhttp3/internal/cache/CacheRequest;->abort()V
 
     .line 181
     :cond_2
@@ -183,14 +183,14 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .locals 0
 
     .line 198
-    iget-object v0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$source:Lokio/BufferedSource;
+    iget-object p0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$source:Lokio/BufferedSource;
 
-    invoke-interface {v0}, Lokio/BufferedSource;->timeout()Lokio/Timeout;
+    invoke-interface {p0}, Lokio/BufferedSource;->timeout()Lokio/Timeout;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

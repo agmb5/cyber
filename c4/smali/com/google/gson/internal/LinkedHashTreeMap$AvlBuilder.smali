@@ -288,7 +288,7 @@
 .end method
 
 .method root()Lcom/google/gson/internal/LinkedHashTreeMap$Node;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -298,20 +298,20 @@
     .end annotation
 
     .line 752
-    iget-object v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->stack:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
+    iget-object p0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->stack:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     .line 753
-    iget-object v1, v0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->parent:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
+    iget-object v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->parent:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    return-object v0
+    return-object p0
 
     .line 754
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalStateException;-><init>()V
 
-    throw v0
+    throw p0
 .end method

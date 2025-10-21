@@ -114,7 +114,7 @@
 
 # virtual methods
 .method createAndOpen(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 5
+    .locals 4
 
     .line 316
     iget-object v0, p0, Lokhttp3/internal/platform/AndroidPlatform$CloseGuard;->getMethod:Ljava/lang/reflect/Method;
@@ -134,15 +134,15 @@
     move-result-object v0
 
     .line 319
-    iget-object v3, p0, Lokhttp3/internal/platform/AndroidPlatform$CloseGuard;->openMethod:Ljava/lang/reflect/Method;
+    iget-object p0, p0, Lokhttp3/internal/platform/AndroidPlatform$CloseGuard;->openMethod:Ljava/lang/reflect/Method;
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    new-array v4, v4, [Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    aput-object p1, v4, v2
+    aput-object p1, v3, v2
 
-    invoke-virtual {v3, v0, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -154,7 +154,7 @@
 .end method
 
 .method warnIfOpen(Ljava/lang/Object;)Z
-    .locals 3
+    .locals 2
 
     const/4 v0, 0x0
 
@@ -162,11 +162,11 @@
 
     .line 331
     :try_start_0
-    iget-object v1, p0, Lokhttp3/internal/platform/AndroidPlatform$CloseGuard;->warnIfOpenMethod:Ljava/lang/reflect/Method;
+    iget-object p0, p0, Lokhttp3/internal/platform/AndroidPlatform$CloseGuard;->warnIfOpenMethod:Ljava/lang/reflect/Method;
 
-    new-array v2, v0, [Ljava/lang/Object;
+    new-array v1, v0, [Ljava/lang/Object;
 
-    invoke-virtual {v1, p1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 

@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public execute()V
-    .locals 4
+    .locals 3
 
     .line 382
     iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$PingRunnable;->this$0:Lokhttp3/internal/http2/Http2Connection;
@@ -86,9 +86,9 @@
 
     iget v2, p0, Lokhttp3/internal/http2/Http2Connection$PingRunnable;->payload1:I
 
-    iget v3, p0, Lokhttp3/internal/http2/Http2Connection$PingRunnable;->payload2:I
+    iget p0, p0, Lokhttp3/internal/http2/Http2Connection$PingRunnable;->payload2:I
 
-    invoke-virtual {v0, v1, v2, v3}, Lokhttp3/internal/http2/Http2Connection;->writePing(ZII)V
+    invoke-virtual {v0, v1, v2, p0}, Lokhttp3/internal/http2/Http2Connection;->writePing(ZII)V
 
     return-void
 .end method

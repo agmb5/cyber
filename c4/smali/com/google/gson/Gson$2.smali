@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Float;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -51,32 +51,32 @@
     .line 339
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
-    move-result-object v0
+    move-result-object p0
 
-    sget-object v1, Lcom/google/gson/stream/JsonToken;->NULL:Lcom/google/gson/stream/JsonToken;
+    sget-object v0, Lcom/google/gson/stream/JsonToken;->NULL:Lcom/google/gson/stream/JsonToken;
 
-    if-ne v0, v1, :cond_0
+    if-ne p0, v0, :cond_0
 
     .line 340
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
 
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
-    return-object p1
+    return-object p0
 
     .line 343
     :cond_0
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextDouble()D
 
-    move-result-wide v0
+    move-result-wide p0
 
-    double-to-float p1, v0
+    double-to-float p0, p0
 
-    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {p0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public bridge synthetic read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
@@ -90,9 +90,9 @@
     .line 337
     invoke-virtual {p0, p1}, Lcom/google/gson/Gson$2;->read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Float;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Number;)V
@@ -114,9 +114,9 @@
     :cond_0
     invoke-virtual {p2}, Ljava/lang/Number;->floatValue()F
 
-    move-result v0
+    move-result p0
 
-    float-to-double v0, v0
+    float-to-double v0, p0
 
     .line 351
     invoke-static {v0, v1}, Lcom/google/gson/Gson;->checkValidFloatingPoint(D)V

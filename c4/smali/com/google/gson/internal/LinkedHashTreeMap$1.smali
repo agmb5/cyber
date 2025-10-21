@@ -44,9 +44,9 @@
     .line 44
     invoke-interface {p1, p2}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
@@ -59,7 +59,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/google/gson/internal/LinkedHashTreeMap$1;->compare(Ljava/lang/Comparable;Ljava/lang/Comparable;)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

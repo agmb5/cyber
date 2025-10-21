@@ -52,12 +52,12 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .locals 0
 
     .line 208
-    sget-object v0, Lokio/Timeout;->NONE:Lokio/Timeout;
+    sget-object p0, Lokio/Timeout;->NONE:Lokio/Timeout;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public write(Lokio/Buffer;J)V

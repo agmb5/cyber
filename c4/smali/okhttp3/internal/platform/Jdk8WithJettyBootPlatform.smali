@@ -96,9 +96,13 @@
 
     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v4
+
     const-string v5, "$Provider"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -115,9 +119,13 @@
 
     invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v5
+
     const-string v6, "$ClientProvider"
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
 
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -134,11 +142,15 @@
 
     invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "$ServerProvider"
+    move-result-object v1
 
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v5, "$ServerProvider"
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -212,36 +224,38 @@
 
 # virtual methods
 .method public afterHandshake(Ljavax/net/ssl/SSLSocket;)V
-    .locals 4
+    .locals 3
 
     .line 60
     :try_start_0
-    iget-object v0, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform;->removeMethod:Ljava/lang/reflect/Method;
+    iget-object p0, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform;->removeMethod:Ljava/lang/reflect/Method;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    aput-object p1, v2, v3
+    aput-object p1, v1, v2
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
-    .line 62
     :catch_0
+    move-exception p0
+
+    .line 62
     new-instance p1, Ljava/lang/AssertionError;
 
     const-string v0, "failed to remove ALPN"
 
-    invoke-direct {p1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, v0, p0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw p1
 .end method
@@ -297,9 +311,9 @@
     move-result-object p2
 
     .line 52
-    iget-object p3, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform;->putMethod:Ljava/lang/reflect/Method;
+    iget-object p0, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform;->putMethod:Ljava/lang/reflect/Method;
 
-    const/4 v1, 0x0
+    const/4 p3, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
 
@@ -307,86 +321,88 @@
 
     aput-object p2, v0, v4
 
-    invoke-virtual {p3, v1, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p3, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
-    .line 54
     :catch_0
+    move-exception p0
+
+    .line 54
     new-instance p1, Ljava/lang/AssertionError;
 
     const-string p2, "failed to set ALPN"
 
-    invoke-direct {p1, p2}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, p2, p0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw p1
 .end method
 
 .method public getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
-    .locals 3
+    .locals 2
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
     .line 68
     :try_start_0
-    iget-object v0, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform;->getMethod:Ljava/lang/reflect/Method;
+    iget-object p0, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform;->getMethod:Ljava/lang/reflect/Method;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aput-object p1, v1, v2
+    aput-object p1, v0, v1
 
     const/4 p1, 0x0
 
     .line 69
-    invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Ljava/lang/reflect/Proxy;->getInvocationHandler(Ljava/lang/Object;)Ljava/lang/reflect/InvocationHandler;
+    invoke-static {p0}, Ljava/lang/reflect/Proxy;->getInvocationHandler(Ljava/lang/Object;)Ljava/lang/reflect/InvocationHandler;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;
+    check-cast p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;
 
     .line 70
-    iget-boolean v1, v0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;->unsupported:Z
+    iget-boolean v0, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;->unsupported:Z
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    iget-object v1, v0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;->selected:Ljava/lang/String;
+    iget-object v0, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;->selected:Ljava/lang/String;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 71
     invoke-static {}, Lokhttp3/internal/platform/Platform;->get()Lokhttp3/internal/platform/Platform;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x4
+    const/4 v0, 0x4
 
-    const-string v2, "ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?"
+    const-string v1, "ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?"
 
-    invoke-virtual {v0, v1, v2, p1}, Lokhttp3/internal/platform/Platform;->log(ILjava/lang/String;Ljava/lang/Throwable;)V
+    invoke-virtual {p0, v0, v1, p1}, Lokhttp3/internal/platform/Platform;->log(ILjava/lang/String;Ljava/lang/Throwable;)V
 
     return-object p1
 
     .line 75
     :cond_0
-    iget-boolean v1, v0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;->unsupported:Z
+    iget-boolean v0, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;->unsupported:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     goto :goto_0
 
     :cond_1
-    iget-object p1, v0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;->selected:Ljava/lang/String;
+    iget-object p1, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;->selected:Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
@@ -394,13 +410,15 @@
     :goto_0
     return-object p1
 
-    .line 77
     :catch_0
+    move-exception p0
+
+    .line 77
     new-instance p1, Ljava/lang/AssertionError;
 
     const-string v0, "failed to get ALPN selected protocol"
 
-    invoke-direct {p1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, v0, p0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw p1
 .end method

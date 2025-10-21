@@ -64,9 +64,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "-Sent-Millis"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -89,9 +93,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "-Received-Millis"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -236,7 +244,7 @@
 
     const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    move v4, v3
 
     :goto_0
     if-ge v4, v2, :cond_0
@@ -438,29 +446,35 @@
 
     .line 577
     :cond_5
-    new-instance v0, Ljava/io/IOException;
+    new-instance p0, Ljava/io/IOException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "expected \"\" but was \""
+    const-string v2, "expected \"\" but was \""
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     const-string v1, "\""
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw v0
+    invoke-direct {p0, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 
     :cond_6
     const/4 v0, 0x0
@@ -477,36 +491,30 @@
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p0
 
     invoke-interface {p1}, Lokio/Source;->close()V
 
-    goto :goto_6
-
-    :goto_5
-    throw v0
-
-    :goto_6
-    goto :goto_5
+    throw p0
 .end method
 
 .method private isHttps()Z
-    .locals 2
+    .locals 1
 
     .line 655
-    iget-object v0, p0, Lokhttp3/Cache$Entry;->url:Ljava/lang/String;
+    iget-object p0, p0, Lokhttp3/Cache$Entry;->url:Ljava/lang/String;
 
-    const-string v1, "https://"
+    const-string v0, "https://"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p0, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method private readCertificateList(Lokio/BufferedSource;)Ljava/util/List;
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -527,98 +535,92 @@
     .line 659
     invoke-static {p1}, Lokhttp3/Cache;->readInt(Lokio/BufferedSource;)I
 
-    move-result v0
+    move-result p0
 
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne p0, v0, :cond_0
 
     .line 660
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 
     :cond_0
     :try_start_0
-    const-string v1, "X.509"
+    const-string v0, "X.509"
 
     .line 663
-    invoke-static {v1}, Ljava/security/cert/CertificateFactory;->getInstance(Ljava/lang/String;)Ljava/security/cert/CertificateFactory;
+    invoke-static {v0}, Ljava/security/cert/CertificateFactory;->getInstance(Ljava/lang/String;)Ljava/security/cert/CertificateFactory;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 664
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v2, v0}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v1, p0}, Ljava/util/ArrayList;-><init>(I)V
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v3, v0, :cond_1
+    if-ge v2, p0, :cond_1
 
     .line 666
     invoke-interface {p1}, Lokio/BufferedSource;->readUtf8LineStrict()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
     .line 667
-    new-instance v5, Lokio/Buffer;
+    new-instance v4, Lokio/Buffer;
 
-    invoke-direct {v5}, Lokio/Buffer;-><init>()V
+    invoke-direct {v4}, Lokio/Buffer;-><init>()V
 
     .line 668
-    invoke-static {v4}, Lokio/ByteString;->decodeBase64(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v3}, Lokio/ByteString;->decodeBase64(Ljava/lang/String;)Lokio/ByteString;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v5, v4}, Lokio/Buffer;->write(Lokio/ByteString;)Lokio/Buffer;
+    invoke-virtual {v4, v3}, Lokio/Buffer;->write(Lokio/ByteString;)Lokio/Buffer;
 
     .line 669
-    invoke-virtual {v5}, Lokio/Buffer;->inputStream()Ljava/io/InputStream;
+    invoke-virtual {v4}, Lokio/Buffer;->inputStream()Ljava/io/InputStream;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v1, v4}, Ljava/security/cert/CertificateFactory;->generateCertificate(Ljava/io/InputStream;)Ljava/security/cert/Certificate;
+    invoke-virtual {v0, v3}, Ljava/security/cert/CertificateFactory;->generateCertificate(Ljava/io/InputStream;)Ljava/security/cert/Certificate;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-interface {v2, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catch Ljava/security/cert/CertificateException; {:try_start_0 .. :try_end_0} :catch_0
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_1
-    return-object v2
+    return-object v1
 
     :catch_0
-    move-exception p1
+    move-exception p0
 
     .line 673
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    invoke-virtual {p1}, Ljava/security/cert/CertificateException;->getMessage()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/security/cert/CertificateException;->getMessage()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-direct {v0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2
-
-    :goto_1
-    throw v0
-
-    :goto_2
-    goto :goto_1
+    throw p1
 .end method
 
 .method private writeCertList(Lokio/BufferedSink;Ljava/util/List;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -639,60 +641,60 @@
     :try_start_0
     invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v0
+    move-result p0
 
-    int-to-long v0, v0
+    int-to-long v0, p0
 
     invoke-interface {p1, v0, v1}, Lokio/BufferedSink;->writeDecimalLong(J)Lokio/BufferedSink;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/16 v1, 0xa
+    const/16 v0, 0xa
 
     .line 681
-    invoke-interface {v0, v1}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
+    invoke-interface {p0, v0}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     .line 682
     invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v1
 
     :goto_0
-    if-ge v0, v2, :cond_0
+    if-ge p0, v1, :cond_0
 
     .line 683
-    invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p2, p0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Ljava/security/cert/Certificate;
+    check-cast v2, Ljava/security/cert/Certificate;
 
-    invoke-virtual {v3}, Ljava/security/cert/Certificate;->getEncoded()[B
+    invoke-virtual {v2}, Ljava/security/cert/Certificate;->getEncoded()[B
 
-    move-result-object v3
+    move-result-object v2
 
     .line 684
-    invoke-static {v3}, Lokio/ByteString;->of([B)Lokio/ByteString;
+    invoke-static {v2}, Lokio/ByteString;->of([B)Lokio/ByteString;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Lokio/ByteString;->base64()Ljava/lang/String;
+    invoke-virtual {v2}, Lokio/ByteString;->base64()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
     .line 685
-    invoke-interface {p1, v3}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
+    invoke-interface {p1, v2}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
-    move-result-object v3
+    move-result-object v2
 
     .line 686
-    invoke-interface {v3, v1}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
+    invoke-interface {v2, v0}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
     :try_end_0
     .catch Ljava/security/cert/CertificateEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p0, p0, 0x1
 
     goto :goto_0
 
@@ -700,24 +702,18 @@
     return-void
 
     :catch_0
-    move-exception p1
+    move-exception p0
 
     .line 689
-    new-instance p2, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    invoke-virtual {p1}, Ljava/security/cert/CertificateEncodingException;->getMessage()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/security/cert/CertificateEncodingException;->getMessage()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-direct {p2, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2
-
-    :goto_1
-    throw p2
-
-    :goto_2
-    goto :goto_1
+    throw p1
 .end method
 
 
@@ -755,24 +751,24 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lokhttp3/Cache$Entry;->varyHeaders:Lokhttp3/Headers;
+    iget-object p0, p0, Lokhttp3/Cache$Entry;->varyHeaders:Lokhttp3/Headers;
 
     .line 696
-    invoke-static {p2, v0, p1}, Lokhttp3/internal/http/HttpHeaders;->varyMatches(Lokhttp3/Response;Lokhttp3/Headers;Lokhttp3/Request;)Z
+    invoke-static {p2, p0, p1}, Lokhttp3/internal/http/HttpHeaders;->varyMatches(Lokhttp3/Response;Lokhttp3/Headers;Lokhttp3/Request;)Z
 
-    move-result p1
+    move-result p0
 
-    if-eqz p1, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return p1
+    return p0
 .end method
 
 .method public response(Lokhttp3/internal/cache/DiskLruCache$Snapshot;)Lokhttp3/Response;
@@ -895,14 +891,14 @@
     .line 716
     invoke-virtual {p1, v0, v1}, Lokhttp3/Response$Builder;->receivedResponseAtMillis(J)Lokhttp3/Response$Builder;
 
-    move-result-object p1
+    move-result-object p0
 
     .line 717
-    invoke-virtual {p1}, Lokhttp3/Response$Builder;->build()Lokhttp3/Response;
+    invoke-virtual {p0}, Lokhttp3/Response$Builder;->build()Lokhttp3/Response;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public writeTo(Lokhttp3/internal/cache/DiskLruCache$Editor;)V
@@ -969,7 +965,7 @@
 
     move-result v1
 
-    const/4 v3, 0x0
+    move v3, v0
 
     :goto_0
     const-string v4, ": "
@@ -1187,21 +1183,21 @@
     invoke-direct {p0, p1, v0}, Lokhttp3/Cache$Entry;->writeCertList(Lokio/BufferedSink;Ljava/util/List;)V
 
     .line 649
-    iget-object v0, p0, Lokhttp3/Cache$Entry;->handshake:Lokhttp3/Handshake;
+    iget-object p0, p0, Lokhttp3/Cache$Entry;->handshake:Lokhttp3/Handshake;
 
-    invoke-virtual {v0}, Lokhttp3/Handshake;->tlsVersion()Lokhttp3/TlsVersion;
+    invoke-virtual {p0}, Lokhttp3/Handshake;->tlsVersion()Lokhttp3/TlsVersion;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lokhttp3/TlsVersion;->javaName()Ljava/lang/String;
+    invoke-virtual {p0}, Lokhttp3/TlsVersion;->javaName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {p1, v0}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
+    invoke-interface {p1, p0}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {v0, v2}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
+    invoke-interface {p0, v2}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     .line 651
     :cond_2

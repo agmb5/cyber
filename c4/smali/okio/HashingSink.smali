@@ -41,11 +41,11 @@
 
     .line 89
     :catch_0
-    new-instance p1, Ljava/lang/AssertionError;
+    new-instance p0, Ljava/lang/AssertionError;
 
-    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p0}, Ljava/lang/AssertionError;-><init>()V
 
-    throw p1
+    throw p0
 .end method
 
 .method private constructor <init>(Lokio/Sink;Lokio/ByteString;Ljava/lang/String;)V
@@ -84,22 +84,22 @@
     return-void
 
     :catch_0
-    move-exception p1
+    move-exception p0
 
     .line 102
-    new-instance p2, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/Throwable;)V
 
-    throw p2
+    throw p1
 
     .line 100
     :catch_1
-    new-instance p1, Ljava/lang/AssertionError;
+    new-instance p0, Ljava/lang/AssertionError;
 
-    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p0}, Ljava/lang/AssertionError;-><init>()V
 
-    throw p1
+    throw p0
 .end method
 
 .method public static hmacSha1(Lokio/Sink;Lokio/ByteString;)Lokio/HashingSink;
@@ -205,24 +205,24 @@
 
     invoke-virtual {v0}, Ljava/security/MessageDigest;->digest()[B
 
-    move-result-object v0
+    move-result-object p0
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lokio/HashingSink;->mac:Ljavax/crypto/Mac;
+    iget-object p0, p0, Lokio/HashingSink;->mac:Ljavax/crypto/Mac;
 
-    invoke-virtual {v0}, Ljavax/crypto/Mac;->doFinal()[B
+    invoke-virtual {p0}, Ljavax/crypto/Mac;->doFinal()[B
 
-    move-result-object v0
+    move-result-object p0
 
     .line 133
     :goto_0
-    invoke-static {v0}, Lokio/ByteString;->of([B)Lokio/ByteString;
+    invoke-static {p0}, Lokio/ByteString;->of([B)Lokio/ByteString;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public write(Lokio/Buffer;J)V
@@ -267,34 +267,34 @@
 
     move-result-wide v3
 
-    long-to-int v4, v3
+    long-to-int v3, v3
 
     .line 113
-    iget-object v3, p0, Lokio/HashingSink;->messageDigest:Ljava/security/MessageDigest;
+    iget-object v4, p0, Lokio/HashingSink;->messageDigest:Ljava/security/MessageDigest;
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_0
 
     .line 114
     iget-object v5, v0, Lokio/Segment;->data:[B
 
     iget v6, v0, Lokio/Segment;->pos:I
 
-    invoke-virtual {v3, v5, v6, v4}, Ljava/security/MessageDigest;->update([BII)V
+    invoke-virtual {v4, v5, v6, v3}, Ljava/security/MessageDigest;->update([BII)V
 
     goto :goto_1
 
     .line 116
     :cond_0
-    iget-object v3, p0, Lokio/HashingSink;->mac:Ljavax/crypto/Mac;
+    iget-object v4, p0, Lokio/HashingSink;->mac:Ljavax/crypto/Mac;
 
     iget-object v5, v0, Lokio/Segment;->data:[B
 
     iget v6, v0, Lokio/Segment;->pos:I
 
-    invoke-virtual {v3, v5, v6, v4}, Ljavax/crypto/Mac;->update([BII)V
+    invoke-virtual {v4, v5, v6, v3}, Ljavax/crypto/Mac;->update([BII)V
 
     :goto_1
-    int-to-long v3, v4
+    int-to-long v3, v3
 
     add-long/2addr v1, v3
 

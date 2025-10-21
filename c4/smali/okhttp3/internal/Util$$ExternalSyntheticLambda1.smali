@@ -28,15 +28,15 @@
 
 # virtual methods
 .method public final newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lokhttp3/internal/Util$$ExternalSyntheticLambda1;->f$0:Ljava/lang/String;
 
-    iget-boolean v1, p0, Lokhttp3/internal/Util$$ExternalSyntheticLambda1;->f$1:Z
+    iget-boolean p0, p0, Lokhttp3/internal/Util$$ExternalSyntheticLambda1;->f$1:Z
 
-    invoke-static {v0, v1, p1}, Lokhttp3/internal/Util;->lambda$threadFactory$0(Ljava/lang/String;ZLjava/lang/Runnable;)Ljava/lang/Thread;
+    invoke-static {v0, p0, p1}, Lokhttp3/internal/Util;->lambda$threadFactory$0(Ljava/lang/String;ZLjava/lang/Runnable;)Ljava/lang/Thread;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

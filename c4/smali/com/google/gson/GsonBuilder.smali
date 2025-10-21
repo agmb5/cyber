@@ -287,20 +287,20 @@
     iput v0, p0, Lcom/google/gson/GsonBuilder;->timeStyle:I
 
     .line 128
-    iget-object v0, p1, Lcom/google/gson/Gson;->builderFactories:Ljava/util/List;
+    iget-object p0, p1, Lcom/google/gson/Gson;->builderFactories:Ljava/util/List;
 
-    invoke-interface {v1, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+    invoke-interface {v1, p0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     .line 129
-    iget-object p1, p1, Lcom/google/gson/Gson;->builderHierarchyFactories:Ljava/util/List;
+    iget-object p0, p1, Lcom/google/gson/Gson;->builderHierarchyFactories:Ljava/util/List;
 
-    invoke-interface {v2, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+    invoke-interface {v2, p0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     return-void
 .end method
 
 .method private addTypeAdaptersForDate(Ljava/lang/String;IILjava/util/List;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -317,100 +317,98 @@
     .line 611
     invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, ""
+    const-string v0, ""
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     .line 612
+    new-instance p0, Lcom/google/gson/DefaultDateTypeAdapter;
+
+    const-class p2, Ljava/util/Date;
+
+    invoke-direct {p0, p2, p1}, Lcom/google/gson/DefaultDateTypeAdapter;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
+
+    .line 613
     new-instance p2, Lcom/google/gson/DefaultDateTypeAdapter;
 
-    const-class p3, Ljava/util/Date;
+    const-class p3, Ljava/sql/Timestamp;
 
     invoke-direct {p2, p3, p1}, Lcom/google/gson/DefaultDateTypeAdapter;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
 
-    .line 613
+    .line 614
     new-instance p3, Lcom/google/gson/DefaultDateTypeAdapter;
 
-    const-class v0, Ljava/sql/Timestamp;
+    const-class v0, Ljava/sql/Date;
 
     invoke-direct {p3, v0, p1}, Lcom/google/gson/DefaultDateTypeAdapter;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
-
-    .line 614
-    new-instance v0, Lcom/google/gson/DefaultDateTypeAdapter;
-
-    const-class v1, Ljava/sql/Date;
-
-    invoke-direct {v0, v1, p1}, Lcom/google/gson/DefaultDateTypeAdapter;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x2
+    const/4 p0, 0x2
 
-    if-eq p2, p1, :cond_1
+    if-eq p2, p0, :cond_1
 
-    if-eq p3, p1, :cond_1
+    if-eq p3, p0, :cond_1
 
     .line 616
+    new-instance p0, Lcom/google/gson/DefaultDateTypeAdapter;
+
+    const-class p1, Ljava/util/Date;
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/google/gson/DefaultDateTypeAdapter;-><init>(Ljava/lang/Class;II)V
+
+    .line 617
     new-instance p1, Lcom/google/gson/DefaultDateTypeAdapter;
 
-    const-class v0, Ljava/util/Date;
+    const-class v0, Ljava/sql/Timestamp;
 
     invoke-direct {p1, v0, p2, p3}, Lcom/google/gson/DefaultDateTypeAdapter;-><init>(Ljava/lang/Class;II)V
 
-    .line 617
+    .line 618
     new-instance v0, Lcom/google/gson/DefaultDateTypeAdapter;
 
-    const-class v1, Ljava/sql/Timestamp;
+    const-class v1, Ljava/sql/Date;
 
     invoke-direct {v0, v1, p2, p3}, Lcom/google/gson/DefaultDateTypeAdapter;-><init>(Ljava/lang/Class;II)V
-
-    .line 618
-    new-instance v1, Lcom/google/gson/DefaultDateTypeAdapter;
-
-    const-class v2, Ljava/sql/Date;
-
-    invoke-direct {v1, v2, p2, p3}, Lcom/google/gson/DefaultDateTypeAdapter;-><init>(Ljava/lang/Class;II)V
 
     move-object p2, p1
 
     move-object p3, v0
 
-    move-object v0, v1
-
     .line 623
     :goto_0
     const-class p1, Ljava/util/Date;
 
-    invoke-static {p1, p2}, Lcom/google/gson/internal/bind/TypeAdapters;->newFactory(Ljava/lang/Class;Lcom/google/gson/TypeAdapter;)Lcom/google/gson/TypeAdapterFactory;
+    invoke-static {p1, p0}, Lcom/google/gson/internal/bind/TypeAdapters;->newFactory(Ljava/lang/Class;Lcom/google/gson/TypeAdapter;)Lcom/google/gson/TypeAdapterFactory;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-interface {p4, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p4, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 624
-    const-class p1, Ljava/sql/Timestamp;
+    const-class p0, Ljava/sql/Timestamp;
 
-    invoke-static {p1, p3}, Lcom/google/gson/internal/bind/TypeAdapters;->newFactory(Ljava/lang/Class;Lcom/google/gson/TypeAdapter;)Lcom/google/gson/TypeAdapterFactory;
+    invoke-static {p0, p2}, Lcom/google/gson/internal/bind/TypeAdapters;->newFactory(Ljava/lang/Class;Lcom/google/gson/TypeAdapter;)Lcom/google/gson/TypeAdapterFactory;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-interface {p4, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p4, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 625
-    const-class p1, Ljava/sql/Date;
+    const-class p0, Ljava/sql/Date;
 
-    invoke-static {p1, v0}, Lcom/google/gson/internal/bind/TypeAdapters;->newFactory(Ljava/lang/Class;Lcom/google/gson/TypeAdapter;)Lcom/google/gson/TypeAdapterFactory;
+    invoke-static {p0, p3}, Lcom/google/gson/internal/bind/TypeAdapters;->newFactory(Ljava/lang/Class;Lcom/google/gson/TypeAdapter;)Lcom/google/gson/TypeAdapterFactory;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-interface {p4, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p4, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_1
     return-void
@@ -553,9 +551,9 @@
 
     move-object/from16 v16, v1
 
-    iget-object v1, v0, Lcom/google/gson/GsonBuilder;->hierarchyFactories:Ljava/util/List;
+    iget-object v0, v0, Lcom/google/gson/GsonBuilder;->hierarchyFactories:Ljava/util/List;
 
-    move-object/from16 v17, v1
+    move-object/from16 v17, v0
 
     move-object/from16 v1, v20
 

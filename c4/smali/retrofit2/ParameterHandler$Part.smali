@@ -80,7 +80,7 @@
 
 # virtual methods
 .method apply(Lretrofit2/RequestBuilder;Ljava/lang/Object;)V
-    .locals 4
+    .locals 3
     .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
@@ -111,9 +111,9 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 351
-    iget-object p2, p0, Lretrofit2/ParameterHandler$Part;->headers:Lokhttp3/Headers;
+    iget-object p0, p0, Lretrofit2/ParameterHandler$Part;->headers:Lokhttp3/Headers;
 
-    invoke-virtual {p1, p2, v0}, Lretrofit2/RequestBuilder;->addPart(Lokhttp3/Headers;Lokhttp3/RequestBody;)V
+    invoke-virtual {p1, p0, v0}, Lretrofit2/RequestBuilder;->addPart(Lokhttp3/Headers;Lokhttp3/RequestBody;)V
 
     return-void
 
@@ -123,37 +123,43 @@
     .line 349
     iget-object v0, p0, Lretrofit2/ParameterHandler$Part;->method:Ljava/lang/reflect/Method;
 
-    iget v1, p0, Lretrofit2/ParameterHandler$Part;->p:I
+    iget p0, p0, Lretrofit2/ParameterHandler$Part;->p:I
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Unable to convert "
+    const-string v2, "Unable to convert "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    const-string p2, " to RequestBody"
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object p2
 
-    const/4 v2, 0x1
+    const-string v1, " to RequestBody"
 
-    new-array v2, v2, [Ljava/lang/Object;
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v3, 0x0
+    move-result-object p2
 
-    aput-object p1, v2, v3
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v0, v1, p2, v2}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
+    move-result-object p2
 
-    move-result-object p1
+    const/4 v1, 0x1
 
-    throw p1
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    aput-object p1, v1, v2
+
+    invoke-static {v0, p0, p2, v1}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
+
+    move-result-object p0
+
+    throw p0
 .end method

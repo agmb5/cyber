@@ -67,7 +67,7 @@
 
 # virtual methods
 .method apply(Lretrofit2/RequestBuilder;Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
@@ -102,9 +102,9 @@
 
     const/4 v0, 0x0
 
-    iget-boolean v1, p0, Lretrofit2/ParameterHandler$QueryName;->encoded:Z
+    iget-boolean p0, p0, Lretrofit2/ParameterHandler$QueryName;->encoded:Z
 
-    invoke-virtual {p1, p2, v0, v1}, Lretrofit2/RequestBuilder;->addQueryParam(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-virtual {p1, p2, v0, p0}, Lretrofit2/RequestBuilder;->addQueryParam(Ljava/lang/String;Ljava/lang/String;Z)V
 
     return-void
 .end method

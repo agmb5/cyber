@@ -38,7 +38,10 @@
 .method public static create(Lcom/google/gson/Gson;)Lretrofit2/converter/gson/GsonConverterFactory;
     .locals 1
 
-    if-eqz p0, :cond_0
+    const-string v0, "gson == null"
+
+    .line 51
+    invoke-static {p0, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 52
     new-instance v0, Lretrofit2/converter/gson/GsonConverterFactory;
@@ -46,16 +49,6 @@
     invoke-direct {v0, p0}, Lretrofit2/converter/gson/GsonConverterFactory;-><init>(Lcom/google/gson/Gson;)V
 
     return-object v0
-
-    .line 51
-    :cond_0
-    new-instance p0, Ljava/lang/NullPointerException;
-
-    const-string v0, "gson == null"
-
-    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p0
 .end method
 
 
@@ -93,9 +86,9 @@
     .line 75
     new-instance p2, Lretrofit2/converter/gson/GsonRequestBodyConverter;
 
-    iget-object p3, p0, Lretrofit2/converter/gson/GsonConverterFactory;->gson:Lcom/google/gson/Gson;
+    iget-object p0, p0, Lretrofit2/converter/gson/GsonConverterFactory;->gson:Lcom/google/gson/Gson;
 
-    invoke-direct {p2, p3, p1}, Lretrofit2/converter/gson/GsonRequestBodyConverter;-><init>(Lcom/google/gson/Gson;Lcom/google/gson/TypeAdapter;)V
+    invoke-direct {p2, p0, p1}, Lretrofit2/converter/gson/GsonRequestBodyConverter;-><init>(Lcom/google/gson/Gson;Lcom/google/gson/TypeAdapter;)V
 
     return-object p2
 .end method
@@ -130,9 +123,9 @@
     .line 65
     new-instance p2, Lretrofit2/converter/gson/GsonResponseBodyConverter;
 
-    iget-object p3, p0, Lretrofit2/converter/gson/GsonConverterFactory;->gson:Lcom/google/gson/Gson;
+    iget-object p0, p0, Lretrofit2/converter/gson/GsonConverterFactory;->gson:Lcom/google/gson/Gson;
 
-    invoke-direct {p2, p3, p1}, Lretrofit2/converter/gson/GsonResponseBodyConverter;-><init>(Lcom/google/gson/Gson;Lcom/google/gson/TypeAdapter;)V
+    invoke-direct {p2, p0, p1}, Lretrofit2/converter/gson/GsonResponseBodyConverter;-><init>(Lcom/google/gson/Gson;Lcom/google/gson/TypeAdapter;)V
 
     return-object p2
 .end method

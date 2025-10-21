@@ -812,17 +812,17 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .locals 0
 
     .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 65
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p0, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static newFactory(Lcom/google/gson/reflect/TypeToken;Lcom/google/gson/TypeAdapter;)Lcom/google/gson/TypeAdapterFactory;

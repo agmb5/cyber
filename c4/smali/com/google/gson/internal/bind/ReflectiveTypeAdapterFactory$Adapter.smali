@@ -103,9 +103,9 @@
     .line 208
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
 
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
-    return-object p1
+    return-object p0
 
     .line 212
     :cond_0
@@ -173,34 +173,28 @@
     return-object v0
 
     :catch_0
-    move-exception p1
+    move-exception p0
 
     .line 228
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0, p1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, p0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
-    throw v0
+    throw p1
 
     :catch_1
-    move-exception p1
+    move-exception p0
 
     .line 226
-    new-instance v0, Lcom/google/gson/JsonSyntaxException;
+    new-instance p1, Lcom/google/gson/JsonSyntaxException;
 
-    invoke-direct {v0, p1}, Lcom/google/gson/JsonSyntaxException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Lcom/google/gson/JsonSyntaxException;-><init>(Ljava/lang/Throwable;)V
 
-    goto :goto_3
-
-    :goto_2
-    throw v0
-
-    :goto_3
-    goto :goto_2
+    throw p1
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -228,44 +222,44 @@
 
     .line 242
     :try_start_0
-    iget-object v0, p0, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$Adapter;->boundFields:Ljava/util/Map;
+    iget-object p0, p0, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$Adapter;->boundFields:Ljava/util/Map;
 
-    invoke-interface {v0}, Ljava/util/Map;->values()Ljava/util/Collection;
+    invoke-interface {p0}, Ljava/util/Map;->values()Ljava/util/Collection;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
     :cond_1
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$BoundField;
+
+    .line 243
+    invoke-virtual {v0, p2}, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$BoundField;->writeField(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$BoundField;
-
-    .line 243
-    invoke-virtual {v1, p2}, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$BoundField;->writeField(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
     .line 244
-    iget-object v2, v1, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$BoundField;->name:Ljava/lang/String;
+    iget-object v1, v0, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$BoundField;->name:Ljava/lang/String;
 
-    invoke-virtual {p1, v2}, Lcom/google/gson/stream/JsonWriter;->name(Ljava/lang/String;)Lcom/google/gson/stream/JsonWriter;
+    invoke-virtual {p1, v1}, Lcom/google/gson/stream/JsonWriter;->name(Ljava/lang/String;)Lcom/google/gson/stream/JsonWriter;
 
     .line 245
-    invoke-virtual {v1, p1, p2}, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$BoundField;->write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
+    invoke-virtual {v0, p1, p2}, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$BoundField;->write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
     :try_end_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -278,18 +272,12 @@
     return-void
 
     :catch_0
-    move-exception p1
+    move-exception p0
 
     .line 249
-    new-instance p2, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {p2, p1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, p0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
-    goto :goto_2
-
-    :goto_1
-    throw p2
-
-    :goto_2
-    goto :goto_1
+    throw p1
 .end method

@@ -178,22 +178,15 @@
     .line 284
     iput-object v0, p0, Lcom/google/gson/stream/JsonReader;->pathIndices:[I
 
-    if-eqz p1, :cond_0
+    const-string v0, "in == null"
+
+    .line 291
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 293
     iput-object p1, p0, Lcom/google/gson/stream/JsonReader;->in:Ljava/io/Reader;
 
     return-void
-
-    .line 291
-    :cond_0
-    new-instance p1, Ljava/lang/NullPointerException;
-
-    const-string v0, "in == null"
-
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
 .end method
 
 .method private checkLenient()V
@@ -217,9 +210,9 @@
     .line 1409
     invoke-direct {p0, v0}, Lcom/google/gson/stream/JsonReader;->syntaxError(Ljava/lang/String;)Ljava/io/IOException;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 .end method
 
 .method private consumeNonExecutePrefix()V
@@ -481,9 +474,9 @@
 
     packed-switch p1, :pswitch_data_0
 
-    const/4 p1, 0x1
+    const/4 p0, 0x1
 
-    return p1
+    return p0
 
     .line 751
     :cond_0
@@ -492,9 +485,9 @@
 
     :cond_1
     :pswitch_1
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
-    return p1
+    return p0
 
     :pswitch_data_0
     .packed-switch 0x5b
@@ -538,9 +531,9 @@
 
     if-nez p1, :cond_0
 
-    const/4 p1, -0x1
+    const/4 p0, -0x1
 
-    return p1
+    return p0
 
     .line 1401
     :cond_0
@@ -554,17 +547,21 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v0
 
-    invoke-direct {p1, v0}, Ljava/io/EOFException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Ljava/io/EOFException;-><init>(Ljava/lang/String;)V
 
     throw p1
 
@@ -677,7 +674,7 @@
     .line 1378
     iget v2, p0, Lcom/google/gson/stream/JsonReader;->limit:I
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_7
     add-int/lit8 v2, v2, 0x1
@@ -710,9 +707,9 @@
     .line 1367
     invoke-direct {p0, p1}, Lcom/google/gson/stream/JsonReader;->syntaxError(Ljava/lang/String;)Ljava/io/IOException;
 
-    move-result-object p1
+    move-result-object p0
 
-    throw p1
+    throw p0
 
     :cond_9
     const/16 v2, 0x23
@@ -798,11 +795,11 @@
     if-nez v1, :cond_0
 
     .line 1001
-    new-instance p1, Ljava/lang/String;
+    new-instance p0, Ljava/lang/String;
 
-    invoke-direct {p1, v0, v3, v7}, Ljava/lang/String;-><init>([CII)V
+    invoke-direct {p0, v0, v3, v7}, Ljava/lang/String;-><init>([CII)V
 
-    return-object p1
+    return-object p0
 
     .line 1003
     :cond_0
@@ -811,9 +808,9 @@
     .line 1004
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 
     :cond_1
     const/16 v8, 0x5c
@@ -925,15 +922,9 @@
     .line 1031
     invoke-direct {p0, p1}, Lcom/google/gson/stream/JsonReader;->syntaxError(Ljava/lang/String;)Ljava/io/IOException;
 
-    move-result-object p1
+    move-result-object p0
 
-    goto :goto_4
-
-    :goto_3
-    throw p1
-
-    :goto_4
-    goto :goto_3
+    throw p0
 .end method
 
 .method private nextUnquotedValue()Ljava/lang/String;
@@ -949,7 +940,7 @@
     const/4 v1, 0x0
 
     :cond_0
-    const/4 v2, 0x0
+    move v2, v0
 
     .line 1046
     :goto_0
@@ -1118,6 +1109,8 @@
 
     invoke-virtual {v1, v2, v3, v0}, Ljava/lang/StringBuilder;->append([CII)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -1131,8 +1124,6 @@
     iput v2, p0, Lcom/google/gson/stream/JsonReader;->pos:I
 
     return-object v1
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x5b
@@ -1355,15 +1346,15 @@
 
     const/4 v7, 0x0
 
-    const/4 v8, 0x0
+    move v10, v6
 
-    const/4 v9, 0x0
+    move v8, v7
 
-    const/4 v10, 0x1
+    move v9, v8
+
+    move v13, v9
 
     const-wide/16 v11, 0x0
-
-    const/4 v13, 0x0
 
     :goto_0
     add-int v14, v2, v8
@@ -1389,7 +1380,7 @@
 
     if-nez v2, :cond_1
 
-    goto/16 :goto_8
+    goto/16 :goto_7
 
     .line 665
     :cond_1
@@ -1436,14 +1427,14 @@
 
     if-le v14, v7, :cond_3
 
-    goto :goto_7
+    goto :goto_6
 
     :cond_3
-    if-eq v9, v6, :cond_c
+    if-eq v9, v6, :cond_b
 
     if-nez v9, :cond_4
 
-    goto :goto_5
+    goto :goto_3
 
     :cond_4
     if-ne v9, v15, :cond_8
@@ -1461,7 +1452,7 @@
     :cond_5
     const-wide/16 v4, 0xa
 
-    mul-long v4, v4, v11
+    mul-long/2addr v4, v11
 
     add-int/lit8 v14, v14, -0x30
 
@@ -1474,8 +1465,6 @@
     cmp-long v7, v11, v14
 
     if-gtz v7, :cond_7
-
-    cmp-long v7, v11, v14
 
     if-nez v7, :cond_6
 
@@ -1492,14 +1481,14 @@
 
     :cond_7
     :goto_1
-    const/4 v7, 0x1
+    move v7, v6
 
     :goto_2
     and-int/2addr v10, v7
 
     move-wide v11, v4
 
-    goto :goto_3
+    goto :goto_4
 
     :cond_8
     if-ne v9, v4, :cond_9
@@ -1508,67 +1497,60 @@
 
     const/4 v9, 0x4
 
-    goto :goto_6
+    goto :goto_5
 
     :cond_9
-    if-eq v9, v5, :cond_b
+    if-eq v9, v5, :cond_a
 
     const/4 v4, 0x6
 
-    if-ne v9, v4, :cond_a
-
-    goto :goto_4
+    if-ne v9, v4, :cond_c
 
     :cond_a
-    :goto_3
-    const/4 v7, 0x0
-
-    goto :goto_6
-
-    :cond_b
-    :goto_4
     const/4 v7, 0x0
 
     const/4 v9, 0x7
 
-    goto :goto_6
+    goto :goto_5
 
-    :cond_c
-    :goto_5
+    :cond_b
+    :goto_3
     add-int/lit8 v14, v14, -0x30
 
     neg-int v4, v14
 
     int-to-long v11, v4
 
+    move v9, v15
+
+    :cond_c
+    :goto_4
     const/4 v7, 0x0
 
-    const/4 v9, 0x2
-
-    :goto_6
+    :goto_5
     const-wide/16 v16, 0x0
 
-    goto/16 :goto_d
+    goto/16 :goto_c
 
     .line 706
     :cond_d
-    :goto_7
+    :goto_6
     invoke-direct {v0, v14}, Lcom/google/gson/stream/JsonReader;->isLiteral(C)Z
 
     move-result v1
 
     if-nez v1, :cond_14
 
-    :goto_8
+    :goto_7
     if-ne v9, v15, :cond_11
 
     if-eqz v10, :cond_11
 
     const-wide/high16 v1, -0x8000000000000000L
 
-    cmp-long v3, v11, v1
+    cmp-long v1, v11, v1
 
-    if-nez v3, :cond_e
+    if-nez v1, :cond_e
 
     if-eqz v13, :cond_11
 
@@ -1584,13 +1566,13 @@
     :cond_f
     if-eqz v13, :cond_10
 
-    goto :goto_9
+    goto :goto_8
 
     :cond_10
     neg-long v11, v11
 
     .line 732
-    :goto_9
+    :goto_8
     iput-wide v11, v0, Lcom/google/gson/stream/JsonReader;->peekedLong:J
 
     .line 733
@@ -1618,7 +1600,7 @@
 
     if-ne v9, v1, :cond_12
 
-    goto :goto_a
+    goto :goto_9
 
     :cond_12
     const/4 v7, 0x0
@@ -1627,7 +1609,7 @@
 
     .line 737
     :cond_13
-    :goto_a
+    :goto_9
     iput v8, v0, Lcom/google/gson/stream/JsonReader;->peekedNumberLength:I
 
     const/16 v1, 0x10
@@ -1649,9 +1631,7 @@
 
     if-ne v9, v15, :cond_16
 
-    const/4 v9, 0x3
-
-    goto :goto_d
+    goto :goto_b
 
     :cond_16
     return v7
@@ -1665,16 +1645,16 @@
 
     if-nez v9, :cond_18
 
-    const/4 v9, 0x1
+    move v9, v6
 
-    const/4 v13, 0x1
+    move v13, v9
 
-    goto :goto_d
+    goto :goto_c
 
     :cond_18
     if-ne v9, v5, :cond_19
 
-    goto :goto_c
+    goto :goto_b
 
     :cond_19
     return v7
@@ -1690,16 +1670,16 @@
 
     if-ne v9, v4, :cond_1b
 
-    goto :goto_b
+    goto :goto_a
 
     :cond_1b
     return v7
 
     :cond_1c
-    :goto_b
-    const/4 v9, 0x5
+    :goto_a
+    move v9, v5
 
-    goto :goto_d
+    goto :goto_c
 
     :cond_1d
     const/4 v4, 0x6
@@ -1710,10 +1690,10 @@
 
     if-ne v9, v5, :cond_1e
 
-    :goto_c
-    const/4 v9, 0x6
+    :goto_b
+    move v9, v4
 
-    :goto_d
+    :goto_c
     add-int/lit8 v8, v8, 0x1
 
     goto/16 :goto_0
@@ -1823,9 +1803,9 @@
     :cond_0
     invoke-direct {p0, v2}, Lcom/google/gson/stream/JsonReader;->syntaxError(Ljava/lang/String;)Ljava/io/IOException;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 
     .line 1508
     :cond_1
@@ -1905,9 +1885,9 @@
     :cond_2
     invoke-direct {p0, v2}, Lcom/google/gson/stream/JsonReader;->syntaxError(Ljava/lang/String;)Ljava/io/IOException;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 
     :cond_3
     :goto_1
@@ -1991,21 +1971,25 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     new-instance v3, Ljava/lang/String;
 
     iget-object v4, p0, Lcom/google/gson/stream/JsonReader;->buffer:[C
 
-    iget v5, p0, Lcom/google/gson/stream/JsonReader;->pos:I
+    iget p0, p0, Lcom/google/gson/stream/JsonReader;->pos:I
 
-    invoke-direct {v3, v4, v5, v0}, Ljava/lang/String;-><init>([CII)V
+    invoke-direct {v3, v4, p0, v0}, Ljava/lang/String;-><init>([CII)V
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v0
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v0}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
+    move-result-object p0
+
+    invoke-direct {v1, p0}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
@@ -2025,32 +2009,32 @@
     .line 1559
     invoke-direct {p0, v0}, Lcom/google/gson/stream/JsonReader;->syntaxError(Ljava/lang/String;)Ljava/io/IOException;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 
     :cond_9
-    const/16 v0, 0x9
+    const/16 p0, 0x9
 
-    return v0
+    return p0
 
     :cond_a
-    const/16 v0, 0xd
+    const/16 p0, 0xd
 
-    return v0
+    return p0
 
     :cond_b
     return v1
 
     :cond_c
-    const/16 v0, 0xc
+    const/16 p0, 0xc
 
-    return v0
+    return p0
 
     :cond_d
-    const/16 v0, 0x8
+    const/16 p0, 0x8
 
-    return v0
+    return p0
 
     .line 1548
     :cond_e
@@ -2160,15 +2144,9 @@
     .line 1119
     invoke-direct {p0, p1}, Lcom/google/gson/stream/JsonReader;->syntaxError(Ljava/lang/String;)Ljava/io/IOException;
 
-    move-result-object p1
+    move-result-object p0
 
-    goto :goto_3
-
-    :goto_2
-    throw p1
-
-    :goto_3
-    goto :goto_2
+    throw p0
 .end method
 
 .method private skipTo(Ljava/lang/String;)Z
@@ -2480,17 +2458,21 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p1
+
     invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object p1
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, p1}, Lcom/google/gson/stream/MalformedJsonException;-><init>(Ljava/lang/String;)V
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Lcom/google/gson/stream/MalformedJsonException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
@@ -2553,23 +2535,29 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
@@ -2621,23 +2609,29 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
@@ -2668,9 +2662,9 @@
     iput v0, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
 
     .line 1219
-    iget-object v0, p0, Lcom/google/gson/stream/JsonReader;->in:Ljava/io/Reader;
+    iget-object p0, p0, Lcom/google/gson/stream/JsonReader;->in:Ljava/io/Reader;
 
-    invoke-virtual {v0}, Ljava/io/Reader;->close()V
+    invoke-virtual {p0}, Ljava/io/Reader;->close()V
 
     return-void
 .end method
@@ -2748,9 +2742,9 @@
     .line 476
     invoke-direct {p0, v0}, Lcom/google/gson/stream/JsonReader;->syntaxError(Ljava/lang/String;)Ljava/io/IOException;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 
     .line 472
     :cond_2
@@ -2828,9 +2822,9 @@
     .line 530
     invoke-direct {p0, v0}, Lcom/google/gson/stream/JsonReader;->syntaxError(Ljava/lang/String;)Ljava/io/IOException;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 
     :cond_7
     const/4 v0, 0x6
@@ -2975,9 +2969,9 @@
     .line 590
     invoke-direct {p0, v0}, Lcom/google/gson/stream/JsonReader;->syntaxError(Ljava/lang/String;)Ljava/io/IOException;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 
     .line 574
     :cond_10
@@ -3012,9 +3006,9 @@
     .line 564
     invoke-direct {p0, v0}, Lcom/google/gson/stream/JsonReader;->syntaxError(Ljava/lang/String;)Ljava/io/IOException;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 
     .line 560
     :cond_15
@@ -3052,13 +3046,13 @@
 
     .line 546
     :cond_18
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "JsonReader is closed"
+    const-string v0, "JsonReader is closed"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     :cond_19
     :goto_2
@@ -3093,9 +3087,9 @@
     .line 491
     invoke-direct {p0, v0}, Lcom/google/gson/stream/JsonReader;->syntaxError(Ljava/lang/String;)Ljava/io/IOException;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 
     .line 487
     :cond_1b
@@ -3145,9 +3139,9 @@
     :cond_1d
     invoke-direct {p0, v3}, Lcom/google/gson/stream/JsonReader;->syntaxError(Ljava/lang/String;)Ljava/io/IOException;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 
     :cond_1e
     if-eq v2, v14, :cond_1f
@@ -3161,9 +3155,9 @@
     :cond_1f
     invoke-direct {p0, v3}, Lcom/google/gson/stream/JsonReader;->syntaxError(Ljava/lang/String;)Ljava/io/IOException;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 
     .line 499
     :cond_20
@@ -3245,23 +3239,29 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
@@ -3333,23 +3333,29 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
@@ -3365,6 +3371,8 @@
     const/16 v1, 0x24
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     .line 1469
     iget v1, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
@@ -3427,15 +3435,19 @@
     .line 1473
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    iget-object v3, p0, Lcom/google/gson/stream/JsonReader;->pathIndices:[I
+    move-result-object v3
 
-    aget v3, v3, v2
+    iget-object v4, p0, Lcom/google/gson/stream/JsonReader;->pathIndices:[I
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    aget v4, v4, v2
 
-    const/16 v3, 0x5d
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object v3
+
+    const/16 v4, 0x5d
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     :cond_2
     :goto_1
@@ -3447,13 +3459,13 @@
     :cond_3
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public hasNext()Z
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3471,32 +3483,32 @@
     move-result v0
 
     :cond_0
-    const/4 v1, 0x2
+    const/4 p0, 0x2
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, p0, :cond_1
 
-    const/4 v1, 0x4
+    const/4 p0, 0x4
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, p0, :cond_1
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public final isLenient()Z
-    .locals 1
+    .locals 0
 
     .line 333
-    iget-boolean v0, p0, Lcom/google/gson/stream/JsonReader;->lenient:Z
+    iget-boolean p0, p0, Lcom/google/gson/stream/JsonReader;->lenient:Z
 
-    return v0
+    return p0
 .end method
 
 .method locationString()Ljava/lang/String;
@@ -3525,33 +3537,45 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v0, " column "
+    move-result-object v0
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, " column "
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, " path "
+    move-result-object v0
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, " path "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->getPath()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v0
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    return-object v0
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public nextBoolean()Z
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3583,15 +3607,15 @@
     .line 846
     iget-object v0, p0, Lcom/google/gson/stream/JsonReader;->pathIndices:[I
 
-    iget v1, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
+    iget p0, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
 
-    sub-int/2addr v1, v3
+    sub-int/2addr p0, v3
 
-    aget v2, v0, v1
+    aget v1, v0, p0
 
-    add-int/2addr v2, v3
+    add-int/2addr v1, v3
 
-    aput v2, v0, v1
+    aput v1, v0, p0
 
     return v3
 
@@ -3606,15 +3630,15 @@
     .line 850
     iget-object v0, p0, Lcom/google/gson/stream/JsonReader;->pathIndices:[I
 
-    iget v1, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
+    iget p0, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
 
-    sub-int/2addr v1, v3
+    sub-int/2addr p0, v3
 
-    aget v4, v0, v1
+    aget v1, v0, p0
 
-    add-int/2addr v4, v3
+    add-int/2addr v1, v3
 
-    aput v4, v0, v1
+    aput v1, v0, p0
 
     return v2
 
@@ -3630,23 +3654,29 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
@@ -3772,23 +3802,29 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
@@ -3853,20 +3889,26 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     .line 912
     invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v0
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v2, v0}, Lcom/google/gson/stream/MalformedJsonException;-><init>(Ljava/lang/String;)V
+    move-result-object p0
+
+    invoke-direct {v2, p0}, Lcom/google/gson/stream/MalformedJsonException;-><init>(Ljava/lang/String;)V
 
     throw v2
 
@@ -3883,21 +3925,21 @@
     .line 916
     iget-object v2, p0, Lcom/google/gson/stream/JsonReader;->pathIndices:[I
 
-    iget v3, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
+    iget p0, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
 
-    add-int/lit8 v3, v3, -0x1
+    add-int/lit8 p0, p0, -0x1
 
-    aget v4, v2, v3
+    aget v3, v2, p0
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v3, v3, 0x1
 
-    aput v4, v2, v3
+    aput v3, v2, p0
 
     return-wide v0
 .end method
 
 .method public nextInt()I
-    .locals 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3930,9 +3972,9 @@
 
     int-to-long v5, v4
 
-    cmp-long v7, v0, v5
+    cmp-long v0, v0, v5
 
-    if-nez v7, :cond_1
+    if-nez v0, :cond_1
 
     .line 1174
     iput v3, p0, Lcom/google/gson/stream/JsonReader;->peeked:I
@@ -3940,15 +3982,15 @@
     .line 1175
     iget-object v0, p0, Lcom/google/gson/stream/JsonReader;->pathIndices:[I
 
-    iget v1, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
+    iget p0, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 p0, p0, -0x1
 
-    aget v2, v0, v1
+    aget v1, v0, p0
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    aput v2, v0, v1
+    aput v1, v0, p0
 
     return v4
 
@@ -3962,21 +4004,27 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     iget-wide v2, p0, Lcom/google/gson/stream/JsonReader;->peekedLong:J
 
     invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
@@ -4034,23 +4082,29 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
@@ -4115,8 +4169,6 @@
     return v0
 
     :catch_0
-    nop
-
     :goto_3
     const/16 v0, 0xb
 
@@ -4134,9 +4186,9 @@
 
     int-to-double v5, v4
 
-    cmpl-double v7, v5, v0
+    cmpl-double v0, v5, v0
 
-    if-nez v7, :cond_8
+    if-nez v0, :cond_8
 
     const/4 v0, 0x0
 
@@ -4149,15 +4201,15 @@
     .line 1208
     iget-object v0, p0, Lcom/google/gson/stream/JsonReader;->pathIndices:[I
 
-    iget v1, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
+    iget p0, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 p0, p0, -0x1
 
-    aget v2, v0, v1
+    aget v1, v0, p0
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    aput v2, v0, v1
+    aput v1, v0, p0
 
     return v4
 
@@ -4171,27 +4223,33 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     iget-object v2, p0, Lcom/google/gson/stream/JsonReader;->peekedString:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public nextLong()J
-    .locals 9
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -4292,23 +4350,29 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
@@ -4373,8 +4437,6 @@
     return-wide v0
 
     :catch_0
-    nop
-
     :goto_3
     const/16 v0, 0xb
 
@@ -4392,9 +4454,9 @@
 
     long-to-double v6, v4
 
-    cmpl-double v8, v6, v0
+    cmpl-double v0, v6, v0
 
-    if-nez v8, :cond_7
+    if-nez v0, :cond_7
 
     const/4 v0, 0x0
 
@@ -4407,15 +4469,15 @@
     .line 971
     iget-object v0, p0, Lcom/google/gson/stream/JsonReader;->pathIndices:[I
 
-    iget v1, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
+    iget p0, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 p0, p0, -0x1
 
-    aget v2, v0, v1
+    aget v1, v0, p0
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    aput v2, v0, v1
+    aput v1, v0, p0
 
     return-wide v4
 
@@ -4429,21 +4491,27 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     iget-object v2, p0, Lcom/google/gson/stream/JsonReader;->peekedString:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
@@ -4513,11 +4581,11 @@
     .line 792
     iget-object v1, p0, Lcom/google/gson/stream/JsonReader;->pathNames:[Ljava/lang/String;
 
-    iget v2, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
+    iget p0, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
 
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 p0, p0, -0x1
 
-    aput-object v0, v1, v2
+    aput-object v0, v1, p0
 
     return-object v0
 
@@ -4533,23 +4601,29 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
@@ -4585,15 +4659,15 @@
     .line 870
     iget-object v0, p0, Lcom/google/gson/stream/JsonReader;->pathIndices:[I
 
-    iget v1, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
+    iget p0, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 p0, p0, -0x1
 
-    aget v2, v0, v1
+    aget v1, v0, p0
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    aput v2, v0, v1
+    aput v1, v0, p0
 
     return-void
 
@@ -4609,23 +4683,29 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
@@ -4751,15 +4831,15 @@
     .line 828
     iget-object v1, p0, Lcom/google/gson/stream/JsonReader;->pathIndices:[I
 
-    iget v2, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
+    iget p0, p0, Lcom/google/gson/stream/JsonReader;->stackSize:I
 
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 p0, p0, -0x1
 
-    aget v3, v1, v2
+    aget v2, v1, p0
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    aput v3, v1, v2
+    aput v2, v1, p0
 
     return-object v0
 
@@ -4775,23 +4855,29 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
@@ -4818,71 +4904,71 @@
     packed-switch v0, :pswitch_data_0
 
     .line 457
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p0, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p0}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p0
 
     .line 455
     :pswitch_0
-    sget-object v0, Lcom/google/gson/stream/JsonToken;->END_DOCUMENT:Lcom/google/gson/stream/JsonToken;
+    sget-object p0, Lcom/google/gson/stream/JsonToken;->END_DOCUMENT:Lcom/google/gson/stream/JsonToken;
 
-    return-object v0
+    return-object p0
 
     .line 453
     :pswitch_1
-    sget-object v0, Lcom/google/gson/stream/JsonToken;->NUMBER:Lcom/google/gson/stream/JsonToken;
+    sget-object p0, Lcom/google/gson/stream/JsonToken;->NUMBER:Lcom/google/gson/stream/JsonToken;
 
-    return-object v0
+    return-object p0
 
     .line 440
     :pswitch_2
-    sget-object v0, Lcom/google/gson/stream/JsonToken;->NAME:Lcom/google/gson/stream/JsonToken;
+    sget-object p0, Lcom/google/gson/stream/JsonToken;->NAME:Lcom/google/gson/stream/JsonToken;
 
-    return-object v0
+    return-object p0
 
     .line 450
     :pswitch_3
-    sget-object v0, Lcom/google/gson/stream/JsonToken;->STRING:Lcom/google/gson/stream/JsonToken;
+    sget-object p0, Lcom/google/gson/stream/JsonToken;->STRING:Lcom/google/gson/stream/JsonToken;
 
-    return-object v0
+    return-object p0
 
     .line 445
     :pswitch_4
-    sget-object v0, Lcom/google/gson/stream/JsonToken;->NULL:Lcom/google/gson/stream/JsonToken;
+    sget-object p0, Lcom/google/gson/stream/JsonToken;->NULL:Lcom/google/gson/stream/JsonToken;
 
-    return-object v0
+    return-object p0
 
     .line 443
     :pswitch_5
-    sget-object v0, Lcom/google/gson/stream/JsonToken;->BOOLEAN:Lcom/google/gson/stream/JsonToken;
+    sget-object p0, Lcom/google/gson/stream/JsonToken;->BOOLEAN:Lcom/google/gson/stream/JsonToken;
 
-    return-object v0
+    return-object p0
 
     .line 436
     :pswitch_6
-    sget-object v0, Lcom/google/gson/stream/JsonToken;->END_ARRAY:Lcom/google/gson/stream/JsonToken;
+    sget-object p0, Lcom/google/gson/stream/JsonToken;->END_ARRAY:Lcom/google/gson/stream/JsonToken;
 
-    return-object v0
+    return-object p0
 
     .line 434
     :pswitch_7
-    sget-object v0, Lcom/google/gson/stream/JsonToken;->BEGIN_ARRAY:Lcom/google/gson/stream/JsonToken;
+    sget-object p0, Lcom/google/gson/stream/JsonToken;->BEGIN_ARRAY:Lcom/google/gson/stream/JsonToken;
 
-    return-object v0
+    return-object p0
 
     .line 432
     :pswitch_8
-    sget-object v0, Lcom/google/gson/stream/JsonToken;->END_OBJECT:Lcom/google/gson/stream/JsonToken;
+    sget-object p0, Lcom/google/gson/stream/JsonToken;->END_OBJECT:Lcom/google/gson/stream/JsonToken;
 
-    return-object v0
+    return-object p0
 
     .line 430
     :pswitch_9
-    sget-object v0, Lcom/google/gson/stream/JsonToken;->BEGIN_OBJECT:Lcom/google/gson/stream/JsonToken;
+    sget-object p0, Lcom/google/gson/stream/JsonToken;->BEGIN_OBJECT:Lcom/google/gson/stream/JsonToken;
 
-    return-object v0
+    return-object p0
 
     nop
 
@@ -4927,7 +5013,7 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
     .line 1230
     :cond_0
@@ -5087,13 +5173,13 @@
     aput v3, v0, v2
 
     .line 1260
-    iget-object v0, p0, Lcom/google/gson/stream/JsonReader;->pathNames:[Ljava/lang/String;
+    iget-object p0, p0, Lcom/google/gson/stream/JsonReader;->pathNames:[Ljava/lang/String;
 
     sub-int/2addr v1, v4
 
-    const-string v2, "null"
+    const-string v0, "null"
 
-    aput-object v2, v0, v1
+    aput-object v0, p0, v1
 
     return-void
 .end method
@@ -5116,15 +5202,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v0
 
-    return-object v0
+    invoke-virtual {p0}, Lcom/google/gson/stream/JsonReader;->locationString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method

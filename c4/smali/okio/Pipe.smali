@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(J)V
-    .locals 3
+    .locals 2
 
     .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,9 +61,9 @@
 
     const-wide/16 v0, 0x1
 
-    cmp-long v2, p1, v0
+    cmp-long v0, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v0, :cond_0
 
     .line 50
     iput-wide p1, p0, Lokio/Pipe;->maxBufferSize:J
@@ -72,25 +72,29 @@
 
     .line 48
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "maxBufferSize < 1: "
+    const-string v1, "maxBufferSize < 1: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object p1
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v0
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method static synthetic access$000(Lokio/Pipe;)Lokio/Sink;
@@ -195,9 +199,9 @@
     iput-boolean v2, p0, Lokio/Pipe;->sourceClosed:Z
 
     .line 95
-    iget-object v0, p0, Lokio/Pipe;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/Pipe;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
 
     .line 96
     monitor-exit v1
@@ -207,57 +211,51 @@
     throw p1
 
     :catchall_1
-    move-exception p1
+    move-exception p0
 
     :try_start_3
     monitor-exit v1
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    throw p1
+    throw p0
 
     .line 73
     :cond_1
     :try_start_4
-    new-instance p1, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "sink already folded"
+    const-string p1, "sink already folded"
 
-    invoke-direct {p1, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 
     :catchall_2
-    move-exception p1
+    move-exception p0
 
     .line 84
     monitor-exit v0
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
-    goto :goto_2
-
-    :goto_1
-    throw p1
-
-    :goto_2
-    goto :goto_1
+    throw p0
 .end method
 
 .method public final sink()Lokio/Sink;
-    .locals 1
+    .locals 0
 
     .line 58
-    iget-object v0, p0, Lokio/Pipe;->sink:Lokio/Sink;
+    iget-object p0, p0, Lokio/Pipe;->sink:Lokio/Sink;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public final source()Lokio/Source;
-    .locals 1
+    .locals 0
 
     .line 54
-    iget-object v0, p0, Lokio/Pipe;->source:Lokio/Source;
+    iget-object p0, p0, Lokio/Pipe;->source:Lokio/Source;
 
-    return-object v0
+    return-object p0
 .end method

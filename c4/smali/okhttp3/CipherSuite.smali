@@ -1603,7 +1603,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 444
-    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 446
     iput-object p1, p0, Lokhttp3/CipherSuite;->javaName:Ljava/lang/String;
@@ -1776,7 +1776,7 @@
     goto :goto_1
 
     :cond_0
-    const/4 v2, 0x1
+    move v2, v3
 
     :goto_1
     return v2
@@ -1804,7 +1804,7 @@
     goto :goto_2
 
     :cond_3
-    const/4 v2, 0x1
+    move v2, v3
 
     :goto_2
     return v2
@@ -1838,13 +1838,17 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {p0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object p0
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -1865,13 +1869,17 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {p0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -1882,19 +1890,19 @@
 
 # virtual methods
 .method public javaName()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 467
-    iget-object v0, p0, Lokhttp3/CipherSuite;->javaName:Ljava/lang/String;
+    iget-object p0, p0, Lokhttp3/CipherSuite;->javaName:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 471
-    iget-object v0, p0, Lokhttp3/CipherSuite;->javaName:Ljava/lang/String;
+    iget-object p0, p0, Lokhttp3/CipherSuite;->javaName:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method

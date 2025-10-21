@@ -35,37 +35,37 @@
 
 # virtual methods
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
-    .locals 1
+    .locals 0
 
     .line 38
     invoke-virtual {p0}, Lokhttp3/internal/http/HttpDate$1;->initialValue()Ljava/text/DateFormat;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method protected initialValue()Ljava/text/DateFormat;
-    .locals 3
+    .locals 2
 
     .line 41
-    new-instance v0, Ljava/text/SimpleDateFormat;
+    new-instance p0, Ljava/text/SimpleDateFormat;
 
-    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
+    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    const-string v2, "EEE, dd MMM yyyy HH:mm:ss \'GMT\'"
+    const-string v1, "EEE, dd MMM yyyy HH:mm:ss \'GMT\'"
 
-    invoke-direct {v0, v2, v1}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
+    invoke-direct {p0, v1, v0}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 42
-    invoke-virtual {v0, v1}, Ljava/text/DateFormat;->setLenient(Z)V
+    invoke-virtual {p0, v0}, Ljava/text/DateFormat;->setLenient(Z)V
 
     .line 43
-    sget-object v1, Lokhttp3/internal/Util;->UTC:Ljava/util/TimeZone;
+    sget-object v0, Lokhttp3/internal/Util;->UTC:Ljava/util/TimeZone;
 
-    invoke-virtual {v0, v1}, Ljava/text/DateFormat;->setTimeZone(Ljava/util/TimeZone;)V
+    invoke-virtual {p0, v0}, Ljava/text/DateFormat;->setTimeZone(Ljava/util/TimeZone;)V
 
-    return-object v0
+    return-object p0
 .end method

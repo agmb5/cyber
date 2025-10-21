@@ -45,13 +45,13 @@
     .line 410
     invoke-virtual {p0, p1}, Lcom/google/gson/internal/bind/TypeAdapters$17;->read(Lcom/google/gson/stream/JsonReader;)Ljava/math/BigDecimal;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/math/BigDecimal;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -61,43 +61,43 @@
     .line 412
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
-    move-result-object v0
+    move-result-object p0
 
-    sget-object v1, Lcom/google/gson/stream/JsonToken;->NULL:Lcom/google/gson/stream/JsonToken;
+    sget-object v0, Lcom/google/gson/stream/JsonToken;->NULL:Lcom/google/gson/stream/JsonToken;
 
-    if-ne v0, v1, :cond_0
+    if-ne p0, v0, :cond_0
 
     .line 413
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
 
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
-    return-object p1
+    return-object p0
 
     .line 417
     :cond_0
     :try_start_0
-    new-instance v0, Ljava/math/BigDecimal;
+    new-instance p0, Ljava/math/BigDecimal;
 
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextString()Ljava/lang/String;
 
     move-result-object p1
 
-    invoke-direct {v0, p1}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception p1
+    move-exception p0
 
     .line 419
-    new-instance v0, Lcom/google/gson/JsonSyntaxException;
+    new-instance p1, Lcom/google/gson/JsonSyntaxException;
 
-    invoke-direct {v0, p1}, Lcom/google/gson/JsonSyntaxException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Lcom/google/gson/JsonSyntaxException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public bridge synthetic write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V

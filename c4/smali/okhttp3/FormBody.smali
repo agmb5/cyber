@@ -199,89 +199,89 @@
 .end method
 
 .method public contentType()Lokhttp3/MediaType;
-    .locals 1
+    .locals 0
 
     .line 63
-    sget-object v0, Lokhttp3/FormBody;->CONTENT_TYPE:Lokhttp3/MediaType;
+    sget-object p0, Lokhttp3/FormBody;->CONTENT_TYPE:Lokhttp3/MediaType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public encodedName(I)Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 47
-    iget-object v0, p0, Lokhttp3/FormBody;->encodedNames:Ljava/util/List;
+    iget-object p0, p0, Lokhttp3/FormBody;->encodedNames:Ljava/util/List;
 
-    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
-    check-cast p1, Ljava/lang/String;
+    check-cast p0, Ljava/lang/String;
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public encodedValue(I)Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 55
-    iget-object v0, p0, Lokhttp3/FormBody;->encodedValues:Ljava/util/List;
+    iget-object p0, p0, Lokhttp3/FormBody;->encodedValues:Ljava/util/List;
 
-    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
-    check-cast p1, Ljava/lang/String;
+    check-cast p0, Ljava/lang/String;
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public name(I)Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 51
     invoke-virtual {p0, p1}, Lokhttp3/FormBody;->encodedName(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    invoke-static {p1, v0}, Lokhttp3/HttpUrl;->percentDecode(Ljava/lang/String;Z)Ljava/lang/String;
+    invoke-static {p0, p1}, Lokhttp3/HttpUrl;->percentDecode(Ljava/lang/String;Z)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public size()I
-    .locals 1
+    .locals 0
 
     .line 43
-    iget-object v0, p0, Lokhttp3/FormBody;->encodedNames:Ljava/util/List;
+    iget-object p0, p0, Lokhttp3/FormBody;->encodedNames:Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {p0}, Ljava/util/List;->size()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public value(I)Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 59
     invoke-virtual {p0, p1}, Lokhttp3/FormBody;->encodedValue(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    invoke-static {p1, v0}, Lokhttp3/HttpUrl;->percentDecode(Ljava/lang/String;Z)Ljava/lang/String;
+    invoke-static {p0, p1}, Lokhttp3/HttpUrl;->percentDecode(Ljava/lang/String;Z)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public writeTo(Lokio/BufferedSink;)V

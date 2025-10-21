@@ -28,33 +28,26 @@
 
     iput-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    if-eqz p1, :cond_0
+    const-string v0, "source == null"
+
+    .line 33
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 34
     iput-object p1, p0, Lokio/RealBufferedSource;->source:Lokio/Source;
 
     return-void
-
-    .line 33
-    :cond_0
-    new-instance p1, Ljava/lang/NullPointerException;
-
-    const-string v0, "source == null"
-
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
 .end method
 
 
 # virtual methods
 .method public buffer()Lokio/Buffer;
-    .locals 1
+    .locals 0
 
     .line 38
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public close()V
@@ -84,15 +77,15 @@
     invoke-interface {v0}, Lokio/Source;->close()V
 
     .line 477
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lokio/Buffer;->clear()V
+    invoke-virtual {p0}, Lokio/Buffer;->clear()V
 
     return-void
 .end method
 
 .method public exhausted()Z
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -115,48 +108,48 @@
 
     iget-object v0, p0, Lokio/RealBufferedSource;->source:Lokio/Source;
 
-    iget-object v1, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    const-wide/16 v2, 0x2000
+    const-wide/16 v1, 0x2000
 
-    invoke-interface {v0, v1, v2, v3}, Lokio/Source;->read(Lokio/Buffer;J)J
+    invoke-interface {v0, p0, v1, v2}, Lokio/Source;->read(Lokio/Buffer;J)J
 
     move-result-wide v0
 
     const-wide/16 v2, -0x1
 
-    cmp-long v4, v0, v2
+    cmp-long p0, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 
     .line 60
     :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "closed"
+    const-string v0, "closed"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public getBuffer()Lokio/Buffer;
-    .locals 1
+    .locals 0
 
     .line 42
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public indexOf(B)J
@@ -178,9 +171,9 @@
     .line 337
     invoke-virtual/range {v0 .. v5}, Lokio/RealBufferedSource;->indexOf(BJJ)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    return-wide v0
+    return-wide p0
 .end method
 
 .method public indexOf(BJ)J
@@ -202,9 +195,9 @@
     .line 341
     invoke-virtual/range {v0 .. v5}, Lokio/RealBufferedSource;->indexOf(BJJ)J
 
-    move-result-wide p1
+    move-result-wide p0
 
-    return-wide p1
+    return-wide p0
 .end method
 
 .method public indexOf(BJJ)J
@@ -222,18 +215,18 @@
 
     const-wide/16 v0, 0x0
 
-    cmp-long v2, p2, v0
+    cmp-long v0, p2, v0
 
-    if-ltz v2, :cond_3
+    if-ltz v0, :cond_3
 
     cmp-long v0, p4, p2
 
     if-ltz v0, :cond_3
 
     :goto_0
-    const-wide/16 v7, -0x1
-
     cmp-long v0, p2, p4
+
+    const-wide/16 v7, -0x1
 
     if-gez v0, :cond_2
 
@@ -277,9 +270,9 @@
 
     move-result-wide v2
 
-    cmp-long v4, v2, v7
+    cmp-long v2, v2, v7
 
-    if-nez v4, :cond_1
+    if-nez v2, :cond_1
 
     goto :goto_1
 
@@ -297,20 +290,20 @@
 
     .line 347
     :cond_3
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const/4 v0, 0x2
+    const/4 p1, 0x2
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array p1, p1, [Ljava/lang/Object;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 348
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object p2
 
-    aput-object p2, v0, v1
+    aput-object p2, p1, v0
 
     const/4 p2, 0x1
 
@@ -318,33 +311,27 @@
 
     move-result-object p3
 
-    aput-object p3, v0, p2
+    aput-object p3, p1, p2
 
     const-string p2, "fromIndex=%s toIndex=%s"
 
-    invoke-static {p2, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p2, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object p1
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 
     .line 345
     :cond_4
-    new-instance p1, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string p2, "closed"
+    const-string p1, "closed"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_3
-
-    :goto_2
-    throw p1
-
-    :goto_3
-    goto :goto_2
+    throw p0
 .end method
 
 .method public indexOf(Lokio/ByteString;)J
@@ -360,9 +347,9 @@
     .line 367
     invoke-virtual {p0, p1, v0, v1}, Lokio/RealBufferedSource;->indexOf(Lokio/ByteString;J)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    return-wide v0
+    return-wide p0
 .end method
 
 .method public indexOf(Lokio/ByteString;J)J
@@ -411,9 +398,9 @@
 
     move-result-wide v4
 
-    cmp-long v6, v4, v2
+    cmp-long v4, v4, v2
 
-    if-nez v6, :cond_1
+    if-nez v4, :cond_1
 
     return-wide v2
 
@@ -439,19 +426,13 @@
 
     .line 371
     :cond_2
-    new-instance p1, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string p2, "closed"
+    const-string p1, "closed"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2
-
-    :goto_1
-    throw p1
-
-    :goto_2
-    goto :goto_1
+    throw p0
 .end method
 
 .method public indexOfElement(Lokio/ByteString;)J
@@ -467,9 +448,9 @@
     .line 386
     invoke-virtual {p0, p1, v0, v1}, Lokio/RealBufferedSource;->indexOfElement(Lokio/ByteString;J)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    return-wide v0
+    return-wide p0
 .end method
 
 .method public indexOfElement(Lokio/ByteString;J)J
@@ -518,9 +499,9 @@
 
     move-result-wide v4
 
-    cmp-long v6, v4, v2
+    cmp-long v4, v4, v2
 
-    if-nez v6, :cond_1
+    if-nez v4, :cond_1
 
     return-wide v2
 
@@ -534,19 +515,13 @@
 
     .line 390
     :cond_2
-    new-instance p1, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string p2, "closed"
+    const-string p1, "closed"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2
-
-    :goto_1
-    throw p1
-
-    :goto_2
-    goto :goto_1
+    throw p0
 .end method
 
 .method public inputStream()Ljava/io/InputStream;
@@ -561,14 +536,14 @@
 .end method
 
 .method public isOpen()Z
-    .locals 1
+    .locals 0
 
     .line 470
-    iget-boolean v0, p0, Lokio/RealBufferedSource;->closed:Z
+    iget-boolean p0, p0, Lokio/RealBufferedSource;->closed:Z
 
-    xor-int/lit8 v0, v0, 0x1
+    xor-int/lit8 p0, p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public peek()Lokio/BufferedSource;
@@ -581,9 +556,9 @@
 
     invoke-static {v0}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public rangeEquals(JLokio/ByteString;)Z
@@ -609,13 +584,13 @@
 
     invoke-virtual/range {v0 .. v5}, Lokio/RealBufferedSource;->rangeEquals(JLokio/ByteString;II)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
 .method public rangeEquals(JLokio/ByteString;II)Z
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -629,11 +604,11 @@
 
     const-wide/16 v0, 0x0
 
-    const/4 v2, 0x0
+    cmp-long v0, p1, v0
 
-    cmp-long v3, p1, v0
+    const/4 v1, 0x0
 
-    if-ltz v3, :cond_4
+    if-ltz v0, :cond_4
 
     if-ltz p4, :cond_4
 
@@ -651,35 +626,35 @@
     goto :goto_1
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_0
     if-ge v0, p5, :cond_3
 
-    int-to-long v3, v0
+    int-to-long v2, v0
 
-    add-long/2addr v3, p1
+    add-long/2addr v2, p1
 
-    const-wide/16 v5, 0x1
+    const-wide/16 v4, 0x1
 
-    add-long/2addr v5, v3
+    add-long/2addr v4, v2
 
     .line 421
-    invoke-virtual {p0, v5, v6}, Lokio/RealBufferedSource;->request(J)Z
+    invoke-virtual {p0, v4, v5}, Lokio/RealBufferedSource;->request(J)Z
 
-    move-result v1
+    move-result v4
 
-    if-nez v1, :cond_1
+    if-nez v4, :cond_1
 
-    return v2
+    return v1
 
     .line 422
     :cond_1
-    iget-object v1, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object v4, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v1, v3, v4}, Lokio/Buffer;->getByte(J)B
+    invoke-virtual {v4, v2, v3}, Lokio/Buffer;->getByte(J)B
 
-    move-result v1
+    move-result v2
 
     add-int v3, p4, v0
 
@@ -687,9 +662,9 @@
 
     move-result v3
 
-    if-eq v1, v3, :cond_2
+    if-eq v2, v3, :cond_2
 
-    return v2
+    return v1
 
     :cond_2
     add-int/lit8 v0, v0, 0x1
@@ -697,33 +672,27 @@
     goto :goto_0
 
     :cond_3
-    const/4 p1, 0x1
+    const/4 p0, 0x1
 
-    return p1
+    return p0
 
     :cond_4
     :goto_1
-    return v2
+    return v1
 
     .line 411
     :cond_5
-    new-instance p1, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string p2, "closed"
+    const-string p1, "closed"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_3
-
-    :goto_2
-    throw p1
-
-    :goto_3
-    goto :goto_2
+    throw p0
 .end method
 
 .method public read(Ljava/nio/ByteBuffer;)I
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -737,9 +706,9 @@
 
     const-wide/16 v2, 0x0
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v0, :cond_0
 
     .line 154
     iget-object v0, p0, Lokio/RealBufferedSource;->source:Lokio/Source;
@@ -754,23 +723,23 @@
 
     const-wide/16 v2, -0x1
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v0, :cond_0
 
-    const/4 p1, -0x1
+    const/4 p0, -0x1
 
-    return p1
+    return p0
 
     .line 158
     :cond_0
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0, p1}, Lokio/Buffer;->read(Ljava/nio/ByteBuffer;)I
+    invoke-virtual {p0, p1}, Lokio/Buffer;->read(Ljava/nio/ByteBuffer;)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
 .method public read([B)I
@@ -788,9 +757,9 @@
 
     invoke-virtual {p0, p1, v1, v0}, Lokio/RealBufferedSource;->read([BII)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
 .method public read([BII)I
@@ -842,9 +811,9 @@
 
     if-nez p3, :cond_0
 
-    const/4 p1, -0x1
+    const/4 p0, -0x1
 
-    return p1
+    return p0
 
     .line 148
     :cond_0
@@ -859,17 +828,17 @@
     long-to-int p3, v0
 
     .line 149
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0, p1, p2, p3}, Lokio/Buffer;->read([BII)I
+    invoke-virtual {p0, p1, p2, p3}, Lokio/Buffer;->read([BII)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -894,9 +863,9 @@
 
     iget-wide v2, v2, Lokio/Buffer;->size:J
 
-    cmp-long v4, v2, v0
+    cmp-long v0, v2, v0
 
-    if-nez v4, :cond_0
+    if-nez v0, :cond_0
 
     .line 51
     iget-object v0, p0, Lokio/RealBufferedSource;->source:Lokio/Source;
@@ -911,9 +880,9 @@
 
     const-wide/16 v2, -0x1
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v0, :cond_0
 
     return-wide v2
 
@@ -928,59 +897,63 @@
     move-result-wide p2
 
     .line 56
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0, p1, p2, p3}, Lokio/Buffer;->read(Lokio/Buffer;J)J
+    invoke-virtual {p0, p1, p2, p3}, Lokio/Buffer;->read(Lokio/Buffer;J)J
 
-    move-result-wide p1
+    move-result-wide p0
 
-    return-wide p1
+    return-wide p0
 
     .line 48
     :cond_1
-    new-instance p1, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string p2, "closed"
+    const-string p1, "closed"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 
     .line 47
     :cond_2
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "byteCount < 0: "
+    const-string v0, "byteCount < 0: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object p2
+    move-result-object p1
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw p1
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 
     .line 46
     :cond_3
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "sink == null"
+    const-string p1, "sink == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 .end method
 
 .method public readAll(Lokio/Sink;)J
-    .locals 9
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1008,9 +981,9 @@
 
     const-wide/16 v6, -0x1
 
-    cmp-long v8, v4, v6
+    cmp-long v4, v4, v6
 
-    if-eqz v8, :cond_1
+    if-eqz v4, :cond_1
 
     .line 177
     iget-object v4, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
@@ -1040,9 +1013,9 @@
 
     move-result-wide v4
 
-    cmp-long v6, v4, v0
+    cmp-long v0, v4, v0
 
-    if-lez v6, :cond_2
+    if-lez v0, :cond_2
 
     .line 184
     iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
@@ -1054,32 +1027,26 @@
     add-long/2addr v2, v0
 
     .line 185
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lokio/Buffer;->size()J
+    invoke-virtual {p0}, Lokio/Buffer;->size()J
 
-    move-result-wide v4
+    move-result-wide v0
 
-    invoke-interface {p1, v0, v4, v5}, Lokio/Sink;->write(Lokio/Buffer;J)V
+    invoke-interface {p1, p0, v0, v1}, Lokio/Sink;->write(Lokio/Buffer;J)V
 
     :cond_2
     return-wide v2
 
     .line 173
     :cond_3
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "sink == null"
+    const-string p1, "sink == null"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2
-
-    :goto_1
-    throw p1
-
-    :goto_2
-    goto :goto_1
+    throw p0
 .end method
 
 .method public readByte()B
@@ -1096,13 +1063,13 @@
     invoke-virtual {p0, v0, v1}, Lokio/RealBufferedSource;->require(J)V
 
     .line 79
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lokio/Buffer;->readByte()B
+    invoke-virtual {p0}, Lokio/Buffer;->readByte()B
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public readByteArray()[B
@@ -1121,17 +1088,17 @@
     invoke-virtual {v0, v1}, Lokio/Buffer;->writeAll(Lokio/Source;)J
 
     .line 112
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lokio/Buffer;->readByteArray()[B
+    invoke-virtual {p0}, Lokio/Buffer;->readByteArray()[B
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public readByteArray(J)[B
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1142,13 +1109,13 @@
     invoke-virtual {p0, p1, p2}, Lokio/RealBufferedSource;->require(J)V
 
     .line 117
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0, p1, p2}, Lokio/Buffer;->readByteArray(J)[B
+    invoke-virtual {p0, p1, p2}, Lokio/Buffer;->readByteArray(J)[B
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public readByteString()Lokio/ByteString;
@@ -1167,17 +1134,17 @@
     invoke-virtual {v0, v1}, Lokio/Buffer;->writeAll(Lokio/Source;)J
 
     .line 84
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lokio/Buffer;->readByteString()Lokio/ByteString;
+    invoke-virtual {p0}, Lokio/Buffer;->readByteString()Lokio/ByteString;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public readByteString(J)Lokio/ByteString;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1188,13 +1155,13 @@
     invoke-virtual {p0, p1, p2}, Lokio/RealBufferedSource;->require(J)V
 
     .line 89
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0, p1, p2}, Lokio/Buffer;->readByteString(J)Lokio/ByteString;
+    invoke-virtual {p0, p1, p2}, Lokio/Buffer;->readByteString(J)Lokio/ByteString;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public readDecimalLong()J
@@ -1212,7 +1179,7 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_0
     add-int/lit8 v2, v1, 0x1
@@ -1265,36 +1232,36 @@
 
     .line 296
     :cond_3
-    new-instance v1, Ljava/lang/NumberFormatException;
+    new-instance p0, Ljava/lang/NumberFormatException;
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
     .line 297
     invoke-static {v3}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
 
-    move-result-object v3
+    move-result-object v2
 
-    aput-object v3, v2, v0
+    aput-object v2, v1, v0
 
     const-string v0, "Expected leading [0-9] or \'-\' character but was %#x"
 
     .line 296
-    invoke-static {v0, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {v1, v0}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 
     .line 303
     :cond_4
     :goto_2
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lokio/Buffer;->readDecimalLong()J
+    invoke-virtual {p0}, Lokio/Buffer;->readDecimalLong()J
 
     move-result-wide v0
 
@@ -1302,7 +1269,7 @@
 .end method
 
 .method public readFully(Lokio/Buffer;J)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1316,9 +1283,9 @@
     .catch Ljava/io/EOFException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 169
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0, p1, p2, p3}, Lokio/Buffer;->readFully(Lokio/Buffer;J)V
+    invoke-virtual {p0, p1, p2, p3}, Lokio/Buffer;->readFully(Lokio/Buffer;J)V
 
     return-void
 
@@ -1326,16 +1293,16 @@
     move-exception p2
 
     .line 166
-    iget-object p3, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {p1, p3}, Lokio/Buffer;->writeAll(Lokio/Source;)J
+    invoke-virtual {p1, p0}, Lokio/Buffer;->writeAll(Lokio/Source;)J
 
     .line 167
     throw p2
 .end method
 
 .method public readFully([B)V
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1353,9 +1320,9 @@
     .catch Ljava/io/EOFException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 137
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0, p1}, Lokio/Buffer;->readFully([B)V
+    invoke-virtual {p0, p1}, Lokio/Buffer;->readFully([B)V
 
     return-void
 
@@ -1372,18 +1339,18 @@
 
     const-wide/16 v4, 0x0
 
-    cmp-long v6, v2, v4
+    cmp-long v2, v2, v4
 
-    if-lez v6, :cond_1
+    if-lez v2, :cond_1
 
     .line 131
     iget-object v2, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
     iget-wide v3, v2, Lokio/Buffer;->size:J
 
-    long-to-int v4, v3
+    long-to-int v3, v3
 
-    invoke-virtual {v2, p1, v1, v4}, Lokio/Buffer;->read([BII)I
+    invoke-virtual {v2, p1, v1, v3}, Lokio/Buffer;->read([BII)I
 
     move-result v2
 
@@ -1397,21 +1364,15 @@
 
     .line 132
     :cond_0
-    new-instance p1, Ljava/lang/AssertionError;
+    new-instance p0, Ljava/lang/AssertionError;
 
-    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p0}, Ljava/lang/AssertionError;-><init>()V
 
-    throw p1
+    throw p0
 
     .line 135
     :cond_1
-    goto :goto_2
-
-    :goto_1
     throw v0
-
-    :goto_2
-    goto :goto_1
 .end method
 
 .method public readHexadecimalUnsignedLong()J
@@ -1429,7 +1390,7 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_0
     add-int/lit8 v2, v1, 0x1
@@ -1493,36 +1454,36 @@
 
     .line 314
     :cond_4
-    new-instance v1, Ljava/lang/NumberFormatException;
+    new-instance p0, Ljava/lang/NumberFormatException;
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
     .line 315
     invoke-static {v3}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
 
-    move-result-object v3
+    move-result-object v2
 
-    aput-object v3, v2, v0
+    aput-object v2, v1, v0
 
     const-string v0, "Expected leading [0-9a-fA-F] character but was %#x"
 
     .line 314
-    invoke-static {v0, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {v1, v0}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 
     .line 321
     :cond_5
     :goto_2
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lokio/Buffer;->readHexadecimalUnsignedLong()J
+    invoke-virtual {p0}, Lokio/Buffer;->readHexadecimalUnsignedLong()J
 
     move-result-wide v0
 
@@ -1543,13 +1504,13 @@
     invoke-virtual {p0, v0, v1}, Lokio/RealBufferedSource;->require(J)V
 
     .line 270
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lokio/Buffer;->readInt()I
+    invoke-virtual {p0}, Lokio/Buffer;->readInt()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public readIntLe()I
@@ -1566,13 +1527,13 @@
     invoke-virtual {p0, v0, v1}, Lokio/RealBufferedSource;->require(J)V
 
     .line 275
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lokio/Buffer;->readIntLe()I
+    invoke-virtual {p0}, Lokio/Buffer;->readIntLe()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public readLong()J
@@ -1589,9 +1550,9 @@
     invoke-virtual {p0, v0, v1}, Lokio/RealBufferedSource;->require(J)V
 
     .line 280
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lokio/Buffer;->readLong()J
+    invoke-virtual {p0}, Lokio/Buffer;->readLong()J
 
     move-result-wide v0
 
@@ -1612,9 +1573,9 @@
     invoke-virtual {p0, v0, v1}, Lokio/RealBufferedSource;->require(J)V
 
     .line 285
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lokio/Buffer;->readLongLe()J
+    invoke-virtual {p0}, Lokio/Buffer;->readLongLe()J
 
     move-result-wide v0
 
@@ -1635,13 +1596,13 @@
     invoke-virtual {p0, v0, v1}, Lokio/RealBufferedSource;->require(J)V
 
     .line 260
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lokio/Buffer;->readShort()S
+    invoke-virtual {p0}, Lokio/Buffer;->readShort()S
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public readShortLe()S
@@ -1658,17 +1619,17 @@
     invoke-virtual {p0, v0, v1}, Lokio/RealBufferedSource;->require(J)V
 
     .line 265
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lokio/Buffer;->readShortLe()S
+    invoke-virtual {p0}, Lokio/Buffer;->readShortLe()S
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public readString(JLjava/nio/charset/Charset;)Ljava/lang/String;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1681,23 +1642,23 @@
     if-eqz p3, :cond_0
 
     .line 210
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0, p1, p2, p3}, Lokio/Buffer;->readString(JLjava/nio/charset/Charset;)Ljava/lang/String;
+    invoke-virtual {p0, p1, p2, p3}, Lokio/Buffer;->readString(JLjava/nio/charset/Charset;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 
     .line 209
     :cond_0
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "charset == null"
+    const-string p1, "charset == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 .end method
 
 .method public readString(Ljava/nio/charset/Charset;)Ljava/lang/String;
@@ -1718,23 +1679,23 @@
     invoke-virtual {v0, v1}, Lokio/Buffer;->writeAll(Lokio/Source;)J
 
     .line 204
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0, p1}, Lokio/Buffer;->readString(Ljava/nio/charset/Charset;)Ljava/lang/String;
+    invoke-virtual {p0, p1}, Lokio/Buffer;->readString(Ljava/nio/charset/Charset;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 
     .line 201
     :cond_0
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "charset == null"
+    const-string p1, "charset == null"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 .end method
 
 .method public readUtf8()Ljava/lang/String;
@@ -1753,17 +1714,17 @@
     invoke-virtual {v0, v1}, Lokio/Buffer;->writeAll(Lokio/Source;)J
 
     .line 192
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lokio/Buffer;->readUtf8()Ljava/lang/String;
+    invoke-virtual {p0}, Lokio/Buffer;->readUtf8()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public readUtf8(J)Ljava/lang/String;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1774,13 +1735,13 @@
     invoke-virtual {p0, p1, p2}, Lokio/RealBufferedSource;->require(J)V
 
     .line 197
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0, p1, p2}, Lokio/Buffer;->readUtf8(J)Ljava/lang/String;
+    invoke-virtual {p0, p1, p2}, Lokio/Buffer;->readUtf8(J)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public readUtf8CodePoint()I
@@ -1847,17 +1808,17 @@
     .line 255
     :cond_2
     :goto_0
-    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lokio/Buffer;->readUtf8CodePoint()I
+    invoke-virtual {p0}, Lokio/Buffer;->readUtf8CodePoint()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public readUtf8Line()Ljava/lang/String;
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1876,9 +1837,9 @@
 
     const-wide/16 v2, -0x1
 
-    cmp-long v4, v0, v2
+    cmp-long v2, v0, v2
 
-    if-nez v4, :cond_1
+    if-nez v2, :cond_1
 
     .line 217
     iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
@@ -1887,9 +1848,9 @@
 
     const-wide/16 v2, 0x0
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
@@ -1897,25 +1858,25 @@
 
     invoke-virtual {p0, v0, v1}, Lokio/RealBufferedSource;->readUtf8(J)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return-object v0
+    return-object p0
 
     .line 220
     :cond_1
-    iget-object v2, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v2, v0, v1}, Lokio/Buffer;->readUtf8Line(J)Ljava/lang/String;
+    invoke-virtual {p0, v0, v1}, Lokio/Buffer;->readUtf8Line(J)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public readUtf8LineStrict()Ljava/lang/String;
@@ -1931,13 +1892,13 @@
     .line 224
     invoke-virtual {p0, v0, v1}, Lokio/RealBufferedSource;->readUtf8LineStrict(J)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public readUtf8LineStrict(J)Ljava/lang/String;
-    .locals 12
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1946,82 +1907,61 @@
 
     const-wide/16 v0, 0x0
 
+    cmp-long v0, p1, v0
+
+    if-ltz v0, :cond_3
+
+    const-wide v0, 0x7fffffffffffffffL
+
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_3
+    const-wide/16 v3, 0x1
 
-    const-wide/16 v0, 0x1
+    if-nez v2, :cond_0
 
-    const-wide v2, 0x7fffffffffffffffL
-
-    cmp-long v4, p1, v2
-
-    if-nez v4, :cond_0
-
-    move-wide v4, v2
+    move-wide v5, v0
 
     goto :goto_0
 
     :cond_0
-    add-long v4, p1, v0
+    add-long v5, p1, v3
 
     :goto_0
-    const/16 v7, 0xa
+    const/16 v8, 0xa
 
-    const-wide/16 v8, 0x0
+    const-wide/16 v9, 0x0
 
-    move-object v6, p0
+    move-object v7, p0
 
-    move-wide v10, v4
+    move-wide v11, v5
 
     .line 230
-    invoke-virtual/range {v6 .. v11}, Lokio/RealBufferedSource;->indexOf(BJJ)J
+    invoke-virtual/range {v7 .. v12}, Lokio/RealBufferedSource;->indexOf(BJJ)J
 
-    move-result-wide v6
+    move-result-wide v7
 
-    const-wide/16 v8, -0x1
+    const-wide/16 v9, -0x1
 
-    cmp-long v10, v6, v8
+    cmp-long v2, v7, v9
 
-    if-eqz v10, :cond_1
+    if-eqz v2, :cond_1
 
     .line 231
-    iget-object p1, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {p1, v6, v7}, Lokio/Buffer;->readUtf8Line(J)Ljava/lang/String;
+    invoke-virtual {p0, v7, v8}, Lokio/Buffer;->readUtf8Line(J)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 
     :cond_1
-    cmp-long v6, v4, v2
+    cmp-long v0, v5, v0
 
-    if-gez v6, :cond_2
+    if-gez v0, :cond_2
 
     .line 233
-    invoke-virtual {p0, v4, v5}, Lokio/RealBufferedSource;->request(J)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    iget-object v2, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
-
-    sub-long v6, v4, v0
-
-    invoke-virtual {v2, v6, v7}, Lokio/Buffer;->getByte(J)B
-
-    move-result v2
-
-    const/16 v3, 0xd
-
-    if-ne v2, v3, :cond_2
-
-    add-long/2addr v0, v4
-
-    .line 234
-    invoke-virtual {p0, v0, v1}, Lokio/RealBufferedSource;->request(J)Z
+    invoke-virtual {p0, v5, v6}, Lokio/RealBufferedSource;->request(J)Z
 
     move-result v0
 
@@ -2029,7 +1969,28 @@
 
     iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v0, v4, v5}, Lokio/Buffer;->getByte(J)B
+    sub-long v1, v5, v3
+
+    invoke-virtual {v0, v1, v2}, Lokio/Buffer;->getByte(J)B
+
+    move-result v0
+
+    const/16 v1, 0xd
+
+    if-ne v0, v1, :cond_2
+
+    add-long/2addr v3, v5
+
+    .line 234
+    invoke-virtual {p0, v3, v4}, Lokio/RealBufferedSource;->request(J)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+
+    invoke-virtual {v0, v5, v6}, Lokio/Buffer;->getByte(J)B
 
     move-result v0
 
@@ -2038,13 +1999,13 @@
     if-ne v0, v1, :cond_2
 
     .line 235
-    iget-object p1, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    invoke-virtual {p1, v4, v5}, Lokio/Buffer;->readUtf8Line(J)Ljava/lang/String;
+    invoke-virtual {p0, v5, v6}, Lokio/Buffer;->readUtf8Line(J)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 
     .line 237
     :cond_2
@@ -2082,21 +2043,27 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    move-result-object v1
 
-    invoke-virtual {v2}, Lokio/Buffer;->size()J
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+
+    invoke-virtual {p0}, Lokio/Buffer;->size()J
 
     move-result-wide v2
 
     invoke-static {v2, v3, p1, p2}, Ljava/lang/Math;->min(JJ)J
 
-    move-result-wide p1
+    move-result-wide p0
 
-    invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0, p1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object p0
 
     const-string p1, " content="
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
 
     .line 240
     invoke-virtual {v6}, Lokio/Buffer;->readByteString()Lokio/ByteString;
@@ -2107,45 +2074,53 @@
 
     move-result-object p1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
 
     const/16 p1, 0x2026
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object p1
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, p1}, Ljava/io/EOFException;-><init>(Ljava/lang/String;)V
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/io/EOFException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 228
     :cond_3
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "limit < 0: "
+    const-string v1, "limit < 0: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object p1
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v0
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method public request(J)Z
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2154,9 +2129,9 @@
 
     const-wide/16 v0, 0x0
 
-    cmp-long v2, p1, v0
+    cmp-long v0, p1, v0
 
-    if-ltz v2, :cond_3
+    if-ltz v0, :cond_3
 
     .line 70
     iget-boolean v0, p0, Lokio/RealBufferedSource;->closed:Z
@@ -2169,9 +2144,9 @@
 
     iget-wide v0, v0, Lokio/Buffer;->size:J
 
-    cmp-long v2, v0, p1
+    cmp-long v0, v0, p1
 
-    if-gez v2, :cond_1
+    if-gez v0, :cond_1
 
     .line 72
     iget-object v0, p0, Lokio/RealBufferedSource;->source:Lokio/Source;
@@ -2186,56 +2161,54 @@
 
     const-wide/16 v2, -0x1
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v0, :cond_0
 
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
-    return p1
+    return p0
 
     :cond_1
-    const/4 p1, 0x1
+    const/4 p0, 0x1
 
-    return p1
+    return p0
 
     .line 70
     :cond_2
-    new-instance p1, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string p2, "closed"
+    const-string p1, "closed"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 
     .line 69
     :cond_3
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "byteCount < 0: "
+    const-string v1, "byteCount < 0: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object p1
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    goto :goto_1
+    move-result-object p1
 
-    :goto_0
-    throw v0
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    :goto_1
-    goto :goto_0
+    throw p0
 .end method
 
 .method public require(J)V
@@ -2249,18 +2222,18 @@
     .line 65
     invoke-virtual {p0, p1, p2}, Lokio/RealBufferedSource;->request(J)Z
 
-    move-result p1
+    move-result p0
 
-    if-eqz p1, :cond_0
+    if-eqz p0, :cond_0
 
     return-void
 
     :cond_0
-    new-instance p1, Ljava/io/EOFException;
+    new-instance p0, Ljava/io/EOFException;
 
-    invoke-direct {p1}, Ljava/io/EOFException;-><init>()V
+    invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
 
-    throw p1
+    throw p0
 .end method
 
 .method public select(Lokio/Options;)I
@@ -2327,33 +2300,27 @@
     move-result p1
 
     .line 104
-    iget-object v1, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
+    iget-object p0, p0, Lokio/RealBufferedSource;->buffer:Lokio/Buffer;
 
-    int-to-long v2, p1
+    int-to-long v1, p1
 
-    invoke-virtual {v1, v2, v3}, Lokio/Buffer;->skip(J)V
+    invoke-virtual {p0, v1, v2}, Lokio/Buffer;->skip(J)V
 
     return v0
 
     .line 93
     :cond_3
-    new-instance p1, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v0, "closed"
+    const-string p1, "closed"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_1
-
-    :goto_0
-    throw p1
-
-    :goto_1
-    goto :goto_0
+    throw p0
 .end method
 
 .method public skip(J)V
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2377,9 +2344,9 @@
 
     iget-wide v2, v2, Lokio/Buffer;->size:J
 
-    cmp-long v4, v2, v0
+    cmp-long v0, v2, v0
 
-    if-nez v4, :cond_1
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Lokio/RealBufferedSource;->source:Lokio/Source;
 
@@ -2393,19 +2360,19 @@
 
     const-wide/16 v2, -0x1
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v0, :cond_0
 
     goto :goto_1
 
     .line 328
     :cond_0
-    new-instance p1, Ljava/io/EOFException;
+    new-instance p0, Ljava/io/EOFException;
 
-    invoke-direct {p1}, Ljava/io/EOFException;-><init>()V
+    invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
 
-    throw p1
+    throw p0
 
     .line 330
     :cond_1
@@ -2434,32 +2401,26 @@
 
     .line 325
     :cond_3
-    new-instance p1, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string p2, "closed"
+    const-string p1, "closed"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_3
-
-    :goto_2
-    throw p1
-
-    :goto_3
-    goto :goto_2
+    throw p0
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .locals 0
 
     .line 481
-    iget-object v0, p0, Lokio/RealBufferedSource;->source:Lokio/Source;
+    iget-object p0, p0, Lokio/RealBufferedSource;->source:Lokio/Source;
 
-    invoke-interface {v0}, Lokio/Source;->timeout()Lokio/Timeout;
+    invoke-interface {p0}, Lokio/Source;->timeout()Lokio/Timeout;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -2474,17 +2435,23 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lokio/RealBufferedSource;->source:Lokio/Source;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v1, ")"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v0
 
-    return-object v0
+    iget-object p0, p0, Lokio/RealBufferedSource;->source:Lokio/Source;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    const-string v0, ")"
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method

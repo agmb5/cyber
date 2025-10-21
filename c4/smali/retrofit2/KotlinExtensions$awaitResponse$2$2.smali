@@ -99,21 +99,21 @@
     invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 97
-    iget-object p1, p0, Lretrofit2/KotlinExtensions$awaitResponse$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
+    iget-object p0, p0, Lretrofit2/KotlinExtensions$awaitResponse$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
 
-    check-cast p1, Lkotlin/coroutines/Continuation;
+    check-cast p0, Lkotlin/coroutines/Continuation;
 
-    sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+    sget-object p1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     invoke-static {p2}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object p1
 
-    invoke-static {p2}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object p1
 
-    invoke-interface {p1, p2}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
+    invoke-interface {p0, p1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -139,17 +139,17 @@
     invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 93
-    iget-object p1, p0, Lretrofit2/KotlinExtensions$awaitResponse$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
+    iget-object p0, p0, Lretrofit2/KotlinExtensions$awaitResponse$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
 
-    check-cast p1, Lkotlin/coroutines/Continuation;
+    check-cast p0, Lkotlin/coroutines/Continuation;
 
-    sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+    sget-object p1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     invoke-static {p2}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object p1
 
-    invoke-interface {p1, p2}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
+    invoke-interface {p0, p1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     return-void
 .end method

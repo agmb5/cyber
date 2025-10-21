@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,29 +102,29 @@
     move-result-object p3
 
     .line 46
-    iget-object v0, p0, Lokhttp3/internal/platform/Jdk9Platform;->setProtocolMethod:Ljava/lang/reflect/Method;
+    iget-object p0, p0, Lokhttp3/internal/platform/Jdk9Platform;->setProtocolMethod:Ljava/lang/reflect/Method;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     .line 47
     invoke-interface {p3}, Ljava/util/List;->size()I
 
-    move-result v3
+    move-result v2
 
-    new-array v3, v3, [Ljava/lang/String;
+    new-array v2, v2, [Ljava/lang/String;
 
-    invoke-interface {p3, v3}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {p3, v2}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object p3
 
-    aput-object p3, v1, v2
+    aput-object p3, v0, v1
 
     .line 46
-    invoke-virtual {v0, p2, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p2, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 49
     invoke-virtual {p1, p2}, Ljavax/net/ssl/SSLSocket;->setSSLParameters(Ljavax/net/ssl/SSLParameters;)V
@@ -134,19 +134,21 @@
 
     return-void
 
-    .line 51
     :catch_0
+    move-exception p0
+
+    .line 51
     new-instance p1, Ljava/lang/AssertionError;
 
     const-string p2, "failed to set SSL parameters"
 
-    invoke-direct {p1, p2}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, p2, p0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw p1
 .end method
 
 .method public getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
-    .locals 4
+    .locals 3
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
@@ -156,54 +158,56 @@
 
     .line 58
     :try_start_0
-    iget-object v2, p0, Lokhttp3/internal/platform/Jdk9Platform;->getProtocolMethod:Ljava/lang/reflect/Method;
+    iget-object p0, p0, Lokhttp3/internal/platform/Jdk9Platform;->getProtocolMethod:Ljava/lang/reflect/Method;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    new-array v3, v3, [Ljava/lang/Object;
+    new-array v2, v2, [Ljava/lang/Object;
 
-    invoke-virtual {v2, p1, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
-    check-cast p1, Ljava/lang/String;
+    check-cast p0, Ljava/lang/String;
 
-    if-eqz p1, :cond_1
+    if-eqz p0, :cond_1
 
-    const-string v2, ""
+    const-string p1, ""
 
     .line 62
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
     :try_end_0
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    return-object p1
+    return-object p0
 
     :cond_1
     :goto_0
     return-object v1
 
-    .line 76
     :catch_0
+    move-exception p0
+
+    .line 76
     new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {p1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, v0, p0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw p1
 
     :catch_1
-    move-exception p1
+    move-exception p0
 
     .line 68
-    invoke-virtual {p1}, Ljava/lang/reflect/InvocationTargetException;->getCause()Ljava/lang/Throwable;
+    invoke-virtual {p0}, Ljava/lang/reflect/InvocationTargetException;->getCause()Ljava/lang/Throwable;
 
     move-result-object p1
 
@@ -217,20 +221,20 @@
     :cond_2
     new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {p1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, v0, p0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw p1
 .end method
 
 .method public trustManager(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/X509TrustManager;
-    .locals 1
+    .locals 0
 
     .line 85
-    new-instance p1, Ljava/lang/UnsupportedOperationException;
+    new-instance p0, Ljava/lang/UnsupportedOperationException;
 
-    const-string v0, "clientBuilder.sslSocketFactory(SSLSocketFactory) not supported on JDK 9+"
+    const-string p1, "clientBuilder.sslSocketFactory(SSLSocketFactory) not supported on JDK 9+"
 
-    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 .end method

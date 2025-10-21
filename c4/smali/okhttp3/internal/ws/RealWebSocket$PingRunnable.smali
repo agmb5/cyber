@@ -36,12 +36,12 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 0
 
     .line 529
-    iget-object v0, p0, Lokhttp3/internal/ws/RealWebSocket$PingRunnable;->this$0:Lokhttp3/internal/ws/RealWebSocket;
+    iget-object p0, p0, Lokhttp3/internal/ws/RealWebSocket$PingRunnable;->this$0:Lokhttp3/internal/ws/RealWebSocket;
 
-    invoke-virtual {v0}, Lokhttp3/internal/ws/RealWebSocket;->writePingFrame()V
+    invoke-virtual {p0}, Lokhttp3/internal/ws/RealWebSocket;->writePingFrame()V
 
     return-void
 .end method

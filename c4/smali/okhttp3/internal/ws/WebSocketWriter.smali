@@ -54,9 +54,15 @@
 
     iput-object v0, p0, Lokhttp3/internal/ws/WebSocketWriter;->frameSink:Lokhttp3/internal/ws/WebSocketWriter$FrameSink;
 
-    if-eqz p2, :cond_3
+    const-string v0, "sink == null"
 
-    if-eqz p3, :cond_2
+    .line 62
+    invoke-static {p2, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    const-string v0, "random == null"
+
+    .line 63
+    invoke-static {p3, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 64
     iput-boolean p1, p0, Lokhttp3/internal/ws/WebSocketWriter;->isClient:Z
@@ -102,30 +108,10 @@
     iput-object p2, p0, Lokhttp3/internal/ws/WebSocketWriter;->maskCursor:Lokio/Buffer$UnsafeCursor;
 
     return-void
-
-    .line 63
-    :cond_2
-    new-instance p1, Ljava/lang/NullPointerException;
-
-    const-string p2, "random == null"
-
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-
-    .line 62
-    :cond_3
-    new-instance p1, Ljava/lang/NullPointerException;
-
-    const-string p2, "sink == null"
-
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
 .end method
 
 .method private writeControlFrame(ILokio/ByteString;)V
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -146,9 +132,9 @@
 
     const-wide/16 v3, 0x7d
 
-    cmp-long v5, v1, v3
+    cmp-long v1, v1, v3
 
-    if-gtz v5, :cond_2
+    if-gtz v1, :cond_2
 
     or-int/lit16 p1, p1, 0x80
 
@@ -237,31 +223,31 @@
     .line 146
     :cond_1
     :goto_0
-    iget-object p1, p0, Lokhttp3/internal/ws/WebSocketWriter;->sink:Lokio/BufferedSink;
+    iget-object p0, p0, Lokhttp3/internal/ws/WebSocketWriter;->sink:Lokio/BufferedSink;
 
-    invoke-interface {p1}, Lokio/BufferedSink;->flush()V
+    invoke-interface {p0}, Lokio/BufferedSink;->flush()V
 
     return-void
 
     .line 117
     :cond_2
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "Payload size must be less than or equal to 125"
+    const-string p1, "Payload size must be less than or equal to 125"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 
     .line 113
     :cond_3
-    new-instance p1, Ljava/io/IOException;
+    new-instance p0, Ljava/io/IOException;
 
-    const-string p2, "closed"
+    const-string p1, "closed"
 
-    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 .end method
 
 
@@ -302,19 +288,19 @@
     iput-boolean p2, p1, Lokhttp3/internal/ws/WebSocketWriter$FrameSink;->closed:Z
 
     .line 165
-    iget-object p1, p0, Lokhttp3/internal/ws/WebSocketWriter;->frameSink:Lokhttp3/internal/ws/WebSocketWriter$FrameSink;
+    iget-object p0, p0, Lokhttp3/internal/ws/WebSocketWriter;->frameSink:Lokhttp3/internal/ws/WebSocketWriter$FrameSink;
 
-    return-object p1
+    return-object p0
 
     .line 155
     :cond_0
-    new-instance p1, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string p2, "Another message writer is active. Did you call close()?"
+    const-string p1, "Another message writer is active. Did you call close()?"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 .end method
 
 .method writeClose(ILokio/ByteString;)V
@@ -402,7 +388,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    move p1, v0
 
     :goto_0
     if-eqz p5, :cond_1
@@ -553,21 +539,21 @@
     .line 212
     :cond_6
     :goto_2
-    iget-object p1, p0, Lokhttp3/internal/ws/WebSocketWriter;->sink:Lokio/BufferedSink;
+    iget-object p0, p0, Lokhttp3/internal/ws/WebSocketWriter;->sink:Lokio/BufferedSink;
 
-    invoke-interface {p1}, Lokio/BufferedSink;->emit()Lokio/BufferedSink;
+    invoke-interface {p0}, Lokio/BufferedSink;->emit()Lokio/BufferedSink;
 
     return-void
 
     .line 170
     :cond_7
-    new-instance p1, Ljava/io/IOException;
+    new-instance p0, Ljava/io/IOException;
 
-    const-string p2, "closed"
+    const-string p1, "closed"
 
-    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 .end method
 
 .method writePing(Lokio/ByteString;)V

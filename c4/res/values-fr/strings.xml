@@ -1,116 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_text">"Vector Pinball 1.10.0
-© 2010-2022 Brian Nenninger
-
-Commentaires et rapports de bug:
-bnenning@gmail.com
-
-Touchez lécran pour commencer une nouvelle partie, lancer la première bille et activer les flippers. Toucher la zone du score met en pause le jeu..
-
-[TABLE_RULES]
-
-Sélectionner le bouton ou le menu préférence permet de modifier les options suivantes:
-- Son: Activer ou désactiver les effets sonores.
-- Musique de fond : Activer et désactiver la musique de fond.
-- Retour haptique : Vibration en cas de chocs et autres événements du jeu.
-Flippers indépendants : Une fois désactivé, n'importe quel touché active les deux flippers. Activé, il faut toucher le bord gauche ou le bord droit pour activer tel ou tel flipper.
-- Zoom: Activé, la vue est zoomée sur l'emplacement de la bille pendant le jeu.
-- Rendu OpenGL : Utilise OpenGL pour les graphismes. Cela permet généralement d'obtenir la meilleure combinaison de qualité graphique et de performances, mais certains appareils fonctionnent mieux sans.
-- Montrer les FPS: Activé, montre les images par seconde en haut à gauche.
-
-Vector Pinball est open-source; Le code est ici https://github.com/dozingcat/Vector-Pinball
-
-Merci à Mario de www.badlogicgames.com pour les améliorations du code et libgdx.
-
-La musique et les sons , le code des sons, par pdx
-Twittering Machine
-https://www.twittering.com"</string>
-    <string name="app_name">Vector Pinball</string>
-    <string name="ball_lock_ready_message">Bille bloquée prêt</string>
-    <string name="ball_locked_message">Bille %1$d Bloquée</string>
-    <string name="ball_number_message">Bille %1$d</string>
-    <string name="ball_saved_message">Bille Sauvée</string>
-    <string name="blue_ramp_bonus_message">Rampe Bleue +%1$d%%</string>
-    <string name="bump_message">Bump!</string>
-    <string name="bumper_multiplier_message">Bumper Multiplicateur %1$d%%</string>
-    <string name="change_table_button_label">Changer de terrain</string>
-    <string name="color_blue">Bleu</string>
-    <string name="color_green">Vert</string>
-    <string name="color_red">Rouge</string>
-    <string name="color_yellow">Jaune</string>
-    <string name="constellation_complete_message">%1$s compléter</string>
-    <string name="end_game_button_label">Fin du jeu</string>
-    <string name="extra_ball_received_message">Extra Ball!</string>
-    <string name="game_over_message">Game Over</string>
-    <string name="green_ramp_bonus_message">Rampe Verte +%1$d%%</string>
-    <string name="haptic_feedback_pref_title">Retour haptique</string>
-    <string name="help_button_label">Aide</string>
-    <string name="independent_flippers_pref_summary_off">"N'importe quel appui active les 2 flippers"</string>
-    <string name="independent_flippers_pref_summary_on">"Un appui active le flipper du même côté de l'écran"</string>
-    <string name="independent_flippers_pref_title">Flippers indépendants</string>
-    <string name="jackpot_received_message">Jackpot !</string>
-    <string name="jackpot_received_with_multipler_message">%1$dx Jackpot !</string>
-    <string name="last_score_message">Dernier Score : %1$s</string>
-    <string name="left_save_enabled_message">Sauvetage de Gauche Activé</string>
-    <string name="line_width_pref_dialog_message">"Entrer la taille du trait en pixels, ou 0 pour utiliser la valeur par défaut en fonction de la taille de l'affichage."</string>
-    <string name="line_width_pref_title">Largeur du trait</string>
-    <string name="multiball_ready_message">Multibilles Prêtes</string>
-    <string name="multiball_started_message">Multibilles !</string>
-    <string name="multiplier_message">%1$dx Multiplicateur</string>
-    <string name="music_pref_title">Musique de fond</string>
-    <string name="other_high_score_message">\#%1$d Score: %2$s</string>
-    <string name="planet_activated_message">Planète %1$d Activée !</string>
-    <string name="preferences_button_label">Préférences</string>
-    <string name="ramp_bonus_increased_message">Bonus de Rampe Augmenté</string>
-    <string name="ramp_bonus_message">%1$dx Rampe</string>
-    <string name="red_ramp_bonus_message">Rampe Rouge +%1$d%%</string>
-    <string name="resume_game_button_label">Résumer le jeu</string>
-    <string name="right_save_enabled_message">Sauvetage de Droite Activé</string>
-    <string name="shoot_again_message">Shoot Again</string>
-    <string name="shoot_pyramid_message">Viser la Pyramide !</string>
-    <string name="shoot_ramp_jackpot_message">Tirer la Rampe pour la Jackpot</string>
-    <string name="shoot_ramp_multiball_message">Viser la Rampe pour le Multibilles</string>
-    <string name="shoot_red_bumper_message">Viser le Bumper Rouge</string>
-    <string name="show_fps_pref_title">Montrer les FPS</string>
-    <string name="sound_pref_title">Son</string>
-    <string name="start_game_button_label">Commencer le jeu</string>
-    <string name="table1_rules">"Règles :
-- Allumez tous les points cyan dans les couloirs supérieurs ou inférieurs pour faire avancer le multiplicateur de score. Tous les points que vous gagnerez seront multipliés par ce montant. En tirant sur la rampe de gauche, vous ferez également progresser le multiplicateur.
-- Le jeu commence avec des sauveurs de billes dans les zones de sorties gauches et droites, qui disparaissent lorsqu'elles sont utilisés. Touchez toutes les cibles de sur le côté gauche ou droit pour les restaurer.
-- Touchez un groupe de cibles pour activer la lumière suivante au centre du terrain. Lorsque la grande lumière blanche centrale est activée, tirez sur la rampe de gauche pour commencer le multibilles."</string>
-    <string name="table2_rules">"Règles :
-- Allumez tous les points cyan dans les couloirs supérieurs ou inférieurs pour faire avancer le multiplicateur de score. Tous les points que vous gagnerez seront multipliés par ce montant.-n Le jeu commence avec des sauveurs de billes dans les zones de sorties gauches et droites, qui disparaissent lorsqu'elles sont utilisés. Touchez toutes les cibles de sur le côté gauche ou droit pour les restaurer.
-- Les cercles au milieu du terrain montrent le nombre de fois que vous avez touché les cibles à gauche, en haut et à droite. Quand toutes les cibles ont été touchées au moins trois fois, visez le bumper rouge en haut à droite déclenche multibilles."</string>
-    <string name="table3_rules">"Règles :
-- Allumez tous les points cyan dans les couloirs supérieurs ou inférieurs pour faire avancer le multiplicateur de score. Tous les points que vous gagnerez seront multipliés par ce montant.
-- Le jeu commence avec des sauveurs de billes dans les zones de sorties gauches et droites, qui disparaissent lorsqu'elles sont utilisés. Touchez toutes les cibles de sur le côté gauche ou droit pour les restaurer.
-- Tirer sur l'une ou l'autre des rampes pour que les bumpers deviennent rouges, ils passeront en bleu au bout de quelques secondes. Visez-le pendant ce temps pour avoir plus de points.
-- En touchant les bumpers vous pouvez rendre rouges les anneaux centraux, les bumpers et les séries de cibles du milieu. Quand tous les anneaux sont rouges, tirez sur l'une des rampes pour commencer le multibilles."</string>
-    <string name="table4_rules">"Règles :
-- Chaque bumper permet d'augmenter le multiplicateur de score par 0.01x. Tirer sur les cibles du haut ou allumer tous les couloirs augmentera ce multiplicateur. Tirez sur les six bumpers pour allumer les indicateurs centraux. Lorsque tous les indicateurs d'une rangée sont allumés, tirez sur le trou de droite pour verrouiller la bille pour le multibilles.
-- Le multibilles commence lorsque vous verrouillez trois billes. Pendant le multibilles, les indicateurs centraux s'allument lorsqu'une bille les traverse. Allumez-les tous pour gagner le jackpot.
- Le jeu commence avec des sauveurs de billes dans les zones de sorties gauches et droites, qui disparaissent lorsqu'elles sont utilisés. Touchez toutes les cibles de sur le côté gauche ou droit pour les restaurer."</string>
-    <string name="table5_rules">"Règles :
-- Le cercle central est entouré de douze points, trois de chacune des quatre couleurs. En tirant sur une rampe supérieure, vous changez la couleur de la balle et vous lui permettez d'activer les points de la même couleur. Lorsque les 12 points du cercle sont activés, vous pouvez les retirer en touchant les bords du triangle rotatif.
-- Tirez sur la cible située au milieu du triangle pour commencer le multibilles.
-- Pendant le multibilles, allumez à nouveau les 12 points du cercle pour remporter le jackpot, dont la valeur augmente à chaque fois.
-- Le jeu commence avec des sauveurs de billes dans les zones de sorties gauches et droites, qui disparaissent lorsqu'elles sont utilisés. Touchez toutes les cibles de sur le côté gauche ou droit pour les restaurer."</string>
-    <string name="table6_rules">"Règles :
-- Au centre du terrain, cinq planètes gravitent autour d'un soleil. Lorsque la balle roule sur l'une des planètes, elle change de couleur et la planète se met à clignoter.
-- Tirez sur la cible correspondante pour activer la planète et la rendre solide.
-- Pour la planète orange intérieure, tirer sur les cibles en haut à gauche. Pour la deuxième planète bleue, activez les points en haut à droite. Pour les autres planètes, tirez sur la rampe de la couleur correspondante.
-- Activez les cinq planètes pour commencer le multibilles. En multibilles, activez à nouveau toutes les planètes pour gagner le jackpot.
-- Le jeu commence avec des sauveurs de billes dans les zones de sorties gauches et droites, qui disparaissent lorsqu'elles sont utilisés. Touchez toutes les cibles de sur le côté gauche ou droit pour les restaurer.
-- Le soleil et les planètes ont une gravité et attirent les balles lorsqu'ils s'en approchent."</string>
-    <string name="table7_rules">"Règles :
-- Le centre du terrain contient une carte des étoiles. Tirez sur l'une des rampes avec les flèches vertes clignotantes pour que la carte se déplace vers une constellation.
-- Les étoiles qui composent la constellation apparaissent en vert. Faire rouler la bille dessus pour les activer, elles deviendront jaunes et des lignes relieront les étoiles activées pour dessiner le contour de la constellation.
-- Lorsque le contour de la constellation est complet, tirer sur la rampe de droite avec la flèche jaune clignotante pour verrouiller la bille. Répéter ce processus avec deux autres constellations. En verrouillant la troisième bille, cela lancera le multibilles. En multilles, complèter les constellations restantes et tirer sur la rampe de droite pour gagner le jackpot."</string>
-    <string name="top_high_score_message">Meilleur Score: %1$s</string>
-    <string name="touch_to_start_message">Toucher pour Démarrer</string>
-    <string name="unlimited_balls_label">Billes illimitées</string>
-    <string name="use_opengl_pref_title">Rendu OpenGL</string>
-    <string name="yellow_ramp_bonus_message">Rampe Jaune +%1$d%%</string>
-    <string name="zoom_pref_title">Zoom du terrain</string>
+    <string name="abc_action_bar_home_description">"Revenir à l'accueil"</string>
+    <string name="abc_action_bar_up_description">Revenir en haut de la page</string>
+    <string name="abc_action_menu_overflow_description">Autres options</string>
+    <string name="abc_action_mode_done">OK</string>
+    <string name="abc_activity_chooser_view_see_all">Tout afficher</string>
+    <string name="abc_activitychooserview_choose_application">Sélectionner une application</string>
+    <string name="abc_capital_off">NON</string>
+    <string name="abc_capital_on">OUI</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">supprimer</string>
+    <string name="abc_menu_enter_shortcut_label">entrée</string>
+    <string name="abc_menu_function_shortcut_label">Fonction+</string>
+    <string name="abc_menu_meta_shortcut_label">Méta+</string>
+    <string name="abc_menu_shift_shortcut_label">Maj+</string>
+    <string name="abc_menu_space_shortcut_label">espace</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_search_hint">Rechercher…</string>
+    <string name="abc_searchview_description_clear">Effacer la requête</string>
+    <string name="abc_searchview_description_query">Requête de recherche</string>
+    <string name="abc_searchview_description_search">Rechercher</string>
+    <string name="abc_searchview_description_submit">Envoyer la requête</string>
+    <string name="abc_searchview_description_voice">Recherche vocale</string>
+    <string name="abc_shareactionprovider_share_with">Partager avec</string>
+    <string name="abc_shareactionprovider_share_with_application">Partager avec %s</string>
+    <string name="abc_toolbar_collapse_description">Réduire</string>
+    <string name="bottomsheet_action_expand_halfway">Développer en entier</string>
+    <string name="character_counter_content_description">Caractères saisis %1$d sur %2$d</string>
+    <string name="character_counter_overflowed_content_description">Nombre maximal de caractères dépassé : %1$d sur %2$d</string>
+    <string name="clear_text_end_icon_content_description">Effacer le texte</string>
+    <string name="error_icon_content_description">Erreur</string>
+    <string name="exposed_dropdown_menu_content_description">Afficher le menu déroulant</string>
+    <string name="icon_content_description">Icône de la boîte de dialogue</string>
+    <string name="item_view_role_description">Tabulation</string>
+    <string name="material_clock_toggle_content_description">Sélectionner le format AM ou PM</string>
+    <string name="material_hour_selection">Sélectionnez une heure</string>
+    <string name="material_hour_suffix">%1$s h</string>
+    <string name="material_minute_selection">Sélectionner des minutes</string>
+    <string name="material_minute_suffix">%1$s min</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">"Passer en mode horloge pour la saisie de l'heure."</string>
+    <string name="material_timepicker_hour">Heure</string>
+    <string name="material_timepicker_minute">Minute</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">"Sélectionner l'heure"</string>
+    <string name="material_timepicker_text_input_mode_description">"Passer en mode saisie de texte pour la saisie de l'heure."</string>
+    <string name="mtrl_badge_numberless_content_description">Nouvelle notification</string>
+    <string name="mtrl_chip_close_icon_content_description">Supprimer %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Plus de %1$d nouvelles notifications</string>
+    <string name="mtrl_picker_a11y_next_month">Passer au mois suivant</string>
+    <string name="mtrl_picker_a11y_prev_month">Passer au mois précédent</string>
+    <string name="mtrl_picker_announce_current_selection">Sélection actuelle : %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Sélectionnez une date</string>
+    <string name="mtrl_picker_date_header_unselected">Date sélectionnée</string>
+    <string name="mtrl_picker_day_of_week_column_header">Colonne du jour de la semaine : %1$s</string>
+    <string name="mtrl_picker_invalid_format">Format incorrect.</string>
+    <string name="mtrl_picker_invalid_format_example">Exemple : %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Utiliser %1$s</string>
+    <string name="mtrl_picker_invalid_range">Plage non valide.</string>
+    <string name="mtrl_picker_navigate_to_year_description">"Accéder à l'année %1$s"</string>
+    <string name="mtrl_picker_out_of_range">Hors limite : %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Date de début – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Date de fin</string>
+    <string name="mtrl_picker_range_header_selected">%1$s - %2$s</string>
+    <string name="mtrl_picker_range_header_title">Sélectionnez une période</string>
+    <string name="mtrl_picker_range_header_unselected">Date de début – Date de fin</string>
+    <string name="mtrl_picker_save">Enregistrer</string>
+    <string name="mtrl_picker_text_input_date_hint">Date</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Date de fin</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Date de début</string>
+    <string name="mtrl_picker_text_input_day_abbr">j</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">a</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Passer au mode de saisie Agenda</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Appuyer pour sélectionner un jour</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Passer au mode de saisie Texte</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Appuyer pour sélectionner une année</string>
+    <string name="password_toggle_content_description">Afficher le mot de passe</string>
+    <string name="search_menu_title">Rechercher</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
 </resources>

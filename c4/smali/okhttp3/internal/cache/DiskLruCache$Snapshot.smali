@@ -65,24 +65,24 @@
 
 # virtual methods
 .method public close()V
-    .locals 4
+    .locals 3
 
     .line 819
-    iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->sources:[Lokio/Source;
+    iget-object p0, p0, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->sources:[Lokio/Source;
 
-    array-length v1, v0
+    array-length v0, p0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v2, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
-    aget-object v3, v0, v2
+    aget-object v2, p0, v1
 
     .line 820
-    invoke-static {v3}, Lokhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
+    invoke-static {v2}, Lokhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
@@ -110,38 +110,38 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lokhttp3/internal/cache/DiskLruCache;->edit(Ljava/lang/String;J)Lokhttp3/internal/cache/DiskLruCache$Editor;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getLength(I)J
-    .locals 3
+    .locals 0
 
     .line 815
-    iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->lengths:[J
+    iget-object p0, p0, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->lengths:[J
 
-    aget-wide v1, v0, p1
+    aget-wide p0, p0, p1
 
-    return-wide v1
+    return-wide p0
 .end method
 
 .method public getSource(I)Lokio/Source;
-    .locals 1
+    .locals 0
 
     .line 810
-    iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->sources:[Lokio/Source;
+    iget-object p0, p0, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->sources:[Lokio/Source;
 
-    aget-object p1, v0, p1
+    aget-object p0, p0, p1
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public key()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 797
-    iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->key:Ljava/lang/String;
+    iget-object p0, p0, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->key:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method

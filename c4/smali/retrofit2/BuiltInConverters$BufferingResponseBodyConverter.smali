@@ -69,13 +69,13 @@
 
     invoke-virtual {p0, p1}, Lretrofit2/BuiltInConverters$BufferingResponseBodyConverter;->convert(Lokhttp3/ResponseBody;)Lokhttp3/ResponseBody;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public convert(Lokhttp3/ResponseBody;)Lokhttp3/ResponseBody;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -86,20 +86,20 @@
     :try_start_0
     invoke-static {p1}, Lretrofit2/Utils;->buffer(Lokhttp3/ResponseBody;)Lokhttp3/ResponseBody;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 115
     invoke-virtual {p1}, Lokhttp3/ResponseBody;->close()V
 
-    return-object v0
+    return-object p0
 
     :catchall_0
-    move-exception v0
+    move-exception p0
 
     invoke-virtual {p1}, Lokhttp3/ResponseBody;->close()V
 
     .line 116
-    throw v0
+    throw p0
 .end method

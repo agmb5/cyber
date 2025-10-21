@@ -33,7 +33,7 @@
 
 # virtual methods
 .method protected onException(Ljava/io/IOException;)V
-    .locals 1
+    .locals 0
 
     .line 900
     iget-object p1, p0, Lokhttp3/internal/cache/DiskLruCache$Editor$1;->this$1:Lokhttp3/internal/cache/DiskLruCache$Editor;
@@ -44,9 +44,9 @@
 
     .line 901
     :try_start_0
-    iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Editor$1;->this$1:Lokhttp3/internal/cache/DiskLruCache$Editor;
+    iget-object p0, p0, Lokhttp3/internal/cache/DiskLruCache$Editor$1;->this$1:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
-    invoke-virtual {v0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->detach()V
+    invoke-virtual {p0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->detach()V
 
     .line 902
     monitor-exit p1
@@ -54,11 +54,11 @@
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p0
 
     monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p0
 .end method

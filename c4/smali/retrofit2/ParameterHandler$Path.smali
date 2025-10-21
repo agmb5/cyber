@@ -73,7 +73,7 @@
     const-string p1, "name == null"
 
     .line 105
-    invoke-static {p3, p1}, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall$$ExternalSyntheticBackport0;->m(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p3, p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -125,9 +125,9 @@
 
     check-cast p2, Ljava/lang/String;
 
-    iget-boolean v1, p0, Lretrofit2/ParameterHandler$Path;->encoded:Z
+    iget-boolean p0, p0, Lretrofit2/ParameterHandler$Path;->encoded:Z
 
-    invoke-virtual {p1, v0, p2, v1}, Lretrofit2/RequestBuilder;->addPathParam(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-virtual {p1, v0, p2, p0}, Lretrofit2/RequestBuilder;->addPathParam(Ljava/lang/String;Ljava/lang/String;Z)V
 
     return-void
 
@@ -145,25 +145,31 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lretrofit2/ParameterHandler$Path;->name:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v1, "\" value must not be null."
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v0
 
-    const/4 v1, 0x0
+    iget-object p0, p0, Lretrofit2/ParameterHandler$Path;->name:Ljava/lang/String;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {p1, p2, v0, v1}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
+    move-result-object p0
 
-    move-result-object p1
+    const-string v0, "\" value must not be null."
 
-    throw p1
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    const/4 v0, 0x0
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    invoke-static {p1, p2, p0, v0}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
+
+    move-result-object p0
+
+    throw p0
 .end method

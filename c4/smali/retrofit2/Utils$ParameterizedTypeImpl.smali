@@ -50,12 +50,12 @@
 
     if-nez p1, :cond_0
 
-    const/4 v2, 0x1
+    move v2, v0
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     move-object v3, p2
@@ -72,7 +72,7 @@
     goto :goto_1
 
     :cond_1
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_1
     if-ne v2, v0, :cond_2
@@ -81,11 +81,11 @@
 
     .line 388
     :cond_2
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw p1
+    throw p0
 
     .line 391
     :cond_3
@@ -100,7 +100,7 @@
     const-string v3, "typeArgument == null"
 
     .line 392
-    invoke-static {v2, v3}, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall$$ExternalSyntheticBackport0;->m(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v2, v3}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 393
     invoke-static {v2}, Lretrofit2/Utils;->checkNotPrimitive(Ljava/lang/reflect/Type;)V
@@ -142,54 +142,54 @@
 
     invoke-static {p0, p1}, Lretrofit2/Utils;->equals(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Z
 
-    move-result p1
+    move-result p0
 
-    if-eqz p1, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return p1
+    return p0
 .end method
 
 .method public getActualTypeArguments()[Ljava/lang/reflect/Type;
-    .locals 1
+    .locals 0
 
     .line 403
-    iget-object v0, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
+    iget-object p0, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
 
-    invoke-virtual {v0}, [Ljava/lang/reflect/Type;->clone()Ljava/lang/Object;
+    invoke-virtual {p0}, [Ljava/lang/reflect/Type;->clone()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, [Ljava/lang/reflect/Type;
+    check-cast p0, [Ljava/lang/reflect/Type;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getOwnerType()Ljava/lang/reflect/Type;
-    .locals 1
+    .locals 0
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
     .line 413
-    iget-object v0, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->ownerType:Ljava/lang/reflect/Type;
+    iget-object p0, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->ownerType:Ljava/lang/reflect/Type;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getRawType()Ljava/lang/reflect/Type;
-    .locals 1
+    .locals 0
 
     .line 408
-    iget-object v0, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->rawType:Ljava/lang/reflect/Type;
+    iget-object p0, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->rawType:Ljava/lang/reflect/Type;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public hashCode()I
@@ -212,119 +212,127 @@
     xor-int/2addr v0, v1
 
     .line 425
-    iget-object v1, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->ownerType:Ljava/lang/reflect/Type;
+    iget-object p0, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->ownerType:Ljava/lang/reflect/Type;
 
-    if-eqz v1, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
+    invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
 
-    move-result v1
+    move-result p0
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    xor-int/2addr v0, v1
+    xor-int/2addr p0, v0
 
-    return v0
+    return p0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .locals 5
 
     .line 430
     iget-object v0, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
 
-    array-length v1, v0
+    array-length v0, v0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    iget-object v0, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->rawType:Ljava/lang/reflect/Type;
+    iget-object p0, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->rawType:Ljava/lang/reflect/Type;
 
-    invoke-static {v0}, Lretrofit2/Utils;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
+    invoke-static {p0}, Lretrofit2/Utils;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 431
     :cond_0
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    array-length v0, v0
+    iget-object v1, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
+
+    array-length v1, v1
 
     const/4 v2, 0x1
 
-    add-int/2addr v0, v2
+    add-int/2addr v1, v2
 
-    mul-int/lit8 v0, v0, 0x1e
+    mul-int/lit8 v1, v1, 0x1e
 
-    invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(I)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 432
-    iget-object v0, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->rawType:Ljava/lang/reflect/Type;
+    iget-object v1, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->rawType:Ljava/lang/reflect/Type;
 
-    invoke-static {v0}, Lretrofit2/Utils;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
+    invoke-static {v1}, Lretrofit2/Utils;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, "<"
+    const-string v1, "<"
 
     .line 433
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v0, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
+    move-result-object v1
 
-    const/4 v3, 0x0
+    iget-object v3, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
 
-    aget-object v0, v0, v3
+    const/4 v4, 0x0
 
-    invoke-static {v0}, Lretrofit2/Utils;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
+    aget-object v3, v3, v4
 
-    move-result-object v0
+    invoke-static {v3}, Lretrofit2/Utils;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 434
     :goto_0
-    iget-object v0, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
+    iget-object v1, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
 
-    array-length v0, v0
+    array-length v1, v1
 
-    if-ge v2, v0, :cond_1
+    if-ge v2, v1, :cond_1
 
-    const-string v0, ", "
+    const-string v1, ", "
 
     .line 435
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v0, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
+    move-result-object v1
 
-    aget-object v0, v0, v2
+    iget-object v3, p0, Lretrofit2/Utils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
 
-    invoke-static {v0}, Lretrofit2/Utils;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
+    aget-object v3, v3, v2
 
-    move-result-object v0
+    invoke-static {v3}, Lretrofit2/Utils;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_1
-    const-string v0, ">"
+    const-string p0, ">"
 
     .line 437
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v0
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    return-object v0
+    move-result-object p0
+
+    return-object p0
 .end method

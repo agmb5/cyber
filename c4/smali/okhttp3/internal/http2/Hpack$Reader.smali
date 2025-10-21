@@ -160,16 +160,16 @@
 .end method
 
 .method private dynamicTableIndex(I)I
-    .locals 1
+    .locals 0
 
     .line 233
-    iget v0, p0, Lokhttp3/internal/http2/Hpack$Reader;->nextHeaderIndex:I
+    iget p0, p0, Lokhttp3/internal/http2/Hpack$Reader;->nextHeaderIndex:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p0, p0, 0x1
 
-    add-int/2addr v0, p1
+    add-int/2addr p0, p1
 
-    return v0
+    return p0
 .end method
 
 .method private evictToRecoverBytes(I)I
@@ -254,7 +254,7 @@
 .end method
 
 .method private getName(I)Lokio/ByteString;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -269,13 +269,13 @@
     if-eqz v0, :cond_0
 
     .line 263
-    sget-object v0, Lokhttp3/internal/http2/Hpack;->STATIC_HEADER_TABLE:[Lokhttp3/internal/http2/Header;
+    sget-object p0, Lokhttp3/internal/http2/Hpack;->STATIC_HEADER_TABLE:[Lokhttp3/internal/http2/Header;
 
-    aget-object p1, v0, p1
+    aget-object p0, p0, p1
 
-    iget-object p1, p1, Lokhttp3/internal/http2/Header;->name:Lokio/ByteString;
+    iget-object p0, p0, Lokhttp3/internal/http2/Header;->name:Lokio/ByteString;
 
-    return-object p1
+    return-object p0
 
     .line 265
     :cond_0
@@ -292,42 +292,46 @@
     if-ltz v0, :cond_1
 
     .line 266
-    iget-object v1, p0, Lokhttp3/internal/http2/Hpack$Reader;->dynamicTable:[Lokhttp3/internal/http2/Header;
+    iget-object p0, p0, Lokhttp3/internal/http2/Hpack$Reader;->dynamicTable:[Lokhttp3/internal/http2/Header;
 
-    array-length v2, v1
+    array-length v1, p0
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v1, :cond_1
 
     .line 270
-    aget-object p1, v1, v0
+    aget-object p0, p0, v0
 
-    iget-object p1, p1, Lokhttp3/internal/http2/Header;->name:Lokio/ByteString;
+    iget-object p0, p0, Lokhttp3/internal/http2/Header;->name:Lokio/ByteString;
 
-    return-object p1
+    return-object p0
 
     .line 267
     :cond_1
-    new-instance v0, Ljava/io/IOException;
+    new-instance p0, Ljava/io/IOException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Header index too large "
+    const-string v1, "Header index too large "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     add-int/lit8 p1, p1, 0x1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object p1
 
-    invoke-direct {v0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v0
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method private insertIntoDynamicTable(ILokhttp3/internal/http2/Header;)V
@@ -472,32 +476,32 @@
 .end method
 
 .method private isStaticHeader(I)Z
-    .locals 2
+    .locals 1
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     if-ltz p1, :cond_0
 
     .line 275
-    sget-object v1, Lokhttp3/internal/http2/Hpack;->STATIC_HEADER_TABLE:[Lokhttp3/internal/http2/Header;
+    sget-object v0, Lokhttp3/internal/http2/Hpack;->STATIC_HEADER_TABLE:[Lokhttp3/internal/http2/Header;
 
-    array-length v1, v1
+    array-length v0, v0
 
-    sub-int/2addr v1, v0
+    sub-int/2addr v0, p0
 
-    if-gt p1, v1, :cond_0
+    if-gt p1, v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method private readByte()I
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -505,15 +509,15 @@
     .end annotation
 
     .line 315
-    iget-object v0, p0, Lokhttp3/internal/http2/Hpack$Reader;->source:Lokio/BufferedSource;
+    iget-object p0, p0, Lokhttp3/internal/http2/Hpack$Reader;->source:Lokio/BufferedSource;
 
-    invoke-interface {v0}, Lokio/BufferedSource;->readByte()B
+    invoke-interface {p0}, Lokio/BufferedSource;->readByte()B
 
-    move-result v0
+    move-result p0
 
-    and-int/lit16 v0, v0, 0xff
+    and-int/lit16 p0, p0, 0xff
 
-    return v0
+    return p0
 .end method
 
 .method private readIndexedHeader(I)V
@@ -537,9 +541,9 @@
     aget-object p1, v0, p1
 
     .line 221
-    iget-object v0, p0, Lokhttp3/internal/http2/Hpack$Reader;->headerList:Ljava/util/List;
+    iget-object p0, p0, Lokhttp3/internal/http2/Hpack$Reader;->headerList:Ljava/util/List;
 
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -565,38 +569,42 @@
     if-ge v0, v2, :cond_1
 
     .line 227
-    iget-object p1, p0, Lokhttp3/internal/http2/Hpack$Reader;->headerList:Ljava/util/List;
+    iget-object p0, p0, Lokhttp3/internal/http2/Hpack$Reader;->headerList:Ljava/util/List;
 
-    aget-object v0, v1, v0
+    aget-object p1, v1, v0
 
-    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :goto_0
     return-void
 
     .line 225
     :cond_1
-    new-instance v0, Ljava/io/IOException;
+    new-instance p0, Ljava/io/IOException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Header index too large "
+    const-string v1, "Header index too large "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     add-int/lit8 p1, p1, 0x1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object p1
 
-    invoke-direct {v0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v0
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method private readLiteralHeaderWithIncrementalIndexingIndexedName(I)V
@@ -664,7 +672,7 @@
 .end method
 
 .method private readLiteralHeaderWithoutIndexingIndexedName(I)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -682,19 +690,19 @@
     move-result-object v0
 
     .line 239
-    iget-object v1, p0, Lokhttp3/internal/http2/Hpack$Reader;->headerList:Ljava/util/List;
+    iget-object p0, p0, Lokhttp3/internal/http2/Hpack$Reader;->headerList:Ljava/util/List;
 
-    new-instance v2, Lokhttp3/internal/http2/Header;
+    new-instance v1, Lokhttp3/internal/http2/Header;
 
-    invoke-direct {v2, p1, v0}, Lokhttp3/internal/http2/Header;-><init>(Lokio/ByteString;Lokio/ByteString;)V
+    invoke-direct {v1, p1, v0}, Lokhttp3/internal/http2/Header;-><init>(Lokio/ByteString;Lokio/ByteString;)V
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
 .method private readLiteralHeaderWithoutIndexingNewName()V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -716,13 +724,13 @@
     move-result-object v1
 
     .line 245
-    iget-object v2, p0, Lokhttp3/internal/http2/Hpack$Reader;->headerList:Ljava/util/List;
+    iget-object p0, p0, Lokhttp3/internal/http2/Hpack$Reader;->headerList:Ljava/util/List;
 
-    new-instance v3, Lokhttp3/internal/http2/Header;
+    new-instance v2, Lokhttp3/internal/http2/Header;
 
-    invoke-direct {v3, v0, v1}, Lokhttp3/internal/http2/Header;-><init>(Lokio/ByteString;Lokio/ByteString;)V
+    invoke-direct {v2, v0, v1}, Lokhttp3/internal/http2/Header;-><init>(Lokio/ByteString;Lokio/ByteString;)V
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
@@ -748,24 +756,24 @@
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     .line 214
-    iget-object v1, p0, Lokhttp3/internal/http2/Hpack$Reader;->headerList:Ljava/util/List;
+    iget-object p0, p0, Lokhttp3/internal/http2/Hpack$Reader;->headerList:Ljava/util/List;
 
-    invoke-interface {v1}, Ljava/util/List;->clear()V
+    invoke-interface {p0}, Ljava/util/List;->clear()V
 
     return-object v0
 .end method
 
 .method maxDynamicTableByteCount()I
-    .locals 1
+    .locals 0
 
     .line 141
-    iget v0, p0, Lokhttp3/internal/http2/Hpack$Reader;->maxDynamicTableByteCount:I
+    iget p0, p0, Lokhttp3/internal/http2/Hpack$Reader;->maxDynamicTableByteCount:I
 
-    return v0
+    return p0
 .end method
 
 .method readByteString()Lokio/ByteString;
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -805,35 +813,35 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lokhttp3/internal/http2/Hpack$Reader;->source:Lokio/BufferedSource;
-
-    int-to-long v3, v0
-
-    invoke-interface {v2, v3, v4}, Lokio/BufferedSource;->readByteArray(J)[B
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Lokhttp3/internal/http2/Huffman;->decode([B)[B
-
-    move-result-object v0
-
-    invoke-static {v0}, Lokio/ByteString;->of([B)Lokio/ByteString;
-
-    move-result-object v0
-
-    return-object v0
-
-    .line 349
-    :cond_1
-    iget-object v1, p0, Lokhttp3/internal/http2/Hpack$Reader;->source:Lokio/BufferedSource;
+    iget-object p0, p0, Lokhttp3/internal/http2/Hpack$Reader;->source:Lokio/BufferedSource;
 
     int-to-long v2, v0
 
-    invoke-interface {v1, v2, v3}, Lokio/BufferedSource;->readByteString(J)Lokio/ByteString;
+    invoke-interface {p0, v2, v3}, Lokio/BufferedSource;->readByteArray(J)[B
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    invoke-virtual {v1, p0}, Lokhttp3/internal/http2/Huffman;->decode([B)[B
+
+    move-result-object p0
+
+    invoke-static {p0}, Lokio/ByteString;->of([B)Lokio/ByteString;
+
+    move-result-object p0
+
+    return-object p0
+
+    .line 349
+    :cond_1
+    iget-object p0, p0, Lokhttp3/internal/http2/Hpack$Reader;->source:Lokio/BufferedSource;
+
+    int-to-long v0, v0
+
+    invoke-interface {p0, v0, v1}, Lokio/BufferedSource;->readByteString(J)Lokio/ByteString;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method readHeaders()V
@@ -954,15 +962,19 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lokhttp3/internal/http2/Hpack$Reader;->maxDynamicTableByteCount:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    iget p0, p0, Lokhttp3/internal/http2/Hpack$Reader;->maxDynamicTableByteCount:I
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
@@ -988,7 +1000,7 @@
     .line 207
     invoke-direct {p0, v0}, Lokhttp3/internal/http2/Hpack$Reader;->readLiteralHeaderWithoutIndexingIndexedName(I)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     .line 204
     :cond_6
@@ -999,13 +1011,13 @@
 
     .line 187
     :cond_7
-    new-instance v0, Ljava/io/IOException;
+    new-instance p0, Ljava/io/IOException;
 
-    const-string v1, "index == 0"
+    const-string v0, "index == 0"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     :cond_8
     return-void
@@ -1049,9 +1061,9 @@
     goto :goto_0
 
     :cond_1
-    shl-int p1, v0, p1
+    shl-int p0, v0, p1
 
-    add-int/2addr p2, p1
+    add-int/2addr p2, p0
 
     return p2
 .end method

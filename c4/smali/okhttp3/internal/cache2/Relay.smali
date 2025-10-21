@@ -249,11 +249,9 @@
 
     const-wide/16 v2, 0x20
 
-    add-long v4, v8, v2
+    add-long v3, v8, v2
 
     move-object v2, p0
-
-    move-wide v3, v4
 
     move-object v5, v0
 
@@ -292,7 +290,7 @@
 .end method
 
 .method private writeHeader(Lokio/ByteString;JJ)V
-    .locals 6
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -300,57 +298,63 @@
     .end annotation
 
     .line 166
-    new-instance v3, Lokio/Buffer;
+    new-instance v0, Lokio/Buffer;
 
-    invoke-direct {v3}, Lokio/Buffer;-><init>()V
+    invoke-direct {v0}, Lokio/Buffer;-><init>()V
 
     .line 167
-    invoke-virtual {v3, p1}, Lokio/Buffer;->write(Lokio/ByteString;)Lokio/Buffer;
+    invoke-virtual {v0, p1}, Lokio/Buffer;->write(Lokio/ByteString;)Lokio/Buffer;
 
     .line 168
-    invoke-virtual {v3, p2, p3}, Lokio/Buffer;->writeLong(J)Lokio/Buffer;
+    invoke-virtual {v0, p2, p3}, Lokio/Buffer;->writeLong(J)Lokio/Buffer;
 
     .line 169
-    invoke-virtual {v3, p4, p5}, Lokio/Buffer;->writeLong(J)Lokio/Buffer;
+    invoke-virtual {v0, p4, p5}, Lokio/Buffer;->writeLong(J)Lokio/Buffer;
 
     .line 170
-    invoke-virtual {v3}, Lokio/Buffer;->size()J
+    invoke-virtual {v0}, Lokio/Buffer;->size()J
 
     move-result-wide p1
 
     const-wide/16 p3, 0x20
 
-    cmp-long p5, p1, p3
+    cmp-long p1, p1, p3
 
-    if-nez p5, :cond_0
+    if-nez p1, :cond_0
 
     .line 172
-    new-instance v0, Lokhttp3/internal/cache2/FileOperator;
+    new-instance p1, Lokhttp3/internal/cache2/FileOperator;
 
-    iget-object p1, p0, Lokhttp3/internal/cache2/Relay;->file:Ljava/io/RandomAccessFile;
+    iget-object p0, p0, Lokhttp3/internal/cache2/Relay;->file:Ljava/io/RandomAccessFile;
 
-    invoke-virtual {p1}, Ljava/io/RandomAccessFile;->getChannel()Ljava/nio/channels/FileChannel;
+    invoke-virtual {p0}, Ljava/io/RandomAccessFile;->getChannel()Ljava/nio/channels/FileChannel;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-direct {v0, p1}, Lokhttp3/internal/cache2/FileOperator;-><init>(Ljava/nio/channels/FileChannel;)V
+    invoke-direct {p1, p0}, Lokhttp3/internal/cache2/FileOperator;-><init>(Ljava/nio/channels/FileChannel;)V
 
-    const-wide/16 v1, 0x0
+    const-wide/16 p2, 0x0
 
-    const-wide/16 v4, 0x20
+    const-wide/16 p4, 0x20
+
+    move-object p0, p1
+
+    move-wide p1, p2
+
+    move-object p3, v0
 
     .line 173
-    invoke-virtual/range {v0 .. v5}, Lokhttp3/internal/cache2/FileOperator;->write(JLokio/Buffer;J)V
+    invoke-virtual/range {p0 .. p5}, Lokhttp3/internal/cache2/FileOperator;->write(JLokio/Buffer;J)V
 
     return-void
 
     .line 170
     :cond_0
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw p1
+    throw p0
 .end method
 
 .method private writeMetadata(J)V
@@ -387,13 +391,13 @@
     add-long/2addr v1, p1
 
     .line 181
-    iget-object p1, p0, Lokhttp3/internal/cache2/Relay;->metadata:Lokio/ByteString;
+    iget-object p0, p0, Lokhttp3/internal/cache2/Relay;->metadata:Lokio/ByteString;
 
-    invoke-virtual {p1}, Lokio/ByteString;->size()I
+    invoke-virtual {p0}, Lokio/ByteString;->size()I
 
-    move-result p1
+    move-result p0
 
-    int-to-long v4, p1
+    int-to-long v4, p0
 
     invoke-virtual/range {v0 .. v5}, Lokhttp3/internal/cache2/FileOperator;->write(JLokio/Buffer;J)V
 
@@ -489,31 +493,31 @@
 .end method
 
 .method isClosed()Z
-    .locals 1
+    .locals 0
 
     .line 203
-    iget-object v0, p0, Lokhttp3/internal/cache2/Relay;->file:Ljava/io/RandomAccessFile;
+    iget-object p0, p0, Lokhttp3/internal/cache2/Relay;->file:Ljava/io/RandomAccessFile;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public metadata()Lokio/ByteString;
-    .locals 1
+    .locals 0
 
     .line 207
-    iget-object v0, p0, Lokhttp3/internal/cache2/Relay;->metadata:Lokio/ByteString;
+    iget-object p0, p0, Lokhttp3/internal/cache2/Relay;->metadata:Lokio/ByteString;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public newSource()Lokio/Source;

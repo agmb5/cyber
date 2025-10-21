@@ -37,7 +37,7 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_0
     if-ge v1, p4, :cond_1
@@ -67,15 +67,15 @@
 .end method
 
 .method public static checkOffsetAndCount(JJJ)V
-    .locals 5
+    .locals 4
 
     or-long v0, p2, p4
 
     const-wide/16 v2, 0x0
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-ltz v4, :cond_0
+    if-ltz v0, :cond_0
 
     cmp-long v0, p2, p0
 
@@ -83,9 +83,9 @@
 
     sub-long v0, p0, p2
 
-    cmp-long v2, v0, p4
+    cmp-long v0, v0, p4
 
-    if-ltz v2, :cond_0
+    if-ltz v0, :cond_0
 
     return-void
 

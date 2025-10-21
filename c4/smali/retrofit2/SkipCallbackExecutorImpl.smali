@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public annotationType()Ljava/lang/Class;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -87,55 +87,61 @@
     .end annotation
 
     .line 38
-    const-class v0, Lretrofit2/SkipCallbackExecutor;
+    const-class p0, Lretrofit2/SkipCallbackExecutor;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 0
 
     .line 43
-    instance-of p1, p1, Lretrofit2/SkipCallbackExecutor;
+    instance-of p0, p1, Lretrofit2/SkipCallbackExecutor;
 
-    return p1
+    return p0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .locals 1
 
     .line 53
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "@"
+    const-string v0, "@"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-class v1, Lretrofit2/SkipCallbackExecutor;
+    move-result-object p0
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    const-class v0, Lretrofit2/SkipCallbackExecutor;
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v1, "()"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v0
 
-    return-object v0
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    const-string v0, "()"
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method

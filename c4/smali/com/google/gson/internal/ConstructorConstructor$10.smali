@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public construct()Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -52,9 +52,9 @@
     .end annotation
 
     .line 190
-    new-instance v0, Lj$/util/concurrent/ConcurrentHashMap;
+    new-instance p0, Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-direct {v0}, Lj$/util/concurrent/ConcurrentHashMap;-><init>()V
+    invoke-direct {p0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
 
-    return-object v0
+    return-object p0
 .end method

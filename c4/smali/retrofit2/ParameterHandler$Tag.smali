@@ -58,7 +58,7 @@
 
 # virtual methods
 .method apply(Lretrofit2/RequestBuilder;Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
     .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
@@ -72,9 +72,9 @@
     .end annotation
 
     .line 446
-    iget-object v0, p0, Lretrofit2/ParameterHandler$Tag;->cls:Ljava/lang/Class;
+    iget-object p0, p0, Lretrofit2/ParameterHandler$Tag;->cls:Ljava/lang/Class;
 
-    invoke-virtual {p1, v0, p2}, Lretrofit2/RequestBuilder;->addTag(Ljava/lang/Class;Ljava/lang/Object;)V
+    invoke-virtual {p1, p0, p2}, Lretrofit2/RequestBuilder;->addTag(Ljava/lang/Class;Ljava/lang/Object;)V
 
     return-void
 .end method

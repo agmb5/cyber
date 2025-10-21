@@ -36,12 +36,12 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 0
 
     .line 612
-    iget-object v0, p0, Lokhttp3/internal/ws/RealWebSocket$CancelRunnable;->this$0:Lokhttp3/internal/ws/RealWebSocket;
+    iget-object p0, p0, Lokhttp3/internal/ws/RealWebSocket$CancelRunnable;->this$0:Lokhttp3/internal/ws/RealWebSocket;
 
-    invoke-virtual {v0}, Lokhttp3/internal/ws/RealWebSocket;->cancel()V
+    invoke-virtual {p0}, Lokhttp3/internal/ws/RealWebSocket;->cancel()V
 
     return-void
 .end method

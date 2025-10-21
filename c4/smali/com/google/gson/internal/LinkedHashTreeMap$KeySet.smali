@@ -40,27 +40,27 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .locals 0
 
     .line 851
-    iget-object v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$KeySet;->this$0:Lcom/google/gson/internal/LinkedHashTreeMap;
+    iget-object p0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$KeySet;->this$0:Lcom/google/gson/internal/LinkedHashTreeMap;
 
-    invoke-virtual {v0}, Lcom/google/gson/internal/LinkedHashTreeMap;->clear()V
+    invoke-virtual {p0}, Lcom/google/gson/internal/LinkedHashTreeMap;->clear()V
 
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
 
     .line 843
-    iget-object v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$KeySet;->this$0:Lcom/google/gson/internal/LinkedHashTreeMap;
+    iget-object p0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$KeySet;->this$0:Lcom/google/gson/internal/LinkedHashTreeMap;
 
-    invoke-virtual {v0, p1}, Lcom/google/gson/internal/LinkedHashTreeMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Lcom/google/gson/internal/LinkedHashTreeMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -82,35 +82,35 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
 
     .line 847
-    iget-object v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$KeySet;->this$0:Lcom/google/gson/internal/LinkedHashTreeMap;
+    iget-object p0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$KeySet;->this$0:Lcom/google/gson/internal/LinkedHashTreeMap;
 
-    invoke-virtual {v0, p1}, Lcom/google/gson/internal/LinkedHashTreeMap;->removeInternalByKey(Ljava/lang/Object;)Lcom/google/gson/internal/LinkedHashTreeMap$Node;
+    invoke-virtual {p0, p1}, Lcom/google/gson/internal/LinkedHashTreeMap;->removeInternalByKey(Ljava/lang/Object;)Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    move-result-object p1
+    move-result-object p0
 
-    if-eqz p1, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return p1
+    return p0
 .end method
 
 .method public size()I
-    .locals 1
+    .locals 0
 
     .line 831
-    iget-object v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$KeySet;->this$0:Lcom/google/gson/internal/LinkedHashTreeMap;
+    iget-object p0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$KeySet;->this$0:Lcom/google/gson/internal/LinkedHashTreeMap;
 
-    iget v0, v0, Lcom/google/gson/internal/LinkedHashTreeMap;->size:I
+    iget p0, p0, Lcom/google/gson/internal/LinkedHashTreeMap;->size:I
 
-    return v0
+    return p0
 .end method

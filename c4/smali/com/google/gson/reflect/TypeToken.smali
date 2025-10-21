@@ -101,7 +101,7 @@
 .end method
 
 .method private static varargs buildUnexpectedTypeError(Ljava/lang/reflect/Type;[Ljava/lang/Class;)Ljava/lang/AssertionError;
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -137,9 +137,11 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ", "
+    move-result-object v3
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v4, ", "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     add-int/lit8 v2, v2, 0x1
 
@@ -151,30 +153,38 @@
     .line 262
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p1
+
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object p1
 
-    invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string p1, ", for type token: "
+    const-string v1, ", for type token: "
 
     .line 263
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 p0, 0x2e
+    move-result-object p0
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    const/16 p1, 0x2e
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 265
     new-instance p0, Ljava/lang/AssertionError;
@@ -467,7 +477,7 @@
 
     move-result-object v4
 
-    const/4 v5, 0x0
+    move v5, v0
 
     .line 207
     :goto_0
@@ -672,7 +682,7 @@
 
     move-result-object p1
 
-    const/4 v0, 0x0
+    move v0, v1
 
     .line 243
     :goto_0
@@ -717,32 +727,32 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;
+    iget-object p0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;
 
     check-cast p1, Lcom/google/gson/reflect/TypeToken;
 
     iget-object p1, p1, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;
 
     .line 285
-    invoke-static {v0, p1}, Lcom/google/gson/internal/$Gson$Types;->equals(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Z
+    invoke-static {p0, p1}, Lcom/google/gson/internal/$Gson$Types;->equals(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Z
 
-    move-result p1
+    move-result p0
 
-    if-eqz p1, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return p1
+    return p0
 .end method
 
 .method public final getRawType()Ljava/lang/Class;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -752,27 +762,27 @@
     .end annotation
 
     .line 94
-    iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->rawType:Ljava/lang/Class;
+    iget-object p0, p0, Lcom/google/gson/reflect/TypeToken;->rawType:Ljava/lang/Class;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public final getType()Ljava/lang/reflect/Type;
-    .locals 1
+    .locals 0
 
     .line 101
-    iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;
+    iget-object p0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public final hashCode()I
-    .locals 1
+    .locals 0
 
     .line 280
-    iget v0, p0, Lcom/google/gson/reflect/TypeToken;->hashCode:I
+    iget p0, p0, Lcom/google/gson/reflect/TypeToken;->hashCode:I
 
-    return v0
+    return p0
 .end method
 
 .method public isAssignableFrom(Lcom/google/gson/reflect/TypeToken;)Z
@@ -795,9 +805,9 @@
 
     invoke-virtual {p0, p1}, Lcom/google/gson/reflect/TypeToken;->isAssignableFrom(Ljava/lang/reflect/Type;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
 .method public isAssignableFrom(Ljava/lang/Class;)Z
@@ -816,9 +826,9 @@
     .line 112
     invoke-virtual {p0, p1}, Lcom/google/gson/reflect/TypeToken;->isAssignableFrom(Ljava/lang/reflect/Type;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
 .method public isAssignableFrom(Ljava/lang/reflect/Type;)Z
@@ -855,17 +865,17 @@
     if-eqz v3, :cond_2
 
     .line 132
-    iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->rawType:Ljava/lang/Class;
+    iget-object p0, p0, Lcom/google/gson/reflect/TypeToken;->rawType:Ljava/lang/Class;
 
     invoke-static {p1}, Lcom/google/gson/internal/$Gson$Types;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
 
     move-result-object p1
 
-    invoke-virtual {v0, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {p0, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 
     .line 133
     :cond_2
@@ -876,15 +886,15 @@
     .line 134
     check-cast v1, Ljava/lang/reflect/ParameterizedType;
 
-    new-instance v0, Ljava/util/HashMap;
+    new-instance p0, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {p0}, Ljava/util/HashMap;-><init>()V
 
-    invoke-static {p1, v1, v0}, Lcom/google/gson/reflect/TypeToken;->isAssignableFrom(Ljava/lang/reflect/Type;Ljava/lang/reflect/ParameterizedType;Ljava/util/Map;)Z
+    invoke-static {p1, v1, p0}, Lcom/google/gson/reflect/TypeToken;->isAssignableFrom(Ljava/lang/reflect/Type;Ljava/lang/reflect/ParameterizedType;Ljava/util/Map;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 
     .line 136
     :cond_3
@@ -905,58 +915,58 @@
 
     if-eqz v1, :cond_4
 
-    iget-object v1, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;
+    iget-object p0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;
 
-    check-cast v1, Ljava/lang/reflect/GenericArrayType;
+    check-cast p0, Ljava/lang/reflect/GenericArrayType;
 
     .line 138
-    invoke-static {p1, v1}, Lcom/google/gson/reflect/TypeToken;->isAssignableFrom(Ljava/lang/reflect/Type;Ljava/lang/reflect/GenericArrayType;)Z
+    invoke-static {p1, p0}, Lcom/google/gson/reflect/TypeToken;->isAssignableFrom(Ljava/lang/reflect/Type;Ljava/lang/reflect/GenericArrayType;)Z
 
-    move-result p1
+    move-result p0
 
-    if-eqz p1, :cond_4
+    if-eqz p0, :cond_4
 
-    const/4 v0, 0x1
+    move v0, v2
 
     :cond_4
     return v0
 
     :cond_5
-    const/4 p1, 0x3
+    const/4 p0, 0x3
 
-    new-array p1, p1, [Ljava/lang/Class;
+    new-array p0, p0, [Ljava/lang/Class;
 
     .line 140
-    const-class v3, Ljava/lang/Class;
+    const-class p1, Ljava/lang/Class;
 
-    aput-object v3, p1, v0
+    aput-object p1, p0, v0
 
-    const-class v0, Ljava/lang/reflect/ParameterizedType;
+    const-class p1, Ljava/lang/reflect/ParameterizedType;
 
-    aput-object v0, p1, v2
+    aput-object p1, p0, v2
 
-    const/4 v0, 0x2
+    const/4 p1, 0x2
 
-    const-class v2, Ljava/lang/reflect/GenericArrayType;
+    const-class v0, Ljava/lang/reflect/GenericArrayType;
 
-    aput-object v2, p1, v0
+    aput-object v0, p0, p1
 
-    invoke-static {v1, p1}, Lcom/google/gson/reflect/TypeToken;->buildUnexpectedTypeError(Ljava/lang/reflect/Type;[Ljava/lang/Class;)Ljava/lang/AssertionError;
+    invoke-static {v1, p0}, Lcom/google/gson/reflect/TypeToken;->buildUnexpectedTypeError(Ljava/lang/reflect/Type;[Ljava/lang/Class;)Ljava/lang/AssertionError;
 
-    move-result-object p1
+    move-result-object p0
 
-    throw p1
+    throw p0
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 289
-    iget-object v0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;
+    iget-object p0, p0, Lcom/google/gson/reflect/TypeToken;->type:Ljava/lang/reflect/Type;
 
-    invoke-static {v0}, Lcom/google/gson/internal/$Gson$Types;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
+    invoke-static {p0}, Lcom/google/gson/internal/$Gson$Types;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

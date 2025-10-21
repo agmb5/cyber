@@ -106,14 +106,14 @@
 
     .line 229
     :try_start_0
-    iget-boolean v0, p0, Lretrofit2/HttpServiceMethod$SuspendForBody;->isNullable:Z
+    iget-boolean p0, p0, Lretrofit2/HttpServiceMethod$SuspendForBody;->isNullable:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
     .line 230
     invoke-static {p1, p2}, Lretrofit2/KotlinExtensions;->awaitNullable(Lretrofit2/Call;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
     goto :goto_0
 
@@ -121,20 +121,20 @@
     :cond_0
     invoke-static {p1, p2}, Lretrofit2/KotlinExtensions;->await(Lretrofit2/Call;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
-    return-object p1
+    return-object p0
 
     :catch_0
-    move-exception p1
+    move-exception p0
 
     .line 233
-    invoke-static {p1, p2}, Lretrofit2/KotlinExtensions;->suspendAndThrow(Ljava/lang/Exception;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    invoke-static {p0, p2}, Lretrofit2/KotlinExtensions;->suspendAndThrow(Ljava/lang/Exception;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

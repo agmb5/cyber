@@ -61,9 +61,9 @@
     .line 56
     invoke-virtual {p0, p1}, Lretrofit2/CompletableFutureCallAdapterFactory$BodyCallAdapter;->adapt(Lretrofit2/Call;)Ljava/util/concurrent/CompletableFuture;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public adapt(Lretrofit2/Call;)Ljava/util/concurrent/CompletableFuture;
@@ -94,10 +94,10 @@
 .end method
 
 .method public responseType()Ljava/lang/reflect/Type;
-    .locals 1
+    .locals 0
 
     .line 66
-    iget-object v0, p0, Lretrofit2/CompletableFutureCallAdapterFactory$BodyCallAdapter;->responseType:Ljava/lang/reflect/Type;
+    iget-object p0, p0, Lretrofit2/CompletableFutureCallAdapterFactory$BodyCallAdapter;->responseType:Ljava/lang/reflect/Type;
 
-    return-object v0
+    return-object p0
 .end method

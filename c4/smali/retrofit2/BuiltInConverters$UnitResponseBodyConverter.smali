@@ -69,9 +69,9 @@
 
     invoke-virtual {p0, p1}, Lretrofit2/BuiltInConverters$UnitResponseBodyConverter;->convert(Lokhttp3/ResponseBody;)Lkotlin/Unit;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public convert(Lokhttp3/ResponseBody;)Lkotlin/Unit;
@@ -81,7 +81,7 @@
     invoke-virtual {p1}, Lokhttp3/ResponseBody;->close()V
 
     .line 82
-    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    return-object p1
+    return-object p0
 .end method

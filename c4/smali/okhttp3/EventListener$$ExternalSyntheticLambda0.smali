@@ -24,13 +24,13 @@
 
 # virtual methods
 .method public final create(Lokhttp3/Call;)Lokhttp3/EventListener;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lokhttp3/EventListener$$ExternalSyntheticLambda0;->f$0:Lokhttp3/EventListener;
+    iget-object p0, p0, Lokhttp3/EventListener$$ExternalSyntheticLambda0;->f$0:Lokhttp3/EventListener;
 
-    invoke-static {v0, p1}, Lokhttp3/EventListener;->lambda$factory$0(Lokhttp3/EventListener;Lokhttp3/Call;)Lokhttp3/EventListener;
+    invoke-static {p0, p1}, Lokhttp3/EventListener;->lambda$factory$0(Lokhttp3/EventListener;Lokhttp3/Call;)Lokhttp3/EventListener;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

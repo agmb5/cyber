@@ -182,16 +182,16 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lokhttp3/internal/http2/Header;->value:Lokio/ByteString;
+    iget-object p0, p0, Lokhttp3/internal/http2/Header;->value:Lokio/ByteString;
 
     iget-object p1, p1, Lokhttp3/internal/http2/Header;->value:Lokio/ByteString;
 
     .line 64
-    invoke-virtual {v0, p1}, Lokio/ByteString;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Lokio/ByteString;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result p0
 
-    if-eqz p1, :cond_0
+    if-eqz p0, :cond_0
 
     const/4 v1, 0x1
 
@@ -216,13 +216,13 @@
     mul-int/lit8 v1, v1, 0x1f
 
     .line 72
-    iget-object v0, p0, Lokhttp3/internal/http2/Header;->value:Lokio/ByteString;
+    iget-object p0, p0, Lokhttp3/internal/http2/Header;->value:Lokio/ByteString;
 
-    invoke-virtual {v0}, Lokio/ByteString;->hashCode()I
+    invoke-virtual {p0}, Lokio/ByteString;->hashCode()I
 
-    move-result v0
+    move-result p0
 
-    add-int/2addr v1, v0
+    add-int/2addr v1, p0
 
     return v1
 .end method
@@ -245,21 +245,21 @@
 
     aput-object v1, v0, v2
 
-    iget-object v1, p0, Lokhttp3/internal/http2/Header;->value:Lokio/ByteString;
+    iget-object p0, p0, Lokhttp3/internal/http2/Header;->value:Lokio/ByteString;
 
-    invoke-virtual {v1}, Lokio/ByteString;->utf8()Ljava/lang/String;
+    invoke-virtual {p0}, Lokio/ByteString;->utf8()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    aput-object v1, v0, v2
+    aput-object p0, v0, v1
 
-    const-string v1, "%s: %s"
+    const-string p0, "%s: %s"
 
-    invoke-static {v1, v0}, Lokhttp3/internal/Util;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v0}, Lokhttp3/internal/Util;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

@@ -49,31 +49,31 @@
 .end method
 
 .method public contentType()Lokhttp3/MediaType;
-    .locals 1
+    .locals 0
 
     .line 40
-    iget-object v0, p0, Lokhttp3/internal/http/RealResponseBody;->contentTypeString:Ljava/lang/String;
+    iget-object p0, p0, Lokhttp3/internal/http/RealResponseBody;->contentTypeString:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-static {v0}, Lokhttp3/MediaType;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
+    invoke-static {p0}, Lokhttp3/MediaType;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
 
-    move-result-object v0
+    move-result-object p0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public source()Lokio/BufferedSource;
-    .locals 1
+    .locals 0
 
     .line 48
-    iget-object v0, p0, Lokhttp3/internal/http/RealResponseBody;->source:Lokio/BufferedSource;
+    iget-object p0, p0, Lokhttp3/internal/http/RealResponseBody;->source:Lokio/BufferedSource;
 
-    return-object v0
+    return-object p0
 .end method

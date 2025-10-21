@@ -371,11 +371,11 @@
 
     const-wide/16 v4, -0x1
 
-    mul-long v2, v2, v4
+    mul-long/2addr v2, v4
 
-    long-to-int v3, v2
+    long-to-int v2, v2
 
-    invoke-virtual {v0, v3}, Lokio/Buffer;->writeInt(I)Lokio/Buffer;
+    invoke-virtual {v0, v2}, Lokio/Buffer;->writeInt(I)Lokio/Buffer;
 
     add-int/lit8 v5, v1, 0x1
 
@@ -559,11 +559,11 @@
 
     const-wide/16 v3, -0x1
 
-    mul-long v1, v1, v3
+    mul-long/2addr v1, v3
 
-    long-to-int v2, v1
+    long-to-int v1, v1
 
-    invoke-virtual {v0, v2}, Lokio/Buffer;->writeInt(I)Lokio/Buffer;
+    invoke-virtual {v0, v1}, Lokio/Buffer;->writeInt(I)Lokio/Buffer;
 
     move-wide v1, v7
 
@@ -596,13 +596,7 @@
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
 
-    goto :goto_b
-
-    :goto_a
     throw v0
-
-    :goto_b
-    goto :goto_a
 .end method
 
 .method private static intCount(Lokio/Buffer;)I
@@ -665,7 +659,7 @@
 
     invoke-direct {v9}, Ljava/util/ArrayList;-><init>()V
 
-    const/4 v0, 0x0
+    move v0, v1
 
     .line 46
     :goto_0
@@ -689,7 +683,7 @@
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    move v0, v1
 
     .line 49
     :goto_1
@@ -731,7 +725,7 @@
 
     if-eqz v0, :cond_a
 
-    const/4 v0, 0x0
+    move v0, v1
 
     .line 60
     :goto_2
@@ -836,7 +830,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -931,13 +929,7 @@
 
     invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_7
-
-    :goto_6
     throw p0
-
-    :goto_7
-    goto :goto_6
 
     :array_0
     .array-data 4
@@ -954,29 +946,29 @@
     .line 26
     invoke-virtual {p0, p1}, Lokio/Options;->get(I)Lokio/ByteString;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public get(I)Lokio/ByteString;
-    .locals 1
+    .locals 0
 
     .line 241
-    iget-object v0, p0, Lokio/Options;->byteStrings:[Lokio/ByteString;
+    iget-object p0, p0, Lokio/Options;->byteStrings:[Lokio/ByteString;
 
-    aget-object p1, v0, p1
+    aget-object p0, p0, p1
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public final size()I
-    .locals 1
+    .locals 0
 
     .line 245
-    iget-object v0, p0, Lokio/Options;->byteStrings:[Lokio/ByteString;
+    iget-object p0, p0, Lokio/Options;->byteStrings:[Lokio/ByteString;
 
-    array-length v0, v0
+    array-length p0, p0
 
-    return v0
+    return p0
 .end method

@@ -185,13 +185,19 @@
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v2, "\""
+    move-result-object v5
 
     invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
+
+    const-string v5, "\""
+
+    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -231,49 +237,55 @@
     :cond_0
     iget-object p1, p0, Lretrofit2/ParameterHandler$PartMap;->method:Ljava/lang/reflect/Method;
 
-    iget p2, p0, Lretrofit2/ParameterHandler$PartMap;->p:I
+    iget p0, p0, Lretrofit2/ParameterHandler$PartMap;->p:I
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Part map contained null value for key \'"
+    const-string v1, "Part map contained null value for key \'"
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    const-string v2, "\'."
+    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v1, "\'."
 
-    move-result-object v1
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-static {p1, p2, v1, v0}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
+    invoke-static {p1, p0, p2, v0}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
 
-    move-result-object p1
+    move-result-object p0
 
-    throw p1
+    throw p0
 
     .line 391
     :cond_1
     iget-object p1, p0, Lretrofit2/ParameterHandler$PartMap;->method:Ljava/lang/reflect/Method;
 
-    iget p2, p0, Lretrofit2/ParameterHandler$PartMap;->p:I
+    iget p0, p0, Lretrofit2/ParameterHandler$PartMap;->p:I
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array p2, v0, [Ljava/lang/Object;
 
-    const-string v1, "Part map contained null key."
+    const-string v0, "Part map contained null key."
 
-    invoke-static {p1, p2, v1, v0}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
+    invoke-static {p1, p0, v0, p2}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
 
-    move-result-object p1
+    move-result-object p0
 
-    throw p1
+    throw p0
 
     :cond_2
     return-void
@@ -282,21 +294,15 @@
     :cond_3
     iget-object p1, p0, Lretrofit2/ParameterHandler$PartMap;->method:Ljava/lang/reflect/Method;
 
-    iget p2, p0, Lretrofit2/ParameterHandler$PartMap;->p:I
+    iget p0, p0, Lretrofit2/ParameterHandler$PartMap;->p:I
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array p2, v0, [Ljava/lang/Object;
 
-    const-string v1, "Part map was null."
+    const-string v0, "Part map was null."
 
-    invoke-static {p1, p2, v1, v0}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
+    invoke-static {p1, p0, v0, p2}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
 
-    move-result-object p1
+    move-result-object p0
 
-    goto :goto_2
-
-    :goto_1
-    throw p1
-
-    :goto_2
-    goto :goto_1
+    throw p0
 .end method

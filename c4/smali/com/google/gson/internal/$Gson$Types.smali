@@ -32,17 +32,17 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .locals 0
 
     .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 43
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p0, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static arrayOf(Ljava/lang/reflect/Type;)Ljava/lang/reflect/GenericArrayType;
@@ -357,7 +357,7 @@
     goto :goto_0
 
     :cond_3
-    const/4 v0, 0x0
+    move v0, v2
 
     :goto_0
     return v0
@@ -450,7 +450,7 @@
     goto :goto_1
 
     :cond_8
-    const/4 v0, 0x0
+    move v0, v2
 
     :goto_1
     return v0
@@ -504,7 +504,7 @@
     goto :goto_2
 
     :cond_b
-    const/4 v0, 0x0
+    move v0, v2
 
     :goto_2
     return v0
@@ -951,15 +951,23 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p0, "> is of type "
+    move-result-object p0
 
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, "> is of type "
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -1071,13 +1079,7 @@
 
     invoke-direct {p0}, Ljava/util/NoSuchElementException;-><init>()V
 
-    goto :goto_2
-
-    :goto_1
     throw p0
-
-    :goto_2
-    goto :goto_1
 .end method
 
 .method public static varargs newParameterizedTypeWithOwner(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;)Ljava/lang/reflect/ParameterizedType;
@@ -1262,12 +1264,12 @@
 
     if-eq v3, v0, :cond_7
 
-    const/4 v0, 0x1
+    move v0, v1
 
     goto :goto_2
 
     :cond_7
-    const/4 v0, 0x0
+    move v0, v2
 
     .line 379
     :goto_2
@@ -1304,7 +1306,7 @@
 
     check-cast v4, [Ljava/lang/reflect/Type;
 
-    const/4 v0, 0x1
+    move v0, v1
 
     .line 387
     :cond_8
@@ -1382,12 +1384,9 @@
     .line 406
     aget-object v0, v3, v2
 
-    :try_start_0
     invoke-static {p0, p1, v0, p3}, Lcom/google/gson/internal/$Gson$Types;->resolve(Ljava/lang/reflect/Type;Ljava/lang/Class;Ljava/lang/reflect/Type;Ljava/util/Collection;)Ljava/lang/reflect/Type;
 
     move-result-object p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 407
     aget-object p1, v3, v2
@@ -1403,18 +1402,6 @@
 
     :cond_e
     return-object p2
-
-    :catchall_0
-    move-exception p0
-
-    .line 406
-    goto :goto_5
-
-    :goto_4
-    throw p0
-
-    :goto_5
-    goto :goto_4
 .end method
 
 .method static resolveTypeVariable(Ljava/lang/reflect/Type;Ljava/lang/Class;Ljava/lang/reflect/TypeVariable;)Ljava/lang/reflect/Type;

@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Number;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -45,43 +45,43 @@
     .line 299
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
-    move-result-object v0
+    move-result-object p0
 
-    sget-object v1, Lcom/google/gson/stream/JsonToken;->NULL:Lcom/google/gson/stream/JsonToken;
+    sget-object v0, Lcom/google/gson/stream/JsonToken;->NULL:Lcom/google/gson/stream/JsonToken;
 
-    if-ne v0, v1, :cond_0
+    if-ne p0, v0, :cond_0
 
     .line 300
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
 
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
-    return-object p1
+    return-object p0
 
     .line 304
     :cond_0
     :try_start_0
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextLong()J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object p1
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object p1
+    return-object p0
 
     :catch_0
-    move-exception p1
+    move-exception p0
 
     .line 306
-    new-instance v0, Lcom/google/gson/JsonSyntaxException;
+    new-instance p1, Lcom/google/gson/JsonSyntaxException;
 
-    invoke-direct {v0, p1}, Lcom/google/gson/JsonSyntaxException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Lcom/google/gson/JsonSyntaxException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public bridge synthetic read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
@@ -95,9 +95,9 @@
     .line 296
     invoke-virtual {p0, p1}, Lcom/google/gson/internal/bind/TypeAdapters$11;->read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Number;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Number;)V

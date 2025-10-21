@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     .line 115
     iget-object v0, p0, Lretrofit2/KotlinExtensions$suspendAndThrow$$inlined$suspendCoroutineUninterceptedOrReturn$lambda$1;->$continuation:Lkotlin/coroutines/Continuation;
@@ -75,21 +75,21 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lretrofit2/KotlinExtensions$suspendAndThrow$$inlined$suspendCoroutineUninterceptedOrReturn$lambda$1;->$this_suspendAndThrow$inlined:Ljava/lang/Exception;
+    iget-object p0, p0, Lretrofit2/KotlinExtensions$suspendAndThrow$$inlined$suspendCoroutineUninterceptedOrReturn$lambda$1;->$this_suspendAndThrow$inlined:Ljava/lang/Exception;
 
-    check-cast v1, Ljava/lang/Throwable;
+    check-cast p0, Ljava/lang/Throwable;
 
-    sget-object v2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+    sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
-    invoke-static {v1}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
+    invoke-static {p0}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-interface {v0, v1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
+    invoke-interface {v0, p0}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     return-void
 .end method

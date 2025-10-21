@@ -60,22 +60,22 @@
 .end method
 
 .method private getRuntimeTypeIfMoreSpecific(Ljava/lang/reflect/Type;Ljava/lang/Object;)Ljava/lang/reflect/Type;
-    .locals 1
+    .locals 0
 
     if-eqz p2, :cond_1
 
     .line 76
-    const-class v0, Ljava/lang/Object;
+    const-class p0, Ljava/lang/Object;
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, p0, :cond_0
 
-    instance-of v0, p1, Ljava/lang/reflect/TypeVariable;
+    instance-of p0, p1, Ljava/lang/reflect/TypeVariable;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    instance-of v0, p1, Ljava/lang/Class;
+    instance-of p0, p1, Ljava/lang/Class;
 
-    if-eqz v0, :cond_1
+    if-eqz p0, :cond_1
 
     .line 78
     :cond_0
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,13 +106,13 @@
     .end annotation
 
     .line 41
-    iget-object v0, p0, Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;->delegate:Lcom/google/gson/TypeAdapter;
+    iget-object p0, p0, Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;->delegate:Lcom/google/gson/TypeAdapter;
 
-    invoke-virtual {v0, p1}, Lcom/google/gson/TypeAdapter;->read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Lcom/google/gson/TypeAdapter;->read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
@@ -166,13 +166,13 @@
 
     .line 60
     :cond_0
-    iget-object v1, p0, Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;->delegate:Lcom/google/gson/TypeAdapter;
+    iget-object p0, p0, Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;->delegate:Lcom/google/gson/TypeAdapter;
 
-    instance-of v2, v1, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$Adapter;
+    instance-of v1, p0, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$Adapter;
 
-    if-nez v2, :cond_1
+    if-nez v1, :cond_1
 
-    move-object v0, v1
+    move-object v0, p0
 
     .line 69
     :cond_1

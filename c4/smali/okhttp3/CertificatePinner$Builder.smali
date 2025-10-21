@@ -48,7 +48,10 @@
 .method public varargs add(Ljava/lang/String;[Ljava/lang/String;)Lokhttp3/CertificatePinner$Builder;
     .locals 5
 
-    if-eqz p1, :cond_1
+    const-string v0, "pattern == null"
+
+    .line 331
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 333
     array-length v0, p2
@@ -75,39 +78,23 @@
 
     :cond_0
     return-object p0
-
-    .line 331
-    :cond_1
-    new-instance p1, Ljava/lang/NullPointerException;
-
-    const-string p2, "pattern == null"
-
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    goto :goto_2
-
-    :goto_1
-    throw p1
-
-    :goto_2
-    goto :goto_1
 .end method
 
 .method public build()Lokhttp3/CertificatePinner;
-    .locals 3
+    .locals 2
 
     .line 341
     new-instance v0, Lokhttp3/CertificatePinner;
 
     new-instance v1, Ljava/util/LinkedHashSet;
 
-    iget-object v2, p0, Lokhttp3/CertificatePinner$Builder;->pins:Ljava/util/List;
+    iget-object p0, p0, Lokhttp3/CertificatePinner$Builder;->pins:Ljava/util/List;
 
-    invoke-direct {v1, v2}, Ljava/util/LinkedHashSet;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v1, p0}, Ljava/util/LinkedHashSet;-><init>(Ljava/util/Collection;)V
 
-    const/4 v2, 0x0
+    const/4 p0, 0x0
 
-    invoke-direct {v0, v1, v2}, Lokhttp3/CertificatePinner;-><init>(Ljava/util/Set;Lokhttp3/internal/tls/CertificateChainCleaner;)V
+    invoke-direct {v0, v1, p0}, Lokhttp3/CertificatePinner;-><init>(Ljava/util/Set;Lokhttp3/internal/tls/CertificateChainCleaner;)V
 
     return-object v0
 .end method

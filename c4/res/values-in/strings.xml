@@ -1,113 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_text">"Vector Pinball 1.10.0
-© 2010-2022 Brian Nenninger
-
-Komentar dan pelaporan masalah:
-bnenning@gmail.com
-
-Tekan layar untuk memulai permainan baru, luncurkan bola jika tidak ada yang dimainkan, dan aktifkan palangnya. Tekan area skor untuk menjeda permainan.
-
-[TABLE_RULES]
-
-Memilih tombol Preferensi atau item menu memperbolehkan Anda untuk mengubah pengaturan sebagai berikut:
-- Suara: Menyalakan dan mematikan efek suara.
-- Musik Latar Belakang: Menyalakan dan mematikan musik latar belakang.
-- Umpan Balik Haptik: Bergetar saat bola menyentuh bumper dan alat dalam permainan lainnya.
-Palang Tersendiri: Ketika tidak dicentang, tekanan apa pun akan mengaktifkan kedua palang. Ketika dicentang Anda harus menekan sisi kiri layar untuk palang kiri dan sisi kanan untuk palang kanan.
-- Perbesar: Ketika dicentang, layar akan diperbesar pada lokasi bola saat bermain
-- OpenGL Rendering: Menggunakan OpenGL untuk menggambar grafik. Ini biasanya memberikan kombinasi terbaik untuk kualitas grafik dan performa, tapi beberapa perangkat akan lebih baik jika ini dimatikan.
-- Perlihatkan FPS: When checked, shows frames drawn per second in the upper left. Ketika dicentang, perlihatkan bingkai tergambar per detik di kanan atas.
-
-Vector Pinball merupakan aplikasi sumber terbuka; kodenya ada di https://github.com/dozingcat/Vector-Pinball
-
-Terima kasih kepada Mario di www.badlogicgames.com untuk perbaikan kode dan libgdx.
-
-suara, musik, &amp; kode audio, oleh pdx
-Twittering Machine
-https://www.twittering.com"</string>
-    <string name="app_name">Vector Pinball</string>
-    <string name="ball_lock_ready_message">Kunci Bola Siap</string>
-    <string name="ball_locked_message">Bola %1$d Dikunci</string>
-    <string name="ball_number_message">Bola ke-%1$d</string>
-    <string name="blue_ramp_bonus_message">Landaian Biru +%1$d%%</string>
-    <string name="bump_message">Pantul!</string>
-    <string name="bumper_multiplier_message">Pengkali Bumper %1$d%%</string>
-    <string name="change_table_button_label">Ganti Meja</string>
-    <string name="color_blue">Biru</string>
-    <string name="color_green">Hijau</string>
-    <string name="color_red">Merah</string>
-    <string name="color_yellow">Kuning</string>
-    <string name="constellation_complete_message">%1$s terselesaikan</string>
-    <string name="end_game_button_label">Akhiri Permainan</string>
-    <string name="extra_ball_received_message">Bola Tambahan!</string>
-    <string name="game_over_message">Permainan Berakhir</string>
-    <string name="green_ramp_bonus_message">Landaian Hijau +%1$d%%</string>
-    <string name="haptic_feedback_pref_title">Umpan Balik Haptik</string>
-    <string name="help_button_label">Bantuan</string>
-    <string name="independent_flippers_pref_summary_off">Tekanan apa pun akan mengaktifkan semua palang</string>
-    <string name="independent_flippers_pref_summary_on">Tekanan akan mengaktifkan palang pada sisi yang sama di layar</string>
-    <string name="independent_flippers_pref_title">Palang Tersendiri</string>
-    <string name="jackpot_received_message">Jackpot!</string>
-    <string name="jackpot_received_with_multipler_message">%1$dx Jackpot!</string>
-    <string name="last_score_message">Skor Terakhir: %1$s</string>
-    <string name="left_save_enabled_message">Pelindung Kiri Dinyalakan</string>
-    <string name="line_width_pref_dialog_message">Masukkan lebar garis dalam pixel atau 0 untuk menggunakan lebar baku berdasarkan resolusi layar.</string>
-    <string name="line_width_pref_title">Lebar Garis</string>
-    <string name="multiball_ready_message">Multi-Bola Siap</string>
-    <string name="multiball_started_message">Multi-Bola!</string>
-    <string name="multiplier_message">%1$dx Pengkali</string>
-    <string name="music_pref_title">Musik Latar Belakang</string>
-    <string name="other_high_score_message">Skor #%1$d: %2$s</string>
-    <string name="planet_activated_message">Planet %1$d Diaktifkan!</string>
-    <string name="preferences_button_label">Preferensi</string>
-    <string name="ramp_bonus_increased_message">Bonus landaian ditambahkan</string>
-    <string name="ramp_bonus_message">%1$dx Landaian</string>
-    <string name="red_ramp_bonus_message">Landaian Merah +%1$d%%</string>
-    <string name="right_save_enabled_message">Pelindung Kanan Dinyalakan</string>
-    <string name="shoot_again_message">Luncurkan Lagi</string>
-    <string name="shoot_pyramid_message">Tembak Piramida!</string>
-    <string name="shoot_ramp_jackpot_message">Tembak landaian untuk jackpot</string>
-    <string name="shoot_ramp_multiball_message">Tembak Landaian untuk Multi-Bola</string>
-    <string name="shoot_red_bumper_message">Tembak Bumper Merah</string>
-    <string name="show_fps_pref_title">Perlihatkan FPS</string>
-    <string name="sound_pref_title">Suara</string>
-    <string name="table1_rules">"Peraturan Meja:
--"</string>
-    <string name="table2_rules">"Peraturan Meja:
-- Nyalakan semua cincin sian di jalur atas atau bawah untuk meningkatkan pengkali skor. Semua poin yang Anda dapatkan akan dikalikan oleh angka ini. Menembak landaian kiri juga akan meningkatkan pengkali.
-- Permainan dimulai dengan pelindung bola di kiri dan kanan jalan keluaran yang akan menghilang jika digunakan. Kenai target di sisi kiri atau kanan untuk mengembalikannya.
-- Menembak grup target manapun akan menyalakan cahaya berikutnya di tengah-tengah meja. Ketika cahaya putih besar di tengah menyala, tembak landaian kiri untuk memulai multi-bola."</string>
-    <string name="table3_rules">"Peraturan Meja:
-- Nyalakan semua cincin sian di jalur bawah untuk meningkatkan pengkali skor. Semua poin yang Anda dapatkan akan dikalikan oleh angka ini. 
-- Permainan dimulai dengan pelindung bola di kiri dan kanan jalan keluaran yang akan menghilang jika digunakan. Kenai target di sisi kiri atau kanan untuk mengembalikannya.
-- Menembak landaian manapun akan mengubah bumper menjadi merah dan akan kembali menjadi biru dalam beberapa detik. Kenai bumper dalam waktu ini untuk poin tambahan.
-- Ubah cincin tengah menjadi merah dengan mengenai bumper dan set target di tengah. Ketika semua cincin berubah merah, tembak landaian manapun untuk memulai multi-bola."</string>
-    <string name="table4_rules">"Peraturan Meja:
-- Setiap bumper meningkatkan pengkali skor sebanyak 0.01x. Menembak target teratas atau menyalakan seluruh cincin barisan akan menambahkan angka ini.
-- Tembak semua enam bumper untuk menyalakan indikator tengah. Ketika semua indikator untuk sebaris telah menyala, tembak lubang kanan untuk mengunci bola untuk multi-bola.
-- Multi-bola dimulai ketika Anda mengunci tiga bola. Ketika multi-bola, indikator tengah akan menyala ketika bola melewati mereka. Nyalakan mereka semua untuk menskor jackpot
-- Permainan dimulai dengan pelindung bola di kiri dan kanan jalan keluaran yang akan menghilang jika digunakan. Kenai target di sisi kiri atau kanan untuk mengembalikannya."</string>
-    <string name="table5_rules">"Peraturan Meja:
-- Cincin tengah mempunyai dua belas poin di sekitarnya, empat warna dengan tiga poin setiap warnanya. Menembak landaian paling atas akan mengubah warna bola dan memperbolehkanya untuk mengaktifkan poin dengan warna yang sama.
-- Ketika semua dua belas poin di sekitar cincin telah dinyalakan, mengenai sudut dari segitiga berputar akan menghapusnya. Tembak target di tengah-tengah segitiga untuk memulai multi-bola.
-- Ketika multi-bola, nyalakan dua belas poin cincin lagi untuk menskor jackpot yang akan terus bertambah berjalannya waktu.
-- Permainan dimulai dengan pelindung bola di kiri dan kanan jalan keluaran yang akan menghilang jika digunakan. Kenai target di sisi kiri atau kanan untuk mengembalikannya."</string>
-    <string name="table6_rules">"Peraturan Meja:
-- Di tengah-tengah meja, lima planet mengorbit matahari. Ketika bola melewati salah satu planet, planetnya akan berganti warna dan mulai berkedap-kedip.
-- Tembak target yang sesuai untuk menyalakan planet dan membuatnya solid. Untuk planet oranye paling dalam, tembak target di kiri atas. Untuk planet biru kedua paling dalam, nyalakan cincin di kanan atas. Untuk planet lainnya, tembak landaian dengan warna yang sama.
-- Nyalakan semua lima planet untuk memulai multi-bola. Dalam multi-bola, nyalakan semua planet lagi untuk jackpot.
-- PerPermainan dimulai dengan pelindung bola di kiri dan kanan jalan keluaran yang akan menghilang jika digunakan. Kenai target di sisi kiri atau kanan untuk mengembalikannya.
-- Matahari dan planetnya memiliki gravitasi dan akan menarik bola ketika bolanya dekat dengan mereka."</string>
-    <string name="table7_rules">"Peraturan Meja:
-- Di tengah-tengah meja ada peta bintang. Menembak salah satu landaian dengan panah hijau berkedap-kedip akan menjadikan peta berpindah ke sebuah konstelasi.
-- Bintang yang membentuk konstelasi akan muncul dengan warna hijau. Lewati mereka untuk menyalakannya; mereka akan berubah warna menjadi kuning dan garis akan menghubungkan bintang yang aktif untuk menggambar garis besar konstelasi.- Ketika garis besar konstelasi terselesaikan, tembak landaian kanan dengan panah kuning berkedap-kedip untuk mengunci bola. Ulangi proses ini dengan dua konstelasi lagi. Mengunci bola ketiga akan memulai multi-bola.
-- Dalam multi-bola, selesaikan konstelasi yang tersisa dan tembak landaian kanan untuk jackpot.
-- Permainan dimulai dengan pelindung bola di kiri dan kanan jalan keluaran yang akan menghilang jika digunakan. Kenai target di sisi kiri atau kanan untuk mengembalikannya."</string>
-    <string name="top_high_score_message">Skor Tertinggi: %1$s</string>
-    <string name="touch_to_start_message">Tekan untuk memulai</string>
-    <string name="unlimited_balls_label">Bola Tak Terhingga</string>
-    <string name="use_opengl_pref_title">OpenGL Rendering</string>
-    <string name="yellow_ramp_bonus_message">Landaian Kuning +%1$d%%</string>
-    <string name="zoom_pref_title">Perbesar Area Permainan</string>
+    <string name="abc_action_bar_home_description">Tunjukkan jalan ke rumah</string>
+    <string name="abc_action_bar_up_description">Kembali ke atas</string>
+    <string name="abc_action_menu_overflow_description">Opsi lain</string>
+    <string name="abc_action_mode_done">Selesai</string>
+    <string name="abc_activity_chooser_view_see_all">Lihat semua</string>
+    <string name="abc_activitychooserview_choose_application">Pilih aplikasi</string>
+    <string name="abc_capital_off">NONAKTIF</string>
+    <string name="abc_capital_on">AKTIF</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">spasi</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_search_hint">Telusuri...</string>
+    <string name="abc_searchview_description_clear">Hapus kueri</string>
+    <string name="abc_searchview_description_query">Telusuri kueri</string>
+    <string name="abc_searchview_description_search">Telusuri</string>
+    <string name="abc_searchview_description_submit">Kirim kueri</string>
+    <string name="abc_searchview_description_voice">Penelusuran suara</string>
+    <string name="abc_shareactionprovider_share_with">Bagikan dengan</string>
+    <string name="abc_shareactionprovider_share_with_application">Bagikan dengan %s</string>
+    <string name="abc_toolbar_collapse_description">Ciutkan</string>
+    <string name="bottomsheet_action_expand_halfway">Luaskan setengah</string>
+    <string name="character_counter_content_description">Karakter yang dimasukkan %1$d dari %2$d</string>
+    <string name="character_counter_overflowed_content_description">Melebihi batas karakter %1$d dari %2$d</string>
+    <string name="clear_text_end_icon_content_description">Menghapus teks</string>
+    <string name="error_icon_content_description">Error</string>
+    <string name="exposed_dropdown_menu_content_description">Tampilkan menu dropdown</string>
+    <string name="icon_content_description">Ikon Dialog</string>
+    <string name="item_view_role_description">Tab</string>
+    <string name="material_clock_toggle_content_description">Pilih AM atau PM</string>
+    <string name="material_hour_selection">Pilih jam</string>
+    <string name="material_hour_suffix">Pukul %1$s</string>
+    <string name="material_minute_selection">Pilih menit</string>
+    <string name="material_minute_suffix">%1$s menit</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Beralih ke mode jam untuk masukan waktu.</string>
+    <string name="material_timepicker_hour">Jam</string>
+    <string name="material_timepicker_minute">Menit</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Pilih waktu</string>
+    <string name="material_timepicker_text_input_mode_description">Beralih ke mode masukan teks untuk masukan waktu.</string>
+    <string name="mtrl_badge_numberless_content_description">Notifikasi baru</string>
+    <string name="mtrl_chip_close_icon_content_description">Menghapus %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Lebih dari %1$d notifikasi baru</string>
+    <string name="mtrl_picker_a11y_next_month">Ubah ke bulan berikutnya</string>
+    <string name="mtrl_picker_a11y_prev_month">Ubah ke bulan sebelumnya</string>
+    <string name="mtrl_picker_announce_current_selection">Pilihan saat ini: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Pilih Tanggal</string>
+    <string name="mtrl_picker_date_header_unselected">Tanggal yang dipilih</string>
+    <string name="mtrl_picker_day_of_week_column_header">Kolom hari: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Format tidak valid.</string>
+    <string name="mtrl_picker_invalid_format_example">Contoh: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Gunakan: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Rentang tidak valid.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Buka tahun %1$s</string>
+    <string name="mtrl_picker_out_of_range">Di luar rentang: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Tanggal mulai – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Tanggal akhir</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Pilih Rentang</string>
+    <string name="mtrl_picker_range_header_unselected">Tanggal mulai – Tanggal akhir</string>
+    <string name="mtrl_picker_save">Simpan</string>
+    <string name="mtrl_picker_text_input_date_hint">Tanggal</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Tanggal akhir</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Tanggal mulai</string>
+    <string name="mtrl_picker_text_input_day_abbr">h</string>
+    <string name="mtrl_picker_text_input_month_abbr">b</string>
+    <string name="mtrl_picker_text_input_year_abbr">t</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Beralih ke mode masukan kalender</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Ketuk untuk beralih ke memilih hari</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Beralih ke mode masukan teks</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Ketuk untuk beralih ke memilih tahun</string>
+    <string name="password_toggle_content_description">Tampilkan sandi</string>
+    <string name="search_menu_title">Telusuri</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
 </resources>

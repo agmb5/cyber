@@ -48,26 +48,26 @@
     .locals 2
 
     .line 147
-    iget v0, p0, Lokhttp3/RequestBody$2;->val$byteCount:I
+    iget p0, p0, Lokhttp3/RequestBody$2;->val$byteCount:I
 
-    int-to-long v0, v0
+    int-to-long v0, p0
 
     return-wide v0
 .end method
 
 .method public contentType()Lokhttp3/MediaType;
-    .locals 1
+    .locals 0
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
     .line 143
-    iget-object v0, p0, Lokhttp3/RequestBody$2;->val$contentType:Lokhttp3/MediaType;
+    iget-object p0, p0, Lokhttp3/RequestBody$2;->val$contentType:Lokhttp3/MediaType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public writeTo(Lokio/BufferedSink;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -79,9 +79,9 @@
 
     iget v1, p0, Lokhttp3/RequestBody$2;->val$offset:I
 
-    iget v2, p0, Lokhttp3/RequestBody$2;->val$byteCount:I
+    iget p0, p0, Lokhttp3/RequestBody$2;->val$byteCount:I
 
-    invoke-interface {p1, v0, v1, v2}, Lokio/BufferedSink;->write([BII)Lokio/BufferedSink;
+    invoke-interface {p1, v0, v1, p0}, Lokio/BufferedSink;->write([BII)Lokio/BufferedSink;
 
     return-void
 .end method

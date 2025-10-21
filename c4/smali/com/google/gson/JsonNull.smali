@@ -35,23 +35,23 @@
 
 # virtual methods
 .method public bridge synthetic deepCopy()Lcom/google/gson/JsonElement;
-    .locals 1
+    .locals 0
 
     .line 26
     invoke-virtual {p0}, Lcom/google/gson/JsonNull;->deepCopy()Lcom/google/gson/JsonNull;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public deepCopy()Lcom/google/gson/JsonNull;
-    .locals 1
+    .locals 0
 
     .line 49
-    sget-object v0, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
+    sget-object p0, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
@@ -60,34 +60,34 @@
     if-eq p0, p1, :cond_1
 
     .line 65
-    instance-of p1, p1, Lcom/google/gson/JsonNull;
+    instance-of p0, p1, Lcom/google/gson/JsonNull;
 
-    if-eqz p1, :cond_0
+    if-eqz p0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 p1, 0x1
+    const/4 p0, 0x1
 
     :goto_1
-    return p1
+    return p0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .locals 0
 
     .line 57
-    const-class v0, Lcom/google/gson/JsonNull;
+    const-class p0, Lcom/google/gson/JsonNull;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
+    invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

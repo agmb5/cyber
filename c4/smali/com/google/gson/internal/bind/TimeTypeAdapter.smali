@@ -66,9 +66,9 @@
     .line 40
     invoke-virtual {p0, p1}, Lcom/google/gson/internal/bind/TimeTypeAdapter;->read(Lcom/google/gson/stream/JsonReader;)Ljava/sql/Time;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public declared-synchronized read(Lcom/google/gson/stream/JsonReader;)Ljava/sql/Time;

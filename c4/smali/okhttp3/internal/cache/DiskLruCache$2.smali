@@ -46,14 +46,14 @@
 
 # virtual methods
 .method protected onException(Ljava/io/IOException;)V
-    .locals 1
+    .locals 0
 
     .line 316
-    iget-object p1, p0, Lokhttp3/internal/cache/DiskLruCache$2;->this$0:Lokhttp3/internal/cache/DiskLruCache;
+    iget-object p0, p0, Lokhttp3/internal/cache/DiskLruCache$2;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p1, Lokhttp3/internal/cache/DiskLruCache;->hasJournalErrors:Z
+    iput-boolean p1, p0, Lokhttp3/internal/cache/DiskLruCache;->hasJournalErrors:Z
 
     return-void
 .end method

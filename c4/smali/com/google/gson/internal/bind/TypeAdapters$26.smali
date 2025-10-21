@@ -53,9 +53,9 @@
 
     if-eq p2, v0, :cond_0
 
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
-    return-object p1
+    return-object p0
 
     .line 579
     :cond_0

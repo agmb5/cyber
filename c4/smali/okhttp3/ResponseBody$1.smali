@@ -50,21 +50,21 @@
 .end method
 
 .method public contentType()Lokhttp3/MediaType;
-    .locals 1
+    .locals 0
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
     .line 230
-    iget-object v0, p0, Lokhttp3/ResponseBody$1;->val$contentType:Lokhttp3/MediaType;
+    iget-object p0, p0, Lokhttp3/ResponseBody$1;->val$contentType:Lokhttp3/MediaType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public source()Lokio/BufferedSource;
-    .locals 1
+    .locals 0
 
     .line 238
-    iget-object v0, p0, Lokhttp3/ResponseBody$1;->val$content:Lokio/BufferedSource;
+    iget-object p0, p0, Lokhttp3/ResponseBody$1;->val$content:Lokio/BufferedSource;
 
-    return-object v0
+    return-object p0
 .end method

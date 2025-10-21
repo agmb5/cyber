@@ -230,26 +230,26 @@
 
     const-wide/16 v7, 0x6
 
-    mul-long v5, v5, v7
+    mul-long/2addr v5, v7
 
     const-wide/16 v7, 0x8
 
     .line 40
     div-long/2addr v5, v7
 
-    long-to-int v6, v5
+    long-to-int v5, v5
 
-    new-array v5, v6, [B
+    new-array v6, v5, [B
 
     const/4 v7, 0x0
 
-    const/4 v8, 0x0
+    move v8, v7
 
-    const/4 v9, 0x0
+    move v9, v8
 
-    const/4 v10, 0x0
+    move v10, v9
 
-    const/4 v11, 0x0
+    move v11, v10
 
     :goto_2
     const/4 v12, 0x0
@@ -366,7 +366,7 @@
     int-to-byte v13, v13
 
     .line 80
-    aput-byte v13, v5, v11
+    aput-byte v13, v6, v11
 
     add-int/lit8 v11, v12, 0x1
 
@@ -375,14 +375,14 @@
     int-to-byte v13, v13
 
     .line 81
-    aput-byte v13, v5, v12
+    aput-byte v13, v6, v12
 
     add-int/lit8 v12, v11, 0x1
 
     int-to-byte v13, v10
 
     .line 82
-    aput-byte v13, v5, v11
+    aput-byte v13, v6, v11
 
     move v11, v12
 
@@ -416,7 +416,7 @@
     int-to-byte p0, p0
 
     .line 93
-    aput-byte p0, v5, v11
+    aput-byte p0, v6, v11
 
     move v11, v0
 
@@ -436,7 +436,7 @@
     int-to-byte v1, v1
 
     .line 97
-    aput-byte v1, v5, v11
+    aput-byte v1, v6, v11
 
     add-int/lit8 v11, v0, 0x1
 
@@ -445,20 +445,20 @@
     int-to-byte p0, p0
 
     .line 98
-    aput-byte p0, v5, v0
+    aput-byte p0, v6, v0
 
     :cond_e
     :goto_7
-    if-ne v11, v6, :cond_f
+    if-ne v11, v5, :cond_f
 
-    return-object v5
+    return-object v6
 
     .line 105
     :cond_f
     new-array p0, v11, [B
 
     .line 106
-    invoke-static {v5, v7, p0, v7, v11}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v6, v7, p0, v7, v11}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     return-object p0
 .end method
@@ -504,7 +504,7 @@
 
     const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    move v4, v3
 
     :goto_0
     if-ge v3, v2, :cond_0
@@ -710,13 +710,7 @@
 
     invoke-direct {p1, p0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
-    goto :goto_3
-
-    :goto_2
     throw p1
-
-    :goto_3
-    goto :goto_2
 .end method
 
 .method public static encodeUrl([B)Ljava/lang/String;

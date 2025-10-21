@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public getAll()Ljava/util/List;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -70,36 +70,36 @@
     .line 224
     new-instance v0, Ljava/util/ArrayList;
 
-    iget-object v1, p0, Lokhttp3/internal/connection/RouteSelector$Selection;->routes:Ljava/util/List;
+    iget-object p0, p0, Lokhttp3/internal/connection/RouteSelector$Selection;->routes:Ljava/util/List;
 
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v0, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     return-object v0
 .end method
 
 .method public hasNext()Z
-    .locals 2
+    .locals 1
 
     .line 213
     iget v0, p0, Lokhttp3/internal/connection/RouteSelector$Selection;->nextRouteIndex:I
 
-    iget-object v1, p0, Lokhttp3/internal/connection/RouteSelector$Selection;->routes:Ljava/util/List;
+    iget-object p0, p0, Lokhttp3/internal/connection/RouteSelector$Selection;->routes:Ljava/util/List;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-interface {p0}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result p0
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public next()Lokhttp3/Route;
@@ -123,17 +123,17 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lokhttp3/Route;
+    check-cast p0, Lokhttp3/Route;
 
-    return-object v0
+    return-object p0
 
     .line 218
     :cond_0
-    new-instance v0, Ljava/util/NoSuchElementException;
+    new-instance p0, Ljava/util/NoSuchElementException;
 
-    invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
+    invoke-direct {p0}, Ljava/util/NoSuchElementException;-><init>()V
 
-    throw v0
+    throw p0
 .end method

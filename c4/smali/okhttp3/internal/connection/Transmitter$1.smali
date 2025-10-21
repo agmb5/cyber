@@ -33,12 +33,12 @@
 
 # virtual methods
 .method protected timedOut()V
-    .locals 1
+    .locals 0
 
     .line 61
-    iget-object v0, p0, Lokhttp3/internal/connection/Transmitter$1;->this$0:Lokhttp3/internal/connection/Transmitter;
+    iget-object p0, p0, Lokhttp3/internal/connection/Transmitter$1;->this$0:Lokhttp3/internal/connection/Transmitter;
 
-    invoke-virtual {v0}, Lokhttp3/internal/connection/Transmitter;->cancel()V
+    invoke-virtual {p0}, Lokhttp3/internal/connection/Transmitter;->cancel()V
 
     return-void
 .end method

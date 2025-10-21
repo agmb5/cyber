@@ -198,91 +198,111 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v4
+
     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\' converted to null by "
+    move-result-object v1
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v4, "\' converted to null by "
 
-    iget-object v1, p0, Lretrofit2/ParameterHandler$QueryMap;->valueConverter:Lretrofit2/Converter;
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object p0, p0, Lretrofit2/ParameterHandler$QueryMap;->valueConverter:Lretrofit2/Converter;
 
     .line 196
-    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
 
     const-string v1, " for key \'"
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p0
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v1
+    invoke-virtual {p0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
 
     new-array v0, v0, [Ljava/lang/Object;
 
     .line 190
-    invoke-static {p1, p2, v1, v0}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
+    invoke-static {p1, p2, p0, v0}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
 
-    move-result-object p1
+    move-result-object p0
 
-    throw p1
+    throw p0
 
     .line 184
     :cond_1
     iget-object p1, p0, Lretrofit2/ParameterHandler$QueryMap;->method:Ljava/lang/reflect/Method;
 
-    iget p2, p0, Lretrofit2/ParameterHandler$QueryMap;->p:I
+    iget p0, p0, Lretrofit2/ParameterHandler$QueryMap;->p:I
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Query map contained null value for key \'"
+    const-string v1, "Query map contained null value for key \'"
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v1
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-static {p1, p2, v1, v0}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
+    invoke-static {p1, p0, p2, v0}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
 
-    move-result-object p1
+    move-result-object p0
 
-    throw p1
+    throw p0
 
     .line 180
     :cond_2
     iget-object p1, p0, Lretrofit2/ParameterHandler$QueryMap;->method:Ljava/lang/reflect/Method;
 
-    iget p2, p0, Lretrofit2/ParameterHandler$QueryMap;->p:I
+    iget p0, p0, Lretrofit2/ParameterHandler$QueryMap;->p:I
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array p2, v0, [Ljava/lang/Object;
 
-    const-string v1, "Query map contained null key."
+    const-string v0, "Query map contained null key."
 
-    invoke-static {p1, p2, v1, v0}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
+    invoke-static {p1, p0, v0, p2}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
 
-    move-result-object p1
+    move-result-object p0
 
-    throw p1
+    throw p0
 
     :cond_3
     return-void
@@ -291,21 +311,15 @@
     :cond_4
     iget-object p1, p0, Lretrofit2/ParameterHandler$QueryMap;->method:Ljava/lang/reflect/Method;
 
-    iget p2, p0, Lretrofit2/ParameterHandler$QueryMap;->p:I
+    iget p0, p0, Lretrofit2/ParameterHandler$QueryMap;->p:I
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array p2, v0, [Ljava/lang/Object;
 
-    const-string v1, "Query map was null"
+    const-string v0, "Query map was null"
 
-    invoke-static {p1, p2, v1, v0}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
+    invoke-static {p1, p0, v0, p2}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
 
-    move-result-object p1
+    move-result-object p0
 
-    goto :goto_2
-
-    :goto_1
-    throw p1
-
-    :goto_2
-    goto :goto_1
+    throw p0
 .end method

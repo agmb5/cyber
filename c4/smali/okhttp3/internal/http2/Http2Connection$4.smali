@@ -83,13 +83,13 @@
 
     iget-object v1, v1, Lokhttp3/internal/http2/Http2Connection;->currentPushRequests:Ljava/util/Set;
 
-    iget v2, p0, Lokhttp3/internal/http2/Http2Connection$4;->val$streamId:I
+    iget p0, p0, Lokhttp3/internal/http2/Http2Connection$4;->val$streamId:I
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-interface {v1, v2}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+    invoke-interface {v1, p0}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
     .line 913
     monitor-exit v0
@@ -97,14 +97,14 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :try_start_2
-    throw v1
+    throw p0
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 

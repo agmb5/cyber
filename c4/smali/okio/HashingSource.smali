@@ -35,11 +35,11 @@
 
     .line 76
     :catch_0
-    new-instance p1, Ljava/lang/AssertionError;
+    new-instance p0, Ljava/lang/AssertionError;
 
-    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p0}, Ljava/lang/AssertionError;-><init>()V
 
-    throw p1
+    throw p0
 .end method
 
 .method private constructor <init>(Lokio/Source;Lokio/ByteString;Ljava/lang/String;)V
@@ -78,22 +78,22 @@
     return-void
 
     :catch_0
-    move-exception p1
+    move-exception p0
 
     .line 89
-    new-instance p2, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/Throwable;)V
 
-    throw p2
+    throw p1
 
     .line 87
     :catch_1
-    new-instance p1, Ljava/lang/AssertionError;
+    new-instance p0, Ljava/lang/AssertionError;
 
-    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p0}, Ljava/lang/AssertionError;-><init>()V
 
-    throw p1
+    throw p0
 .end method
 
 .method public static hmacSha1(Lokio/Source;Lokio/ByteString;)Lokio/HashingSource;
@@ -173,28 +173,28 @@
 
     invoke-virtual {v0}, Ljava/security/MessageDigest;->digest()[B
 
-    move-result-object v0
+    move-result-object p0
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lokio/HashingSource;->mac:Ljavax/crypto/Mac;
+    iget-object p0, p0, Lokio/HashingSource;->mac:Ljavax/crypto/Mac;
 
-    invoke-virtual {v0}, Ljavax/crypto/Mac;->doFinal()[B
+    invoke-virtual {p0}, Ljavax/crypto/Mac;->doFinal()[B
 
-    move-result-object v0
+    move-result-object p0
 
     .line 132
     :goto_0
-    invoke-static {v0}, Lokio/ByteString;->of([B)Lokio/ByteString;
+    invoke-static {p0}, Lokio/ByteString;->of([B)Lokio/ByteString;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -208,9 +208,9 @@
 
     const-wide/16 v0, -0x1
 
-    cmp-long v2, p2, v0
+    cmp-long v0, p2, v0
 
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
     .line 97
     iget-wide v0, p1, Lokio/Buffer;->size:J
@@ -249,9 +249,9 @@
     :goto_1
     iget-wide v5, p1, Lokio/Buffer;->size:J
 
-    cmp-long v7, v2, v5
+    cmp-long v5, v2, v5
 
-    if-gez v7, :cond_2
+    if-gez v5, :cond_2
 
     .line 109
     iget v5, v4, Lokio/Segment;->pos:I

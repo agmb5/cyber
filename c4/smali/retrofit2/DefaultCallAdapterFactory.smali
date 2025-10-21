@@ -108,11 +108,11 @@
 
     .line 42
     :cond_2
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "Call return type must be parameterized as Call<Foo> or Call<? extends Foo>"
+    const-string p1, "Call return type must be parameterized as Call<Foo> or Call<? extends Foo>"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 .end method

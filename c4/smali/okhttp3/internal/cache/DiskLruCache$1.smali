@@ -55,12 +55,12 @@
 
     if-nez v1, :cond_0
 
-    const/4 v1, 0x1
+    move v1, v3
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    move v1, v2
 
     :goto_0
     iget-object v4, p0, Lokhttp3/internal/cache/DiskLruCache$1;->this$0:Lokhttp3/internal/cache/DiskLruCache;
@@ -133,17 +133,17 @@
     iput-boolean v3, v1, Lokhttp3/internal/cache/DiskLruCache;->mostRecentRebuildFailed:Z
 
     .line 189
-    iget-object v1, p0, Lokhttp3/internal/cache/DiskLruCache$1;->this$0:Lokhttp3/internal/cache/DiskLruCache;
+    iget-object p0, p0, Lokhttp3/internal/cache/DiskLruCache$1;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
     invoke-static {}, Lokio/Okio;->blackhole()Lokio/Sink;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v2}, Lokio/Okio;->buffer(Lokio/Sink;)Lokio/BufferedSink;
+    invoke-static {v1}, Lokio/Okio;->buffer(Lokio/Sink;)Lokio/BufferedSink;
 
-    move-result-object v2
+    move-result-object v1
 
-    iput-object v2, v1, Lokhttp3/internal/cache/DiskLruCache;->journalWriter:Lokio/BufferedSink;
+    iput-object v1, p0, Lokhttp3/internal/cache/DiskLruCache;->journalWriter:Lokio/BufferedSink;
 
     .line 191
     :cond_2
@@ -153,11 +153,11 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    throw v1
+    throw p0
 .end method

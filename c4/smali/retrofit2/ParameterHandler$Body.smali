@@ -74,7 +74,7 @@
 
 # virtual methods
 .method apply(Lretrofit2/RequestBuilder;Ljava/lang/Object;)V
-    .locals 5
+    .locals 4
     .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
@@ -114,47 +114,53 @@
     .line 431
     iget-object v1, p0, Lretrofit2/ParameterHandler$Body;->method:Ljava/lang/reflect/Method;
 
-    iget v2, p0, Lretrofit2/ParameterHandler$Body;->p:I
+    iget p0, p0, Lretrofit2/ParameterHandler$Body;->p:I
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Unable to convert "
+    const-string v3, "Unable to convert "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    const-string p2, " to RequestBody"
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v2, " to RequestBody"
+
+    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-static {v1, p1, v2, p2, v0}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;Ljava/lang/Throwable;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
+    invoke-static {v1, p1, p0, p2, v0}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;Ljava/lang/Throwable;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
 
-    move-result-object p1
+    move-result-object p0
 
-    throw p1
+    throw p0
 
     .line 425
     :cond_0
     iget-object p1, p0, Lretrofit2/ParameterHandler$Body;->method:Ljava/lang/reflect/Method;
 
-    iget p2, p0, Lretrofit2/ParameterHandler$Body;->p:I
+    iget p0, p0, Lretrofit2/ParameterHandler$Body;->p:I
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array p2, v0, [Ljava/lang/Object;
 
-    const-string v1, "Body parameter value must not be null."
+    const-string v0, "Body parameter value must not be null."
 
-    invoke-static {p1, p2, v1, v0}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
+    invoke-static {p1, p0, v0, p2}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
 
-    move-result-object p1
+    move-result-object p0
 
-    throw p1
+    throw p0
 .end method

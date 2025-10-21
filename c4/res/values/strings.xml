@@ -1,120 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_text">"Vector Pinball 1.10.0
-© 2010-2022 Brian Nenninger
-
-Comments and bug reports:
-bnenning@gmail.com
-
-Touch the screen to start a new game, launch a ball if one is not in play, and activate the flippers. Touch the score area to pause the game.
-
-[TABLE_RULES]
-
-The Preferences menu item allows you to change the following settings:
-- Sound: Enables and disables sound effects.
-- Background Music: Enables and disabled background music.
-- Haptic Feedback: Vibrates on bumper hits and other game events.
-- Independent Flippers: When unchecked, any touch activates both flippers. When checked, you must touch the left side of the screen for the left flipper, and the right side for the right flipper.
-- Zoom: When checked, the view will zoom in on the ball's location during play.
-- OpenGL Rendering: Uses OpenGL to draw graphics. This usually provides the best combination of graphics quality and performance, but some devices may do better with it disabled.
-- Show FPS: When checked, shows frames drawn per second in the upper left.
-
-Vector Pinball is open source; the code is at
-https://github.com/dozingcat/Vector-Pinball
-
-Thanks to Mario Zechner for code improvements and libgdx.
-
-sound, music, &amp; audio code, by pdx
-Twittering Machine
-https://www.twittering.com"</string>
-    <string name="app_name">Vector Pinball</string>
-    <string name="ball_lock_ready_message">Ball Lock Ready</string>
-    <string name="ball_locked_message">Ball %1$d Locked</string>
-    <string name="ball_number_message">Ball %1$d</string>
-    <string name="ball_saved_message">Ball Saved</string>
-    <string name="blue_ramp_bonus_message">Blue ramp +%1$d%%</string>
-    <string name="bump_message">Bump!</string>
-    <string name="bumper_multiplier_message">Bumper Multiplier %1$d%%</string>
-    <string name="change_table_button_label">Change Table</string>
-    <string name="color_blue">Blue</string>
-    <string name="color_green">Green</string>
-    <string name="color_red">Red</string>
-    <string name="color_yellow">Yellow</string>
-    <string name="constellation_complete_message">%1$s complete</string>
-    <string name="end_game_button_label">End Game</string>
-    <string name="extra_ball_received_message">Extra Ball!</string>
-    <string name="game_over_message">Game Over</string>
-    <string name="green_ramp_bonus_message">Green ramp +%1$d%%</string>
-    <string name="haptic_feedback_pref_title">Haptic Feedback</string>
-    <string name="help_button_label">Help</string>
-    <string name="independent_flippers_pref_summary_off">Any touch activates all flippers</string>
-    <string name="independent_flippers_pref_summary_on">A touch activates the flippers on the same side of the screen</string>
-    <string name="independent_flippers_pref_title">Independent Flippers</string>
-    <string name="jackpot_received_message">Jackpot!</string>
-    <string name="jackpot_received_with_multipler_message">%1$dx Jackpot!</string>
-    <string name="last_score_message">Last Score: %1$s</string>
-    <string name="left_save_enabled_message">Left Save Enabled</string>
-    <string name="line_width_pref_dialog_message">Enter the line width in pixels, or 0 to use a default width based on the screen resolution.</string>
-    <string name="line_width_pref_title">Line Width</string>
-    <string name="multiball_ready_message">Multiball Ready</string>
-    <string name="multiball_started_message">Multiball!</string>
-    <string name="multiplier_message">%1$dx Multiplier</string>
-    <string name="music_pref_title">Background Music</string>
-    <string name="other_high_score_message">\#%1$d Score: %2$s</string>
-    <string name="planet_activated_message">Planet %1$d Activated!</string>
-    <string name="preferences_button_label">Preferences</string>
-    <string name="ramp_bonus_increased_message">Ramp bonus increased</string>
-    <string name="ramp_bonus_message">%1$dx Ramp</string>
-    <string name="red_ramp_bonus_message">Red ramp +%1$d%%</string>
-    <string name="resume_game_button_label">Resume Game</string>
-    <string name="right_save_enabled_message">Right Save Enabled</string>
-    <string name="shoot_again_message">Shoot Again</string>
-    <string name="shoot_pyramid_message">Shoot the Pyramid!</string>
-    <string name="shoot_ramp_jackpot_message">Shoot ramp for jackpot</string>
-    <string name="shoot_ramp_multiball_message">Shoot Ramp for Multiball</string>
-    <string name="shoot_red_bumper_message">Shoot Red Bumper</string>
-    <string name="show_fps_pref_title">Show FPS</string>
-    <string name="sound_pref_title">Sound</string>
-    <string name="start_game_button_label">Start Game</string>
-    <string name="table1_rules">"Table Rules:
-- Light all the cyan rollovers in the top or bottom lanes to advance the score multiplier. All points you earn will be multiplied by this amount. Shooting the left ramp will also advance the multiplier.
-- The game starts with ball savers in the left and right outlanes, which disappear when used. Hit all drop targets on the left or right side to restore them.
-- Hitting any group of drop targets will activate the next light in the center of the field. When the large white central light is activated, shoot the left ramp to start multiball."</string>
-    <string name="table2_rules">"Table Rules:
-- Light all the cyan rollovers in the bottom lanes to advance the score multiplier. All points you earn will be multiplied by this amount. 
-- The game starts with ball savers in the left and right outlanes, which disappear when used. Hit all drop targets on the left or right side to restore them.
-- The circles in the middle of the field keep track of how many times you've hit all the left, upper, and right drop targets. When all of them have been hit at least 3 times, shoot the red bumper in the upper right to start multiball."</string>
-    <string name="table3_rules">"Table Rules:
-- Light all the cyan rollovers in the bottom lanes to advance the score multiplier. All points you earn will be multiplied by this amount. 
-- The game starts with ball savers in the left and right outlanes, which disappear when used. Hit all drop targets on the left or right side to restore them.
-- Shooting either ramp will turn the bumpers red, and they will change back to blue over several seconds. Hit them during this time for extra points.
-- Turn the middle rings red by hitting the bumpers, and the middle sets of drop targets. When all the rings are red, shoot either ramp to start multiball."</string>
-    <string name="table4_rules">"Table Rules:
-- Each bumper increases the score multiplier by 0.01x. Shooting the top drop targets or lighting all the lane rollovers will increase this amount.
-- Shoot all six bumpers to light the center indicators. When all indicators for a row are lit, shoot the right hole to lock the ball for multiball.
-- Multiball starts when you lock three balls. During multiball, the center indicators will light up when a ball crosses over them. Light them all to score a jackpot.
-- The game starts with ball savers in the left and right outlanes, which disappear when used. Hit all drop targets on the left or right side to restore them."</string>
-    <string name="table5_rules">"Table Rules:
-- The central circle has twelve points around it, 3 each of 4 colors. Shooting a top ramp will change the color of the ball and allow it to activate the points with matching color.
-- When all 12 points around the circle are activated, hitting the edges of the rotating triangle will remove them. Shoot the target in the middle of the triangle to start multiball.
-- During multiball, light the 12 circle points again to score a jackpot, which increases in value each time.
-- The game starts with ball savers in the left and right outlanes, which disappear when used. Hit all drop targets on the left or right side to restore them."</string>
-    <string name="table6_rules">"Table Rules:
-- In the center of the table, five planets orbit a sun. When the ball rolls over one of the planets, it changes to the planet's color and the planet starts flashing.
-- Shoot the corresponding target to activate the planet and make it solid. For the inner orange planet, hit the targets in the upper left. For the second blue planet, activate the rollovers in the upper right. For the remaining planets, shoot the ramp of the matching color.
-- Activate all five planets to start multiball. In multiball, activate all the planets again for a jackpot.
-- The game starts with ball savers in the left and right outlanes, which disappear when used. Hit all drop targets on the left or right side to restore them.
-- The sun and planets have gravity and will attract balls when they get close."</string>
-    <string name="table7_rules">"Table Rules:
-- The center of the table contains a star map. Shoot one of the ramps with the flashing green arrows to cause the map to move to a constellation.
-- The stars that make up the constellation will appear in green. Roll the ball over them to activate them; they will turn yellow and lines will connect activated stars to draw the constellation outline.
-- When the constellation outline is complete, shoot the right ramp with the flashing yellow arrow to lock the ball. Repeat this process with two more constellations. Locking the third ball will start multiball.
-- In multiball, complete the remaining constellations and then shoot the right ramp for a jackpot.
-- The game starts with ball savers in the left and right outlanes, which disappear when used. Hit all drop targets on the left or right side to restore them."</string>
-    <string name="top_high_score_message">High Score: %1$s</string>
-    <string name="touch_to_start_message">Touch to start</string>
-    <string name="unlimited_balls_label">Unlimited Balls</string>
-    <string name="use_opengl_pref_title">OpenGL Rendering</string>
-    <string name="yellow_ramp_bonus_message">Yellow ramp +%1$d%%</string>
-    <string name="zoom_pref_title">Zoom Playfield</string>
+    <string name="abc_action_bar_home_description">Navigate home</string>
+    <string name="abc_action_bar_up_description">Navigate up</string>
+    <string name="abc_action_menu_overflow_description">More options</string>
+    <string name="abc_action_mode_done">Done</string>
+    <string name="abc_activity_chooser_view_see_all">See all</string>
+    <string name="abc_activitychooserview_choose_application">Choose an app</string>
+    <string name="abc_capital_off">OFF</string>
+    <string name="abc_capital_on">ON</string>
+    <string name="abc_menu_alt_shortcut_label">Alt+</string>
+    <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
+    <string name="abc_menu_delete_shortcut_label">delete</string>
+    <string name="abc_menu_enter_shortcut_label">enter</string>
+    <string name="abc_menu_function_shortcut_label">Function+</string>
+    <string name="abc_menu_meta_shortcut_label">Meta+</string>
+    <string name="abc_menu_shift_shortcut_label">Shift+</string>
+    <string name="abc_menu_space_shortcut_label">space</string>
+    <string name="abc_menu_sym_shortcut_label">Sym+</string>
+    <string name="abc_prepend_shortcut_label">Menu+</string>
+    <string name="abc_search_hint">Search…</string>
+    <string name="abc_searchview_description_clear">Clear query</string>
+    <string name="abc_searchview_description_query">Search query</string>
+    <string name="abc_searchview_description_search">Search</string>
+    <string name="abc_searchview_description_submit">Submit query</string>
+    <string name="abc_searchview_description_voice">Voice search</string>
+    <string name="abc_shareactionprovider_share_with">Share with</string>
+    <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
+    <string name="abc_toolbar_collapse_description">Collapse</string>
+    <string name="alg">AES/CBC/PKCS5Padding</string>
+    <string name="androidx_startup">androidx.startup</string>
+    <string name="app_name">Combination</string>
+    <string name="appbar_scrolling_view_behavior">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="bottom_sheet_behavior">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
+    <string name="bottomsheet_action_expand_halfway">Expand halfway</string>
+    <string name="character_counter_content_description">Characters entered %1$d of %2$d</string>
+    <string name="character_counter_overflowed_content_description">Character limit exceeded %1$d of %2$d</string>
+    <string name="character_counter_pattern">%1$d/%2$d</string>
+    <string name="chip_text">Chip text</string>
+    <string name="circle_button">circle_button</string>
+    <string name="clear_text_end_icon_content_description">Clear text</string>
+    <string name="error_icon_content_description">Error</string>
+    <string name="exposed_dropdown_menu_content_description">Show dropdown menu</string>
+    <string name="fab_transformation_scrim_behavior">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
+    <string name="fab_transformation_sheet_behavior">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
+    <string name="hide_bottom_view_on_scroll_behavior">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
+    <string name="icon_content_description">Dialog Icon</string>
+    <string name="item_view_role_description">Tab</string>
+    <string name="label">Label</string>
+    <string name="m3_ref_typeface_brand_medium">sans-serif-medium</string>
+    <string name="m3_ref_typeface_brand_regular">sans-serif</string>
+    <string name="m3_ref_typeface_plain_medium">sans-serif-medium</string>
+    <string name="m3_ref_typeface_plain_regular">sans-serif</string>
+    <string name="m3_sys_motion_easing_emphasized">path(M 0,0 C 0.05, 0, 0.133333, 0.06, 0.166666, 0.4 C 0.208333, 0.82, 0.25, 1, 1, 1)</string>
+    <string name="m3_sys_motion_easing_emphasized_accelerate">cubic-bezier(0.3, 0.0, 0.8, 0.2)</string>
+    <string name="m3_sys_motion_easing_emphasized_decelerate">cubic-bezier(0.1, 0.7, 0.1, 1.0)</string>
+    <string name="m3_sys_motion_easing_emphasized_path_data">M 0,0 C 0.05, 0, 0.133333, 0.06, 0.166666, 0.4 C 0.208333, 0.82, 0.25, 1, 1, 1</string>
+    <string name="m3_sys_motion_easing_legacy">cubic-bezier(0.4, 0.0, 0.2, 1.0)</string>
+    <string name="m3_sys_motion_easing_legacy_accelerate">cubic-bezier(0.4, 0.0, 1.0, 1.0)</string>
+    <string name="m3_sys_motion_easing_legacy_decelerate">cubic-bezier(0.0, 0.0, 0.2, 1.0)</string>
+    <string name="m3_sys_motion_easing_linear">cubic-bezier(0.0, 0.0, 1.0, 1.0)</string>
+    <string name="m3_sys_motion_easing_standard">cubic-bezier(0.2, 0.0, 0.0, 1.0)</string>
+    <string name="m3_sys_motion_easing_standard_accelerate">cubic-bezier(0.3, 0.0, 1.0, 1.0)</string>
+    <string name="m3_sys_motion_easing_standard_decelerate">cubic-bezier(0.0, 0.0, 0.0, 1.0)</string>
+    <string name="material_clock_display_divider">:</string>
+    <string name="material_clock_toggle_content_description">Select AM or PM</string>
+    <string name="material_hour_selection">Select hour</string>
+    <string name="material_hour_suffix">"%1$s o'clock"</string>
+    <string name="material_minute_selection">Select minutes</string>
+    <string name="material_minute_suffix">%1$s minutes</string>
+    <string name="material_motion_easing_accelerated">cubic-bezier(0.4, 0.0, 1.0, 1.0)</string>
+    <string name="material_motion_easing_decelerated">cubic-bezier(0.0, 0.0, 0.2, 1.0)</string>
+    <string name="material_motion_easing_emphasized">path(M 0,0 C 0.05, 0, 0.133333, 0.06, 0.166666, 0.4 C 0.208333, 0.82, 0.25, 1, 1, 1)</string>
+    <string name="material_motion_easing_linear">cubic-bezier(0.0, 0.0, 1.0, 1.0)</string>
+    <string name="material_motion_easing_standard">cubic-bezier(0.4, 0.0, 0.2, 1.0)</string>
+    <string name="material_slider_range_end">Range end,</string>
+    <string name="material_slider_range_start">Range start,</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Switch to clock mode for the time input.</string>
+    <string name="material_timepicker_hour">Hour</string>
+    <string name="material_timepicker_minute">Minute</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Select time</string>
+    <string name="material_timepicker_text_input_mode_description">Switch to text input mode for the time input.</string>
+    <string name="mtrl_badge_numberless_content_description">New notification</string>
+    <string name="mtrl_chip_close_icon_content_description">Remove %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">More than %1$d new notifications</string>
+    <string name="mtrl_exceed_max_badge_number_suffix">%1$d%2$s</string>
+    <string name="mtrl_picker_a11y_next_month">Change to next month</string>
+    <string name="mtrl_picker_a11y_prev_month">Change to previous month</string>
+    <string name="mtrl_picker_announce_current_selection">Current selection: %1$s</string>
+    <string name="mtrl_picker_cancel">@android:string/cancel</string>
+    <string name="mtrl_picker_confirm">OK</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Select Date</string>
+    <string name="mtrl_picker_date_header_unselected">Selected date</string>
+    <string name="mtrl_picker_day_of_week_column_header">Column of days: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Invalid format.</string>
+    <string name="mtrl_picker_invalid_format_example">Example: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Use: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Invalid range.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Navigate to year %1$s</string>
+    <string name="mtrl_picker_out_of_range">Out of range: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Start date – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – End date</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Select Range</string>
+    <string name="mtrl_picker_range_header_unselected">Start date – End date</string>
+    <string name="mtrl_picker_save">Save</string>
+    <string name="mtrl_picker_text_input_date_hint">Date</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">End date</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Start date</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">y</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Switch to calendar input mode</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Tap to switch to selecting a day</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Switch to text input mode</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Tap to switch to selecting a year</string>
+    <string name="mtrl_timepicker_confirm">OK</string>
+    <string name="password_toggle_content_description">Show password</string>
+    <string name="path_password_eye">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
+    <string name="path_password_eye_mask_strike_through">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
+    <string name="path_password_eye_mask_visible">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
+    <string name="path_password_strike_through">M3.27,4.27 L19.74,20.74</string>
+    <string name="salg">AES</string>
+    <string name="search_menu_title">Search</string>
+    <string name="square_button">square_button</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="triangle_button">triangle_button</string>
+    <string name="x_button">x_button</string>
 </resources>

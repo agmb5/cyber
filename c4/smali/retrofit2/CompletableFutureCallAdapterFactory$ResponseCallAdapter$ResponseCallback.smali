@@ -77,9 +77,9 @@
     .end annotation
 
     .line 136
-    iget-object p1, p0, Lretrofit2/CompletableFutureCallAdapterFactory$ResponseCallAdapter$ResponseCallback;->future:Ljava/util/concurrent/CompletableFuture;
+    iget-object p0, p0, Lretrofit2/CompletableFutureCallAdapterFactory$ResponseCallAdapter$ResponseCallback;->future:Ljava/util/concurrent/CompletableFuture;
 
-    invoke-virtual {p1, p2}, Ljava/util/concurrent/CompletableFuture;->completeExceptionally(Ljava/lang/Throwable;)Z
+    invoke-virtual {p0, p2}, Ljava/util/concurrent/CompletableFuture;->completeExceptionally(Ljava/lang/Throwable;)Z
 
     return-void
 .end method
@@ -97,9 +97,9 @@
     .end annotation
 
     .line 131
-    iget-object p1, p0, Lretrofit2/CompletableFutureCallAdapterFactory$ResponseCallAdapter$ResponseCallback;->future:Ljava/util/concurrent/CompletableFuture;
+    iget-object p0, p0, Lretrofit2/CompletableFutureCallAdapterFactory$ResponseCallAdapter$ResponseCallback;->future:Ljava/util/concurrent/CompletableFuture;
 
-    invoke-virtual {p1, p2}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p2}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
 
     return-void
 .end method

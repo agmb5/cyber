@@ -72,11 +72,11 @@
 
     iget v2, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->beg:I
 
-    iget v3, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->end:I
+    iget p0, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->end:I
 
-    sub-int/2addr v3, v2
+    sub-int/2addr p0, v2
 
-    invoke-direct {v0, v1, v2, v3}, Ljava/lang/String;-><init>([CII)V
+    invoke-direct {v0, v1, v2, p0}, Ljava/lang/String;-><init>([CII)V
 
     return-object v0
 
@@ -151,13 +151,15 @@
     :cond_3
     new-instance v0, Ljava/lang/String;
 
+    iget-object v1, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->chars:[C
+
     iget v2, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->beg:I
 
-    iget v3, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->end:I
+    iget p0, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->end:I
 
-    sub-int/2addr v3, v2
+    sub-int/2addr p0, v2
 
-    invoke-direct {v0, v1, v2, v3}, Ljava/lang/String;-><init>([CII)V
+    invoke-direct {v0, v1, v2, p0}, Ljava/lang/String;-><init>([CII)V
 
     return-object v0
 
@@ -235,11 +237,11 @@
 
     iget v2, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->beg:I
 
-    iget v3, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->cur:I
+    iget p0, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->cur:I
 
-    sub-int/2addr v3, v2
+    sub-int/2addr p0, v2
 
-    invoke-direct {v0, v1, v2, v3}, Ljava/lang/String;-><init>([CII)V
+    invoke-direct {v0, v1, v2, p0}, Ljava/lang/String;-><init>([CII)V
 
     return-object v0
 .end method
@@ -326,11 +328,11 @@
     add-int/lit8 v0, v0, -0x37
 
     :goto_1
-    shl-int/lit8 p1, p1, 0x4
+    shl-int/lit8 p0, p1, 0x4
 
-    add-int/2addr p1, v0
+    add-int/2addr p0, v0
 
-    return p1
+    return p0
 
     .line 336
     :cond_4
@@ -342,15 +344,19 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v0
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    iget-object p0, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw p1
 
@@ -364,15 +370,19 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v0
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    iget-object p0, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw p1
 
@@ -386,15 +396,19 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v0
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    iget-object p0, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw p1
 .end method
@@ -450,16 +464,16 @@
     .line 256
     invoke-direct {p0}, Lokhttp3/internal/tls/DistinguishedNameParser;->getUTF8()C
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     .line 252
     :cond_0
     :pswitch_0
-    aget-char v0, v1, v0
+    aget-char p0, v1, v0
 
-    return v0
+    return p0
 
     .line 234
     :cond_1
@@ -473,15 +487,19 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    iget-object p0, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
@@ -526,9 +544,9 @@
 
     if-ge v0, v1, :cond_0
 
-    int-to-char v0, v0
+    int-to-char p0, v0
 
-    return v0
+    return p0
 
     :cond_0
     const/16 v3, 0xc0
@@ -547,7 +565,7 @@
 
     and-int/lit8 v0, v0, 0x1f
 
-    const/4 v3, 0x1
+    move v3, v2
 
     goto :goto_0
 
@@ -635,9 +653,9 @@
     return v4
 
     :cond_6
-    int-to-char v0, v0
+    int-to-char p0, v0
 
-    return v0
+    return p0
 
     :cond_7
     return v4
@@ -816,9 +834,9 @@
 
     iget-object v2, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->chars:[C
 
-    iget v3, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->beg:I
+    iget p0, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->beg:I
 
-    invoke-direct {v1, v2, v3, v0}, Ljava/lang/String;-><init>([CII)V
+    invoke-direct {v1, v2, p0, v0}, Ljava/lang/String;-><init>([CII)V
 
     return-object v1
 
@@ -832,15 +850,19 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    iget-object p0, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
@@ -854,23 +876,21 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    iget-object p0, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
 
-    goto :goto_5
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :goto_4
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
     throw v0
-
-    :goto_5
-    goto :goto_4
 .end method
 
 .method private nextAT()Ljava/lang/String;
@@ -901,9 +921,9 @@
     :cond_0
     if-ne v0, v1, :cond_1
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     .line 57
     :cond_1
@@ -1001,15 +1021,19 @@
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    iget-object p0, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
@@ -1048,87 +1072,89 @@
 
     iget v1, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->beg:I
 
-    sub-int v2, v0, v1
+    sub-int/2addr v0, v1
 
-    const/4 v3, 0x4
+    const/4 v2, 0x4
 
-    if-le v2, v3, :cond_a
+    if-le v0, v2, :cond_a
 
-    iget-object v2, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->chars:[C
+    iget-object v0, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->chars:[C
 
-    add-int/lit8 v4, v1, 0x3
+    add-int/lit8 v3, v1, 0x3
 
-    aget-char v4, v2, v4
+    aget-char v3, v0, v3
 
-    const/16 v5, 0x2e
+    const/16 v4, 0x2e
 
-    if-ne v4, v5, :cond_a
+    if-ne v3, v4, :cond_a
 
-    aget-char v4, v2, v1
+    aget-char v3, v0, v1
 
-    const/16 v5, 0x4f
+    const/16 v4, 0x4f
 
-    if-eq v4, v5, :cond_7
+    if-eq v3, v4, :cond_7
 
-    aget-char v4, v2, v1
+    aget-char v3, v0, v1
 
-    const/16 v5, 0x6f
+    const/16 v4, 0x6f
 
-    if-ne v4, v5, :cond_a
+    if-ne v3, v4, :cond_a
 
     :cond_7
-    add-int/lit8 v4, v1, 0x1
+    add-int/lit8 v3, v1, 0x1
 
-    aget-char v4, v2, v4
+    aget-char v3, v0, v3
 
-    const/16 v5, 0x49
+    const/16 v4, 0x49
 
-    if-eq v4, v5, :cond_8
+    if-eq v3, v4, :cond_8
 
-    add-int/lit8 v4, v1, 0x1
+    add-int/lit8 v3, v1, 0x1
 
-    aget-char v4, v2, v4
+    aget-char v3, v0, v3
 
-    const/16 v5, 0x69
+    const/16 v4, 0x69
 
-    if-ne v4, v5, :cond_a
+    if-ne v3, v4, :cond_a
 
     :cond_8
-    add-int/lit8 v4, v1, 0x2
+    add-int/lit8 v3, v1, 0x2
 
-    aget-char v4, v2, v4
+    aget-char v3, v0, v3
 
-    const/16 v5, 0x44
+    const/16 v4, 0x44
 
-    if-eq v4, v5, :cond_9
+    if-eq v3, v4, :cond_9
 
-    add-int/lit8 v4, v1, 0x2
+    add-int/lit8 v3, v1, 0x2
 
-    aget-char v2, v2, v4
+    aget-char v0, v0, v3
 
-    const/16 v4, 0x64
+    const/16 v3, 0x64
 
-    if-ne v2, v4, :cond_a
+    if-ne v0, v3, :cond_a
 
     :cond_9
-    add-int/2addr v1, v3
+    add-int/2addr v1, v2
 
     .line 96
     iput v1, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->beg:I
 
     .line 99
     :cond_a
-    new-instance v1, Ljava/lang/String;
+    new-instance v0, Ljava/lang/String;
 
-    iget-object v2, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->chars:[C
+    iget-object v1, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->chars:[C
 
-    iget v3, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->beg:I
+    iget v2, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->beg:I
 
-    sub-int/2addr v0, v3
+    iget p0, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->end:I
 
-    invoke-direct {v1, v2, v3, v0}, Ljava/lang/String;-><init>([CII)V
+    sub-int/2addr p0, v2
 
-    return-object v1
+    invoke-direct {v0, v1, v2, p0}, Ljava/lang/String;-><init>([CII)V
+
+    return-object v0
 
     .line 66
     :cond_b
@@ -1140,23 +1166,21 @@
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    iget-object p0, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
 
-    goto :goto_6
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :goto_5
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
     throw v0
-
-    :goto_6
-    goto :goto_5
 .end method
 
 .method private quotedAV()Ljava/lang/String;
@@ -1227,11 +1251,11 @@
 
     iget v2, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->beg:I
 
-    iget v3, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->end:I
+    iget p0, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->end:I
 
-    sub-int/2addr v3, v2
+    sub-int/2addr p0, v2
 
-    invoke-direct {v0, v1, v2, v3}, Ljava/lang/String;-><init>([CII)V
+    invoke-direct {v0, v1, v2, p0}, Ljava/lang/String;-><init>([CII)V
 
     return-object v0
 
@@ -1291,23 +1315,21 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    iget-object p0, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
 
-    goto :goto_4
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :goto_3
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
     throw v0
-
-    :goto_4
-    goto :goto_3
 .end method
 
 
@@ -1466,15 +1488,19 @@
 
     invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v0
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    iget-object p0, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw p1
 
@@ -1504,21 +1530,19 @@
 
     invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v0
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    iget-object p0, p0, Lokhttp3/internal/tls/DistinguishedNameParser;->dn:Ljava/lang/String;
 
-    goto :goto_4
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :goto_3
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
     throw p1
-
-    :goto_4
-    goto :goto_3
 .end method

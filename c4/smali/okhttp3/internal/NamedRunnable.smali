@@ -62,20 +62,20 @@
     .line 34
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1, v0}, Ljava/lang/Thread;->setName(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Ljava/lang/Thread;->setName(Ljava/lang/String;)V
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2, v0}, Ljava/lang/Thread;->setName(Ljava/lang/String;)V
+    invoke-virtual {v1, v0}, Ljava/lang/Thread;->setName(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 .end method

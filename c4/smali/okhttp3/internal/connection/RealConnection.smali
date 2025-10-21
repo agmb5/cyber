@@ -224,31 +224,31 @@
     goto :goto_2
 
     :catch_0
-    move-exception p1
+    move-exception p0
 
     .line 278
-    invoke-virtual {p1}, Ljava/lang/NullPointerException;->getMessage()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/NullPointerException;->getMessage()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object p1
 
-    const-string p3, "throw with null exception"
+    const-string p2, "throw with null exception"
 
-    invoke-virtual {p3, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p2
+    move-result p1
 
-    if-nez p2, :cond_2
+    if-nez p1, :cond_2
 
     :goto_2
     return-void
 
     .line 279
     :cond_2
-    new-instance p2, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    invoke-direct {p2, p1}, Ljava/io/IOException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Ljava/io/IOException;-><init>(Ljava/lang/Throwable;)V
 
-    throw p2
+    throw p1
 
     :catch_1
     move-exception p1
@@ -264,19 +264,23 @@
 
     invoke-virtual {p3, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object p4, p0, Lokhttp3/internal/connection/RealConnection;->route:Lokhttp3/Route;
-
-    invoke-virtual {p4}, Lokhttp3/Route;->socketAddress()Ljava/net/InetSocketAddress;
-
-    move-result-object p4
-
-    invoke-virtual {p3, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object p3
 
-    invoke-direct {p2, p3}, Ljava/net/ConnectException;-><init>(Ljava/lang/String;)V
+    iget-object p0, p0, Lokhttp3/internal/connection/RealConnection;->route:Lokhttp3/Route;
+
+    invoke-virtual {p0}, Lokhttp3/Route;->socketAddress()Ljava/net/InetSocketAddress;
+
+    move-result-object p0
+
+    invoke-virtual {p3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p2, p0}, Ljava/net/ConnectException;-><init>(Ljava/lang/String;)V
 
     .line 266
     invoke-virtual {p2, p1}, Ljava/net/ConnectException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
@@ -410,38 +414,40 @@
     .line 343
     invoke-virtual {v4}, Lokhttp3/Handshake;->peerCertificates()Ljava/util/List;
 
-    move-result-object p1
+    move-result-object p0
 
     .line 344
-    invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {p0}, Ljava/util/List;->isEmpty()Z
 
-    move-result v2
+    move-result p1
     :try_end_1
     .catch Ljava/lang/AssertionError; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    const-string v3, "Hostname "
+    const-string v2, "Hostname "
 
-    if-nez v2, :cond_1
+    if-nez p1, :cond_1
 
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
     .line 345
     :try_start_2
-    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
-    check-cast p1, Ljava/security/cert/X509Certificate;
+    check-cast p0, Ljava/security/cert/X509Certificate;
 
     .line 346
-    new-instance v2, Ljavax/net/ssl/SSLPeerUnverifiedException;
+    new-instance p1, Ljavax/net/ssl/SSLPeerUnverifiedException;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     .line 347
     invoke-virtual {v0}, Lokhttp3/Address;->url()Lokhttp3/HttpUrl;
@@ -452,62 +458,78 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, " not verified:\n    certificate: "
+    move-result-object v0
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, " not verified:\n    certificate: "
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     .line 348
-    invoke-static {p1}, Lokhttp3/CertificatePinner;->pin(Ljava/security/cert/Certificate;)Ljava/lang/String;
+    invoke-static {p0}, Lokhttp3/CertificatePinner;->pin(Ljava/security/cert/Certificate;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, "\n    DN: "
 
-    const-string v0, "\n    DN: "
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     .line 349
-    invoke-virtual {p1}, Ljava/security/cert/X509Certificate;->getSubjectDN()Ljava/security/Principal;
+    invoke-virtual {p0}, Ljava/security/cert/X509Certificate;->getSubjectDN()Ljava/security/Principal;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/security/Principal;->getName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-interface {v0}, Ljava/security/Principal;->getName()Ljava/lang/String;
+    const-string v2, "\n    subjectAltNames: "
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v0, "\n    subjectAltNames: "
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 350
-    invoke-static {p1}, Lokhttp3/internal/tls/OkHostnameVerifier;->allSubjectAltNames(Ljava/security/cert/X509Certificate;)Ljava/util/List;
+    invoke-static {p0}, Lokhttp3/internal/tls/OkHostnameVerifier;->allSubjectAltNames(Ljava/security/cert/X509Certificate;)Ljava/util/List;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object p1
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v2, p1}, Ljavax/net/ssl/SSLPeerUnverifiedException;-><init>(Ljava/lang/String;)V
+    move-result-object p0
 
-    throw v2
+    invoke-direct {p1, p0}, Ljavax/net/ssl/SSLPeerUnverifiedException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 
     .line 352
     :cond_1
-    new-instance p1, Ljavax/net/ssl/SSLPeerUnverifiedException;
+    new-instance p0, Ljavax/net/ssl/SSLPeerUnverifiedException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     .line 353
     invoke-virtual {v0}, Lokhttp3/Address;->url()Lokhttp3/HttpUrl;
@@ -518,19 +540,23 @@
 
     move-result-object v0
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     const-string v0, " not verified (no certificates)"
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {p1, v0}, Ljavax/net/ssl/SSLPeerUnverifiedException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw p1
+    invoke-direct {p0, p1}, Ljavax/net/ssl/SSLPeerUnverifiedException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 
     .line 358
     :cond_2
@@ -625,53 +651,53 @@
     .line 378
     invoke-static {}, Lokhttp3/internal/platform/Platform;->get()Lokhttp3/internal/platform/Platform;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-virtual {p1, v1}, Lokhttp3/internal/platform/Platform;->afterHandshake(Ljavax/net/ssl/SSLSocket;)V
+    invoke-virtual {p0, v1}, Lokhttp3/internal/platform/Platform;->afterHandshake(Ljavax/net/ssl/SSLSocket;)V
 
     :cond_5
     return-void
 
     :catchall_0
-    move-exception p1
+    move-exception p0
 
     move-object v2, v1
 
     goto :goto_2
 
     :catch_0
-    move-exception p1
+    move-exception p0
 
     move-object v2, v1
 
     goto :goto_1
 
     :catchall_1
-    move-exception p1
+    move-exception p0
 
     goto :goto_2
 
     :catch_1
-    move-exception p1
+    move-exception p0
 
     .line 374
     :goto_1
     :try_start_3
-    invoke-static {p1}, Lokhttp3/internal/Util;->isAndroidGetsocknameError(Ljava/lang/AssertionError;)Z
+    invoke-static {p0}, Lokhttp3/internal/Util;->isAndroidGetsocknameError(Ljava/lang/AssertionError;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_6
+    if-eqz p1, :cond_6
 
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    invoke-direct {v0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Ljava/io/IOException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v0
+    throw p1
 
     .line 375
     :cond_6
-    throw p1
+    throw p0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
@@ -681,15 +707,15 @@
     .line 378
     invoke-static {}, Lokhttp3/internal/platform/Platform;->get()Lokhttp3/internal/platform/Platform;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, v2}, Lokhttp3/internal/platform/Platform;->afterHandshake(Ljavax/net/ssl/SSLSocket;)V
+    invoke-virtual {p1, v2}, Lokhttp3/internal/platform/Platform;->afterHandshake(Ljavax/net/ssl/SSLSocket;)V
 
     .line 381
     :cond_7
     invoke-static {v2}, Lokhttp3/internal/Util;->closeQuietly(Ljava/net/Socket;)V
 
-    throw p1
+    throw p0
 .end method
 
 .method private connectTunnel(IIILokhttp3/Call;Lokhttp3/EventListener;)V
@@ -787,6 +813,8 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const/4 v1, 0x1
 
     invoke-static {p4, v1}, Lokhttp3/internal/Util;->hostHeader(Lokhttp3/HttpUrl;Z)Ljava/lang/String;
@@ -795,11 +823,15 @@
 
     invoke-virtual {v0, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p4, " HTTP/1.1"
+    move-result-object p4
 
-    invoke-virtual {v0, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " HTTP/1.1"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p4
+
+    invoke-virtual {p4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p4
 
@@ -927,40 +959,44 @@
 
     .line 418
     :cond_1
-    new-instance p1, Ljava/io/IOException;
+    new-instance p0, Ljava/io/IOException;
 
-    const-string p2, "Failed to authenticate with proxy"
+    const-string p1, "Failed to authenticate with proxy"
 
-    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 
     .line 426
     :cond_2
-    new-instance p1, Ljava/io/IOException;
+    new-instance p0, Ljava/io/IOException;
 
-    new-instance p2, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string p4, "Unexpected response code for CONNECT: "
+    const-string p2, "Unexpected response code for CONNECT: "
 
-    invoke-virtual {p2, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     .line 427
     invoke-virtual {p3}, Lokhttp3/Response;->code()I
 
-    move-result p3
+    move-result p2
 
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object p2
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw p1
+    invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 
     .line 411
     :cond_3
@@ -976,35 +1012,29 @@
 
     if-eqz p1, :cond_4
 
-    iget-object p1, p0, Lokhttp3/internal/connection/RealConnection;->sink:Lokio/BufferedSink;
+    iget-object p0, p0, Lokhttp3/internal/connection/RealConnection;->sink:Lokio/BufferedSink;
 
-    invoke-interface {p1}, Lokio/BufferedSink;->buffer()Lokio/Buffer;
+    invoke-interface {p0}, Lokio/BufferedSink;->buffer()Lokio/Buffer;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-virtual {p1}, Lokio/Buffer;->exhausted()Z
+    invoke-virtual {p0}, Lokio/Buffer;->exhausted()Z
 
-    move-result p1
+    move-result p0
 
-    if-eqz p1, :cond_4
+    if-eqz p0, :cond_4
 
     return-object v3
 
     .line 412
     :cond_4
-    new-instance p1, Ljava/io/IOException;
+    new-instance p0, Ljava/io/IOException;
 
-    const-string p2, "TLS tunnel buffered too many bytes!"
+    const-string p1, "TLS tunnel buffered too many bytes!"
 
-    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2
-
-    :goto_1
-    throw p1
-
-    :goto_2
-    goto :goto_1
+    throw p0
 .end method
 
 .method private createTunnelRequest()Lokhttp3/Request;
@@ -1167,16 +1197,16 @@
 
     move-result-object v2
 
-    iget-object v3, p0, Lokhttp3/internal/connection/RealConnection;->route:Lokhttp3/Route;
+    iget-object p0, p0, Lokhttp3/internal/connection/RealConnection;->route:Lokhttp3/Route;
 
     .line 462
-    invoke-interface {v2, v3, v1}, Lokhttp3/Authenticator;->authenticate(Lokhttp3/Route;Lokhttp3/Response;)Lokhttp3/Request;
+    invoke-interface {v2, p0, v1}, Lokhttp3/Authenticator;->authenticate(Lokhttp3/Route;Lokhttp3/Response;)Lokhttp3/Request;
 
-    move-result-object v1
+    move-result-object p0
 
-    if-eqz v1, :cond_0
+    if-eqz p0, :cond_0
 
-    move-object v0, v1
+    move-object v0, p0
 
     :cond_0
     return-object v0
@@ -1294,7 +1324,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-ge v2, v0, :cond_1
@@ -1351,9 +1381,9 @@
 
     if-eqz v3, :cond_0
 
-    const/4 p1, 0x1
+    const/4 p0, 0x1
 
-    return p1
+    return p0
 
     :cond_0
     add-int/lit8 v2, v2, 0x1
@@ -1454,12 +1484,12 @@
 
 # virtual methods
 .method public cancel()V
-    .locals 1
+    .locals 0
 
     .line 569
-    iget-object v0, p0, Lokhttp3/internal/connection/RealConnection;->rawSocket:Ljava/net/Socket;
+    iget-object p0, p0, Lokhttp3/internal/connection/RealConnection;->rawSocket:Ljava/net/Socket;
 
-    invoke-static {v0}, Lokhttp3/internal/Util;->closeQuietly(Ljava/net/Socket;)V
+    invoke-static {p0}, Lokhttp3/internal/Util;->closeQuietly(Ljava/net/Socket;)V
 
     return-void
 .end method
@@ -1558,13 +1588,19 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v0, " not permitted by network security policy"
+    move-result-object v3
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
+
+    const-string v3, " not permitted by network security policy"
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -1889,22 +1925,16 @@
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_a
-
-    :goto_9
     throw v0
-
-    :goto_a
-    goto :goto_9
 .end method
 
 .method public handshake()Lokhttp3/Handshake;
-    .locals 1
+    .locals 0
 
     .line 621
-    iget-object v0, p0, Lokhttp3/internal/connection/RealConnection;->handshake:Lokhttp3/Handshake;
+    iget-object p0, p0, Lokhttp3/internal/connection/RealConnection;->handshake:Lokhttp3/Handshake;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method isEligible(Lokhttp3/Address;Ljava/util/List;)Z
@@ -2059,13 +2089,13 @@
 
     invoke-virtual {p0}, Lokhttp3/internal/connection/RealConnection;->handshake()Lokhttp3/Handshake;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lokhttp3/Handshake;->peerCertificates()Ljava/util/List;
+    invoke-virtual {p0}, Lokhttp3/Handshake;->peerCertificates()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p2, p1, v0}, Lokhttp3/CertificatePinner;->check(Ljava/lang/String;Ljava/util/List;)V
+    invoke-virtual {p2, p1, p0}, Lokhttp3/CertificatePinner;->check(Ljava/lang/String;Ljava/util/List;)V
     :try_end_0
     .catch Ljavax/net/ssl/SSLPeerUnverifiedException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2078,7 +2108,7 @@
 .end method
 
 .method public isHealthy(Z)Z
-    .locals 4
+    .locals 3
 
     .line 578
     iget-object v0, p0, Lokhttp3/internal/connection/RealConnection;->socket:Ljava/net/Socket;
@@ -2118,13 +2148,13 @@
     .line 583
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
-    move-result-wide v1
+    move-result-wide p0
 
-    invoke-virtual {v0, v1, v2}, Lokhttp3/internal/http2/Http2Connection;->isHealthy(J)Z
+    invoke-virtual {v0, p0, p1}, Lokhttp3/internal/http2/Http2Connection;->isHealthy(J)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 
     :cond_1
     const/4 v0, 0x1
@@ -2161,25 +2191,25 @@
 
     .line 596
     :try_start_2
-    iget-object v2, p0, Lokhttp3/internal/connection/RealConnection;->socket:Ljava/net/Socket;
+    iget-object p0, p0, Lokhttp3/internal/connection/RealConnection;->socket:Ljava/net/Socket;
 
-    invoke-virtual {v2, p1}, Ljava/net/Socket;->setSoTimeout(I)V
+    invoke-virtual {p0, p1}, Ljava/net/Socket;->setSoTimeout(I)V
 
     return v1
 
     :cond_2
-    iget-object v2, p0, Lokhttp3/internal/connection/RealConnection;->socket:Ljava/net/Socket;
+    iget-object p0, p0, Lokhttp3/internal/connection/RealConnection;->socket:Ljava/net/Socket;
 
-    invoke-virtual {v2, p1}, Ljava/net/Socket;->setSoTimeout(I)V
+    invoke-virtual {p0, p1}, Ljava/net/Socket;->setSoTimeout(I)V
 
     return v0
 
     :catchall_0
     move-exception v2
 
-    iget-object v3, p0, Lokhttp3/internal/connection/RealConnection;->socket:Ljava/net/Socket;
+    iget-object p0, p0, Lokhttp3/internal/connection/RealConnection;->socket:Ljava/net/Socket;
 
-    invoke-virtual {v3, p1}, Ljava/net/Socket;->setSoTimeout(I)V
+    invoke-virtual {p0, p1}, Ljava/net/Socket;->setSoTimeout(I)V
 
     throw v2
     :try_end_2
@@ -2199,22 +2229,22 @@
 .end method
 
 .method public isMultiplexed()Z
-    .locals 1
+    .locals 0
 
     .line 629
-    iget-object v0, p0, Lokhttp3/internal/connection/RealConnection;->http2Connection:Lokhttp3/internal/http2/Http2Connection;
+    iget-object p0, p0, Lokhttp3/internal/connection/RealConnection;->http2Connection:Lokhttp3/internal/http2/Http2Connection;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method newCodec(Lokhttp3/OkHttpClient;Lokhttp3/Interceptor$Chain;)Lokhttp3/internal/http/ExchangeCodec;
@@ -2353,13 +2383,13 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public onSettings(Lokhttp3/internal/http2/Http2Connection;)V
@@ -2384,17 +2414,17 @@
     return-void
 
     :catchall_0
-    move-exception p1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw p1
+    throw p0
 .end method
 
 .method public onStream(Lokhttp3/internal/http2/Http2Stream;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2402,44 +2432,44 @@
     .end annotation
 
     .line 610
-    sget-object v0, Lokhttp3/internal/http2/ErrorCode;->REFUSED_STREAM:Lokhttp3/internal/http2/ErrorCode;
+    sget-object p0, Lokhttp3/internal/http2/ErrorCode;->REFUSED_STREAM:Lokhttp3/internal/http2/ErrorCode;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {p1, v0, v1}, Lokhttp3/internal/http2/Http2Stream;->close(Lokhttp3/internal/http2/ErrorCode;Ljava/io/IOException;)V
+    invoke-virtual {p1, p0, v0}, Lokhttp3/internal/http2/Http2Stream;->close(Lokhttp3/internal/http2/ErrorCode;Ljava/io/IOException;)V
 
     return-void
 .end method
 
 .method public protocol()Lokhttp3/Protocol;
-    .locals 1
+    .locals 0
 
     .line 668
-    iget-object v0, p0, Lokhttp3/internal/connection/RealConnection;->protocol:Lokhttp3/Protocol;
+    iget-object p0, p0, Lokhttp3/internal/connection/RealConnection;->protocol:Lokhttp3/Protocol;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public route()Lokhttp3/Route;
-    .locals 1
+    .locals 0
 
     .line 564
-    iget-object v0, p0, Lokhttp3/internal/connection/RealConnection;->route:Lokhttp3/Route;
+    iget-object p0, p0, Lokhttp3/internal/connection/RealConnection;->route:Lokhttp3/Route;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public socket()Ljava/net/Socket;
-    .locals 1
+    .locals 0
 
     .line 573
-    iget-object v0, p0, Lokhttp3/internal/connection/RealConnection;->socket:Ljava/net/Socket;
+    iget-object p0, p0, Lokhttp3/internal/connection/RealConnection;->socket:Ljava/net/Socket;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public supportsUrl(Lokhttp3/HttpUrl;)Z
-    .locals 4
+    .locals 3
 
     .line 529
     invoke-virtual {p1}, Lokhttp3/HttpUrl;->port()I
@@ -2506,26 +2536,26 @@
 
     move-result-object p1
 
-    iget-object v3, p0, Lokhttp3/internal/connection/RealConnection;->handshake:Lokhttp3/Handshake;
+    iget-object p0, p0, Lokhttp3/internal/connection/RealConnection;->handshake:Lokhttp3/Handshake;
 
-    invoke-virtual {v3}, Lokhttp3/Handshake;->peerCertificates()Ljava/util/List;
+    invoke-virtual {p0}, Lokhttp3/Handshake;->peerCertificates()Ljava/util/List;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-interface {v3, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p0
 
-    check-cast v3, Ljava/security/cert/X509Certificate;
+    check-cast p0, Ljava/security/cert/X509Certificate;
 
     .line 535
-    invoke-virtual {v0, p1, v3}, Lokhttp3/internal/tls/OkHostnameVerifier;->verify(Ljava/lang/String;Ljava/security/cert/X509Certificate;)Z
+    invoke-virtual {v0, p1, p0}, Lokhttp3/internal/tls/OkHostnameVerifier;->verify(Ljava/lang/String;Ljava/security/cert/X509Certificate;)Z
 
-    move-result p1
+    move-result p0
 
-    if-eqz p1, :cond_1
+    if-eqz p0, :cond_1
 
-    const/4 v2, 0x1
+    move v2, v1
 
     :cond_1
     return v2
@@ -2546,6 +2576,8 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lokhttp3/internal/connection/RealConnection;->route:Lokhttp3/Route;
 
     .line 673
@@ -2563,9 +2595,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ":"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lokhttp3/internal/connection/RealConnection;->route:Lokhttp3/Route;
 
@@ -2583,9 +2619,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", proxy="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lokhttp3/internal/connection/RealConnection;->route:Lokhttp3/Route;
 
@@ -2596,9 +2636,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " hostAddress="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lokhttp3/internal/connection/RealConnection;->route:Lokhttp3/Route;
 
@@ -2609,9 +2653,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " cipherSuite="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     .line 679
     iget-object v1, p0, Lokhttp3/internal/connection/RealConnection;->handshake:Lokhttp3/Handshake;
@@ -2630,23 +2678,31 @@
     :goto_0
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " protocol="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lokhttp3/internal/connection/RealConnection;->protocol:Lokhttp3/Protocol;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const/16 v1, 0x7d
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v0
 
-    return-object v0
+    iget-object p0, p0, Lokhttp3/internal/connection/RealConnection;->protocol:Lokhttp3/Protocol;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    const/16 v0, 0x7d
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method trackFailure(Ljava/io/IOException;)V
@@ -2764,11 +2820,11 @@
     return-void
 
     :catchall_0
-    move-exception p1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw p1
+    throw p0
 .end method

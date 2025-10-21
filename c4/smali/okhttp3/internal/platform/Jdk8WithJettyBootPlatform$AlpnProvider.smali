@@ -98,9 +98,9 @@
     .line 123
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 
     :cond_1
     const-string v1, "unsupported"
@@ -138,9 +138,9 @@
     if-nez v1, :cond_3
 
     .line 128
-    iget-object p1, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;->protocols:Ljava/util/List;
+    iget-object p0, p0, Lokhttp3/internal/platform/Jdk8WithJettyBootPlatform$AlpnProvider;->protocols:Ljava/util/List;
 
-    return-object p1
+    return-object p0
 
     :cond_3
     const-string v1, "selectProtocol"
@@ -187,7 +187,7 @@
 
     move-result p2
 
-    const/4 p3, 0x0
+    move p3, v4
 
     :goto_0
     if-ge p3, p2, :cond_6
@@ -268,7 +268,7 @@
     :cond_9
     invoke-virtual {p2, p0, p3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

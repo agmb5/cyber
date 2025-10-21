@@ -70,9 +70,9 @@
 
     .line 271
     :cond_0
-    iget-object v0, p0, Lokhttp3/ResponseBody$BomAwareReader;->source:Lokio/BufferedSource;
+    iget-object p0, p0, Lokhttp3/ResponseBody$BomAwareReader;->source:Lokio/BufferedSource;
 
-    invoke-interface {v0}, Lokio/BufferedSource;->close()V
+    invoke-interface {p0}, Lokio/BufferedSource;->close()V
 
     :goto_0
     return-void
@@ -124,17 +124,17 @@
     :cond_0
     invoke-virtual {v0, p1, p2, p3}, Ljava/io/Reader;->read([CII)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 
     .line 256
     :cond_1
-    new-instance p1, Ljava/io/IOException;
+    new-instance p0, Ljava/io/IOException;
 
-    const-string p2, "Stream closed"
+    const-string p1, "Stream closed"
 
-    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 .end method

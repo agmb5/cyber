@@ -36,9 +36,9 @@
 .method public final authenticate(Lokhttp3/Route;Lokhttp3/Response;)Lokhttp3/Request;
     .locals 0
 
-    invoke-static {p1, p2}, Lokhttp3/Authenticator$-CC;->lambda$static$0(Lokhttp3/Route;Lokhttp3/Response;)Lokhttp3/Request;
+    invoke-static {p1, p2}, Lokhttp3/Authenticator;->lambda$static$0(Lokhttp3/Route;Lokhttp3/Response;)Lokhttp3/Request;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

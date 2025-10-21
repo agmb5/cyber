@@ -37,7 +37,7 @@
 .end method
 
 .method private getKeyAdapter(Lcom/google/gson/Gson;Ljava/lang/reflect/Type;)Lcom/google/gson/TypeAdapter;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,13 +50,13 @@
     .end annotation
 
     .line 140
-    sget-object v0, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
+    sget-object p0, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    if-eq p2, v0, :cond_1
+    if-eq p2, p0, :cond_1
 
-    const-class v0, Ljava/lang/Boolean;
+    const-class p0, Ljava/lang/Boolean;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, p0, :cond_0
 
     goto :goto_0
 
@@ -64,21 +64,21 @@
     :cond_0
     invoke-static {p2}, Lcom/google/gson/reflect/TypeToken;->get(Ljava/lang/reflect/Type;)Lcom/google/gson/reflect/TypeToken;
 
-    move-result-object p2
+    move-result-object p0
 
-    invoke-virtual {p1, p2}, Lcom/google/gson/Gson;->getAdapter(Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
+    invoke-virtual {p1, p0}, Lcom/google/gson/Gson;->getAdapter(Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
 
-    move-result-object p1
+    move-result-object p0
 
     goto :goto_1
 
     .line 140
     :cond_1
     :goto_0
-    sget-object p1, Lcom/google/gson/internal/bind/TypeAdapters;->BOOLEAN_AS_STRING:Lcom/google/gson/TypeAdapter;
+    sget-object p0, Lcom/google/gson/internal/bind/TypeAdapters;->BOOLEAN_AS_STRING:Lcom/google/gson/TypeAdapter;
 
     :goto_1
-    return-object p1
+    return-object p0
 .end method
 
 
@@ -117,9 +117,9 @@
 
     if-nez v1, :cond_0
 
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
-    return-object p1
+    return-object p0
 
     .line 123
     :cond_0

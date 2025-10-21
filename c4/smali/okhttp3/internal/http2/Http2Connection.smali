@@ -228,12 +228,12 @@
 
     if-eqz v4, :cond_0
 
-    const/4 v4, 0x1
+    move v4, v6
 
     goto :goto_0
 
     :cond_0
-    const/4 v4, 0x2
+    move v4, v5
 
     :goto_0
     iput v4, v0, Lokhttp3/internal/http2/Http2Connection;->nextStreamId:I
@@ -701,9 +701,9 @@
     if-eqz p3, :cond_5
 
     .line 275
-    iget-object p1, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
+    iget-object p0, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
 
-    invoke-virtual {p1}, Lokhttp3/internal/http2/Http2Writer;->flush()V
+    invoke-virtual {p0}, Lokhttp3/internal/http2/Http2Writer;->flush()V
 
     :cond_5
     return-object v9
@@ -711,13 +711,13 @@
     .line 268
     :cond_6
     :try_start_3
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "client streams shouldn\'t have associated stream IDs"
+    const-string p1, "client streams shouldn\'t have associated stream IDs"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
@@ -742,14 +742,14 @@
     throw p1
 
     :catchall_1
-    move-exception p1
+    move-exception p0
 
     .line 272
     monitor-exit v7
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
-    throw p1
+    throw p0
 .end method
 
 .method private declared-synchronized pushExecutorExecute(Lokhttp3/internal/NamedRunnable;)V
@@ -787,7 +787,7 @@
 
 # virtual methods
 .method declared-synchronized awaitPong()V
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;
@@ -803,9 +803,9 @@
 
     iget-wide v2, p0, Lokhttp3/internal/http2/Http2Connection;->awaitPingsSent:J
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v0, :cond_0
 
     .line 434
     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
@@ -825,13 +825,7 @@
 
     monitor-exit p0
 
-    goto :goto_2
-
-    :goto_1
     throw v0
-
-    :goto_2
-    goto :goto_1
 .end method
 
 .method public close()V
@@ -958,9 +952,9 @@
     invoke-interface {p1}, Ljava/util/concurrent/ScheduledExecutorService;->shutdown()V
 
     .line 509
-    iget-object p1, p0, Lokhttp3/internal/http2/Http2Connection;->pushExecutor:Ljava/util/concurrent/ExecutorService;
+    iget-object p0, p0, Lokhttp3/internal/http2/Http2Connection;->pushExecutor:Ljava/util/concurrent/ExecutorService;
 
-    invoke-interface {p1}, Ljava/util/concurrent/ExecutorService;->shutdown()V
+    invoke-interface {p0}, Ljava/util/concurrent/ExecutorService;->shutdown()V
 
     return-void
 
@@ -973,17 +967,11 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    goto :goto_2
-
-    :goto_1
     throw p1
-
-    :goto_2
-    goto :goto_1
 .end method
 
 .method public flush()V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -991,9 +979,9 @@
     .end annotation
 
     .line 439
-    iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
+    iget-object p0, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
 
-    invoke-virtual {v0}, Lokhttp3/internal/http2/Http2Writer;->flush()V
+    invoke-virtual {p0}, Lokhttp3/internal/http2/Http2Writer;->flush()V
 
     return-void
 .end method
@@ -1065,9 +1053,9 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    cmp-long v0, p1, v2
+    cmp-long p1, p1, v2
 
-    if-ltz v0, :cond_1
+    if-ltz p1, :cond_1
 
     monitor-exit p0
 
@@ -1141,9 +1129,9 @@
     .line 238
     invoke-direct {p0, v0, p1, p2}, Lokhttp3/internal/http2/Http2Connection;->newStream(ILjava/util/List;Z)Lokhttp3/internal/http2/Http2Stream;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public declared-synchronized openStreamCount()I
@@ -1244,31 +1232,37 @@
 
     .line 956
     :cond_0
-    new-instance p1, Ljava/io/IOException;
+    new-instance p0, Ljava/io/IOException;
 
-    new-instance p2, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {v5}, Lokio/Buffer;->size()J
 
     move-result-wide v0
 
-    invoke-virtual {p2, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string p4, " != "
+    move-result-object p1
 
-    invoke-virtual {p2, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p2, " != "
 
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object p2
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw p1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method pushHeadersLater(ILjava/util/List;Z)V
@@ -1503,39 +1497,39 @@
     .line 229
     invoke-direct {p0, p1, p2, p3}, Lokhttp3/internal/http2/Http2Connection;->newStream(ILjava/util/List;Z)Lokhttp3/internal/http2/Http2Stream;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 
     .line 228
     :cond_0
-    new-instance p1, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string p2, "Client cannot push requests."
+    const-string p1, "Client cannot push requests."
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 .end method
 
 .method pushedStream(I)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     if-eqz p1, :cond_0
 
-    and-int/2addr p1, v0
+    and-int/2addr p1, p0
 
     if-nez p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method declared-synchronized removeStream(I)Lokhttp3/internal/http2/Http2Stream;
@@ -1587,9 +1581,9 @@
 
     iget-wide v2, p0, Lokhttp3/internal/http2/Http2Connection;->degradedPingsSent:J
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-gez v4, :cond_0
+    if-gez v0, :cond_0
 
     monitor-exit p0
 
@@ -1695,9 +1689,9 @@
 
     .line 549
     :try_start_2
-    iget-object v1, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
+    iget-object p0, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
 
-    invoke-virtual {v1, p1}, Lokhttp3/internal/http2/Http2Writer;->settings(Lokhttp3/internal/http2/Settings;)V
+    invoke-virtual {p0, p1}, Lokhttp3/internal/http2/Http2Writer;->settings(Lokhttp3/internal/http2/Settings;)V
 
     .line 550
     monitor-exit v0
@@ -1727,18 +1721,18 @@
     throw p1
 
     :catchall_1
-    move-exception p1
+    move-exception p0
 
     .line 550
     monitor-exit v0
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    throw p1
+    throw p0
 .end method
 
 .method public shutdown(Lokhttp3/internal/http2/ErrorCode;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1791,11 +1785,11 @@
 
     .line 459
     :try_start_4
-    iget-object v2, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
+    iget-object p0, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
 
-    sget-object v3, Lokhttp3/internal/Util;->EMPTY_BYTE_ARRAY:[B
+    sget-object v2, Lokhttp3/internal/Util;->EMPTY_BYTE_ARRAY:[B
 
-    invoke-virtual {v2, v1, p1, v3}, Lokhttp3/internal/http2/Http2Writer;->goAway(ILokhttp3/internal/http2/ErrorCode;[B)V
+    invoke-virtual {p0, v1, p1, v2}, Lokhttp3/internal/http2/Http2Writer;->goAway(ILokhttp3/internal/http2/ErrorCode;[B)V
 
     .line 460
     monitor-exit v0
@@ -1817,14 +1811,14 @@
     throw p1
 
     :catchall_1
-    move-exception p1
+    move-exception p0
 
     .line 460
     monitor-exit v0
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
-    throw p1
+    throw p0
 .end method
 
 .method public start()V
@@ -1891,9 +1885,9 @@
     :cond_0
     new-instance p1, Ljava/lang/Thread;
 
-    iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection;->readerRunnable:Lokhttp3/internal/http2/Http2Connection$ReaderRunnable;
+    iget-object p0, p0, Lokhttp3/internal/http2/Http2Connection;->readerRunnable:Lokhttp3/internal/http2/Http2Connection$ReaderRunnable;
 
-    invoke-direct {p1, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+    invoke-direct {p1, p0}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
     invoke-virtual {p1}, Ljava/lang/Thread;->start()V
 
@@ -1901,7 +1895,7 @@
 .end method
 
 .method declared-synchronized updateConnectionFlowControl(J)V
-    .locals 3
+    .locals 2
 
     monitor-enter p0
 
@@ -1924,9 +1918,9 @@
 
     int-to-long p1, p1
 
-    cmp-long v2, v0, p1
+    cmp-long p1, v0, p1
 
-    if-ltz v2, :cond_0
+    if-ltz p1, :cond_0
 
     const/4 p1, 0x0
 
@@ -1964,26 +1958,26 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const-wide/16 v0, 0x0
 
-    const-wide/16 v1, 0x0
+    cmp-long v2, p4, v0
 
-    cmp-long v3, p4, v1
+    const/4 v3, 0x0
 
-    if-nez v3, :cond_0
+    if-nez v2, :cond_0
 
     .line 301
-    iget-object p4, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
+    iget-object p0, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
 
-    invoke-virtual {p4, p2, p1, p3, v0}, Lokhttp3/internal/http2/Http2Writer;->data(ZILokio/Buffer;I)V
+    invoke-virtual {p0, p2, p1, p3, v3}, Lokhttp3/internal/http2/Http2Writer;->data(ZILokio/Buffer;I)V
 
     return-void
 
     :cond_0
     :goto_0
-    cmp-long v3, p4, v1
+    cmp-long v2, p4, v0
 
-    if-lez v3, :cond_4
+    if-lez v2, :cond_4
 
     .line 307
     monitor-enter p0
@@ -1991,24 +1985,24 @@
     .line 309
     :goto_1
     :try_start_0
-    iget-wide v3, p0, Lokhttp3/internal/http2/Http2Connection;->bytesLeftInWriteWindow:J
+    iget-wide v4, p0, Lokhttp3/internal/http2/Http2Connection;->bytesLeftInWriteWindow:J
 
-    cmp-long v5, v3, v1
+    cmp-long v2, v4, v0
 
-    if-gtz v5, :cond_2
+    if-gtz v2, :cond_2
 
     .line 312
-    iget-object v3, p0, Lokhttp3/internal/http2/Http2Connection;->streams:Ljava/util/Map;
+    iget-object v2, p0, Lokhttp3/internal/http2/Http2Connection;->streams:Ljava/util/Map;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    invoke-interface {v3, v4}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-interface {v2, v4}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     .line 315
     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
@@ -2031,27 +2025,27 @@
     .line 322
     :cond_2
     :try_start_1
-    invoke-static {p4, p5, v3, v4}, Ljava/lang/Math;->min(JJ)J
+    invoke-static {p4, p5, v4, v5}, Ljava/lang/Math;->min(JJ)J
 
-    move-result-wide v3
+    move-result-wide v4
 
-    long-to-int v4, v3
+    long-to-int v2, v4
 
     .line 323
-    iget-object v3, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
+    iget-object v4, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
 
-    invoke-virtual {v3}, Lokhttp3/internal/http2/Http2Writer;->maxDataLength()I
+    invoke-virtual {v4}, Lokhttp3/internal/http2/Http2Writer;->maxDataLength()I
 
-    move-result v3
+    move-result v4
 
-    invoke-static {v4, v3}, Ljava/lang/Math;->min(II)I
+    invoke-static {v2, v4}, Ljava/lang/Math;->min(II)I
 
-    move-result v3
+    move-result v2
 
     .line 324
     iget-wide v4, p0, Lokhttp3/internal/http2/Http2Connection;->bytesLeftInWriteWindow:J
 
-    int-to-long v6, v3
+    int-to-long v6, v2
 
     sub-long/2addr v4, v6
 
@@ -2069,7 +2063,7 @@
 
     if-eqz p2, :cond_3
 
-    cmp-long v5, p4, v1
+    cmp-long v5, p4, v0
 
     if-nez v5, :cond_3
 
@@ -2078,10 +2072,10 @@
     goto :goto_2
 
     :cond_3
-    const/4 v5, 0x0
+    move v5, v3
 
     :goto_2
-    invoke-virtual {v4, v5, p1, p3, v3}, Lokhttp3/internal/http2/Http2Writer;->data(ZILokio/Buffer;I)V
+    invoke-virtual {v4, v5, p1, p3, v2}, Lokhttp3/internal/http2/Http2Writer;->data(ZILokio/Buffer;I)V
 
     goto :goto_0
 
@@ -2119,7 +2113,7 @@
 .end method
 
 .method writeHeaders(IZLjava/util/List;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IZ",
@@ -2136,9 +2130,9 @@
     .end annotation
 
     .line 283
-    iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
+    iget-object p0, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
 
-    invoke-virtual {v0, p2, p1, p3}, Lokhttp3/internal/http2/Http2Writer;->headers(ZILjava/util/List;)V
+    invoke-virtual {p0, p2, p1, p3}, Lokhttp3/internal/http2/Http2Writer;->headers(ZILjava/util/List;)V
 
     return-void
 .end method
@@ -2228,7 +2222,7 @@
 .end method
 
 .method writeSynReset(ILokhttp3/internal/http2/ErrorCode;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2236,9 +2230,9 @@
     .end annotation
 
     .line 349
-    iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
+    iget-object p0, p0, Lokhttp3/internal/http2/Http2Connection;->writer:Lokhttp3/internal/http2/Http2Writer;
 
-    invoke-virtual {v0, p1, p2}, Lokhttp3/internal/http2/Http2Writer;->rstStream(ILokhttp3/internal/http2/ErrorCode;)V
+    invoke-virtual {p0, p1, p2}, Lokhttp3/internal/http2/Http2Writer;->rstStream(ILokhttp3/internal/http2/ErrorCode;)V
 
     return-void
 .end method

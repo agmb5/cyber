@@ -66,13 +66,13 @@
 
     .line 57
     :cond_0
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "sink == null"
+    const-string p1, "sink == null"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw p0
 .end method
 
 .method private updateCrc(Lokio/Buffer;J)V
@@ -84,9 +84,9 @@
     :goto_0
     const-wide/16 v0, 0x0
 
-    cmp-long v2, p2, v0
+    cmp-long v0, p2, v0
 
-    if-lez v2, :cond_0
+    if-lez v0, :cond_0
 
     .line 140
     iget v0, p1, Lokio/Segment;->limit:I
@@ -101,18 +101,18 @@
 
     move-result-wide v0
 
-    long-to-int v1, v0
+    long-to-int v0, v0
 
     .line 141
-    iget-object v0, p0, Lokio/GzipSink;->crc:Ljava/util/zip/CRC32;
+    iget-object v1, p0, Lokio/GzipSink;->crc:Ljava/util/zip/CRC32;
 
     iget-object v2, p1, Lokio/Segment;->data:[B
 
     iget v3, p1, Lokio/Segment;->pos:I
 
-    invoke-virtual {v0, v2, v3, v1}, Ljava/util/zip/CRC32;->update([BII)V
+    invoke-virtual {v1, v2, v3, v0}, Ljava/util/zip/CRC32;->update([BII)V
 
-    int-to-long v0, v1
+    int-to-long v0, v0
 
     sub-long/2addr p2, v0
 
@@ -142,59 +142,59 @@
 
     move-result-wide v1
 
-    long-to-int v2, v1
+    long-to-int v1, v1
 
-    invoke-interface {v0, v2}, Lokio/BufferedSink;->writeIntLe(I)Lokio/BufferedSink;
+    invoke-interface {v0, v1}, Lokio/BufferedSink;->writeIntLe(I)Lokio/BufferedSink;
 
     .line 134
     iget-object v0, p0, Lokio/GzipSink;->sink:Lokio/BufferedSink;
 
-    iget-object v1, p0, Lokio/GzipSink;->deflater:Ljava/util/zip/Deflater;
+    iget-object p0, p0, Lokio/GzipSink;->deflater:Ljava/util/zip/Deflater;
 
-    invoke-virtual {v1}, Ljava/util/zip/Deflater;->getBytesRead()J
+    invoke-virtual {p0}, Ljava/util/zip/Deflater;->getBytesRead()J
 
     move-result-wide v1
 
-    long-to-int v2, v1
+    long-to-int p0, v1
 
-    invoke-interface {v0, v2}, Lokio/BufferedSink;->writeIntLe(I)Lokio/BufferedSink;
+    invoke-interface {v0, p0}, Lokio/BufferedSink;->writeIntLe(I)Lokio/BufferedSink;
 
     return-void
 .end method
 
 .method private writeHeader()V
-    .locals 2
+    .locals 1
 
     .line 123
-    iget-object v0, p0, Lokio/GzipSink;->sink:Lokio/BufferedSink;
+    iget-object p0, p0, Lokio/GzipSink;->sink:Lokio/BufferedSink;
 
-    invoke-interface {v0}, Lokio/BufferedSink;->buffer()Lokio/Buffer;
+    invoke-interface {p0}, Lokio/BufferedSink;->buffer()Lokio/Buffer;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/16 v1, 0x1f8b
+    const/16 v0, 0x1f8b
 
     .line 124
-    invoke-virtual {v0, v1}, Lokio/Buffer;->writeShort(I)Lokio/Buffer;
+    invoke-virtual {p0, v0}, Lokio/Buffer;->writeShort(I)Lokio/Buffer;
 
-    const/16 v1, 0x8
+    const/16 v0, 0x8
 
     .line 125
-    invoke-virtual {v0, v1}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
+    invoke-virtual {p0, v0}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 126
-    invoke-virtual {v0, v1}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
+    invoke-virtual {p0, v0}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     .line 127
-    invoke-virtual {v0, v1}, Lokio/Buffer;->writeInt(I)Lokio/Buffer;
+    invoke-virtual {p0, v0}, Lokio/Buffer;->writeInt(I)Lokio/Buffer;
 
     .line 128
-    invoke-virtual {v0, v1}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
+    invoke-virtual {p0, v0}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     .line 129
-    invoke-virtual {v0, v1}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
+    invoke-virtual {p0, v0}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     return-void
 .end method
@@ -289,16 +289,16 @@
 .end method
 
 .method public final deflater()Ljava/util/zip/Deflater;
-    .locals 1
+    .locals 0
 
     .line 118
-    iget-object v0, p0, Lokio/GzipSink;->deflater:Ljava/util/zip/Deflater;
+    iget-object p0, p0, Lokio/GzipSink;->deflater:Ljava/util/zip/Deflater;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public flush()V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -306,28 +306,28 @@
     .end annotation
 
     .line 74
-    iget-object v0, p0, Lokio/GzipSink;->deflaterSink:Lokio/DeflaterSink;
+    iget-object p0, p0, Lokio/GzipSink;->deflaterSink:Lokio/DeflaterSink;
 
-    invoke-virtual {v0}, Lokio/DeflaterSink;->flush()V
+    invoke-virtual {p0}, Lokio/DeflaterSink;->flush()V
 
     return-void
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 1
+    .locals 0
 
     .line 78
-    iget-object v0, p0, Lokio/GzipSink;->sink:Lokio/BufferedSink;
+    iget-object p0, p0, Lokio/GzipSink;->sink:Lokio/BufferedSink;
 
-    invoke-interface {v0}, Lokio/BufferedSink;->timeout()Lokio/Timeout;
+    invoke-interface {p0}, Lokio/BufferedSink;->timeout()Lokio/Timeout;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public write(Lokio/Buffer;J)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -336,13 +336,11 @@
 
     const-wide/16 v0, 0x0
 
-    cmp-long v2, p2, v0
+    cmp-long v0, p2, v0
 
-    if-ltz v2, :cond_1
+    if-ltz v0, :cond_1
 
-    cmp-long v2, p2, v0
-
-    if-nez v2, :cond_0
+    if-nez v0, :cond_0
 
     return-void
 
@@ -351,31 +349,35 @@
     invoke-direct {p0, p1, p2, p3}, Lokio/GzipSink;->updateCrc(Lokio/Buffer;J)V
 
     .line 70
-    iget-object v0, p0, Lokio/GzipSink;->deflaterSink:Lokio/DeflaterSink;
+    iget-object p0, p0, Lokio/GzipSink;->deflaterSink:Lokio/DeflaterSink;
 
-    invoke-virtual {v0, p1, p2, p3}, Lokio/DeflaterSink;->write(Lokio/Buffer;J)V
+    invoke-virtual {p0, p1, p2, p3}, Lokio/DeflaterSink;->write(Lokio/Buffer;J)V
 
     return-void
 
     .line 66
     :cond_1
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "byteCount < 0: "
+    const-string v0, "byteCount < 0: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object p2
+    move-result-object p1
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw p1
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method

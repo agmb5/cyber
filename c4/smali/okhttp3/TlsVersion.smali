@@ -247,9 +247,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -391,10 +395,10 @@
 
 # virtual methods
 .method public javaName()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 65
-    iget-object v0, p0, Lokhttp3/TlsVersion;->javaName:Ljava/lang/String;
+    iget-object p0, p0, Lokhttp3/TlsVersion;->javaName:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method

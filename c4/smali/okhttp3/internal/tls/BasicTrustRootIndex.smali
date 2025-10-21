@@ -105,14 +105,14 @@
 
     iget-object p1, p1, Lokhttp3/internal/tls/BasicTrustRootIndex;->subjectToCaCerts:Ljava/util/Map;
 
-    iget-object v1, p0, Lokhttp3/internal/tls/BasicTrustRootIndex;->subjectToCaCerts:Ljava/util/Map;
+    iget-object p0, p0, Lokhttp3/internal/tls/BasicTrustRootIndex;->subjectToCaCerts:Ljava/util/Map;
 
     .line 63
-    invoke-interface {p1, v1}, Ljava/util/Map;->equals(Ljava/lang/Object;)Z
+    invoke-interface {p1, p0}, Ljava/util/Map;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result p0
 
-    if-eqz p1, :cond_1
+    if-eqz p0, :cond_1
 
     goto :goto_0
 
@@ -124,7 +124,7 @@
 .end method
 
 .method public findByIssuerAndSignature(Ljava/security/cert/X509Certificate;)Ljava/security/cert/X509Certificate;
-    .locals 4
+    .locals 3
 
     .line 44
     invoke-virtual {p1}, Ljava/security/cert/X509Certificate;->getIssuerX500Principal()Ljavax/security/auth/x500/X500Principal;
@@ -132,70 +132,65 @@
     move-result-object v0
 
     .line 45
-    iget-object v1, p0, Lokhttp3/internal/tls/BasicTrustRootIndex;->subjectToCaCerts:Ljava/util/Map;
+    iget-object p0, p0, Lokhttp3/internal/tls/BasicTrustRootIndex;->subjectToCaCerts:Ljava/util/Map;
 
-    invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p0, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Ljava/util/Set;
+    check-cast p0, Ljava/util/Set;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    return-object v1
+    return-object v0
 
     .line 48
     :cond_0
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    :catch_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/security/cert/X509Certificate;
+
+    .line 49
+    invoke-virtual {v1}, Ljava/security/cert/X509Certificate;->getPublicKey()Ljava/security/PublicKey;
 
     move-result-object v2
 
-    check-cast v2, Ljava/security/cert/X509Certificate;
-
-    .line 49
-    invoke-virtual {v2}, Ljava/security/cert/X509Certificate;->getPublicKey()Ljava/security/PublicKey;
-
-    move-result-object v3
-
     .line 51
     :try_start_0
-    invoke-virtual {p1, v3}, Ljava/security/cert/X509Certificate;->verify(Ljava/security/PublicKey;)V
+    invoke-virtual {p1, v2}, Ljava/security/cert/X509Certificate;->verify(Ljava/security/PublicKey;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v2
-
-    :catch_0
-    nop
-
-    goto :goto_0
+    return-object v1
 
     :cond_1
-    return-object v1
+    return-object v0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .locals 0
 
     .line 68
-    iget-object v0, p0, Lokhttp3/internal/tls/BasicTrustRootIndex;->subjectToCaCerts:Ljava/util/Map;
+    iget-object p0, p0, Lokhttp3/internal/tls/BasicTrustRootIndex;->subjectToCaCerts:Ljava/util/Map;
 
-    invoke-interface {v0}, Ljava/util/Map;->hashCode()I
+    invoke-interface {p0}, Ljava/util/Map;->hashCode()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

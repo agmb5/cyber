@@ -138,11 +138,11 @@
 
     .line 151
     :cond_3
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalStateException;-><init>()V
 
-    throw v0
+    throw p0
 .end method
 
 .method public final pop()Lokio/Segment;
@@ -292,19 +292,19 @@
     iput v1, p0, Lokio/Segment;->pos:I
 
     .line 142
-    iget-object p1, p0, Lokio/Segment;->prev:Lokio/Segment;
+    iget-object p0, p0, Lokio/Segment;->prev:Lokio/Segment;
 
-    invoke-virtual {p1, v0}, Lokio/Segment;->push(Lokio/Segment;)Lokio/Segment;
+    invoke-virtual {p0, v0}, Lokio/Segment;->push(Lokio/Segment;)Lokio/Segment;
 
     return-object v0
 
     .line 125
     :cond_1
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw p1
+    throw p0
 .end method
 
 .method final unsharedCopy()Lokio/Segment;
@@ -394,19 +394,19 @@
 
     .line 167
     :cond_0
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw p1
+    throw p0
 
     .line 166
     :cond_1
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw p1
+    throw p0
 
     .line 173
     :cond_2
@@ -439,9 +439,9 @@
 
     .line 163
     :cond_3
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw p1
+    throw p0
 .end method

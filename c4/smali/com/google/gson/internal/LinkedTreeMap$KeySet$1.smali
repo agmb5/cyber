@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public next()Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -54,9 +54,9 @@
     .line 603
     invoke-virtual {p0}, Lcom/google/gson/internal/LinkedTreeMap$KeySet$1;->nextNode()Lcom/google/gson/internal/LinkedTreeMap$Node;
 
-    move-result-object v0
+    move-result-object p0
 
-    iget-object v0, v0, Lcom/google/gson/internal/LinkedTreeMap$Node;->key:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/google/gson/internal/LinkedTreeMap$Node;->key:Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method

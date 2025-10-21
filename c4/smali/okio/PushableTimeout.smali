@@ -53,9 +53,9 @@
 
     .line 53
     :cond_0
-    iget-object v0, p0, Lokio/PushableTimeout;->pushed:Lokio/Timeout;
+    iget-object p0, p0, Lokio/PushableTimeout;->pushed:Lokio/Timeout;
 
-    invoke-virtual {v0}, Lokio/Timeout;->clearDeadline()Lokio/Timeout;
+    invoke-virtual {p0}, Lokio/Timeout;->clearDeadline()Lokio/Timeout;
 
     :goto_0
     return-void

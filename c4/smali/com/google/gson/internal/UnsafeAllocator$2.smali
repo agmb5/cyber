@@ -68,21 +68,21 @@
 
     aput-object p1, v1, v2
 
-    iget p1, p0, Lcom/google/gson/internal/UnsafeAllocator$2;->val$constructorId:I
+    iget p0, p0, Lcom/google/gson/internal/UnsafeAllocator$2;->val$constructorId:I
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p1
+    move-result-object p0
 
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
-    aput-object p1, v1, v2
+    aput-object p0, v1, p1
 
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
-    invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

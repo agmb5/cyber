@@ -67,7 +67,7 @@
 .end method
 
 .method apply(Lretrofit2/RequestBuilder;Lokhttp3/Headers;)V
-    .locals 2
+    .locals 1
     .param p2    # Lokhttp3/Headers;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
@@ -84,17 +84,17 @@
     :cond_0
     iget-object p1, p0, Lretrofit2/ParameterHandler$Headers;->method:Ljava/lang/reflect/Method;
 
-    iget p2, p0, Lretrofit2/ParameterHandler$Headers;->p:I
+    iget p0, p0, Lretrofit2/ParameterHandler$Headers;->p:I
 
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array p2, p2, [Ljava/lang/Object;
 
-    const-string v1, "Headers parameter must not be null."
+    const-string v0, "Headers parameter must not be null."
 
-    invoke-static {p1, p2, v1, v0}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
+    invoke-static {p1, p0, v0, p2}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
 
-    move-result-object p1
+    move-result-object p0
 
-    throw p1
+    throw p0
 .end method

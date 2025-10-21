@@ -29,22 +29,22 @@
 
 # virtual methods
 .method public translateName(Ljava/lang/reflect/Field;)Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     .line 74
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    const-string v0, " "
+    const-string p1, " "
 
-    invoke-static {p1, v0}, Lcom/google/gson/FieldNamingPolicy$3;->separateCamelCase(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p0, p1}, Lcom/google/gson/FieldNamingPolicy$3;->separateCamelCase(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-static {p1}, Lcom/google/gson/FieldNamingPolicy$3;->upperCaseFirstLetter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p0}, Lcom/google/gson/FieldNamingPolicy$3;->upperCaseFirstLetter(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

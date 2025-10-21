@@ -59,12 +59,12 @@
     const-string v0, "method == null"
 
     .line 53
-    invoke-static {p0, v0}, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall$$ExternalSyntheticBackport0;->m(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p0, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     const-string v0, "arguments == null"
 
     .line 54
-    invoke-static {p1, v0}, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall$$ExternalSyntheticBackport0;->m(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 55
     new-instance v0, Lretrofit2/Invocation;
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public arguments()Ljava/util/List;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -91,18 +91,18 @@
     .end annotation
 
     .line 72
-    iget-object v0, p0, Lretrofit2/Invocation;->arguments:Ljava/util/List;
+    iget-object p0, p0, Lretrofit2/Invocation;->arguments:Ljava/util/List;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public method()Ljava/lang/reflect/Method;
-    .locals 1
+    .locals 0
 
     .line 68
-    iget-object v0, p0, Lretrofit2/Invocation;->method:Ljava/lang/reflect/Method;
+    iget-object p0, p0, Lretrofit2/Invocation;->method:Ljava/lang/reflect/Method;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -138,18 +138,18 @@
 
     aput-object v1, v0, v2
 
-    iget-object v1, p0, Lretrofit2/Invocation;->arguments:Ljava/util/List;
+    iget-object p0, p0, Lretrofit2/Invocation;->arguments:Ljava/util/List;
 
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    aput-object v1, v0, v2
+    aput-object p0, v0, v1
 
-    const-string v1, "%s.%s() %s"
+    const-string p0, "%s.%s() %s"
 
     .line 77
-    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

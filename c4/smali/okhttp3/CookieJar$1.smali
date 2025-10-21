@@ -45,9 +45,9 @@
     .line 41
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public saveFromResponse(Lokhttp3/HttpUrl;Ljava/util/List;)V

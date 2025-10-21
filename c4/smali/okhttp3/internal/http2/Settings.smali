@@ -47,7 +47,7 @@
 
 # virtual methods
 .method clear()V
-    .locals 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -55,22 +55,22 @@
     iput v0, p0, Lokhttp3/internal/http2/Settings;->set:I
 
     .line 55
-    iget-object v1, p0, Lokhttp3/internal/http2/Settings;->values:[I
+    iget-object p0, p0, Lokhttp3/internal/http2/Settings;->values:[I
 
-    invoke-static {v1, v0}, Ljava/util/Arrays;->fill([II)V
+    invoke-static {p0, v0}, Ljava/util/Arrays;->fill([II)V
 
     return-void
 .end method
 
 .method get(I)I
-    .locals 1
+    .locals 0
 
     .line 77
-    iget-object v0, p0, Lokhttp3/internal/http2/Settings;->values:[I
+    iget-object p0, p0, Lokhttp3/internal/http2/Settings;->values:[I
 
-    aget p1, v0, p1
+    aget p0, p0, p1
 
-    return p1
+    return p0
 .end method
 
 .method getEnablePush(Z)Z
@@ -87,35 +87,35 @@
 
     if-eqz v0, :cond_0
 
-    iget-object p1, p0, Lokhttp3/internal/http2/Settings;->values:[I
+    iget-object p0, p0, Lokhttp3/internal/http2/Settings;->values:[I
 
-    const/4 v0, 0x2
+    const/4 p1, 0x2
 
-    aget p1, p1, v0
+    aget p0, p0, p1
 
     goto :goto_0
 
     :cond_0
     if-eqz p1, :cond_1
 
-    const/4 p1, 0x1
+    move p0, v2
 
     goto :goto_0
 
     :cond_1
-    const/4 p1, 0x0
+    move p0, v1
 
     :goto_0
-    if-ne p1, v2, :cond_2
+    if-ne p0, v2, :cond_2
 
-    const/4 v1, 0x1
+    move v1, v2
 
     :cond_2
     return v1
 .end method
 
 .method getHeaderTableSize()I
-    .locals 2
+    .locals 1
 
     .line 88
     iget v0, p0, Lokhttp3/internal/http2/Settings;->set:I
@@ -124,23 +124,23 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lokhttp3/internal/http2/Settings;->values:[I
+    iget-object p0, p0, Lokhttp3/internal/http2/Settings;->values:[I
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    aget v0, v0, v1
+    aget p0, p0, v0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, -0x1
+    const/4 p0, -0x1
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method getInitialWindowSize()I
-    .locals 2
+    .locals 1
 
     .line 114
     iget v0, p0, Lokhttp3/internal/http2/Settings;->set:I
@@ -149,19 +149,19 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lokhttp3/internal/http2/Settings;->values:[I
+    iget-object p0, p0, Lokhttp3/internal/http2/Settings;->values:[I
 
-    const/4 v1, 0x7
+    const/4 v0, 0x7
 
-    aget v0, v0, v1
+    aget p0, p0, v0
 
     goto :goto_0
 
     :cond_0
-    const v0, 0xffff
+    const p0, 0xffff
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method getMaxConcurrentStreams(I)I
@@ -174,11 +174,11 @@
 
     if-eqz v0, :cond_0
 
-    iget-object p1, p0, Lokhttp3/internal/http2/Settings;->values:[I
+    iget-object p0, p0, Lokhttp3/internal/http2/Settings;->values:[I
 
-    const/4 v0, 0x4
+    const/4 p1, 0x4
 
-    aget p1, p1, v0
+    aget p1, p0, p1
 
     :cond_0
     return p1
@@ -194,11 +194,11 @@
 
     if-eqz v0, :cond_0
 
-    iget-object p1, p0, Lokhttp3/internal/http2/Settings;->values:[I
+    iget-object p0, p0, Lokhttp3/internal/http2/Settings;->values:[I
 
-    const/4 v0, 0x5
+    const/4 p1, 0x5
 
-    aget p1, p1, v0
+    aget p1, p0, p1
 
     :cond_0
     return p1
@@ -214,29 +214,29 @@
 
     if-eqz v0, :cond_0
 
-    iget-object p1, p0, Lokhttp3/internal/http2/Settings;->values:[I
+    iget-object p0, p0, Lokhttp3/internal/http2/Settings;->values:[I
 
-    const/4 v0, 0x6
+    const/4 p1, 0x6
 
-    aget p1, p1, v0
+    aget p1, p0, p1
 
     :cond_0
     return p1
 .end method
 
 .method isSet(I)Z
-    .locals 2
+    .locals 1
 
     const/4 v0, 0x1
 
     shl-int p1, v0, p1
 
     .line 72
-    iget v1, p0, Lokhttp3/internal/http2/Settings;->set:I
+    iget p0, p0, Lokhttp3/internal/http2/Settings;->set:I
 
-    and-int/2addr p1, v1
+    and-int/2addr p0, p1
 
-    if-eqz p1, :cond_0
+    if-eqz p0, :cond_0
 
     goto :goto_0
 
@@ -318,14 +318,14 @@
 .end method
 
 .method size()I
-    .locals 1
+    .locals 0
 
     .line 82
-    iget v0, p0, Lokhttp3/internal/http2/Settings;->set:I
+    iget p0, p0, Lokhttp3/internal/http2/Settings;->set:I
 
-    invoke-static {v0}, Ljava/lang/Integer;->bitCount(I)I
+    invoke-static {p0}, Ljava/lang/Integer;->bitCount(I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

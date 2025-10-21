@@ -80,18 +80,18 @@
 
     invoke-virtual {p0, p1}, Lretrofit2/KotlinExtensions$await$$inlined$suspendCancellableCoroutine$lambda$1;->invoke(Ljava/lang/Throwable;)V
 
-    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)V
     .locals 0
 
     .line 34
-    iget-object p1, p0, Lretrofit2/KotlinExtensions$await$$inlined$suspendCancellableCoroutine$lambda$1;->$this_await$inlined:Lretrofit2/Call;
+    iget-object p0, p0, Lretrofit2/KotlinExtensions$await$$inlined$suspendCancellableCoroutine$lambda$1;->$this_await$inlined:Lretrofit2/Call;
 
-    invoke-interface {p1}, Lretrofit2/Call;->cancel()V
+    invoke-interface {p0}, Lretrofit2/Call;->cancel()V
 
     return-void
 .end method

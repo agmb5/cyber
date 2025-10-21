@@ -24,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lokhttp3/internal/ws/RealWebSocket$$ExternalSyntheticLambda0;->f$0:Lokhttp3/internal/ws/RealWebSocket;
+    iget-object p0, p0, Lokhttp3/internal/ws/RealWebSocket$$ExternalSyntheticLambda0;->f$0:Lokhttp3/internal/ws/RealWebSocket;
 
-    invoke-virtual {v0}, Lokhttp3/internal/ws/RealWebSocket;->lambda$new$0$okhttp3-internal-ws-RealWebSocket()V
+    invoke-virtual {p0}, Lokhttp3/internal/ws/RealWebSocket;->lambda$new$0$okhttp3-internal-ws-RealWebSocket()V
 
     return-void
 .end method

@@ -97,62 +97,62 @@
 
 # virtual methods
 .method public call()Lokhttp3/Call;
-    .locals 1
+    .locals 0
 
     .line 109
-    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->call:Lokhttp3/Call;
+    iget-object p0, p0, Lokhttp3/internal/http/RealInterceptorChain;->call:Lokhttp3/Call;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public connectTimeoutMillis()I
-    .locals 1
+    .locals 0
 
     .line 70
-    iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->connectTimeout:I
+    iget p0, p0, Lokhttp3/internal/http/RealInterceptorChain;->connectTimeout:I
 
-    return v0
+    return p0
 .end method
 
 .method public connection()Lokhttp3/Connection;
-    .locals 1
+    .locals 0
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
     .line 66
-    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->exchange:Lokhttp3/internal/connection/Exchange;
+    iget-object p0, p0, Lokhttp3/internal/http/RealInterceptorChain;->exchange:Lokhttp3/internal/connection/Exchange;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-virtual {v0}, Lokhttp3/internal/connection/Exchange;->connection()Lokhttp3/internal/connection/RealConnection;
+    invoke-virtual {p0}, Lokhttp3/internal/connection/Exchange;->connection()Lokhttp3/internal/connection/RealConnection;
 
-    move-result-object v0
+    move-result-object p0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public exchange()Lokhttp3/internal/connection/Exchange;
-    .locals 1
+    .locals 0
 
     .line 104
-    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->exchange:Lokhttp3/internal/connection/Exchange;
+    iget-object p0, p0, Lokhttp3/internal/http/RealInterceptorChain;->exchange:Lokhttp3/internal/connection/Exchange;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    return-object v0
+    return-object p0
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalStateException;-><init>()V
 
-    throw v0
+    throw p0
 .end method
 
 .method public proceed(Lokhttp3/Request;)Lokhttp3/Response;
@@ -170,9 +170,9 @@
 
     invoke-virtual {p0, p1, v0, v1}, Lokhttp3/internal/http/RealInterceptorChain;->proceed(Lokhttp3/Request;Lokhttp3/internal/connection/Transmitter;Lokhttp3/internal/connection/Exchange;)Lokhttp3/Response;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public proceed(Lokhttp3/Request;Lokhttp3/internal/connection/Transmitter;Lokhttp3/internal/connection/Exchange;)Lokhttp3/Response;
@@ -242,27 +242,33 @@
 
     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v3, v0, Lokhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+    move-result-object v3
 
-    iget v5, v0, Lokhttp3/internal/http/RealInterceptorChain;->index:I
+    iget-object v4, v0, Lokhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
 
-    sub-int/2addr v5, v2
+    iget v0, v0, Lokhttp3/internal/http/RealInterceptorChain;->index:I
 
-    invoke-interface {v3, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    sub-int/2addr v0, v2
 
-    move-result-object v2
+    invoke-interface {v4, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v0
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     const-string v2, " must retain the same host and port"
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v2
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
+
+    invoke-direct {v1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
@@ -291,25 +297,31 @@
 
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v3, v0, Lokhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+    move-result-object v3
 
-    iget v6, v0, Lokhttp3/internal/http/RealInterceptorChain;->index:I
+    iget-object v5, v0, Lokhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
 
-    sub-int/2addr v6, v2
+    iget v0, v0, Lokhttp3/internal/http/RealInterceptorChain;->index:I
 
-    invoke-interface {v3, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    sub-int/2addr v0, v2
 
-    move-result-object v2
+    invoke-interface {v5, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v2
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
@@ -365,139 +377,157 @@
 
     add-int/2addr v7, v2
 
-    iget-object v8, v0, Lokhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+    iget-object v0, v0, Lokhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
 
-    invoke-interface {v8}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v8
+    move-result v0
 
-    if-ge v7, v8, :cond_5
+    if-ge v7, v0, :cond_5
 
-    iget v1, v1, Lokhttp3/internal/http/RealInterceptorChain;->calls:I
+    iget v0, v1, Lokhttp3/internal/http/RealInterceptorChain;->calls:I
 
-    if-ne v1, v2, :cond_4
+    if-ne v0, v2, :cond_4
 
     goto :goto_2
 
     .line 146
     :cond_4
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    move-result-object v1
 
-    throw v1
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     :cond_5
     :goto_2
-    const-string v1, "interceptor "
+    const-string v0, "interceptor "
 
     if-eqz v6, :cond_7
 
     .line 155
     invoke-virtual {v6}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
 
-    move-result-object v2
+    move-result-object v1
 
-    if-eqz v2, :cond_6
+    if-eqz v1, :cond_6
 
     return-object v6
 
     .line 156
     :cond_6
-    new-instance v2, Ljava/lang/IllegalStateException;
+    new-instance v1, Ljava/lang/IllegalStateException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    const-string v1, " returned a response with no body"
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v2, " returned a response with no body"
 
-    move-result-object v1
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw v2
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v1
 
     .line 152
     :cond_7
-    new-instance v2, Ljava/lang/NullPointerException;
+    new-instance v1, Ljava/lang/NullPointerException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    const-string v1, " returned null"
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v2, " returned null"
 
-    move-result-object v1
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v2, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw v2
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v1
 
     .line 122
     :cond_8
-    new-instance v1, Ljava/lang/AssertionError;
+    new-instance v0, Ljava/lang/AssertionError;
 
-    invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v1
+    throw v0
 .end method
 
 .method public readTimeoutMillis()I
-    .locals 1
+    .locals 0
 
     .line 80
-    iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->readTimeout:I
+    iget p0, p0, Lokhttp3/internal/http/RealInterceptorChain;->readTimeout:I
 
-    return v0
+    return p0
 .end method
 
 .method public request()Lokhttp3/Request;
-    .locals 1
+    .locals 0
 
     .line 113
-    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->request:Lokhttp3/Request;
+    iget-object p0, p0, Lokhttp3/internal/http/RealInterceptorChain;->request:Lokhttp3/Request;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public transmitter()Lokhttp3/internal/connection/Transmitter;
-    .locals 1
+    .locals 0
 
     .line 100
-    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->transmitter:Lokhttp3/internal/connection/Transmitter;
+    iget-object p0, p0, Lokhttp3/internal/http/RealInterceptorChain;->transmitter:Lokhttp3/internal/connection/Transmitter;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public withConnectTimeout(ILjava/util/concurrent/TimeUnit;)Lokhttp3/Interceptor$Chain;
@@ -615,10 +645,10 @@
 .end method
 
 .method public writeTimeoutMillis()I
-    .locals 1
+    .locals 0
 
     .line 90
-    iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->writeTimeout:I
+    iget p0, p0, Lokhttp3/internal/http/RealInterceptorChain;->writeTimeout:I
 
-    return v0
+    return p0
 .end method

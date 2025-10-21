@@ -96,14 +96,14 @@
     invoke-super {p0}, Lokio/ForwardingSink;->close()V
 
     .line 450
-    iget-object v0, p0, Lokhttp3/Cache$CacheRequestImpl$1;->val$editor:Lokhttp3/internal/cache/DiskLruCache$Editor;
+    iget-object p0, p0, Lokhttp3/Cache$CacheRequestImpl$1;->val$editor:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
-    invoke-virtual {v0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->commit()V
+    invoke-virtual {p0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->commit()V
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     .line 448
     :try_start_1
@@ -111,5 +111,5 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p0
 .end method

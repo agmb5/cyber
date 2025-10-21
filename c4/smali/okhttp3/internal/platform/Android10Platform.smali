@@ -83,19 +83,19 @@
 .end method
 
 .method private enableSessionTickets(Ljavax/net/ssl/SSLSocket;)V
-    .locals 1
+    .locals 0
 
     .line 56
     invoke-static {p1}, Landroid/net/ssl/SSLSockets;->isSupportedSocket(Ljavax/net/ssl/SSLSocket;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     .line 57
-    invoke-static {p1, v0}, Landroid/net/ssl/SSLSockets;->setUseSessionTickets(Ljavax/net/ssl/SSLSocket;Z)V
+    invoke-static {p1, p0}, Landroid/net/ssl/SSLSockets;->setUseSessionTickets(Ljavax/net/ssl/SSLSocket;Z)V
 
     :cond_0
     return-void
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -129,73 +129,73 @@
     .line 42
     invoke-virtual {p1}, Ljavax/net/ssl/SSLSocket;->getSSLParameters()Ljavax/net/ssl/SSLParameters;
 
-    move-result-object p2
+    move-result-object p0
 
     .line 45
     invoke-static {p3}, Lokhttp3/internal/platform/Platform;->alpnProtocolNames(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object p3
+    move-result-object p2
 
-    const/4 v0, 0x0
+    const/4 p3, 0x0
 
-    new-array v0, v0, [Ljava/lang/String;
+    new-array p3, p3, [Ljava/lang/String;
 
-    invoke-interface {p3, v0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {p2, p3}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object p3
+    move-result-object p2
 
-    check-cast p3, [Ljava/lang/String;
+    check-cast p2, [Ljava/lang/String;
 
     .line 46
-    invoke-virtual {p2, p3}, Ljavax/net/ssl/SSLParameters;->setApplicationProtocols([Ljava/lang/String;)V
+    invoke-virtual {p0, p2}, Ljavax/net/ssl/SSLParameters;->setApplicationProtocols([Ljava/lang/String;)V
 
     .line 48
-    invoke-virtual {p1, p2}, Ljavax/net/ssl/SSLSocket;->setSSLParameters(Ljavax/net/ssl/SSLParameters;)V
+    invoke-virtual {p1, p0}, Ljavax/net/ssl/SSLSocket;->setSSLParameters(Ljavax/net/ssl/SSLParameters;)V
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
     :catch_0
-    move-exception p1
+    move-exception p0
 
     .line 51
-    new-instance p2, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string p3, "Android internal error"
+    const-string p2, "Android internal error"
 
-    invoke-direct {p2, p3, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p1, p2, p0}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw p2
+    throw p1
 .end method
 
 .method public getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
-    .locals 1
+    .locals 0
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
     .line 63
     invoke-virtual {p1}, Ljavax/net/ssl/SSLSocket;->getApplicationProtocol()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    if-eqz p1, :cond_1
+    if-eqz p0, :cond_1
 
     .line 65
-    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
+    invoke-virtual {p0}, Ljava/lang/String;->isEmpty()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    return-object p1
+    return-object p0
 
     :cond_1
     :goto_0
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
-    return-object p1
+    return-object p0
 .end method
